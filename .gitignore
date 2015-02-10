@@ -1,3 +1,8 @@
+node_modules/
+bower_components/
+.tmp/
+/dist
+*.sln
 *.suo
 *.backup
 *.user
