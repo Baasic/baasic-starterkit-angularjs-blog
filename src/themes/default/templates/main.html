@@ -1,0 +1,12 @@
+﻿<header>
+    <div ng-if="$root.user.isAuthenticated">
+        <div>Welcome, {{ $root.user.displayName }}</div>
+        <button type="button">Create new blog</button>
+        <baasic-logout on-logout="setEmptyUser()">
+            <button type="button" ng-click="logout()">Logout</button>
+        </baasic-logout>
+    </div>
+    <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
+</header>
+<h1>My Blog</h1>
+<baasic-blog-list></baasic-blog-list>

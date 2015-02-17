@@ -1,0 +1,13 @@
+﻿<section>
+    <article ng-if="hasBlogs" ng-repeat="blog in blogList">
+        <h2>{{ blog.title }}</h2>
+        <p>
+            {{ blog.summary }}
+        </p>
+    </article>
+    <article ng-if="!hasBlogs">
+        <p>
+            No blogs.
+        </p>
+    </article>
+</section>

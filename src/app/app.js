@@ -1,9 +1,21 @@
+angular.module('baasic.blog', [
+    'baasic.article'
+]);
+
 angular.module('myApp', [
-  'ui.router'
+  'ui.router',
+  'baasic.security',
+  'baasic.membership',
+  'baasic.blog'
 ])
-.config(['$locationProvider', '$urlRouterProvider', '$stateProvider',
-    function config($locationProvider, $urlRouterProvider, $stateProvider) {
+.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider',
+    function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
+
+        baasicAppProvider.create('delete-me', {
+            apiRootUrl: 'api.baasic.local',
+            apiVersion: 'beta'
+        });
 
         $locationProvider.html5Mode({
             enabled: true,
@@ -32,12 +44,28 @@ angular.module('myApp', [
                 templateUrl: 'templates/main.html',
                 controller: 'MainCtrl'
             })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html'
+            })
             .state('404', {
-                templateUrl: 'templates/404/404.html'
+                templateUrl: 'templates/404.html'
             });
     }
 ])
-.controller('MainCtrl', ['$scope',
-	function MainCtrl($scope) {
+.controller('MainCtrl', ['$scope', 'baasicLoginService', 'baasicAuthorizationService',
+	function MainCtrl($scope, loginService, baasicAuthService) {
+	    var userDetails = baasicAuthService.getUser();
+	    $scope.$root.user = {
+	        isAuthenticated: userDetails !== undefined && userDetails !== null
+	    };
+
+	    angular.extend($scope.$root.user, userDetails);
+
+	    $scope.setEmptyUser = function setEmptyUser() {
+	        $scope.$root.user = {
+	            isAuthenticated: false
+	        };
+	    };
 	}
 ]);
