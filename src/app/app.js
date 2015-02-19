@@ -46,15 +46,21 @@ angular.module('myApp', [
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/login.html'
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
+            })
+            .state('new-blog-post', {
+                url: '/new-blog-post',
+                templateUrl: 'templates/blog/new-blog-post.html',
+                controller: 'NewBlogPostCtrl'
             })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
     }
 ])
-.controller('MainCtrl', ['$scope', 'baasicLoginService', 'baasicAuthorizationService',
-	function MainCtrl($scope, loginService, baasicAuthService) {
+.controller('MainCtrl', ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
+	function MainCtrl($scope, $state, loginService, baasicAuthService) {
 	    var userDetails = baasicAuthService.getUser();
 	    $scope.$root.user = {
 	        isAuthenticated: userDetails !== undefined && userDetails !== null
@@ -67,5 +73,16 @@ angular.module('myApp', [
 	            isAuthenticated: false
 	        };
 	    };
+
+	    $scope.newBlogPost = function newBlogPost() {
+	        $state.go('new-blog-post');
+	    };
 	}
+])
+.controller('LoginCtrl', ['$scope', '$state',
+    function LoginCtrl($scope, $state) {
+        $scope.goHome = function goHome() {
+            $state.go('index');
+        };
+    }
 ]);

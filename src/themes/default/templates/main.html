@@ -1,7 +1,7 @@
 ﻿<header>
     <div ng-if="$root.user.isAuthenticated">
         <div>Welcome, {{ $root.user.displayName }}</div>
-        <button type="button">Create new blog</button>
+        <button type="button" ng-click="newBlogPost()">New post</button>
         <baasic-logout on-logout="setEmptyUser()">
             <button type="button" ng-click="logout()">Logout</button>
         </baasic-logout>
