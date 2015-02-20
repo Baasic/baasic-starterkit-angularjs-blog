@@ -45,10 +45,7 @@
                 return baasicArticleService.update(blog);
             };
 
-            this.remove = function remove(id) {
-                var blog = {
-                    id: id
-                };
+            this.remove = function remove(blog) {
                 return baasicArticleService.remove(blog);
             };
 
