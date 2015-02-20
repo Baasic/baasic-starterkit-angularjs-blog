@@ -54,6 +54,11 @@ angular.module('myApp', [
                 templateUrl: 'templates/blog/new-blog-post.html',
                 controller: 'NewBlogPostCtrl'
             })
+            .state('blog-detail', {
+                url: '/blog-post/{slug}',
+                templateUrl: 'templates/blog/blog-post.html',
+                controller: 'BlogPostCtrl'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
@@ -61,6 +66,8 @@ angular.module('myApp', [
 ])
 .controller('MainCtrl', ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
 	function MainCtrl($scope, $state, loginService, baasicAuthService) {
+	    'use strict';
+
 	    var userDetails = baasicAuthService.getUser();
 	    $scope.$root.user = {
 	        isAuthenticated: userDetails !== undefined && userDetails !== null
@@ -81,6 +88,8 @@ angular.module('myApp', [
 ])
 .controller('LoginCtrl', ['$scope', '$state',
     function LoginCtrl($scope, $state) {
+        'use strict';
+
         $scope.goHome = function goHome() {
             $state.go('index');
         };

@@ -1,8 +1,8 @@
 ﻿<section>
     <article ng-if="hasBlogs" ng-repeat="blog in blogList">
-        <h2>{{ blog.title }}</h2>
+        <h2><a ui-sref="blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
         <p>
-            {{ blog.summary }}
+            {{ blog.dateCreated }}
         </p>
     </article>
     <article ng-if="!hasBlogs">

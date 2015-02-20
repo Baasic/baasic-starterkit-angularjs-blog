@@ -3,7 +3,16 @@
         function baasicBlogService(baasicArticleService) {
             'use strict';
 
-            var blogTag = 'blog';
+            var blogTag = {
+                tag: 'blog',
+                slug: 'blog'
+            };
+
+            this.blogStatus = {
+                draft: 1,
+                published: 2,
+                archived: 4
+            };
 
             this.get = function get(id, options) {
                 return baasicArticleService.get(id, options);
@@ -12,15 +21,24 @@
             this.find = function find(options) {
                 var findOptions = angular.copy(options);
                 if (findOptions.tags && findOptions.tags !== '') {
-                    findOptions.tags += ',' + blogTag;
+                    findOptions.tags += ',' + blogTag.slug;
                 } else {
-                    findOptions.tags = blogTag;
+                    findOptions.tags = blogTag.slug;
                 }
+
                 return baasicArticleService.find(findOptions);
             };
 
             this.create = function create(blog) {
-                return baasicArticleService.create(blog);
+                var blogToCreate = angular.copy(blog);
+
+                if (!blogToCreate.tags) {
+                    blogToCreate.tags = [];
+                }
+
+                blogToCreate.tags.push(blogTag);
+
+                return baasicArticleService.create(blogToCreate);
             };
 
             this.update = function update(blog) {

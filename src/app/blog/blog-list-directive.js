@@ -20,12 +20,13 @@
                         $scope.hasBlogs = true;
 
                         blogService.find({
+                            statuses: ['published'],
                             rpp: pageSizeFn($scope)
                         })
                         .success(function (blogList) {
-                            $scope.blogList = blogList.items;
+                            $scope.blogList = blogList.item;
 
-                            $scope.hasBlogs = blogList && blogList.count > 0;
+                            $scope.hasBlogs = blogList && blogList.totalRecords > 0;
                         })
                         .error(function (error) {
                         });
