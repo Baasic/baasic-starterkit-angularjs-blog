@@ -59,6 +59,26 @@ angular.module('myApp', [
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
+            .state('show-page', {
+                url: '/pages/{slug}',
+                templateUrl: 'templates/page/show-page.html',
+                controller: 'ShowPageCtrl'
+            })
+            .state('page-list', {
+                url: '/page-management',
+                templateUrl: 'templates/page/page-list.html',
+                controller: 'PagesCtrl'
+            })
+            .state('page-edit', {
+                url: '/page-management/edit/{slug}',
+                templateUrl: 'templates/page/page-edit.html',
+                controller: 'EditPageCtrl'
+            })
+            .state('new-page', {
+                url: '/page-management/new',
+                templateUrl: 'templates/page/page-edit.html',
+                controller: 'EditPageCtrl'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });

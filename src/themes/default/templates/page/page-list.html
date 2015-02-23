@@ -1,0 +1,18 @@
+﻿<section>
+    <article ng-if="hasPages" ng-repeat="page in pageList.item">
+        <h2><a ui-sref="page-edit({ slug: page.slug })">{{ page.title }}</a></h2>
+        <p>
+            {{ page.dateUpdated | date : 'medium' }}
+        </p>
+    </article>
+    <article ng-if="!hasPages">
+        <p>
+            No pages.
+        </p>
+    </article>
+
+    <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
+        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
+        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
+    </div>
+</section>

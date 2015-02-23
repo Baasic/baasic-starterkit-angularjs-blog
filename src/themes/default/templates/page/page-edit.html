@@ -1,0 +1,13 @@
+﻿<form name="pageForm" novalidate>
+    <label>Title</label>
+    <input type="text" name="title" ng-model="page.title" required />
+    <p ng-show="(pageForm.$submitted || pageForm.title.$touched) && pageForm.title.$error.required">Title is required.</p>
+    <label>Body</label>
+    <textarea name="content" ng-model="page.content"></textarea>
+
+    <button type="button" ng-click="savePage()">Save</button>
+
+    <div ng-show="error">
+        {{ error }}
+    </div>
+</form>
