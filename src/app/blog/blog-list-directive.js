@@ -17,19 +17,40 @@
                 },
                 controller: ['$scope', 'baasicBlogService',
                     function baasicBlogListCtrl($scope, blogService) {
+                        function parseBlogList(blogList) {
+                            var links = blogList.links();
+                            $scope.pagerInfo = {
+                                hasNext: links.hasOwnProperty('next'),
+                                hasPrevious: links.hasOwnProperty('previous')
+                            };
+                            $scope.blogList = blogList;
+
+                            $scope.hasBlogs = blogList.totalRecords > 0;
+                        }
+
                         $scope.hasBlogs = true;
 
                         blogService.find({
                             statuses: ['published'],
                             rpp: pageSizeFn($scope)
                         })
-                        .success(function (blogList) {
-                            $scope.blogList = blogList.item;
-
-                            $scope.hasBlogs = blogList && blogList.totalRecords > 0;
-                        })
+                        .success(parseBlogList)
                         .error(function (error) {
                         });
+
+                        $scope.prevPage = function prevPage() {
+                            blogService.previous($scope.blogList)
+                            .success(parseBlogList)
+                            .error(function (error) {
+                            });
+                        };
+
+                        $scope.nextPage = function nextPage() {
+                            blogService.next($scope.blogList)
+                            .success(parseBlogList)
+                            .error(function (error) {
+                            });
+                        };
                     }
                 ],
                 templateUrl: 'templates/blog/blog-list.html'

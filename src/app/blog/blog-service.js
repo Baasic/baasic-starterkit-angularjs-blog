@@ -1,6 +1,6 @@
 ﻿angular.module('baasic.blog')
-    .service('baasicBlogService', ['baasicArticleService',
-        function baasicBlogService(baasicArticleService) {
+    .service('baasicBlogService', ['baasicApiHttp', 'baasicArticleService',
+        function baasicBlogService(baasicApiHttp, baasicArticleService) {
             'use strict';
 
             var blogTag = {
@@ -49,15 +49,26 @@
                 return baasicArticleService.remove(blog);
             };
 
-            this.unpublish = function unpublish(id) {
-                var blog = {
-                    id: id
-                };
+            this.unpublish = function unpublish(blog) {
                 return baasicArticleService.publish(blog);
             };
 
-            this.publish = function publish(id) {
-                return baasicArticleService.publish(id);
+            this.publish = function publish(blog) {
+                return baasicArticleService.publish(blog);
+            };
+
+            this.next = function next(blogList) {
+                var nextLink = blogList.links('next');
+                if (nextLink) {
+                    return baasicApiHttp.get(nextLink.href);
+                }
+            };
+
+            this.previous = function previous(blogList) {
+                var prevLink = blogList.links('previous');
+                if (prevLink) {
+                    return baasicApiHttp.get(prevLink.href);
+                }
             };
         }
     ]
