@@ -6,6 +6,8 @@
         <p>
             {{ page.dateUpdated | date : 'medium' }}
         </p>
+        <button type="button" ng-click="deletePage(page)">Delete</button>
+        <button type="button" ng-click="togglePublish(page)">{{ page.status === 1 ? 'Publish' : 'Unpublish' }}</button>
     </article>
     <article ng-if="!hasPages">
         <p>

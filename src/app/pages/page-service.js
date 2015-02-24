@@ -49,7 +49,7 @@
             };
 
             this.unpublish = function unpublish(page) {
-                return baasicArticleService.publish(page);
+                return baasicArticleService.unpublish(page);
             };
 
             this.publish = function publish(page) {
