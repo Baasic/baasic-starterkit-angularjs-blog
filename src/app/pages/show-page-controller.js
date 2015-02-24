@@ -1,11 +1,11 @@
 ﻿angular.module('myApp')
-    .controller('ShowPageCtrl', ['$scope', '$state', 'pageService',
-        function ShowPageCtrl($scope, $state, pageService) {
+    .controller('ShowPageCtrl', ['$scope', '$sce', '$state', 'pageService',
+        function ShowPageCtrl($scope, $sce, $state, pageService) {
             'use strict';
 
             pageService.get($state.params.slug)
                 .success(function (page) {
-                    $scope.page = page;
+                    $scope.content = $sce.trustAsHtml(page.content);
                 })
                 .error(function (error) {
                     $scope.page = {

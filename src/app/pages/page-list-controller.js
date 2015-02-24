@@ -3,15 +3,25 @@
         function PagesCtrl($scope, $state, pageService) {
             'use strict';
 
+            var rpp = 10;
+
             function fetchPages() {
                 pageService.find({
                     statuses: ["draft", "published"],
-                    rpp: 10
+                    rpp: rpp
                 })
                 .success(function (pageList) {
                     $scope.pageList = pageList;
 
                     $scope.hasPages = pageList.totalRecords > 0;
+
+                    var numberOfPages = Math.floor(pageList.totalRecords / rpp) + 1
+                    $scope.pager = {
+                        hasPrevious: pageList.page > 1,
+                        hasNext: pageList.page < numberOfPages,
+                        numberOfPages: numberOfPages,
+                        currentPage: pageList.page
+                    };
                 })
                 .error(function (error) {
                 });
