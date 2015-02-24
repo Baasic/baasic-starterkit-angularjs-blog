@@ -1,9 +1,9 @@
 ﻿angular.module('myApp')
-    .controller('ShowPageCtrl', ['$scope', '$state', 'pageService',
-        function ShowPageCtrl($scope, $state, pageService) {
+    .controller('EditPageCtrl', ['$scope', '$state', 'pageService',
+        function EditPageCtrl($scope, $state, pageService) {
             'use strict';
 
-            var isNew = $state.params.slug !== undefined;
+            var isNew = $state.params.slug === undefined;
 
             if (!isNew) {
                 pageService.get($state.params.slug)

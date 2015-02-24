@@ -90,7 +90,8 @@ angular.module('myApp', [
 
 	    var userDetails = baasicAuthService.getUser();
 	    $scope.$root.user = {
-	        isAuthenticated: userDetails !== undefined && userDetails !== null
+	        isAuthenticated: userDetails !== undefined && userDetails !== null,
+	        isAdmin: userDetails.roles.indexOf('Administrators') !== -1
 	    };
 
 	    angular.extend($scope.$root.user, userDetails);

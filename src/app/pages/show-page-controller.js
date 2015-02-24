@@ -11,7 +11,7 @@
                     $scope.page = {
                         title: 'There was error loading page',
                         content: error.message
-                    }
+                    };
                 });
         }
     ]);
