@@ -4,7 +4,6 @@
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({ lazy: false }),
     noop = g.util.noop,
-    gcmq = g.groupCssMediaQueries,
     es = require('event-stream'),
     bowerFiles = require('main-bower-files'),
     rimraf = require('rimraf'),
@@ -46,12 +45,13 @@ gulp.task('clean-css', function (done) {
 
 gulp.task('styles', ['clean-css'], function () {
     return gulp.src([
-      './src/themes/' + theme + '/scss/**/*.scss',
-      '!./src/themes/' + theme + '/scss/**/_*.scss'
+      './src/themes/' + theme + '/src/app.css'
     ])
-      .pipe(g.sass({ style: 'expanded' }))
-      .pipe(g.autoprefixer('last 2 version'))
-      .pipe(gcmq())
+      .pipe(g.pleeease({
+          'import': {
+              'path': './src/themes/' + theme + '/src'
+            }
+        }))
       .pipe(gulp.dest('./.tmp/css/'))
       .pipe(g.cached('built-css'))
       .pipe(livereload());
@@ -62,10 +62,10 @@ gulp.task('styles-dist', ['styles'], function () {
 });
 
 gulp.task('csslint', ['styles'], function () {
-    return cssFiles()
-      .pipe(g.cached('csslint'))
-      .pipe(g.csslint('./.csslintrc'))
-      .pipe(g.csslint.reporter());
+    //return cssFiles()
+    //  .pipe(g.cached('csslint'))
+    //  .pipe(g.csslint('./.csslintrc'))
+    //  .pipe(g.csslint.reporter());
 });
 
 /**
@@ -166,7 +166,7 @@ gulp.task('watch', ['default'], function () {
     });
     gulp.watch('./src/app/index.html', ['index']);
     gulp.watch(['./src/themes/' + theme + '/templates/**/*.html'], ['templates']);
-    gulp.watch(['./src/themes/' + theme + '/scss/**/*.scss'], ['csslint']).on('change', function (evt) {
+    gulp.watch(['./src/themes/' + theme + '/src/**/*.css'], ['csslint']).on('change', function (evt) {
         if (evt.type !== 'changed') {
             gulp.start('index');
         } else {
