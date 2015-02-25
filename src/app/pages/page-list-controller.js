@@ -3,11 +3,22 @@
         function PagesCtrl($scope, $state, pageService) {
             'use strict';
 
-            var rpp = 10;
+            var rpp = 10,
+                pageGroup = 10;
 
-            function fetchPages() {
+            function fetchPages(pageNumber) {
+                pageNumber = parseInt(pageNumber);
+                if (isNaN(pageNumber)) {
+                    if ($scope.pager) {
+                        pageNumber = $scope.pager.currentPage;
+                    } else {
+                        pageNumber = 1;
+                    }
+                }
+
                 pageService.find({
-                    statuses: ["draft", "published"],
+                    statuses: ['draft', 'published'],
+                    page: pageNumber,
                     rpp: rpp
                 })
                 .success(function (pageList) {
@@ -15,17 +26,16 @@
 
                     $scope.hasPages = pageList.totalRecords > 0;
 
-                    var numberOfPages = Math.floor(pageList.totalRecords / rpp) + 1
-                    $scope.pager = {
-                        hasPrevious: pageList.page > 1,
-                        hasNext: pageList.page < numberOfPages,
-                        numberOfPages: numberOfPages,
-                        currentPage: pageList.page
+                    $scope.pagerData = {
+                        currentPage: pageList.page,
+                        pageSize: rpp,
+                        pageGroupSize: pageGroup,
+                        totalRecords: pageList.totalRecords
                     };
                 })
                 .error(function (error) {
                 });
-            };
+            }
 
             fetchPages();
 
@@ -52,6 +62,18 @@
                     .success(fetchPages)
                     .error(function (error) {
                     });
+            };
+
+            $scope.selectPage = function selectPage(pageNumber) {
+                fetchPages(pageNumber);
+            };
+
+            $scope.previousPage = function previousPage() {
+                pageService.previous($scope.pageList);
+            };
+
+            $scope.nextPage = function nextPage() {
+                pageService.next($scope.pageList);
             };
         }
     ]);
