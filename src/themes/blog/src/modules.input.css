@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    # modules.input
+\*------------------------------------*/
+
+.input {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    transition: all .2s;
+}
+.input:hover,
+.input:focus,
+.input:active {
+    outline: 0;
+    border-bottom-color: var(--color-grey);
+}
+.input:hover::placeholder,
+.input:focus::placeholder,
+.input:active::placeholder {
+}
+.input::placeholder {
+    color: var(--color-grey);
+    font-size: var(--type-base);
+    font-family: var(--ff-sans);
+}
+.input--text {
+    height: 3rem;
+    line-height: 3rem;
+    font-size: var(--type-large);
+    border-bottom: 1px solid var(--color-ultralight);
+}
+.input--textarea {
+    line-height: 1.5rem;
+    min-height: 9rem;
+    border-bottom: 1px solid var(--color-ultralight);
+}

@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    # components.nav
+\*------------------------------------*/
+
+.nav {}
+.nav--primary {}
+.nav--primary__item {}
+.nav--primary__link {
+    display: block;
+    position: relative;
+    color: var(--color-grey);
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height)*1.5);
+}
+
+@media all and (--to-large) {
+    .nav--primary__link {
+        font-size: var(--type-large);
+        line-height: calc(var(--base-line-height)*2.5);
+    }
+    .nav--primary__link:hover,
+    .nav--primary__link:focus,
+    .nav--primary__link:active {
+    }
+}
+
+@media all and (--from-large) {
+    .nav--primary__link {
+        padding-right: 2rem;
+    }
+    .nav--primary__link:hover,
+    .nav--primary__link:focus,
+    .nav--primary__link:active {
+    }
+    .nav--primary__link--active {
+        color: var(--color-primary);
+        font-weight: var(--type-bold);
+    }
+}

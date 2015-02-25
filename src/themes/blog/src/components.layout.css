@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+
+@media all and (--from-large) {
+    .layout {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .layout__sidebar {
+        flex: 1 0 0;
+        position: relative;
+        background: white;
+    }
+    .layout__content {
+        flex: 3 0 0;
+        max-width: 100rem;
+    }
+}

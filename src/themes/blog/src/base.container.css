@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    # base.container
+\*------------------------------------*/
+
+.container {
+    margin: 0 auto;
+}
+@media all and (--from-large) {
+    .container {}
+}

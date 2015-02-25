@@ -1,0 +1,12 @@
+﻿<form name="login" ng-submit="submitLogin()">
+    <label>Username</label>
+    <input type="text" name="username" ng-model="username" required placeholder="Enter your email or username" />
+    <p ng-show="(login.$submitted || login.username.$touched) && login.username.$error.required">Username is required.</p>
+    <label>Password</label>
+    <input type="password" name="password" ng-model="password" required placeholder="Password" autocomplete="off" />
+    <p ng-show="(login.$submitted || login.password.$touched) && login.password.$error.required">Password is required.</p>
+    <button type="submit">Login</button>
+    <p ng-show="loginError">
+        {{loginError}}
+    </p>
+</form>

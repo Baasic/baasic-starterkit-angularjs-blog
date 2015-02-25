@@ -1,0 +1,13 @@
+{
+  "in": "app.css",
+  "out": "../assets/css/app.out.css",
+
+  "browsers": ["last 2 version"],
+  "filters": true,
+  
+  "import": true,
+  "minifier": false,
+  "mqpacker": false,
+  "sourcemaps": false,
+  "next": true
+}
