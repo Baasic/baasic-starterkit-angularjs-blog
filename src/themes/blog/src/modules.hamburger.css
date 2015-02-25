@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    # modules.hamburger
+\*------------------------------------*/
+
+.hamburger {
+    position: relative;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    opacity: 0.6;
+}
+.hamburger:focus {
+    outline: 0;
+}
+.hamburger__icon {
+    left: 6px;
+    top: 8px;
+}
+.hamburger__icon,
+.hamburger__icon:after,
+.hamburger__icon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: color(black a(0.3));
+}
+.hamburger__icon:before {
+    top: 7px;
+}
+.hamburger__icon:after {
+    top: 14px;
+}
+
+.hamburger.\--closed .hamburger__icon {
+    background: transparent !important;
+}
+.hamburger.\--closed .hamburger__icon:before {
+    transform: rotate(45deg);
+}
+.hamburger.\--closed .hamburger__icon:after {
+    transform: rotate(-45deg);
+    top: 7px;
+}
