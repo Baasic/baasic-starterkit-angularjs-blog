@@ -11,8 +11,8 @@
         </p>
     </article>
 
-    <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
-        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
-        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
-    </div>
+    <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+        <button type="button" ng-show="pager.hasPrevious" ng-click="prevPage()">Prev</button>
+        <button type="button" ng-show="pager.hasNext" ng-click="nextPage()">Next</button>
+    </pager>
 </section>

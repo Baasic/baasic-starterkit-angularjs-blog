@@ -12,8 +12,10 @@
 
     <pager pager-data="pagerData">
         <button type="button" ng-if="pager.hasPrevious" ng-click="previousPage()"><</button>
+        <button type="button" ng-if="pager.hasPreviousGroup" ng-click="previousPageGroup(pager.currentGroupIndex)">...</button>
         <button type="button" ng-repeat="pageNumber in pager.pages" ng-disabled="pageNumber === pager.currentPage" ng-click="selectPage(pageNumber)">{{ pageNumber }}</button>
-        <button type="button" ng-if="pager.hasNext" ng-click="nextPage()"><</button>
+        <button type="button" ng-if="pager.hasNextGroup" ng-click="nextPageGroup(pager.currentGroupIndex)">...</button>
+        <button type="button" ng-if="pager.hasNext" ng-click="nextPage()">></button>
     </pager>
 
     <article ng-if="!hasPages">

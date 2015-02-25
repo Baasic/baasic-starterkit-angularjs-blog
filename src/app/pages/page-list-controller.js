@@ -3,8 +3,8 @@
         function PagesCtrl($scope, $state, pageService) {
             'use strict';
 
-            var rpp = 10,
-                pageGroup = 10;
+            var rpp = 2,
+                pageGroup = 2;
 
             function fetchPages(pageNumber) {
                 pageNumber = parseInt(pageNumber);
@@ -69,11 +69,19 @@
             };
 
             $scope.previousPage = function previousPage() {
-                pageService.previous($scope.pageList);
+                fetchPages($scope.pageList.page - 1);
             };
 
             $scope.nextPage = function nextPage() {
-                pageService.next($scope.pageList);
+                fetchPages($scope.pageList.page + 1);
+            };
+
+            $scope.previousPageGroup = function previousPageGroup(currentPageGroup) {
+                $scope.pagerData.currentGroupIndex = currentPageGroup - 1;
+            };
+
+            $scope.nextPageGroup = function nextPageGroup(currentPageGroup) {
+                $scope.pagerData.currentGroupIndex = currentPageGroup + 1;
             };
         }
     ]);

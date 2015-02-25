@@ -18,11 +18,12 @@
                 controller: ['$scope', 'baasicBlogService',
                     function baasicBlogListCtrl($scope, blogService) {
                         function parseBlogList(blogList) {
-                            var links = blogList.links();
-                            $scope.pagerInfo = {
-                                hasNext: links.hasOwnProperty('next'),
-                                hasPrevious: links.hasOwnProperty('previous')
+                            $scope.pagerData = {
+                                currentPage: blogList.page,
+                                pageSize: blogList.recordsPerPage,
+                                totalRecords: blogList.totalRecords
                             };
+
                             $scope.blogList = blogList;
 
                             $scope.hasBlogs = blogList.totalRecords > 0;
