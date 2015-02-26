@@ -3,10 +3,10 @@
     <input type="text" name="title" ng-model="blog.title" required />
     <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
     <label>Body</label>
+    <input type="text" name="featured" ng-model="blog.featured" />
+    <textarea name="excerpt" ng-model="blog.excerpt"></textarea>
     <textarea name="content" ng-model="blog.content"></textarea>
-
     <button type="button" ng-click="saveBlog()">Save</button>
-
     <div ng-show="error">
         {{ error }}
     </div>
