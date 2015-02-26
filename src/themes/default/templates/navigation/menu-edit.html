@@ -1,0 +1,12 @@
+﻿<form name="menuForm" novalidate>
+    <label>Title</label>
+    <input type="text" name="name" ng-model="menu.name" required />
+    <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
+    
+
+    <button type="button" ng-click="save()">Save</button>
+
+    <div ng-show="error">
+        {{ error }}
+    </div>
+</form>

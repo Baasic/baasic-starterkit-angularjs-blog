@@ -79,6 +79,21 @@ angular.module('myApp', [
                 templateUrl: 'templates/page/page-edit.html',
                 controller: 'EditPageCtrl'
             })
+            .state('menu-list', {
+                url: '/menu-management',
+                templateUrl: 'templates/navigation/menu-list.html',
+                controller: 'MenuListCtrl'
+            })
+            .state('menu-edit', {
+                url: '/menu-management/edit/{id}',
+                templateUrl: 'templates/navigation/menu-edit.html',
+                controller: 'MenuEditCtrl'
+            })
+            .state('new-menu', {
+                url: '/menu-management/new',
+                templateUrl: 'templates/navigation/menu-edit.html',
+                controller: 'MenuEditCtrl'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
