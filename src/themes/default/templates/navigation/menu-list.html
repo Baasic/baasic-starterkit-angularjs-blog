@@ -1,7 +1,7 @@
-﻿<a ui-sref="new-menu">Add new</a>
+﻿<a ui-sref="master.new-menu">Add new</a>
 <section>
     <article ng-if="hasMenus" ng-repeat="menu in menuList.item">
-        <h2><a ui-sref="menu-edit({ id: menu.id })">{{ menu.name }}</a></h2>
+        <h2><a ui-sref="master.menu-edit({ id: menu.id })">{{ menu.name }}</a></h2>
         <button type="button" ng-click="deleteMenu(menu)">Delete</button>
     </article>
 

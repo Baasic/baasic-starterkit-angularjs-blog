@@ -1,7 +1,7 @@
-﻿<a ui-sref="new-page">Add new</a>
+﻿<a ui-sref="master.new-page">Add new</a>
 <section>
     <article ng-if="hasPages" ng-repeat="page in pageList.item">
-        <h2><a ui-sref="page-edit({ slug: page.slug })">{{ page.title }}</a></h2>
+        <h2><a ui-sref="master.page-edit({ slug: page.slug })">{{ page.title }}</a></h2>
         <div ng-if="page.status === 1">Draft</div>
         <p>
             {{ page.dateUpdated | date : 'medium' }}

@@ -20,7 +20,7 @@
                 if (confirm('Are you sure you want to delete this post?')) {
                     blogService.remove($scope.blog)
                         .success(function () {
-                            $state.go('index');
+                            $state.go('master.index');
                         })
                         .error(function (error) {
                         });

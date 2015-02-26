@@ -6,7 +6,7 @@
             <button type="button" ng-click="logout()">Logout</button>
         </baasic-logout>
         <div ng-if="$root.user.isAdmin">
-            <a ui-sref="page-list">Page admin</a>
+            <a ui-sref="master.page-list">Page admin</a>
         </div>
     </div>
     <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
