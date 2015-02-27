@@ -26,10 +26,48 @@
                 .error(function (error) {
                 });
 
-            $scope.addContainer = function addContainer(container) {
+            $scope.addContainer = function addContainer() {
                 var containerList = $scope.menu.containers || ($scope.menu.containers = []);
 
-                containerList.push(container);
+                containerList.push($scope.newContainer);
+
+                $scope.addingNewContainer = false;
+            };
+
+            $scope.toggleAddContainer = function toggleAddContainer() {
+                $scope.newContainer = {};
+                $scope.addingNewContainer = !$scope.addingNewContainer;
+            };
+
+            $scope.removeContainer = function removeContainer(container) {
+                var containerList = $scope.menu.containers;
+
+                var index = containerList.indexOf(container);
+                if (index !== -1) {
+                    containerList.splice(index, 1);
+                }
+            };
+
+            $scope.addLink = function addLink() {
+                var linkList = $scope.menu.links || ($scope.menu.links = []);
+
+                linkList.push($scope.newLink);
+
+                $scope.addingNewLink = false;
+            };
+
+            $scope.toggleAddLink = function toggleAddLink() {
+                $scope.newLink = {};
+                $scope.addingNewLink = !$scope.addingNewLink;
+            };
+
+            $scope.removeLink = function removeLink(link) {
+                var linkList = $scope.menu.links;
+
+                var index = linkList.indexOf(link);
+                if (index !== -1) {
+                    linkList.splice(index, 1);
+                }
             };
 
             $scope.save = function save() {

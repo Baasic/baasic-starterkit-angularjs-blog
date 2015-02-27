@@ -18,22 +18,34 @@
         <div>
             <label>Containers</label>
             <button type="button" ng-click="toggleAddContainer()">{{ addingNewContainer ? 'Cancel' : 'Add new' }}</button>
+            <div ng-form="addContainerForm" ng-if="addingNewContainer">
+                <label>Title</label>
+                <input type="text" name="title" ng-model="newContainer.title" />
+                <button type="button" ng-click="addContainer()">Save</button>
+            </div>
             <ul>
                 <li ng-repeat="container in menu.containers">
-                    <input type="checkbox" /> {{ container.title }}
+                    <input type="checkbox" /> <span contenteditable ng-model="container.title"></span> <button type="button" ng-click="removeContainer(container)">X</button>
                 </li>
             </ul>
         </div>
         <div>
             <label>Links</label>
             <button type="button" ng-click="toggleAddLink()">{{ addingNewLink ? 'Cancel' : 'Add new' }}</button>
+            <div ng-form="addContainerForm" ng-if="addingNewLink">
+                <label>Title</label>
+                <input type="text" name="title" ng-model="newLink.title" />
+                <label>Link</label>
+                <input type="text" name="url" ng-model="newLink.url" />
+                <button type="button" ng-click="addLink()">Save</button>
+            </div>
             <ul>
                 <li ng-repeat="link in menu.links">
-                    <input type="checkbox" /> {{ link.title }}
+                    <input type="checkbox" /> <span contenteditable ng-model="link.title"></span> <button type="button" ng-click="removeLink(link)">X</button>
                 </li>
             </ul>
         </div>
-</fieldset>
+    </fieldset>
 
     <button type="button" ng-click="save()">Save</button>
 
