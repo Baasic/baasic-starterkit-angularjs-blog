@@ -21,7 +21,7 @@ var htmlminOpts = {
     removeRedundantAttributes: true
 };
 
-var theme = 'blog';
+var theme = 'default';
 
 /**
  * JS Hint

@@ -3,6 +3,37 @@
     <input type="text" name="name" ng-model="menu.name" required />
     <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
     
+    <fieldset>
+        <legend>Items</legend>
+        <div>
+            <label>Pages</label>
+            <button type="button">Add new</button>
+            <ul>
+                <li ng-repeat="page in pages">
+                    <input type="checkbox" /> {{ page.title }}
+                </li>
+            </ul>
+            
+        </div>
+        <div>
+            <label>Containers</label>
+            <button type="button" ng-click="toggleAddContainer()">{{ addingNewContainer ? 'Cancel' : 'Add new' }}</button>
+            <ul>
+                <li ng-repeat="container in menu.containers">
+                    <input type="checkbox" /> {{ container.title }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <label>Links</label>
+            <button type="button" ng-click="toggleAddLink()">{{ addingNewLink ? 'Cancel' : 'Add new' }}</button>
+            <ul>
+                <li ng-repeat="link in menu.links">
+                    <input type="checkbox" /> {{ link.title }}
+                </li>
+            </ul>
+        </div>
+</fieldset>
 
     <button type="button" ng-click="save()">Save</button>
 

@@ -1,26 +1,44 @@
 ﻿angular.module('myApp')
-    .controller('EditMenuCtrl', ['$scope', '$state', 'baasicDynamicResourceService',
-        function EditMenuCtrl($scope, $state, dynamincService) {
+    .controller('EditMenuCtrl', ['$scope', '$state', 'menuService', 'pageService',
+        function EditMenuCtrl($scope, $state, menuService, pageService) {
             'use strict';
 
             var isNew = $state.params.id === undefined;
 
             if (!isNew) {
-                pageService.get('menu', $state.params.id)
+                menuService.get($state.params.id)
                     .success(function (menu) {
                         $scope.menu = menu;
                     })
                     .error(function (error) {
                     });
+            } else {
+                $scope.menu = {};
             }
+
+            pageService.find({
+                statuses: ['published'],
+                fields: ['title']
+            })
+                .success(function (pageList) {
+                    $scope.pages = pageList.item;
+                })
+                .error(function (error) {
+                });
+
+            $scope.addContainer = function addContainer(container) {
+                var containerList = $scope.menu.containers || ($scope.menu.containers = []);
+
+                containerList.push(container);
+            };
 
             $scope.save = function save() {
                 if ($scope.menuForm.$valid) {
                     var promise;
                     if (isNew) {
-                        promise = dynamincService.create($scope.page);
+                        promise = menuService.create($scope.menu);
                     } else {
-                        promise = dynamincService.update($scope.page);
+                        promise = menuService.update($scope.menu);
                     }
 
                     promise

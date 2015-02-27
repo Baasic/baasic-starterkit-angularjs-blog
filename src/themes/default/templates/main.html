@@ -7,6 +7,7 @@
         </baasic-logout>
         <div ng-if="$root.user.isAdmin">
             <a ui-sref="master.page-list">Page admin</a>
+            <a ui-sref="master.menu-list">Menu admin</a>
         </div>
     </div>
     <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>

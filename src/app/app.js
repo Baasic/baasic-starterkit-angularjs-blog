@@ -6,6 +6,7 @@ angular.module('myApp', [
   'ui.router',
   'baasic.security',
   'baasic.membership',
+  'baasic.dynamicResource',
   'baasic.blog'
 ])
 .config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider',
@@ -92,12 +93,12 @@ angular.module('myApp', [
             .state('master.menu-edit', {
                 url: 'menu-management/edit/{id}',
                 templateUrl: 'templates/navigation/menu-edit.html',
-                controller: 'MenuEditCtrl'
+                controller: 'EditMenuCtrl'
             })
             .state('master.new-menu', {
                 url: 'menu-management/new',
                 templateUrl: 'templates/navigation/menu-edit.html',
-                controller: 'MenuEditCtrl'
+                controller: 'EditMenuCtrl'
             })
             .state('404', {
                 templateUrl: 'templates/404.html'
@@ -109,12 +110,21 @@ angular.module('myApp', [
 	    'use strict';
 
 	    var userDetails = baasicAuthService.getUser();
-	    $scope.$root.user = {
-	        isAuthenticated: userDetails !== undefined && userDetails !== null,
-	        isAdmin: userDetails.roles.indexOf('Administrators') !== -1
-	    };
+	    var user;
+	    if (userDetails !== undefined && userDetails !== null) {
+	        user = {
+	            isAuthenticated: true,
+	            isAdmin: userDetails.roles.indexOf('Administrators') !== -1
+	        };
 
-	    angular.extend($scope.$root.user, userDetails);
+	        angular.extend($scope.$root.user, userDetails);
+	    } else {
+	        user = {
+	            isAuthenticated: false
+	        };
+	    }
+
+	    $scope.$root.user = user;
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
