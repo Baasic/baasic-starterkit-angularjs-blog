@@ -25,7 +25,7 @@
 
                     promise
                         .success(function () {
-                            $state.go('page-list');
+                            $state.go('master.page-list');
                         })
                         .error(function (error) {
                         });

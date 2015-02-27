@@ -8,7 +8,7 @@
                     $scope.blog.status = blogService.blogStatus.published; // Publish blog
                     blogService.create($scope.blog)
                         .success(function () {
-                            $state.go('index');
+                            $state.go('master.index');
                         })
                         .error(function (error) {
                             $scope.error = error.message;

@@ -1,0 +1,18 @@
+﻿<a ui-sref="master.new-menu">Add new</a>
+<section>
+    <article ng-if="hasMenus" ng-repeat="menu in menuList.item">
+        <h2><a ui-sref="master.menu-edit({ id: menu.id })">{{ menu.name }}</a></h2>
+        <button type="button" ng-click="deleteMenu(menu)">Delete</button>
+    </article>
+
+    <pager pager-data="pagerData">
+        <button type="button" ng-if="pager.hasPrevious" ng-click="previousPage()"><</button>
+        <button type="button" ng-if="pager.hasNext" ng-click="nextPage()">></button>
+    </pager>
+
+    <article ng-if="!hasMenus">
+        <p>
+            No menus.
+        </p>
+    </article>
+</section>
