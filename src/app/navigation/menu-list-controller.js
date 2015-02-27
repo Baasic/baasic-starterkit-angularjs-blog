@@ -1,6 +1,6 @@
 ﻿angular.module('myApp')
-    .controller('MenuListCtrl', ['$scope', '$state', 'baasicDynamicResourceService',
-        function MenuListCtrl($scope, $state, dynamincService) {
+    .controller('MenuListCtrl', ['$scope', '$state', 'menuService',
+        function MenuListCtrl($scope, $state, menuService) {
             'use strict';
 
             var rpp = 10;
@@ -15,7 +15,7 @@
                     }
                 }
 
-                dynamincService.find('menu', {
+                menuService.find({
                     rpp: rpp,
                     page: pageNumber,
                     fields: ['id', 'name']
