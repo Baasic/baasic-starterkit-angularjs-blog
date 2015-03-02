@@ -1,4 +1,4 @@
-﻿<form name="menuForm" novalidate>
+﻿<form name="menuForm" novalidate ng-submit="save()">
     <label>Title</label>
     <input type="text" name="name" ng-model="menu.name" required />
     <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
@@ -10,7 +10,7 @@
             <button type="button">Add new</button>
             <ul>
                 <li ng-repeat="page in pages">
-                    <input type="checkbox" /> {{ page.title }}
+                    <input type="checkbox" ng-click="addPageToMenu(page)" /> {{ page.title }}
                 </li>
             </ul>
             
@@ -47,7 +47,24 @@
         </div>
     </fieldset>
 
-    <button type="button" ng-click="save()">Save</button>
+    <div ui-tree>
+        <ol ui-tree-nodes="" ng-model="menu.items">
+            <li ng-repeat="item in menu.items" ui-tree-node>
+                <div ui-tree-handle>
+                    {{item.title}}
+                </div>
+                <ol ui-tree-nodes="" ng-model="item.items">
+                    <li ng-repeat="subItem in item.items" ui-tree-node>
+                        <div ui-tree-handle>
+                            {{subItem.title}}
+                        </div>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <button type="submit">Save</button>
 
     <div ng-show="error">
         {{ error }}
