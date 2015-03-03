@@ -3,33 +3,19 @@
         function EditMenuCtrl($scope, $state, menuService, pageService) {
             'use strict';
 
-            function isItemInMenu(item) {
-                function findInLevel(compareFunc, level) {
-                    for (var i = 0, l = level.length; i < l; i++) {
-                        var node = level[i];
+            function setItemInMenu(item, createItemFunc) {
+                var items = $scope.menu.items;
+                var res = $scope.isItemInMenu(item);
 
-                        if (compareFunc(node)) {
-                            return {
-                                collection: level,
-                                index: i
-                            };
-                        } else if (node.items) {
-                            var res = findInLevel(compareFunc, node.items);
-                            if (res != null) {
-                                return res;
-                            }
-                        }
+                if (res === null) {
+                    var newItem = createItemFunc();
+                    if (!Object.hasOwnProperty('items')) {
+                        newItem.items = [];
                     }
-
-                    return null;
+                    items.push(newItem);
+                } else {
+                    res.collection.splice(res.index, 1);
                 }
-
-                var compareFunc;
-                if (item.id) {
-                    compareFunc = function (node) { return node.pageId == item.id; };
-                }
-
-                return findInLevel(compareFunc, $scope.menu.items);
             }
 
             var isNew = $state.params.id === undefined;
@@ -53,13 +39,52 @@
 
             pageService.find({
                 statuses: ['published'],
-                fields: ['id', 'title']
+                fields: ['slug', 'title']
             })
                 .success(function (pageList) {
                     $scope.pages = pageList.item;
                 })
                 .error(function (error) {
                 });
+
+            $scope.isItemInMenu = function isItemInMenu(item) {
+                function findInLevel(findFunc, level) {
+                    for (var i = 0, l = level.length; i < l; i++) {
+                        var node = level[i];
+
+                        if (findFunc(node)) {
+                            return {
+                                collection: level,
+                                index: i
+                            };
+                        } else if (node.items) {
+                            var res = findInLevel(findFunc, node.items);
+                            if (res !== null) {
+                                return res;
+                            }
+                        }
+                    }
+
+                    return null;
+                }
+
+                var findFunc;
+                if (item.hasOwnProperty('slug')) {
+                    findFunc = function (node) {
+                        return node.pageId === item.slug;
+                    };
+                } else if (item.hasOwnProperty('url')) {
+                    findFunc = function (node) {
+                        return node.url !== undefined && node.title === item.title;
+                    };
+                } else {
+                    findFunc = function (node) {
+                        return node.isContainer && node.title === item.title;
+                    }
+                }
+
+                return findInLevel(findFunc, $scope.menu.items);
+            };
 
             $scope.addContainer = function addContainer() {
                 var containerList = $scope.menu.containers || ($scope.menu.containers = []);
@@ -84,7 +109,7 @@
             };
 
             $scope.addLink = function addLink() {
-                var linkList = $scope.menu.links || ($scope.menu.links = []);
+                var linkList = $scope.menu.linkList || ($scope.menu.linkList = []);
 
                 linkList.push($scope.newLink);
 
@@ -124,17 +149,39 @@
             };
 
             $scope.addPageToMenu = function addPageToMenu(page) {
-                var items = $scope.menu.items;
-                var res = isItemInMenu(page);
+                setItemInMenu(
+                    page,
+                    function () {
+                        return {
+                            title: page.title,
+                            pageId: page.slug
+                        };
+                    }
+                );
+            };
 
-                if (res === null) {
-                    items.push({
-                        title: page.title,
-                        pageId: page.id
-                    });
-                } else {
-                    res.collection.splice(res.index, 1);
-                }
+            $scope.addContainerToMenu = function addContainerToMenu(container) {
+                setItemInMenu(
+                    container,
+                    function () {
+                        return {
+                            title: container.title,
+                            isContainer: true
+                        };
+                    }
+                );
+            };
+
+            $scope.addLinkToMenu = function addLinkToMenu(link) {
+                setItemInMenu(
+                    link,
+                    function () {
+                        return {
+                            title: link.title,
+                            url: link.url
+                        };
+                    }
+                );
             };
         }
     ]);

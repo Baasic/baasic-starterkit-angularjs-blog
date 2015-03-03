@@ -10,7 +10,7 @@
             <button type="button">Add new</button>
             <ul>
                 <li ng-repeat="page in pages">
-                    <input type="checkbox" ng-click="addPageToMenu(page)" /> {{ page.title }}
+                    <input type="checkbox" ng-checked="isItemInMenu(page) !== null" ng-click="addPageToMenu(page)" /> {{ page.title }}
                 </li>
             </ul>
             
@@ -25,7 +25,7 @@
             </div>
             <ul>
                 <li ng-repeat="container in menu.containers">
-                    <input type="checkbox" /> <span contenteditable ng-model="container.title"></span> <button type="button" ng-click="removeContainer(container)">X</button>
+                    <input type="checkbox" ng-checked="isItemInMenu(container) !== null" ng-click="addContainerToMenu(container)" /> <span contenteditable ng-model="container.title"></span> <button type="button" ng-click="removeContainer(container)">X</button>
                 </li>
             </ul>
         </div>
@@ -40,29 +40,56 @@
                 <button type="button" ng-click="addLink()">Save</button>
             </div>
             <ul>
-                <li ng-repeat="link in menu.links">
-                    <input type="checkbox" /> <span contenteditable ng-model="link.title"></span> <button type="button" ng-click="removeLink(link)">X</button>
+                <li ng-repeat="link in menu.linkList">
+                    <input type="checkbox" ng-checked="isItemInMenu(link) !== null" ng-click="addLinkToMenu(link)" /> <span contenteditable ng-model="link.title"></span> <button type="button" ng-click="removeLink(link)">X</button>
                 </li>
             </ul>
         </div>
     </fieldset>
 
-    <div ui-tree>
-        <ol ui-tree-nodes="" ng-model="menu.items">
+    <!--<div ui-tree id="menu-tree">
+        <ol ui-tree-nodes ng-model="menu.items">
             <li ng-repeat="item in menu.items" ui-tree-node>
                 <div ui-tree-handle>
                     {{item.title}}
                 </div>
-                <ol ui-tree-nodes="" ng-model="item.items">
+                <ol ui-tree-nodes ng-model="item.items">
                     <li ng-repeat="subItem in item.items" ui-tree-node>
                         <div ui-tree-handle>
                             {{subItem.title}}
                         </div>
+                        <ol ui-tree-nodes ng-model="subItem.items">
+                            <li ng-repeat="lastItem in subItem.items" ui-tree-node>
+                                <div ui-tree-handle>
+                                    {{lastItem.title}}
+                                </div>
+                            </li>
+                        </ol>
                     </li>
                 </ol>
             </li>
         </ol>
+    </div>-->
+
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="item.items && item.items.length > 0" nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+            {{item.title}}
+            <a class="pull-right btn btn-danger btn-xs" nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="pull-right btn btn-primary btn-xs" nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
+            <li ng-repeat="item in item.items" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+    <div ui-tree id="menu-tree">
+        <ol ui-tree-nodes ng-model="menu.items">
+            <li ng-repeat="item in menu.items" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
     </div>
+    </div>
+
 
     <button type="submit">Save</button>
 
