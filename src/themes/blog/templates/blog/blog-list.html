@@ -1,7 +1,12 @@
-﻿<article class="article article--ingrid article--sml" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+﻿<article
+    class="article article--ingrid"
+    ng-if="hasBlogs"
+    ng-repeat="blog in blogList.item"
+    ng-class=" { 'article--lrg': blog.sticky , 'article--sml': !blog.sticky } "
+>
     <div class="article__holder">
         <figure class="article__figure">
-            <img src="assets/img/test-photo-2.jpg" alt="Test photo">
+            <img src="{{ blog.featured }}" alt="Test photo">
         </figure>
         <div class="article__content">
             <header class="article__header">
@@ -12,7 +17,7 @@
                 <span class="article__date">{{ blog.dateUpdated | date : 'medium' }}</span>
             </header>
             <div class="article__summary">
-                <p class="article__summary__text">Nature once again shows us how hard it is to fit astronomical objects into categories. An examination of a so-far unique brown dwarf. Nature once again shows us how hard it is to fit astronomical objects into categories. An examination of a so-far unique brown dwarf.</p>
+                <p class="article__summary__text">{{ blog.excerpt }}</p>
             </div>
             <div class="article__info">
                 <div class="article__readmore">

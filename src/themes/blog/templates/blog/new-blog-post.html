@@ -1,12 +1,27 @@
 ﻿<form name="blogPost" novalidate>
-    <label>Title</label>
-    <input type="text" name="title" ng-model="blog.title" required />
-    <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
-    <label>Body</label>
-    <input type="text" name="featured" ng-model="blog.featured" />
-    <textarea name="excerpt" ng-model="blog.excerpt"></textarea>
-    <textarea name="content" ng-model="blog.content"></textarea>
-    <button type="button" ng-click="saveBlog()">Save</button>
+    <div>
+        <label for="fieldTitle">Title</label>
+        <input type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
+        <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+    </div>
+    <div>
+        <label for="fieldBody">Body</label>
+        <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" />
+    </div>
+    <div>
+        <label for="fieldExcerpt">Excerpt</label>
+        <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt"></textarea>
+    </div>
+    <div>
+        <label for="fieldContent">Content</label>
+        <textarea name="content" id="fieldContent" ng-model="blog.content"></textarea>
+    </div>
+    <div>
+        <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky"><label for="fieldSticky">Sticky post</label>
+    </div>
+    <div>
+        <button type="button" ng-click="saveBlog()">Save</button>
+    </div>
     <div ng-show="error">
         {{ error }}
     </div>
