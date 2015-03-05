@@ -1,74 +1,36 @@
 ﻿<div>
-    <fieldset ng-show="addingNewItem">
-        <legend>New item</legend>
-        <form name="newMenuItem" ng-submit="addNewItemToMenu()">
+    <fieldset ng-show="itemFormVisible">
+        <legend>{{ currentMenuItem.isNew ? 'New item' : 'Edit item' }}</legend>
+        <form name="menuItemForm" novalidate ng-submit="saveItem()">
             <label>
                 Title
-                <input type="text" name="title" ng-model="newMenuItem.title" required />
+                <input type="text" name="title" ng-model="currentMenuItem.title" required />
             </label>
-            <p ng-show="(newMenuItem.$submitted || newMenuItem.title.$touched) && newMenuItem.title.$error.required">Title is required.</p>
+            <p ng-show="(menuItemForm.$submitted || menuItemForm.title.$touched) && menuItemForm.title.$error.required">Title is required.</p>
 
             <label>
                 Type
-                <select name="type" ng-model="newMenuItem.type" required ng-options="item.value as item.text for item in typeOptionItems"></select>
+                <select name="type" ng-model="currentMenuItem.type" required ng-options="item.value as item.text for item in typeOptionItems"></select>
             </label>
 
-            <label ng-show="newMenuItem.type === 'page'">
+            <label ng-show="isPage">
                 Page
-                <select name="pageId" ng-model="newMenuItem.pageId" required ng-options="page.slug as page.title for page in pages"></select>
+                <select name="pageId" ng-model="currentMenuItem.pageId" ng-required="isPage" ng-options="page.slug as page.title for page in pages"></select>
             </label>
+            <p ng-show="(menuItemForm.$submitted || menuItemForm.pageId.$touched) && menuItemForm.pageId.$error.required">Please select page.</p>
 
-            <label ng-show="newMenuItem.type === 'page'">
+            <label ng-show="isLink">
                 Url
-                <input type="text" name="url" ng-model="newMenuItem.url" required ng-options="item.value as item.text for item in typeOptionItems" />
+                <input type="text" name="url" ng-model="currentMenuItem.url" ng-required="isLink" />
             </label>
+            <p ng-show="(menuItemForm.$submitted || menuItemForm.url.$touched) && menuItemForm.url.$error.required">Url is required.</p>
 
             <button type="submit">Add</button>
-            <button type="button" ng-click="closeAddNewItem()">Cancel</button>
+            <button type="button" ng-click="closeItemForm()">Cancel</button>
         </form>
-        <!--<div>
-            <label>Pages</label>
-            <button type="button">Add new</button>
-            <ul>
-                <li ng-repeat="page in pages">
-                    <input type="checkbox" ng-checked="isItemInMenu(page) !== null" ng-click="addPageToMenu(page)" /> {{ page.title }}
-                </li>
-            </ul>
-
-        </div>
-        <div>
-            <label>Containers</label>
-            <button type="button" ng-click="toggleAddContainer()">{{ addingNewContainer ? 'Cancel' : 'Add new' }}</button>
-            <div ng-form="addContainerForm" ng-if="addingNewContainer">
-                <label>Title</label>
-                <input type="text" name="title" ng-model="newContainer.title" />
-                <button type="button" ng-click="addContainer()">Save</button>
-            </div>
-            <ul>
-                <li ng-repeat="container in menu.containers">
-                    <input type="checkbox" ng-checked="isItemInMenu(container) !== null" ng-click="addContainerToMenu(container)" /> <span contenteditable ng-model="container.title"></span> <button type="button" ng-click="removeContainer(container)">X</button>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <label>Links</label>
-            <button type="button" ng-click="toggleAddLink()">{{ addingNewLink ? 'Cancel' : 'Add new' }}</button>
-            <div ng-form="addContainerForm" ng-if="addingNewLink">
-                <label>Title</label>
-                <input type="text" name="title" ng-model="newLink.title" />
-                <label>Link</label>
-                <input type="text" name="url" ng-model="newLink.url" />
-                <button type="button" ng-click="addLink()">Save</button>
-            </div>
-            <ul>
-                <li ng-repeat="link in menu.linkList">
-                    <input type="checkbox" ng-checked="isItemInMenu(link) !== null" ng-click="addLinkToMenu(link)" /> <span contenteditable ng-model="link.title"></span> <button type="button" ng-click="removeLink(link)">X</button>
-                </li>
-            </ul>
-        </div>-->
     </fieldset>
 
-    <div ng-hide="addingNewItem">
+    <div ng-hide="itemFormVisible">
         <form name="menuForm" novalidate ng-submit="save()">
             <label>
                 Name
@@ -77,13 +39,13 @@
             <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
         </form>
 
-        <button type="button" ng-click="openAddNewItem();">+</button>
+        <button type="button" ng-click="openItemForm(menu.items);">+</button>
         <script type="text/ng-template" id="nodes_renderer.html">
             <div ui-tree-handle>
                 <button type="button" ng-if="item.items && item.items.length > 0" nodrag ng-click="toggleCollapse(this)">{{ collapsed ? 'v' : '^' }}</button>
                 {{item.title}}
                 <button nodrag ng-click="removeItemFromMenu(this)">x</span></button>
-                <button nodrag ng-if="item.items" ng-click="newSubItem(this)">+</button>
+                <button nodrag ng-if="item.items" ng-click="openItemForm(item.items)">+</button>
             </div>
             <ol ui-tree-nodes ng-model="item.items" ng-hide="collapsed">
                 <li ng-repeat="item in item.items" ui-tree-node ng-include="'nodes_renderer.html'">

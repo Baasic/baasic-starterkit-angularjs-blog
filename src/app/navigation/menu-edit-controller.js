@@ -23,10 +23,6 @@
             if (!isNew) {
                 menuService.get($state.params.id)
                     .success(function (menu) {
-                        if (!menu.items) {
-                            menu.items = [];
-                        }
-
                         $scope.menu = menu;
                     })
                     .error(function (error) {
@@ -70,98 +66,49 @@
                 }
             };
 
-            $scope.openAddNewItem = function openAddNewItem() {
-                $scope.newMenuItem = {
-                    type: menuService.itemTypes.container
-                };
-                $scope.addingNewItem = true;
-            };
+            $scope.$watch('currentMenuItem.type', function (value) {
+                $scope.isPage = value === menuService.itemTypes.page;
+                $scope.isLink = value === menuService.itemTypes.link;
+            });
 
-            $scope.closeAddNewItem = function closeAddNewItem() {
-                $scope.addingNewItem = false;
-            };
-
-            $scope.isItemInMenu = function isItemInMenu(item) {
-                function findInLevel(findFunc, level) {
-                    for (var i = 0, l = level.length; i < l; i++) {
-                        var node = level[i];
-
-                        if (findFunc(node)) {
-                            return {
-                                collection: level,
-                                index: i
-                            };
-                        } else if (node.items) {
-                            var res = findInLevel(findFunc, node.items);
-                            if (res !== null) {
-                                return res;
-                            }
-                        }
-                    }
-
-                    return null;
-                }
-
-                var findFunc;
-                if (item.hasOwnProperty('slug')) {
-                    findFunc = function (node) {
-                        return node.type === 'page' && node.pageId === item.slug;
-                    };
-                } else if (item.hasOwnProperty('url')) {
-                    findFunc = function (node) {
-                        return node.type === 'link' && node.url === item.url && node.title === item.title;
+            $scope.openItemForm = function openItemForm(container) {
+                if (angular.isArray(container)) {
+                    $scope.currentMenuItem = {
+                        isNew: true,
+                        type: menuService.itemTypes.container,
+                        container: container || $scope.menu.items
                     };
                 } else {
-                    findFunc = function (node) {
-                        return node.type === 'container' && node.title === item.title;
-                    };
                 }
 
-                return findInLevel(findFunc, $scope.menu.items);
+                $scope.menuItemForm.$setPristine();
+                $scope.itemFormVisible = true;
             };
 
-            $scope.addContainer = function addContainer() {
-                var containerList = $scope.menu.containers || ($scope.menu.containers = []);
-
-                containerList.push($scope.newContainer);
-
-                $scope.addingNewContainer = false;
+            $scope.closeItemForm = function closeItemForm() {
+                $scope.itemFormVisible = false;
             };
 
-            $scope.toggleAddContainer = function toggleAddContainer() {
-                $scope.newContainer = {};
-                $scope.addingNewContainer = !$scope.addingNewContainer;
-            };
+            $scope.saveItem = function saveItem() {
+                var type = $scope.currentMenuItem.type;
+                var menuItem = {
+                    title: $scope.currentMenuItem.title,
+                    type: type
+                };
 
-            $scope.removeContainer = function removeContainer(container) {
-                var containerList = $scope.menu.containers;
-
-                var index = containerList.indexOf(container);
-                if (index !== -1) {
-                    containerList.splice(index, 1);
+                if (type === menuService.itemTypes.container) {
+                    menuItem.items = $scope.currentMenuItem.items || [];
+                } else if (type === menuService.itemTypes.page) {
+                    menuItem.pageId = $scope.currentMenuItem.pageId;
+                } else if (type === menuService.itemTypes.link) {
+                    menuItem.url = $scope.currentMenuItem.url;
                 }
-            };
 
-            $scope.addLink = function addLink() {
-                var linkList = $scope.menu.linkList || ($scope.menu.linkList = []);
-
-                linkList.push($scope.newLink);
-
-                $scope.addingNewLink = false;
-            };
-
-            $scope.toggleAddLink = function toggleAddLink() {
-                $scope.newLink = {};
-                $scope.addingNewLink = !$scope.addingNewLink;
-            };
-
-            $scope.removeLink = function removeLink(link) {
-                var linkList = $scope.menu.links;
-
-                var index = linkList.indexOf(link);
-                if (index !== -1) {
-                    linkList.splice(index, 1);
+                if ($scope.currentMenuItem.isNew) {
+                    $scope.currentMenuItem.container.push(menuItem);
                 }
+
+                $scope.closeItemForm();
             };
 
             $scope.save = function save() {
