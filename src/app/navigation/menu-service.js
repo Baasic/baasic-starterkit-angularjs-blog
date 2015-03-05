@@ -4,6 +4,13 @@
             'use strict';
 
             var menuResourceName = 'menus';
+            var menuItemTypes = {
+                container: 'container',
+                page: 'page',
+                link: 'link'
+            };
+
+            this.itemTypes = menuItemTypes;
 
             this.get = function get(id, options) {
                 return dynamincService.get(menuResourceName, id, options);

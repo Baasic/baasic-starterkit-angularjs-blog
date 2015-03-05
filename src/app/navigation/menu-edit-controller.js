@@ -9,8 +9,8 @@
 
                 if (res === null) {
                     var newItem = createItemFunc();
-                    if (!Object.hasOwnProperty('items')) {
-                        newItem.items = [];
+                    if (newItem.type === 'container') {
+                        newItem.items = newItem.items || [];
                     }
                     items.push(newItem);
                 } else {
@@ -30,6 +30,7 @@
                         $scope.menu = menu;
                     })
                     .error(function (error) {
+                        $scope.error = error.message;
                     });
             } else {
                 $scope.menu = {
@@ -45,7 +46,40 @@
                     $scope.pages = pageList.item;
                 })
                 .error(function (error) {
+                    console.log('Failed to load pages: ', error.message);
                 });
+
+            $scope.typeOptionItems = [];
+
+            Object.keys(menuService.itemTypes).forEach(function (key, index, obj) {
+                $scope.typeOptionItems.push({
+                    value: obj[index],
+                    text: key.charAt(0).toUpperCase() + key.substring(1)
+                });
+            });
+
+            $scope.menuTreeOptions = {
+                accept: function (sourceNodeScope, destNodesScope) {
+                    if (destNodesScope.$nodeScope) {
+                        var type = destNodesScope.$nodeScope.$modelValue.type
+                        if (type && type !== menuService.itemTypes.container) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            };
+
+            $scope.openAddNewItem = function openAddNewItem() {
+                $scope.newMenuItem = {
+                    type: menuService.itemTypes.container
+                };
+                $scope.addingNewItem = true;
+            };
+
+            $scope.closeAddNewItem = function closeAddNewItem() {
+                $scope.addingNewItem = false;
+            };
 
             $scope.isItemInMenu = function isItemInMenu(item) {
                 function findInLevel(findFunc, level) {
@@ -71,16 +105,16 @@
                 var findFunc;
                 if (item.hasOwnProperty('slug')) {
                     findFunc = function (node) {
-                        return node.pageId === item.slug;
+                        return node.type === 'page' && node.pageId === item.slug;
                     };
                 } else if (item.hasOwnProperty('url')) {
                     findFunc = function (node) {
-                        return node.url !== undefined && node.title === item.title;
+                        return node.type === 'link' && node.url === item.url && node.title === item.title;
                     };
                 } else {
                     findFunc = function (node) {
-                        return node.isContainer && node.title === item.title;
-                    }
+                        return node.type === 'container' && node.title === item.title;
+                    };
                 }
 
                 return findInLevel(findFunc, $scope.menu.items);
@@ -144,6 +178,7 @@
                             $state.go('master.menu-list');
                         })
                         .error(function (error) {
+                            $scope.error = error.message;
                         });
                 }
             };
@@ -154,7 +189,8 @@
                     function () {
                         return {
                             title: page.title,
-                            pageId: page.slug
+                            pageId: page.slug,
+                            type: 'page'
                         };
                     }
                 );
@@ -166,7 +202,7 @@
                     function () {
                         return {
                             title: container.title,
-                            isContainer: true
+                            type: 'container'
                         };
                     }
                 );
@@ -178,10 +214,19 @@
                     function () {
                         return {
                             title: link.title,
-                            url: link.url
+                            url: link.url,
+                            type: 'link'
                         };
                     }
                 );
+            };
+
+            $scope.toggleCollapse = function (scope) {
+                scope.toggle();
+            };
+
+            $scope.removeItemFromMenu = function removeItemFromMenu(scope) {
+                scope.remove();
             };
         }
     ]);

@@ -1,11 +1,32 @@
-﻿<form name="menuForm" novalidate ng-submit="save()">
-    <label>Title</label>
-    <input type="text" name="name" ng-model="menu.name" required />
-    <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
-    
-    <fieldset>
-        <legend>Items</legend>
-        <div>
+﻿<div>
+    <fieldset ng-show="addingNewItem">
+        <legend>New item</legend>
+        <form name="newMenuItem" ng-submit="addNewItemToMenu()">
+            <label>
+                Title
+                <input type="text" name="title" ng-model="newMenuItem.title" required />
+            </label>
+            <p ng-show="(newMenuItem.$submitted || newMenuItem.title.$touched) && newMenuItem.title.$error.required">Title is required.</p>
+
+            <label>
+                Type
+                <select name="type" ng-model="newMenuItem.type" required ng-options="item.value as item.text for item in typeOptionItems"></select>
+            </label>
+
+            <label ng-show="newMenuItem.type === 'page'">
+                Page
+                <select name="pageId" ng-model="newMenuItem.pageId" required ng-options="page.slug as page.title for page in pages"></select>
+            </label>
+
+            <label ng-show="newMenuItem.type === 'page'">
+                Url
+                <input type="text" name="url" ng-model="newMenuItem.url" required ng-options="item.value as item.text for item in typeOptionItems" />
+            </label>
+
+            <button type="submit">Add</button>
+            <button type="button" ng-click="closeAddNewItem()">Cancel</button>
+        </form>
+        <!--<div>
             <label>Pages</label>
             <button type="button">Add new</button>
             <ul>
@@ -13,7 +34,7 @@
                     <input type="checkbox" ng-checked="isItemInMenu(page) !== null" ng-click="addPageToMenu(page)" /> {{ page.title }}
                 </li>
             </ul>
-            
+
         </div>
         <div>
             <label>Containers</label>
@@ -44,56 +65,41 @@
                     <input type="checkbox" ng-checked="isItemInMenu(link) !== null" ng-click="addLinkToMenu(link)" /> <span contenteditable ng-model="link.title"></span> <button type="button" ng-click="removeLink(link)">X</button>
                 </li>
             </ul>
-        </div>
+        </div>-->
     </fieldset>
 
-    <!--<div ui-tree id="menu-tree">
-        <ol ui-tree-nodes ng-model="menu.items">
-            <li ng-repeat="item in menu.items" ui-tree-node>
-                <div ui-tree-handle>
-                    {{item.title}}
-                </div>
-                <ol ui-tree-nodes ng-model="item.items">
-                    <li ng-repeat="subItem in item.items" ui-tree-node>
-                        <div ui-tree-handle>
-                            {{subItem.title}}
-                        </div>
-                        <ol ui-tree-nodes ng-model="subItem.items">
-                            <li ng-repeat="lastItem in subItem.items" ui-tree-node>
-                                <div ui-tree-handle>
-                                    {{lastItem.title}}
-                                </div>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
-            </li>
-        </ol>
-    </div>-->
+    <div ng-hide="addingNewItem">
+        <form name="menuForm" novalidate ng-submit="save()">
+            <label>
+                Name
+                <input type="text" name="name" ng-model="menu.name" required />
+            </label>
+            <p ng-show="(menuForm.$submitted || menuForm.title.$touched) && menuForm.name.$error.required">Name is required.</p>
+        </form>
 
-    <script type="text/ng-template" id="nodes_renderer.html">
-        <div ui-tree-handle class="tree-node tree-node-content">
-            <a class="btn btn-success btn-xs" ng-if="item.items && item.items.length > 0" nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-            {{item.title}}
-            <a class="pull-right btn btn-danger btn-xs" nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
-            <a class="pull-right btn btn-primary btn-xs" nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+        <button type="button" ng-click="openAddNewItem();">+</button>
+        <script type="text/ng-template" id="nodes_renderer.html">
+            <div ui-tree-handle>
+                <button type="button" ng-if="item.items && item.items.length > 0" nodrag ng-click="toggleCollapse(this)">{{ collapsed ? 'v' : '^' }}</button>
+                {{item.title}}
+                <button nodrag ng-click="removeItemFromMenu(this)">x</span></button>
+                <button nodrag ng-if="item.items" ng-click="newSubItem(this)">+</button>
+            </div>
+            <ol ui-tree-nodes ng-model="item.items" ng-hide="collapsed">
+                <li ng-repeat="item in item.items" ui-tree-node ng-include="'nodes_renderer.html'">
+                </li>
+            </ol>
+        </script>
+        <div ui-tree callbacks="menuTreeOptions">
+            <ol ui-tree-nodes ng-model="menu.items">
+                <li ng-repeat="item in menu.items" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+            </ol>
         </div>
-        <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
-            <li ng-repeat="item in item.items" ui-tree-node ng-include="'nodes_renderer.html'">
-            </li>
-        </ol>
-    </script>
-    <div ui-tree id="menu-tree">
-        <ol ui-tree-nodes ng-model="menu.items">
-            <li ng-repeat="item in menu.items" ui-tree-node ng-include="'nodes_renderer.html'"></li>
-        </ol>
+
+        <button type="submit">Save</button>
     </div>
-    </div>
-
-
-    <button type="submit">Save</button>
-
     <div ng-show="error">
         {{ error }}
     </div>
-</form>
+
+</div>
