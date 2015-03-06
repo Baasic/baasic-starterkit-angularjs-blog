@@ -37,6 +37,13 @@
 
             fetchMenus();
 
+            $scope.deleteMenu = function deleteMenu(menu) {
+                menuService.remove(menu)
+                    .success(fetchMenus)
+                    .error(function (error) {
+                    });
+            };
+
             $scope.prevPage = function prevPage() {
                 fetchMenus($scope.pagerData.currentPage - 1);
             };

@@ -4,6 +4,7 @@ angular.module('baasic.blog', [
 
 angular.module('myApp', [
   'ui.router',
+  'ui.tree',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',

@@ -1,10 +1,13 @@
 ﻿angular.module('myApp')
-    .directive('contenteditable', ['$sce',
-        function ($sce) {
+    .directive('contenteditable', [
+        function () {
+            'use strict';
+
             return {
                 restrict: 'A', // only activate on element attribute
                 require: '?ngModel', // get a hold of NgModelController
                 link: function (scope, element, attrs, ngModel) {
+                    /* jshint curly: false */
                     if (!ngModel) return; // do nothing if no ng-model
 
                     // Specify how UI should be updated
@@ -22,7 +25,7 @@
                         var html = element.html();
                         // When we clear the content editable the browser leaves a <br> behind
                         // If strip-br attribute is provided then we strip this out
-                        if (attrs.stripBr && html == '<br>') {
+                        if (attrs.stripBr && html === '<br>') {
                             html = '';
                         }
                         ngModel.$setViewValue(html);
