@@ -4,34 +4,34 @@
         <form name="menuItemForm" novalidate ng-submit="saveItem()">
             <label>
                 Title
-                <input type="text" name="title" ng-model="currentMenuItem.title" required />
+                <input type="text" name="title" ng-model="currentMenuItem.item.title" required />
             </label>
             <p ng-show="(menuItemForm.$submitted || menuItemForm.title.$touched) && menuItemForm.title.$error.required">Title is required.</p>
 
             <label>
                 Type
-                <select name="type" ng-model="currentMenuItem.type" required ng-options="item.value as item.text for item in typeOptionItems"></select>
+                <select name="type" ng-model="currentMenuItem.item.type" ng-disabled="!currentMenuItem.isNew" required ng-options="item.value as item.text for item in typeOptionItems"></select>
             </label>
 
-            <label ng-show="isPage">
+            <label ng-show="currentMenuItem.isPage">
                 Page
-                <select name="pageId" ng-model="currentMenuItem.pageId" ng-required="isPage" ng-options="page.slug as page.title for page in pages"></select>
+                <select name="pageId" ng-model="currentMenuItem.item.pageId" ng-required="currentMenuItem.isPage" ng-options="page.slug as page.title for page in pages"></select>
             </label>
             <p ng-show="(menuItemForm.$submitted || menuItemForm.pageId.$touched) && menuItemForm.pageId.$error.required">Please select page.</p>
 
-            <label ng-show="isLink">
+            <label ng-show="currentMenuItem.isLink">
                 Url
-                <input type="text" name="url" ng-model="currentMenuItem.url" ng-required="isLink" />
+                <input type="text" name="url" ng-model="currentMenuItem.item.url" ng-required="currentMenuItem.isLink" />
             </label>
             <p ng-show="(menuItemForm.$submitted || menuItemForm.url.$touched) && menuItemForm.url.$error.required">Url is required.</p>
 
-            <button type="submit">Add</button>
+            <button type="submit">{{ currentMenuItem.isNew ? 'Add' : 'Save' }}</button>
             <button type="button" ng-click="closeItemForm()">Cancel</button>
         </form>
     </fieldset>
 
     <div ng-hide="itemFormVisible">
-        <form name="menuForm" novalidate ng-submit="save()">
+        <form name="menuForm" novalidate >
             <label>
                 Name
                 <input type="text" name="name" ng-model="menu.name" required />
@@ -44,6 +44,7 @@
             <div ui-tree-handle>
                 <button type="button" ng-if="item.items && item.items.length > 0" nodrag ng-click="toggleCollapse(this)">{{ collapsed ? 'v' : '^' }}</button>
                 {{item.title}}
+                <button nodrag ng-click="openItemForm(item)">Edit</button>
                 <button nodrag ng-click="removeItemFromMenu(this)">x</span></button>
                 <button nodrag ng-if="item.items" ng-click="openItemForm(item.items)">+</button>
             </div>
@@ -58,7 +59,7 @@
             </ol>
         </div>
 
-        <button type="submit">Save</button>
+        <button type="button" ng-click="save()">Save</button>
     </div>
     <div ng-show="error">
         {{ error }}

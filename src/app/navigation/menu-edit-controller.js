@@ -57,7 +57,7 @@
             $scope.menuTreeOptions = {
                 accept: function (sourceNodeScope, destNodesScope) {
                     if (destNodesScope.$nodeScope) {
-                        var type = destNodesScope.$nodeScope.$modelValue.type
+                        var type = destNodesScope.$nodeScope.$modelValue.type;
                         if (type && type !== menuService.itemTypes.container) {
                             return false;
                         }
@@ -66,21 +66,30 @@
                 }
             };
 
-            $scope.$watch('currentMenuItem.type', function (value) {
-                $scope.isPage = value === menuService.itemTypes.page;
-                $scope.isLink = value === menuService.itemTypes.link;
+            $scope.$watch('currentMenuItem.item.type', function (value) {
+                if ($scope.currentMenuItem) {
+                    $scope.currentMenuItem.isPage = value === menuService.itemTypes.page;
+                    $scope.currentMenuItem.isLink = value === menuService.itemTypes.link;
+                }
             });
 
             $scope.openItemForm = function openItemForm(container) {
                 if (angular.isArray(container)) {
                     $scope.currentMenuItem = {
                         isNew: true,
-                        type: menuService.itemTypes.container,
+                        item: {
+                            type: menuService.itemTypes.container
+                        },
                         container: container || $scope.menu.items
                     };
                 } else {
+                    $scope.currentMenuItem = {
+                        isNew: false,
+                        item: container
+                    };
                 }
 
+                $scope.menuItemForm.$setUntouched();
                 $scope.menuItemForm.$setPristine();
                 $scope.itemFormVisible = true;
             };
@@ -90,25 +99,18 @@
             };
 
             $scope.saveItem = function saveItem() {
-                var type = $scope.currentMenuItem.type;
-                var menuItem = {
-                    title: $scope.currentMenuItem.title,
-                    type: type
-                };
+                if ($scope.menuItemForm.$valid) {
+                    if ($scope.currentMenuItem.isNew) {
+                        var menuItem = $scope.currentMenuItem.item;
+                        if (menuItem.type === menuService.itemTypes.container) {
+                            menuItem.items = [];
+                        }
 
-                if (type === menuService.itemTypes.container) {
-                    menuItem.items = $scope.currentMenuItem.items || [];
-                } else if (type === menuService.itemTypes.page) {
-                    menuItem.pageId = $scope.currentMenuItem.pageId;
-                } else if (type === menuService.itemTypes.link) {
-                    menuItem.url = $scope.currentMenuItem.url;
+                        $scope.currentMenuItem.container.push(menuItem);
+                    }
+
+                    $scope.closeItemForm();
                 }
-
-                if ($scope.currentMenuItem.isNew) {
-                    $scope.currentMenuItem.container.push(menuItem);
-                }
-
-                $scope.closeItemForm();
             };
 
             $scope.save = function save() {
@@ -128,44 +130,6 @@
                             $scope.error = error.message;
                         });
                 }
-            };
-
-            $scope.addPageToMenu = function addPageToMenu(page) {
-                setItemInMenu(
-                    page,
-                    function () {
-                        return {
-                            title: page.title,
-                            pageId: page.slug,
-                            type: 'page'
-                        };
-                    }
-                );
-            };
-
-            $scope.addContainerToMenu = function addContainerToMenu(container) {
-                setItemInMenu(
-                    container,
-                    function () {
-                        return {
-                            title: container.title,
-                            type: 'container'
-                        };
-                    }
-                );
-            };
-
-            $scope.addLinkToMenu = function addLinkToMenu(link) {
-                setItemInMenu(
-                    link,
-                    function () {
-                        return {
-                            title: link.title,
-                            url: link.url,
-                            type: 'link'
-                        };
-                    }
-                );
             };
 
             $scope.toggleCollapse = function (scope) {
