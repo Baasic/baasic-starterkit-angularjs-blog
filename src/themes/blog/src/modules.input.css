@@ -26,13 +26,10 @@
     font-family: var(--ff-sans);
 }
 .input--text {
-    height: 3rem;
-    line-height: 3rem;
-    font-size: var(--type-large);
+    line-height: 1.5rem;
     border-bottom: 1px solid var(--color-ultralight);
 }
 .input--textarea {
-    line-height: 1.5rem;
     min-height: 9rem;
     border-bottom: 1px solid var(--color-ultralight);
 }

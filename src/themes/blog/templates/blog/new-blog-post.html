@@ -1,26 +1,27 @@
-﻿<form name="blogPost" novalidate>
-    <div>
-        <label for="fieldTitle">Title</label>
-        <input type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
-        <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+﻿<form name="blogPost" novalidate class="form">
+    <div class="form__field">
+        <label class="form__label" for="fieldTitle">Title</label>
+        <input type="text" name="title" id="fieldTitle" ng-model="blog.title" class="input input--text" required />
+        <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
     </div>
-    <div>
-        <label for="fieldBody">Body</label>
-        <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" />
+    <div class="form__field">
+        <label class="form__label" for="fieldBody">Featured image</label>
+        <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
     </div>
-    <div>
-        <label for="fieldExcerpt">Excerpt</label>
-        <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt"></textarea>
+    <div class="form__field">
+        <label class="form__label" for="fieldExcerpt">Excerpt</label>
+        <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea"></textarea>
     </div>
-    <div>
-        <label for="fieldContent">Content</label>
-        <textarea name="content" id="fieldContent" ng-model="blog.content"></textarea>
+    <div class="form__field">
+        <label class="form__label" for="fieldContent">Content</label>
+        <textarea name="content" id="fieldContent" ng-model="blog.content" class="input input--textarea"></textarea>
     </div>
-    <div>
-        <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky"><label for="fieldSticky">Sticky post</label>
+    <div class="form__field">
+        <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky" class="input--check"><label for="fieldSticky">Sticky post</label>
     </div>
-    <div>
-        <button type="button" ng-click="saveBlog()">Save</button>
+    <div class="form__field">
+        <button type="button" class="btn --primary --med rounded" ng-click="saveBlog()">Save</button>
+        <button type="button" class="btn --light --med rounded">Cancel</button>
     </div>
     <div ng-show="error">
         {{ error }}

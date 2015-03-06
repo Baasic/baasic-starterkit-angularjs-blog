@@ -41,6 +41,7 @@
 */
 
 @import "modules.anchor.css";
+@import "modules.alert.css";
 @import "modules.hamburger.css";
 @import "modules.title.css";
 @import "modules.grid.css";
@@ -56,6 +57,7 @@
 @import "components.bg.css";
 @import "components.layout.css";
 @import "components.hero.css";
+@import "components.form.css";
 @import "components.styledtext.css";
 @import "components.header.css";
 @import "components.sidebar.css";

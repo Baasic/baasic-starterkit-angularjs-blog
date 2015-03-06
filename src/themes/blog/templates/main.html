@@ -1,6 +1,4 @@
-﻿<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-<!--[if lt IE 10]>
+﻿<!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
@@ -53,6 +51,17 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="sidebar__widget">
+                        <h2 class="sidebar__title">Admin</h2>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <p>Welcome, {{ $root.user.displayName }}</p>
+                            <button type="button" class="btn --primary --med rounded" ng-click="newBlogPost()">New post</button>
+                            <baasic-logout on-logout="setEmptyUser()">
+                                <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
+                            </baasic-logout>
+                        </div>
+                        <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -71,15 +80,4 @@
             </footer>
         </div>
     </div>
-</div>
-
-<div style="background: yellow; padding:40px">
-    <div ng-if="$root.user.isAuthenticated">
-        <p>Welcome, {{ $root.user.displayName }}</p>
-        <button type="button" ng-click="newBlogPost()">New post</button>
-        <baasic-logout on-logout="setEmptyUser()">
-            <button type="button" ng-click="logout()">Logout</button>
-        </baasic-logout>
-    </div>
-    <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
 </div>
