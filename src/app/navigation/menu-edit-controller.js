@@ -139,5 +139,9 @@
             $scope.removeItemFromMenu = function removeItemFromMenu(scope) {
                 scope.remove();
             };
+
+            $scope.returnToMenuList = function returnToMenuList() {
+                $state.go('master.menu-list');
+            };
         }
     ]);
