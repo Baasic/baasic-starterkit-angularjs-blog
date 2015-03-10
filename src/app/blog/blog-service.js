@@ -3,11 +3,6 @@
         function baasicBlogService(baasicApiHttp, baasicArticleService) {
             'use strict';
 
-            var blogTag = {
-                tag: 'blog',
-                slug: 'blog'
-            };
-
             this.blogStatus = {
                 draft: 1,
                 published: 2,
@@ -19,12 +14,25 @@
             };
 
             this.find = function find(options) {
-                var findOptions = angular.copy(options);
-                if (findOptions.tags && findOptions.tags !== '') {
-                    findOptions.tags += ',' + blogTag.slug;
+                var findOptions;
+                if (options) {
+                    findOptions = angular.copy(options);
                 } else {
-                    findOptions.tags = blogTag.slug;
+                    findOptions = {};
                 }
+
+                var searchQuery = findOptions.searchQuery || '';
+                var lowerQuery = searchQuery.toLowerCase();
+                var whereIndex = lowerQuery.indexOf(' where ');
+
+                if (whereIndex !== -1) {
+                    whereIndex = whereIndex + 8;
+                    searchQuery = searchQuery.substring(0, whereIndex) + 'isBlog = 1 AND (' + searchQuery.substring(whereIndex) + ')';
+                } else {
+                    searchQuery = 'WHERE isBlog = 1';
+                }
+
+                findOptions.searchQuery = searchQuery;
 
                 return baasicArticleService.find(findOptions);
             };
@@ -32,11 +40,7 @@
             this.create = function create(blog) {
                 var blogToCreate = angular.copy(blog);
 
-                if (!blogToCreate.tags) {
-                    blogToCreate.tags = [];
-                }
-
-                blogToCreate.tags.push(blogTag);
+                blogToCreate.isBlog = 1;
 
                 return baasicArticleService.create(blogToCreate);
             };
