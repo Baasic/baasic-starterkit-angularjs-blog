@@ -1,0 +1,10 @@
+﻿<ul>
+    <li ng-repeat="item in menu">
+        <div ng-switch="item.type">
+            <a href="{{ item.url }}" ng-switch-when="link">{{ item.title }}</a>
+            <a ui-sref="master.show-page({ slug: item.pageId })" ng-switch-when="page">{{ item.title }}</a>
+            <span ng-switch-default>{{ item.title }}</span>
+        </div>
+        <baasic-menu ng-if="item.type === 'container'" items="item.items"></baasic-menu>
+    </li>
+</ul>

@@ -3,21 +3,6 @@
         function EditMenuCtrl($scope, $state, menuService, pageService) {
             'use strict';
 
-            function setItemInMenu(item, createItemFunc) {
-                var items = $scope.menu.items;
-                var res = $scope.isItemInMenu(item);
-
-                if (res === null) {
-                    var newItem = createItemFunc();
-                    if (newItem.type === 'container') {
-                        newItem.items = newItem.items || [];
-                    }
-                    items.push(newItem);
-                } else {
-                    res.collection.splice(res.index, 1);
-                }
-            }
-
             var isNew = $state.params.id === undefined;
 
             if (!isNew) {
