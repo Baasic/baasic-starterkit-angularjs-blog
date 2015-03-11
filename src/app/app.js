@@ -56,6 +56,16 @@ angular.module('myApp', [
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl'
             })
+            .state('master.register', {
+                url: 'register',
+                templateUrl: 'templates/account/register.html',
+                controller: 'RegisterUserCtrl'
+            })
+            .state('master.activate-user', {
+                url: 'activate-user/{activationCode}',
+                templateUrl: 'templates/account/activate.html',
+                controller: 'ActivateUserCtrl'
+            })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',
@@ -106,6 +116,7 @@ angular.module('myApp', [
             });
     }
 ])
+.constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
 .controller('MainCtrl', ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
 	function MainCtrl($scope, $state, loginService, baasicAuthService) {
 	    'use strict';

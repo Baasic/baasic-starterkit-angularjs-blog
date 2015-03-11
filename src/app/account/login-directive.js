@@ -48,7 +48,7 @@
                         };
                     }
                 ],
-                templateUrl: 'templates/login/login.html'
+                templateUrl: 'templates/account/login.html'
             };
         }
     ]);
