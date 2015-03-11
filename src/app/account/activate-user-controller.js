@@ -5,7 +5,9 @@
 
             $scope.activated = false;
 
-            registerService.activate($state.params.activationCode)
+            registerService.activate({
+                activationToken: $state.params.activationCode
+            })
                 .success(function () {
                     $scope.activated = true;
                 })

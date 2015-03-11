@@ -63,7 +63,7 @@ angular.module('myApp', [
             })
             .state('master.activate-user', {
                 url: 'activate-user/{activationCode}',
-                templateUrl: 'templates/account/activate.html',
+                templateUrl: 'templates/account/activate-user.html',
                 controller: 'ActivateUserCtrl'
             })
             .state('master.new-blog-post', {
