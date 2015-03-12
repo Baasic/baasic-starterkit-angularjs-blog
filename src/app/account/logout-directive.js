@@ -14,7 +14,7 @@
                     function baasicLogoutCtrl($scope, loginService, authService) {
                         function clearUser() {
                             authService.setUser(null);
-                            authService.updateToken(null);
+                            authService.updateAccessToken(null);
 
                             if (fn) {
                                 fn($scope);
