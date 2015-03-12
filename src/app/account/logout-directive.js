@@ -12,16 +12,24 @@
                 },
                 controller: ['$scope', 'baasicLoginService', 'baasicAuthorizationService',
                     function baasicLogoutCtrl($scope, loginService, authService) {
-                        $scope.logout = function logout() {
-                            loginService.logout()
-                                .finally(function () {
-                                    authService.setUser(null);
-                                    authService.updateToken(null);
+                        function clearUser() {
+                            authService.setUser(null);
+                            authService.updateToken(null);
 
-                                    if (fn) {
-                                        fn($scope);
-                                    }
-                                });
+                            if (fn) {
+                                fn($scope);
+                            }
+                        }
+
+                        $scope.logout = function logout() {
+                            var token = authService.getAccessToken();
+                            if (token) {
+                                /* jshint camelcase: false */
+                                loginService.logout(token.access_token, token.token_type)
+                                    .finally(clearUser);
+                            } else {
+                                clearUser();
+                            }
                         };
                     }
                 ]
