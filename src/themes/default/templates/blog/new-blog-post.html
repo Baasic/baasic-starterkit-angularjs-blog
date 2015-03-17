@@ -1,0 +1,13 @@
+﻿<form name="blogPost" novalidate>
+    <label>Title</label>
+    <input type="text" name="title" ng-model="blog.title" required />
+    <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+    <label>Body</label>
+    <textarea name="content" ng-model="blog.content"></textarea>
+
+    <button type="button" ng-click="saveBlog()">Save</button>
+
+    <div ng-show="error">
+        {{ error }}
+    </div>
+</form>

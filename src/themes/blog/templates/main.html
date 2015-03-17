@@ -1,0 +1,83 @@
+﻿<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+    <div class="layout">
+        <aside class="layout__sidebar">
+            <div class="row">
+                <div class="sidebar" role="banner">
+                    <header role="banner" class="header">
+                        <div class="header__controls">
+                            <button type="button" class="header__toggle hamburger"><i class="hamburger__icon"></i></button>
+                            <div class="header__user user">
+                                <a href="#" class="user__link"><img class="user__avatar" src="assets/img/avatar.jpg" alt="User"></a>
+                            </div>
+                        </div>
+                        <p class="header__author">Mark Twain’s</p>
+                        <h1><a href="/" class="header__title">The Adventures of Tom Sawyer</a></h1>
+                        <p class="header__desc">I travel and write of my travelling adventures, the world, the culture and the people.</p>
+                    </header>
+                    <nav class="sidebar__navigation" role="navigation">
+                        <h2 class="sidebar__title">Categories</h2>
+                        <ul class="nav--primary">
+                            <li class="nav--primary__item"><a href="services.html" class="nav--primary__link">Services</a></li>
+                            <li class="nav--primary__item"><a href="company.html" class="nav--primary__link">Company</a></li>
+                            <li class="nav--primary__item"><a href="contact.html" class="nav--primary__link">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="sidebar__widget header__share">
+                        <h2 class="sidebar__title">Spread the word</h2>
+                        <ul class="smm group">
+                            <li class="smm__item">
+                                <a class="smm__link" href="https://www.facebook.com/">
+                                    <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+                                </a>
+                            </li>
+                            <li class="smm__item">
+                                <a class="smm__link" href="https://www.linkedin.com">
+                                    <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+                                </a>
+                            </li>
+                            <li class="smm__item">
+                                <a class="smm__link" href="https://twitter.com/">
+                                    <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+                                </a>
+                            </li>
+                            <li class="smm__item">
+                                <a class="smm__link" href="https://github.com/">
+                                    <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sidebar__widget">
+                        <h2 class="sidebar__title">Admin</h2>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
+                            <button type="button" class="btn --primary --med rounded" ng-click="newBlogPost()">New post</button>
+                            <baasic-logout on-logout="setEmptyUser()">
+                                <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
+                            </baasic-logout>
+                        </div>
+                        <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="layout__content">
+            <main ui-view>
+                <baasic-blog-list page-size="6" class="articles"></baasic-blog-list>
+            </main>
+            <footer class="footer" role="contentinfo">
+                <div class="footer__info">
+                    <p>Copyright @ Blog name</p>
+                    <p>Photos: <a href="http://unsplash.com">Unsplash</a></p>
+                </div>
+                <div class="footer__poweredby">
+                    <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

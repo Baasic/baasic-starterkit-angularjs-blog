@@ -1,0 +1,18 @@
+﻿<a ui-sref="master.index">Home</a>
+<article ng-hide="isEdit">
+    <h2>{{ blog.title }}</h2>
+    <p>{{ blog.dateUpdated | date : 'medium' }}</p>
+
+    <p>
+        {{ blog.content }}
+    </p>
+</article>
+
+<div ng-show="isEdit" ng-include="editTemplateUrl">
+
+</div>
+
+<div ng-if="$root.user.isAuthenticated">
+    <button type="button" ng-click="editBlog()">Edit</button>
+    <button type="button" ng-click="deleteBlog()">Delete</button>
+</div>

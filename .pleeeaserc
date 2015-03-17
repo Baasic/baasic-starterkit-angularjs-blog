@@ -1,0 +1,9 @@
+{
+  "browsers": ["last 2 version"],
+  "filters": true,
+  
+  "minifier": false,
+  "mqpacker": false,
+  "sourcemaps": false,
+  "next": true
+}
