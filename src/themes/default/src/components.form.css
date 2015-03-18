@@ -10,7 +10,8 @@
 .form__label {
     font-family: var(--ff-sans);
     font-size: var(--type-small);
+    font-weight: 700;
     margin-bottom: .75rem;
     display: block;
-    color: var(--color-light);
+    color: var(--color-grey);
 }

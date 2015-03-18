@@ -28,6 +28,10 @@
 
             $scope.getHtml = function getHtml(content) {
                 return markdownConverter.makeHtml(content);
+            };
+
+            $scope.setViewMode = function setViewMode(mode) {
+                $scope.state.conentent.viewMode = mode;
             }
         }
     ]);

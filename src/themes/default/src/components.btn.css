@@ -24,6 +24,7 @@
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
 }
+
 .btn.\--primary:hover,
 .btn.\--primary:focus,
 .btn.\--primary:active {
@@ -61,6 +62,17 @@
 .btn.\--light:focus,
 .btn.\--light:active {
     border-color: var(--color-light);
+}
+
+.btn.\--light.active {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.btn.\--light.active:hover,
+.btn.\--light.active:focus,
+.btn.\--light.active:active {
+     background: var(--color-primary);
+    color: white;
 }
 
 

@@ -3,22 +3,24 @@
 \*------------------------------------*/
 
 .editor__field {
-    border-bottom: 1px solid var(--color-light);
-    box-shadow: 1px 1px 1px var(--color-ultralight);
+    display: inline-block;
+    width: 100%;
+    cursor: text;
+    border: 1px solid var(--color-ultralight);
+    background: white;
+    transition: all .2s;
     height: 35rem;
-    
     padding: 1rem;
     overflow: auto; 
+    resize: none;
 }
 
-.editor__type .editor__field {
-    background-color: transparent;
-    color: var(--color-dark);
+
+.editor__field:focus {
+    outline: 0;
+    border-color: var(--color-light);
 }
-.editor__preview .editor__field {
-    background-color: transparent;
-    color: var(--color-dark);
-}
+
 .editor__preview h1,
 .editor__preview h2,
 .editor__preview h3,
@@ -32,13 +34,16 @@
 
 }
 .editor__header {
-    padding: 1rem;
-    background: white;
-    background-color: var(--color-ultralight);
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: right;
 }
-.editor__header select {
-    float: right;
+.editor__header button {
+    margin-left: 0.5rem;
+}
+.editor__explain {
+    width: 50%;
+    text-align: left;
+    color: var(--color-light);
 }
 
 @media all and (--from-medium) {
