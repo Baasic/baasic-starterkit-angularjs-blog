@@ -34,3 +34,39 @@
     border-bottom: 1px solid var(--color-ultralight);
 }
 
+.input--check {
+    position: absolute;
+    left: -99999px;
+}
+
+.input--check + label {
+    cursor: pointer;
+    font-size: var(--type-small);
+    display: inline-block;
+    vertical-align: middle;
+    font-family: var(--ff-sans);
+    color: var(--color-light);
+    font-size: 0.8em;
+}
+
+.input--check + label:before {
+    transition: all .5s;
+    content: '';
+    display: block;
+    height: 0.8rem;
+    width: 0.8rem;
+    vertical-align: 0;
+    margin-right: 0.8rem;
+    margin-left: 0.4rem;
+    border: 1px solid var(--color-light);
+    display: inline-block;
+}
+
+.input--check:checked + label:before {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.input--check:focus + label:before {
+    border-color: var(--color-primary);
+}

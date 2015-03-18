@@ -5,11 +5,16 @@
 .post {
 }
 .post__header {
+    text-align: center;
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
-    z-index: -1;
     padding: 4.5rem 1.5rem;
+}
+.post__header__container {
+    max-width: 60em;
+    margin-right: auto;
+    margin-left: auto;
 }
 .post__header__overlay {
     position: absolute;
@@ -33,13 +38,16 @@
     color: white;
 }
 .post__body {
-    padding: 0 1.5rem;
     margin-bottom: 3rem;
+    padding: 0 1.5rem;
+    max-width: 48em;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media all and (--from-medium) {
     .post__body {
-        padding: 0 3rem;
+        /*padding: 0 3rem;*/
     }
     .post__header {
         padding: 6rem 3rem;
@@ -52,8 +60,8 @@
     }
 }
 @media all and (--from-large) {
-    .post__body {
-        padding: 0 6rem;
+    .post__body { 
+        /*padding: 0 6rem;*/
     }
     .post__header {
         padding: 6rem;
@@ -74,6 +82,6 @@
     .post__visual {
     }
     .post__body {
-        padding: 0 18rem 0 12rem;
+       /* padding: 0 30rem 0 30rem;*/
     }
 }

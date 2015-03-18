@@ -18,6 +18,8 @@
 .btn:focus {
     outline: 0;
 }
+
+
 .btn.\--primary {
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
@@ -28,6 +30,7 @@
     background: var(--color-primary);
     color: white;
 }
+
 .btn.\--secondary {
     border: 1px solid var(--color-secondary);
     color: var(--color-secondary);
@@ -38,6 +41,18 @@
     background: var(--color-secondary);
     color: white;
 }
+
+.btn.\--inverse {
+    border: 1px solid var(--color-ultralight);
+    color: var(--color-ultralight);
+}
+.btn.\--inverse:hover,
+.btn.\--inverse:focus,
+.btn.\--inverse:active {
+    background: var(--color-ultralight);
+    color: black;
+}
+
 .btn.\--light {
     border: 1px solid var(--color-ultralight);
     color: var(--color-grey);
@@ -47,21 +62,26 @@
 .btn.\--light:active {
     border-color: var(--color-light);
 }
+
+
 .btn.\--sml {
     font-size: var(--type-tiny);
     height: var(--base-line-height);
+    line-height: var(--base-line-height);
     padding-left: 1rem;
     padding-right: 1rem;
 }
 .btn.\--med {
     font-size: var(--type-tiny);
     height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
     padding-left: 1rem;
     padding-right: 1rem;
 }
 .btn.\--lrg {
     font-size: var(--type-medium);
     height: calc(var(--base-line-height)*2);
+    line-height: calc(var(--base-line-height)*2);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
