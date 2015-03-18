@@ -1,7 +1,13 @@
 ﻿angular.module('baasic.blog')
-    .controller('NewBlogPostCtrl', ['$scope', '$state', 'baasicBlogService',
-        function NewBlogPostCtrl($scope, $state, blogService) {
+    .controller('NewBlogPostCtrl', ['$scope', '$state', 'baasicBlogService', 'markdownConverter',
+        function NewBlogPostCtrl($scope, $state, blogService, markdownConverter) {
             'use strict';
+
+            $scope.state = {
+                conentent: {
+                    viewMode: 'markdown'
+                }
+            };
 
             $scope.saveBlog = function saveBlog() {
                 if ($scope.blogPost.$valid) {
@@ -19,5 +25,9 @@
             $scope.cancelEdit = function cancelEdit() {
                 $state.go('master.index');
             };
+
+            $scope.getHtml = function getHtml(content) {
+                return markdownConverter.makeHtml(content);
+            }
         }
     ]);

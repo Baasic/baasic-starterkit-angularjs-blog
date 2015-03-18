@@ -4,6 +4,7 @@ angular.module('baasic.blog', [
 
 angular.module('myBlog', [
   'ui.router',
+  'btford.markdown',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',

@@ -17,6 +17,22 @@
         <div class="form__field">
             <label class="form__label" for="fieldContent">Content</label>
             <textarea name="content" id="fieldContent" ng-model="blog.content" class="input input--textarea"></textarea>
+
+            <div>
+                <select ng-model="state.conentent.viewMode">
+                    <option value="markdown" selected>Preview</option>
+                    <option value="html">Html</option>
+                    <option value="help">Syntax Highlight</option>
+                </select>
+                <div ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
+                </div>
+                <div ng-if="state.conentent.viewMode === 'html'">
+                    {{ getHtml(blog.content) }}
+                </div>
+                <div ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'">
+
+                </div>
+            </div>
         </div>
         <div class="form__field">
             <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky" class="input--check"><label for="fieldSticky">Sticky post</label>
