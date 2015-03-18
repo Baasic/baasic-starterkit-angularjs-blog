@@ -1,13 +1,32 @@
-﻿<form name="blogPost" novalidate>
-    <label>Title</label>
-    <input type="text" name="title" ng-model="blog.title" required />
-    <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
-    <label>Body</label>
-    <textarea name="content" ng-model="blog.content"></textarea>
+﻿<div class="layout__form">
 
-    <button type="button" ng-click="saveBlog()">Save</button>
-
-    <div ng-show="error">
-        {{ error }}
-    </div>
-</form>
+    <form name="blogPost" novalidate class="form">
+        <div class="form__field">
+            <label class="form__label" for="fieldTitle">Title</label>
+            <input type="text" name="title" id="fieldTitle" ng-model="blog.title" class="input input--text" required />
+            <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="fieldBody">Featured image</label>
+            <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="fieldExcerpt">Excerpt</label>
+            <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea"></textarea>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="fieldContent">Content</label>
+            <textarea name="content" id="fieldContent" ng-model="blog.content" class="input input--textarea"></textarea>
+        </div>
+        <div class="form__field">
+            <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky" class="input--check"><label for="fieldSticky">Sticky post</label>
+        </div>
+        <div class="form__field">
+            <button type="submit" class="btn --primary --med rounded" ng-click="saveBlog()">Save</button>
+            <button type="button" class="btn --light --med rounded" ng-click="cancelEdit()">Cancel</button>
+        </div>
+        <div ng-show="error">
+            {{ error }}
+        </div>
+    </form>
+</div>

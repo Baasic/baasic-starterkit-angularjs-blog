@@ -1,14 +1,10 @@
-﻿<form name="login" novalidate ng-submit="submitLogin()">
+﻿<form name="login" ng-submit="submitLogin()">
     <label>Username</label>
     <input type="text" name="username" ng-model="username" required placeholder="Enter your email or username" />
-    <div ng-show="login.$submitted || login.username.$touched">
-        <p ng-show="login.username.$error.required">Username is required.</p>
-    </div>
+    <p ng-show="(login.$submitted || login.username.$touched) && login.username.$error.required">Username is required.</p>
     <label>Password</label>
     <input type="password" name="password" ng-model="password" required placeholder="Password" autocomplete="off" />
-    <div ng-show="login.$submitted || login.password.$touched">
-        <p ng-show="login.password.$error.required">Password is required.</p>
-    </div>
+    <p ng-show="(login.$submitted || login.password.$touched) && login.password.$error.required">Password is required.</p>
     <button type="submit">Login</button>
     <p ng-show="loginError">
         {{loginError}}

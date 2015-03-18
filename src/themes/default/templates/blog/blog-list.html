@@ -1,18 +1,37 @@
-﻿<section>
-    <article ng-if="hasBlogs" ng-repeat="blog in blogList.item">
-        <h2><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
-        <p>
-            {{ blog.dateUpdated | date : 'medium' }}
-        </p>
-    </article>
-    <article ng-if="!hasBlogs">
-        <p>
-            No blogs.
-        </p>
-    </article>
-
-    <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
-        <button type="button" ng-show="pager.hasPrevious" ng-click="prevPage()">Prev</button>
-        <button type="button" ng-show="pager.hasNext" ng-click="nextPage()">Next</button>
-    </pager>
-</section>
+﻿<article
+    class="article article--ingrid"
+    ng-if="hasBlogs"
+    ng-repeat="blog in blogList.item"
+    ng-class=" { 'article--lrg': blog.sticky , 'article--sml': !blog.sticky } "
+>
+    <div class="article__holder">
+        <figure class="article__figure">
+            <img src="{{ blog.featured }}" alt="Test photo">
+        </figure>
+        <div class="article__content">
+            <header class="article__header">
+                <a href="#" class="article__cat">European culture</a>
+                <h2 class="article__title">
+                    <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
+                </h2>
+                <span class="article__date">{{ blog.dateUpdated | date : 'medium' }}</span>
+            </header>
+            <div class="article__summary">
+                <p class="article__summary__text">{{ blog.excerpt }}</p>
+            </div>
+            <div class="article__info">
+                <div class="article__readmore">
+                    <button type="button" ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --light --med rounded">Read more &hellip;</button>
+                </div>
+                <span class="article__readingtime">7 min read</span>
+            </div>
+        </div>
+    </div>
+</article>
+<article ng-if="!hasBlogs">
+    <p>No blog posts added.</p>
+</article>
+<div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
+    <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
+    <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
+</div>

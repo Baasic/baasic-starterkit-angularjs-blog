@@ -21,7 +21,7 @@ var htmlminOpts = {
     removeRedundantAttributes: true
 };
 
-var theme = 'default';
+var theme = g.util.env.theme || 'default';
 
 /**
  * JS Hint
@@ -48,6 +48,13 @@ gulp.task('styles', ['clean-css'], function () {
       './src/themes/' + theme + '/src/app.css'
     ])
       .pipe(g.pleeease({
+          'browsers': ['last 2 version'],
+          'filters': true,
+          
+          'minifier': false,
+          'mqpacker': false,
+          'sourcemaps': false,
+          'next': true,
           'import': {
               'path': './src/themes/' + theme + '/src'
             }

@@ -1,11 +1,14 @@
-﻿<a ui-sref="master.index">Home</a>
-<article ng-hide="isEdit">
-    <h2>{{ blog.title }}</h2>
-    <p>{{ blog.dateUpdated | date : 'medium' }}</p>
-
-    <p>
+﻿<article class="post" ng-hide="isEdit">
+    <header class="post__header">
+        <a href="javascript:void(0);" ui-sref="master.index" rel="home">Back</a>
+        <h2 class="post__title">{{ blog.title }}</h2>
+        <img class="post__visual" src="/{{ blog.featured }}">
+        <span class="post__header__overlay"></span>
+    </header>
+    <div class="post__body styled-text">
+        <p>{{ blog.dateUpdated | date : 'medium' }}</p>
         {{ blog.content }}
-    </p>
+    </div>
 </article>
 
 <div ng-show="isEdit" ng-include="editTemplateUrl">
@@ -13,6 +16,6 @@
 </div>
 
 <div ng-if="$root.user.isAuthenticated">
-    <button type="button" ng-click="editBlog()">Edit</button>
-    <button type="button" ng-click="deleteBlog()">Delete</button>
+    <button type="button" class="btn --primary --med rounded" ng-click="editBlog()">Edit</button>
+    <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
 </div>

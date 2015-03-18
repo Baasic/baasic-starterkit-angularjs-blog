@@ -9,7 +9,7 @@
                 if ($scope.register.$valid) {
                     var challengeId = recaptchaService.challenge(),
                         challengeResponse = recaptchaService.response();
-                    if (challengeResponse !== undefined && challengeResponse !== null && challengeResponse !== '') {
+                    if (challengeResponse !== '') {
                         var req = $scope.registerRequest;
                         req.challengeIdentifier = challengeId;
                         req.challengeResponse = challengeResponse;
@@ -23,7 +23,7 @@
                                 $scope.registerError = error.message;
                             });
                     } else {
-                        $scope.registerError = 'Need to complete recaptcha.';
+                        $scope.registerError = 'Captcha code is required.';
                     }
                 }
             };

@@ -15,8 +15,8 @@ angular.module('myApp', [
         'use strict';
 
         baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'api.baasic.local',
-            apiVersion: 'beta'
+            apiRootUrl: 'baasic.buildserver',
+            apiVersion: 'staging'
         });
 
         $locationProvider.html5Mode({
@@ -66,6 +66,16 @@ angular.module('myApp', [
                 templateUrl: 'templates/account/activate-user.html',
                 controller: 'ActivateUserCtrl'
             })
+            .state('master.forgot-password', {
+                url: 'forgot-password',
+                templateUrl: 'templates/account/password-recovery.html',
+                controller: 'PasswordRecoveryCtrl'
+            })
+            .state('master.reset-password', {
+                url: 'reset-password/{token}',
+                templateUrl: 'templates/account/password-recovery-change.html',
+                controller: 'PasswordRecoveryChangeCtrl'
+            })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',
@@ -75,41 +85,6 @@ angular.module('myApp', [
                 url: 'blog-post/{slug}',
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
-            })
-            .state('master.show-page', {
-                url: 'pages/{slug}',
-                templateUrl: 'templates/page/show-page.html',
-                controller: 'ShowPageCtrl'
-            })
-            .state('master.page-list', {
-                url: 'page-management',
-                templateUrl: 'templates/page/page-list.html',
-                controller: 'PagesCtrl'
-            })
-            .state('master.page-edit', {
-                url: 'page-management/edit/{slug}',
-                templateUrl: 'templates/page/page-edit.html',
-                controller: 'EditPageCtrl'
-            })
-            .state('master.new-page', {
-                url: 'page-management/new',
-                templateUrl: 'templates/page/page-edit.html',
-                controller: 'EditPageCtrl'
-            })
-            .state('master.menu-list', {
-                url: 'menu-management',
-                templateUrl: 'templates/navigation/menu-list.html',
-                controller: 'MenuListCtrl'
-            })
-            .state('master.menu-edit', {
-                url: 'menu-management/edit/{id}',
-                templateUrl: 'templates/navigation/menu-edit.html',
-                controller: 'EditMenuCtrl'
-            })
-            .state('master.new-menu', {
-                url: 'menu-management/new',
-                templateUrl: 'templates/navigation/menu-edit.html',
-                controller: 'EditMenuCtrl'
             })
             .state('404', {
                 templateUrl: 'templates/404.html'

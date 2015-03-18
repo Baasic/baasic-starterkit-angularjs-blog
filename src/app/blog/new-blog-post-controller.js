@@ -15,5 +15,9 @@
                         });
                 }
             };
+
+            $scope.cancelEdit = function cancelEdit() {
+                $state.go("master.index");
+            };
         }
     ]);
