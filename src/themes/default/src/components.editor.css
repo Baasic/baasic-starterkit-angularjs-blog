@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    # components.editor
+\*------------------------------------*/
+
+.editor__field {
+    border-bottom: 1px solid var(--color-light);
+    box-shadow: 1px 1px 1px var(--color-ultralight);
+    height: 35rem;
+    
+    padding: 1rem;
+    overflow: auto; 
+}
+
+.editor__type .editor__field {
+    background-color: transparent;
+    color: var(--color-dark);
+}
+.editor__preview .editor__field {
+    background-color: transparent;
+    color: var(--color-dark);
+}
+.editor__field::placeholder { 
+    color: var(--color-light);
+    font-family: var(--ff-serif);
+
+}
+.editor__header {
+    padding: 1rem;
+    background: white;
+    background-color: var(--color-ultralight);
+    margin-bottom: 1rem;
+}
+.editor__header select {
+    float: right;
+}
+
+@media all and (--from-medium) {
+    .editor__type {
+        width: 49%;
+        float: left;
+        margin-right: 1%;
+    }
+    .editor__preview {
+        width: 50%;
+        float: right;
+    }
+}

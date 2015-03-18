@@ -1,9 +1,11 @@
 ﻿<article class="post" ng-hide="isEdit">
     <header class="post__header">
-        <a href="javascript:void(0);" ui-sref="master.index" rel="home">Back</a>
-        <h2 class="post__title">{{ blog.title }}</h2>
-        <img class="post__visual" src="/{{ blog.featured }}">
-        <span class="post__header__overlay"></span>
+        <div class="post__header__container">
+            <a class="btn --inverse --med rounded spc--bottom--med" href="javascript:void(0);" ui-sref="master.index" rel="home">Back</a>
+            <h2 class="post__title">{{ blog.title }}</h2>
+            <img class="post__visual" src="/{{ blog.featured }}">
+            <span class="post__header__overlay"></span>
+        </div>
     </header>
     <div class="post__body styled-text">
         <p>{{ blog.dateUpdated | date : 'medium' }}</p>
@@ -11,12 +13,13 @@
         </div>
     </div>
 </article>
+<div class="post__body">
+    <div ng-show="isEdit" ng-include="editTemplateUrl">
 
 <div ng-show="isEdit" ng-include="'templates/blog/new-blog-post.html'">
 
-</div>
-
-<div ng-if="$root.user.isAuthenticated">
-    <button type="button" class="btn --primary --med rounded" ng-click="editBlog()">Edit</button>
-    <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
+    <div ng-if="$root.user.isAuthenticated">
+        <button type="button" class="btn --primary --med rounded" ng-click="editBlog()">Edit</button>
+        <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
+    </div>
 </div>

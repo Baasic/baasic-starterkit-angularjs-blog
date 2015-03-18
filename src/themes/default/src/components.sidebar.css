@@ -25,10 +25,6 @@
     border-top: 1px solid var(--color-ultralight);
     margin-bottom: 0.75rem;
 }
-.sidebar__message {
-    margin-bottom: 1.5rem;
-    color: var(--color-grey);
-}
 
 @media all and (--to-large) {
     .sidebar__navigation {
