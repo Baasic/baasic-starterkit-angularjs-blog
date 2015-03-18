@@ -1,4 +1,4 @@
-Baasic WebSite StarterKit based on AngularJS
+Baasic Blog StarterKit based on AngularJS
 ============
 
 ## Development

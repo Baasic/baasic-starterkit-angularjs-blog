@@ -1,11 +1,11 @@
 {
-  "name": "baasic-web-site-starter-kit",
+  "name": "baasic-blog-starter-kit",
   "main": [
     "/dist/myApp.min.js",
     "/dist/myApp.min.css"
   ],
   "version": "0.1.0",
-  "description": "Baasic web site starter kit.",
+  "description": "Baasic blog starter kit.",
   "authors": [
     "Kristijan Horvat"
   ],
