@@ -17,13 +17,9 @@
         <div class="form__field">
             <label class="form__label" for="fieldContent">Content</label>
             <p class="spc--bottom--med">Write your post in markdown format...</p>
-            <div class="input group">
-                    <select ng-model="state.conentent.viewMode">
-                        <option value="markdown" selected>Preview</option>
-                        <option value="html">Html</option>
-                        <option value="help">Syntax Highlight</option>
-                    </select>
-                </div>
+            <button ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+            <button ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+            <button ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Sysntax Highlight</button>
             
             <div class="group">
                 <div class="editor__type">

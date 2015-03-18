@@ -13,13 +13,12 @@
         </div>
     </div>
 </article>
-<div class="post__body">
-    <div ng-show="isEdit" ng-include="editTemplateUrl">
-
-<div ng-show="isEdit" ng-include="'templates/blog/new-blog-post.html'">
-
+<div class="post__body" ng-hide="isEdit">
     <div ng-if="$root.user.isAuthenticated">
         <button type="button" class="btn --primary --med rounded" ng-click="editBlog()">Edit</button>
         <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
     </div>
+</div>
+
+<div ng-show="isEdit" ng-include="'templates/blog/new-blog-post.html'">
 </div>
