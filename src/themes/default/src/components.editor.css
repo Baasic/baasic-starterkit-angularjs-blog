@@ -19,6 +19,13 @@
     background-color: transparent;
     color: var(--color-dark);
 }
+.editor__preview h1,
+.editor__preview h2,
+.editor__preview h3,
+.editor__preview h4 {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
 .editor__field::placeholder { 
     color: var(--color-light);
     font-family: var(--ff-serif);
