@@ -25,6 +25,13 @@
     background: color(black a(0.2));
     z-index: -1;
 }
+.post__time {
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-light);
+}
 .post__visual {
     position: absolute;
     top: 0;

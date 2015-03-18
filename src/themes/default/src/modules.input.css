@@ -22,7 +22,7 @@
 .input:active::placeholder {
 }
 .input::placeholder {
-    color: var(--color-grey);
+    color: color(var(--color-ultralight) blackness(20%));
     font-size: var(--type-base);
     font-family: var(--ff-sans);
 }
