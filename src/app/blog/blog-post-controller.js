@@ -3,8 +3,6 @@
         function BlogPostCtrl($scope, $state, blogService) {
             'use strict';
 
-            $scope.editTemplateUrl = 'templates/blog/new-blog-post.html';
-
             $scope.$on('$includeContentLoaded', function (evt) {
                 $scope.form = evt.targetScope.blogPost;
             });

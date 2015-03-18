@@ -7,11 +7,12 @@
     </header>
     <div class="post__body styled-text">
         <p>{{ blog.dateUpdated | date : 'medium' }}</p>
-        {{ blog.content }}
+        <div btf-markdown="blog.content">
+        </div>
     </div>
 </article>
 
-<div ng-show="isEdit" ng-include="editTemplateUrl">
+<div ng-show="isEdit" ng-include="'templates/blog/new-blog-post.html'">
 
 </div>
 
