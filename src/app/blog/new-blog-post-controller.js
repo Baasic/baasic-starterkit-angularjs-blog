@@ -17,7 +17,7 @@
             };
 
             $scope.cancelEdit = function cancelEdit() {
-                $state.go("master.index");
+                $state.go('master.index');
             };
         }
     ]);

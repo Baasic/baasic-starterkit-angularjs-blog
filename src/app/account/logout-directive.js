@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .directive('baasicLogout', ['$parse',
         function baasicLogout($parse) {
             'use strict';

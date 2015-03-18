@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .controller('PasswordRecoveryCtrl', ['$scope', '$state', 'baasicRecaptchaService', 'baasicPasswordRecoveryService',
         function PasswordRecoveryCtrl($scope, $state, recaptchaService, pwdRecoveryService) {
             $scope.requestChange = function () {

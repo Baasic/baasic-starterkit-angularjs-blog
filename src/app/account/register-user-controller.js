@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .controller('RegisterUserCtrl', ['$scope', '$state', 'baasicUserRegisterService', 'baasicRecaptchaService',
         function RegisterUserCtrl($scope, $state, registerService, recaptchaService) {
             'use strict';

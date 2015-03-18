@@ -269,7 +269,7 @@ function buildTemplates() {
     return lazypipe()
       .pipe(g.ngHtml2js, {
           declareModule: false,
-          moduleName: 'myApp',
+          moduleName: 'myBlog',
           prefix: 'templates/'
       })
       .pipe(g.concat, bower.name + '-templates.js')

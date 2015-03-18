@@ -1,8 +1,8 @@
 {
   "name": "baasic-blog-starter-kit",
   "main": [
-    "/dist/myApp.min.js",
-    "/dist/myApp.min.css"
+    "/dist/myBlog.min.js",
+    "/dist/myBlog.min.css"
   ],
   "version": "0.1.0",
   "description": "Baasic blog starter kit.",

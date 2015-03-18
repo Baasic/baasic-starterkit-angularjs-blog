@@ -2,9 +2,8 @@
   "name": "baasic-angularjs-blog-starter-kit",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "gulp watch",
-    "test": "gulp test"
+   "scripts": {
+    "postinstall": "bower install"
   },
   "dependencies": {},
   "devDependencies": {

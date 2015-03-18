@@ -2,9 +2,8 @@ angular.module('baasic.blog', [
     'baasic.article'
 ]);
 
-angular.module('myApp', [
+angular.module('myBlog', [
   'ui.router',
-  'ui.tree',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',

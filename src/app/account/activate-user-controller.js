@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .controller('ActivateUserCtrl', ['$scope', '$state', 'baasicUserRegisterService',
         function ActivateUserCtrl($scope, $state, registerService) {
             'use strict';
