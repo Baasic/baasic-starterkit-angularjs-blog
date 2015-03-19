@@ -5,6 +5,16 @@
 
             $scope.$on('$includeContentLoaded', function (evt) {
                 $scope.form = evt.targetScope.blogPost;
+
+                evt.targetScope.state = {
+                    conentent: {
+                        viewMode: 'markdown'
+                    }
+                };
+
+                evt.targetScope.cancelEdit = function cancelEdit() {
+                    $scope.isEdit = false;
+                };
             });
 
             blogService.get($state.params.slug)

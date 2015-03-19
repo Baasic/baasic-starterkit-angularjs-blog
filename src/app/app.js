@@ -96,23 +96,6 @@ angular.module('myBlog', [
 	function MainCtrl($scope, $state, loginService, baasicAuthService) {
 	    'use strict';
 
-	    var userDetails = baasicAuthService.getUser();
-	    var user;
-	    if (userDetails !== undefined && userDetails !== null) {
-	        user = {
-	            isAuthenticated: true,
-	            isAdmin: userDetails.roles.indexOf('Administrators') !== -1
-	        };
-
-	        angular.extend($scope.$root.user, userDetails);
-	    } else {
-	        user = {
-	            isAuthenticated: false
-	        };
-	    }
-
-	    $scope.$root.user = user;
-
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
 	            isAuthenticated: false
@@ -131,5 +114,30 @@ angular.module('myBlog', [
         $scope.goHome = function goHome() {
             $state.go('master.index');
         };
+    }
+])
+.run(['$rootScope', '$window', 'baasicAuthorizationService',
+    function moduleRun($rootScope, $window, baasicAuthService) {
+        var token = baasicAuthService.getAccessToken();
+        var userDetails;
+        if (token) {
+            userDetails = baasicAuthService.getUser();
+        }
+
+        var user;
+        if (userDetails !== undefined && userDetails !== null) {
+            user = {
+                isAuthenticated: true,
+                isAdmin: userDetails.roles.indexOf('Administrators') !== -1
+            };
+
+            angular.extend(user, userDetails);
+        } else {
+            user = {
+                isAuthenticated: false
+            };
+        }
+
+        $rootScope.user = user;
     }
 ]);

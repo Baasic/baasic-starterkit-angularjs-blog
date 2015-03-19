@@ -1,6 +1,8 @@
 ﻿angular.module('myBlog')
     .controller('PasswordRecoveryCtrl', ['$scope', '$state', 'baasicRecaptchaService', 'baasicPasswordRecoveryService',
         function PasswordRecoveryCtrl($scope, $state, recaptchaService, pwdRecoveryService) {
+            'use strict';
+
             $scope.requestChange = function () {
                 if ($scope.recovery.$valid) {
                     $scope.request.challengeIdentifier = recaptchaService.challenge();
