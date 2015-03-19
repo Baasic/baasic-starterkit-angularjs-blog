@@ -23,7 +23,7 @@
                 <div class="article__readmore">
                     <button type="button" ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --light --med rounded">Read more &hellip;</button>
                 </div>
-                <span class="article__readingtime">7 min read</span>
+                <span class="article__readingtime">{{ blog.readingTime.text }}</span>
             </div>
         </div>
     </div>
