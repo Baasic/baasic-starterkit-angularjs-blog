@@ -90,7 +90,7 @@
                                 $scope.blog.readingTime = readingTime($scope.blog.content);
 
                                 var promise;
-                                if ($scope.isNew) {
+                                if (isNew) {
                                     $scope.blog.status = blogService.blogStatus.published; // Publish blog
                                     promise = blogService.create($scope.blog);
                                 } else {
@@ -130,10 +130,12 @@
                                 search: query
                             })
                                 .success(function (tags) {
-                                    var displayTags = [{ text: 'jea' }];
-                                    tags.forEach(function (tag) {
+                                    var displayTags = [];
+                                    tags.item.forEach(function (tag) {
                                         displayTags.push({
-                                            text: tag.tag
+                                            id: tag.id,
+                                            text: tag.tag,
+                                            slug: tag.slug
                                         });
                                     });
                                     deferred.resolve(displayTags);
