@@ -34,16 +34,17 @@
 
 }
 .editor__header {
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
     text-align: right;
 }
 .editor__header button {
     margin-left: 0.5rem;
 }
 .editor__explain {
-    width: 50%;
+    display: block;
     text-align: left;
     color: var(--color-light);
+    margin-bottom: 1rem;
 }
 
 @media all and (--from-medium) {
@@ -55,5 +56,8 @@
     .editor__preview {
         width: 50%;
         float: right;
+    }
+    .editor__header {
+        height: 4rem;
     }
 }

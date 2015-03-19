@@ -34,7 +34,25 @@
     min-height: 9rem;
     border-bottom: 1px solid var(--color-ultralight);
 }
-
+.input--search {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    border: 0;
+    border-bottom: 1px solid var(--color-ultralight);
+    background: white;
+    transition: all .2s;
+    padding: 0rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+}
+.input--search:hover,
+.input--search:focus,
+.input--search:active {
+    outline: 0;
+    border-color: var(--color-light);
+}
 .input--check {
     position: absolute;
     left: -99999px;

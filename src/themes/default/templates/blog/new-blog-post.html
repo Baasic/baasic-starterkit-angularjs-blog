@@ -8,6 +8,7 @@
         </div>
         <div class="form__field">
             <label class="form__label" for="fieldBody">Featured image</label>
+            <small class="form__desc">Relative paths should start with "/" and absolute paths should start with"http".</small>
             <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" pattern="^(\/|https?:\/\/).*" />
             <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.featured.$touched) && blogPost.featured.$error.pattern">Url link must be valid url starting with / or http</p>
         </div>
@@ -18,22 +19,22 @@
         <div class="form__field spc--bottom--med">
             <label class="form__label" for="fieldContent">Content</label>
             
-            <div class="editor__header group">
-                <p class="editor__explain pull">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</p>
-                <div class="push">
-                    <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                    <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                    <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
-                </div>
-            </div>
+            
             
             <div class="group">
                 <div class="editor__type">
+                    <div class="editor__header">
+                        <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
+                    </div>
                     <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
                 </div>
 
                 <div class="editor__preview">
-                    
+                    <div class="editor__header">
+                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                    </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>
                     <div class="editor__field" ng-if="state.conentent.viewMode === 'html'">
