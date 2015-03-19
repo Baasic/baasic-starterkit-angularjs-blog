@@ -53,6 +53,10 @@
     outline: 0;
     border-color: var(--color-light);
 }
+.input--search:focus {
+    padding: 0rem 2rem 1rem 1rem;
+    transition: all .2s;
+}
 .input--check {
     position: absolute;
     left: -99999px;
