@@ -9,7 +9,7 @@ html {
 body {
     font-family: var(--ff-serif);
     min-width: 20rem;
-    background: #fcfcfc;
+    background: var(--color-bodybg);
     color: var(--color-dark);
 }
 .row {

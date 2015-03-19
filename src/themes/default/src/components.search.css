@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    # components.search
+\*------------------------------------*/
+.search {
+    margin-bottom: 1rem;
+    position: relative;
+}
+.search__main {
+    width: 90%;
+    float: left;
+}
+.search__aside {
+    width: 10%;
+    float: right;
+}
