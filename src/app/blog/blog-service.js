@@ -1,6 +1,6 @@
 ﻿angular.module('baasic.blog')
-    .service('baasicBlogService', ['baasicApiHttp', 'baasicArticleService',
-        function baasicBlogService(baasicApiHttp, baasicArticleService) {
+    .service('baasicBlogService', ['baasicApiHttp', 'baasicArticleService', 'baasicArticleTagsService',
+        function baasicBlogService(baasicApiHttp, baasicArticleService, baasicArticleTagsService) {
             'use strict';
 
             this.blogStatus = {
@@ -74,6 +74,11 @@
                     return baasicApiHttp.get(prevLink.href);
                 }
             };
+
+            this.tags = {
+                find: function find(options) {
+                    return baasicArticleTagsService.find(options);
+                }
+            };
         }
-    ]
-);
+    ]);

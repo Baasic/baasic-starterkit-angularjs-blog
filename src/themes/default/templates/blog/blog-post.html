@@ -21,5 +21,6 @@
     </div>
 </div>
 
-<div ng-show="isEdit" ng-include="'templates/blog/new-blog-post.html'">
-</div>
+<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+
+</baasic-blog-edit>

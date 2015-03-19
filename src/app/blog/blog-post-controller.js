@@ -3,20 +3,6 @@
         function BlogPostCtrl($scope, $state, blogService) {
             'use strict';
 
-            $scope.$on('$includeContentLoaded', function (evt) {
-                $scope.form = evt.targetScope.blogPost;
-
-                evt.targetScope.state = {
-                    conentent: {
-                        viewMode: 'markdown'
-                    }
-                };
-
-                evt.targetScope.cancelEdit = function cancelEdit() {
-                    $scope.isEdit = false;
-                };
-            });
-
             blogService.get($state.params.slug)
                 .success(function (blog) {
                     $scope.blog = blog;
@@ -39,15 +25,12 @@
                 $scope.isEdit = true;
             };
 
-            $scope.saveBlog = function saveBlog() {
-                if ($scope.form.$valid) {
-                    blogService.update($scope.blog)
-                        .success(function () {
-                            $scope.isEdit = false;
-                        })
-                        .error(function (error) {
-                        });
-                }
+            $scope.blogSaved = function blogSaved() {
+                $scope.isEdit = false;
+            };
+
+            $scope.cancelEdit = function cancelEdit() {
+                $scope.isEdit = false;
             };
         }
     ]);

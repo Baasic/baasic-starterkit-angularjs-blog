@@ -5,6 +5,7 @@ angular.module('baasic.blog', [
 angular.module('myBlog', [
   'ui.router',
   'btford.markdown',
+  'ngTagsInput',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -92,8 +93,8 @@ angular.module('myBlog', [
     }
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
-.controller('MainCtrl', ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
-	function MainCtrl($scope, $state, loginService, baasicAuthService) {
+.controller('MainCtrl', ['$scope', '$state',
+	function MainCtrl($scope, $state) {
 	    'use strict';
 
 	    $scope.setEmptyUser = function setEmptyUser() {
@@ -118,6 +119,8 @@ angular.module('myBlog', [
 ])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {
+        'use strict';
+
         var token = baasicAuthService.getAccessToken();
         var userDetails;
         if (token) {
