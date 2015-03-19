@@ -15,8 +15,12 @@
                             </div>
                         </div>
                         <p class="header__author">Mark Twain’s</p>
-                        <h1><a href="/" class="header__title">The Adventures of Tom Sawyer</a></h1>
+                        <h1 class="header__title">The Adventures of Tom Sawyer</h1>
                         <p class="header__desc">I travel and write of my travelling adventures, the world, the culture and the people.</p>
+                        <div class="search">
+                            <input class="input--search" placeholder="Search..." type="search"/>
+                            <input class="btn --primary --med rounded" type="submit" value="search"/>
+                        </div>
                     </header>
                     <nav class="sidebar__navigation" role="navigation">
                         <h2 class="sidebar__title">Categories</h2>
@@ -60,7 +64,9 @@
                                 <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
-                        <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a></div>
+                        <div ng-if="!$root.user.isAuthenticated">
+                        <p class="sidebar__message">To create new blog please </p>
+                        <a class="btn --primary --med rounded" ui-sref="login">login</a></div>
                     </div>
                 </div>
             </div>

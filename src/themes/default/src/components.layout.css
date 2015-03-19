@@ -18,8 +18,14 @@
         max-width: 100rem;
     }
 }
+
 .layout__form {
     max-width: 1024px;
-    margin: 100px auto 0 auto;
-
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-top: 5rem;
+    }
 }

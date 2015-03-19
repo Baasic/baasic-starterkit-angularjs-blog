@@ -1,42 +1,58 @@
-﻿<form ng-hide="registered" name="register" novalidate ng-submit="submitRegister()">
-    <label>Username</label>
-    <input type="text" name="username" ng-model="registerRequest.username" required placeholder="Enter your username" />
-    <div ng-show="register.$submitted || register.username.$touched">
-        <p ng-show="register.username.$error.required">Username is required.</p>
+﻿<div class="layout__form">
+    <h1 class="spc--bottom--lrg">Login</h1>
+    <form ng-hide="registered" name="register" novalidate ng-submit="submitRegister()">
+        <div class="group">
+            <div class="form__field--half">
+                <label class="form__label">Username</label>
+                <input class="input input--text" type="text" name="username" ng-model="registerRequest.username" required placeholder="Enter your username" />
+                <div ng-show="register.$submitted || register.username.$touched">
+                    <p class="alert alert--warning" ng-show="register.username.$error.required">Username is required.</p>
+                </div>
+            </div>
+            <div class="form__field--half">
+                <label class="form__label">Email</label>
+                <input class="input input--text" type="email" name="email" ng-model="registerRequest.email" required placeholder="Enter your email" />
+                <div ng-show="register.$submitted || register.email.$touched">
+                    <p class="alert alert--warning" ng-show="register.email.$error.required">Email is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="group">
+            <div class="form__field--half">
+                <label class="form__label">Password</label>
+                <input class="input input--text" type="password" name="password" ng-model="registerRequest.password" required placeholder="Password" ng-minlength="8" autocomplete="off" />
+                <div ng-show="register.$submitted || register.password.$touched">
+                    <p class="alert alert--warning" ng-show="register.password.$error.required">Password is required.</p>
+                    <p class="alert alert--warning" ng-show="register.password.$error.minlength">Password must be at least 8 characters long.</p>
+                </div>
+            </div>
+            <div class="form__field--half">
+                <label class="form__label">Repeat password</label>
+                <input class="input input--text" type="password" name="confirmPassword" ng-model="registerRequest.confirmPassword" placeholder="Password" ng-pattern="registerRequest.password" autocomplete="off" />
+                <div ng-show="register.$submitted || register.confirmPassword.$touched">
+                    <p class="alert alert--warning" ng-show="register.confirmPassword.$error.pattern">Passwords don't match.</p>
+                </div>
+            </div>
+        </div>
+        <div class="form__field">
+            <p>
+                Some brilliant legal text
+            </p>
+            <input id="fieldLegacy" class="input--check" type="checkbox" name="terms" ng-model="state.termsAccepted" required /><label for="fieldLegacy">I accept</label>
+        </div>
+        <div class="form__field">
+            <div baasic-recaptcha></div>
+        </div>
+        <div class="form__field">
+            <button class="btn --primary --med rounded" type="submit">Register</button>
+            <button class="btn --light --med rounded" type="button" ng-click="bailOut()">Not for me</button>
+        </div>
+        <p class="spc--bottom--med" ng-show="registerError">
+            {{registerError}}
+        </p>
+    </form>
+
+    <div ng-show="registered">
+        You have successfully registered. You should receive account activation email.
     </div>
-    <label>Email</label>
-    <input type="email" name="email" ng-model="registerRequest.email" required placeholder="Enter your email" />
-    <div ng-show="register.$submitted || register.email.$touched">
-        <p ng-show="register.email.$error.required">Email is required.</p>
-    </div>
-    <label>Password</label>
-    <input type="password" name="password" ng-model="registerRequest.password" required placeholder="Password" ng-minlength="8" autocomplete="off" />
-    <div ng-show="register.$submitted || register.password.$touched">
-        <p ng-show="register.password.$error.required">Password is required.</p>
-        <p ng-show="register.password.$error.minlength">Password must be at least 8 characters long.</p>
-    </div>
-
-    <label>Repeat password</label>
-    <input type="password" name="confirmPassword" ng-model="registerRequest.confirmPassword" placeholder="Password" ng-pattern="registerRequest.password" autocomplete="off" />
-    <div ng-show="register.$submitted || register.confirmPassword.$touched">
-        <p ng-show="register.confirmPassword.$error.pattern">Passwords don't match.</p>
-    </div>
-
-    <p>
-        Some brilliant legal text
-    </p>
-    <input type="checkbox" name="terms" ng-model="state.termsAccepted" required /><span>I accept</span>
-
-    <div baasic-recaptcha></div>
-
-    <button type="submit">Register</button>
-    <button type="button" ng-click="bailOut()">Not for me</button>
-
-    <p ng-show="registerError">
-        {{registerError}}
-    </p>
-</form>
-
-<div ng-show="registered">
-    You have successfully registered. You should receive account activation email.
 </div>
