@@ -21,8 +21,53 @@
                         onCancelFn = $parse(attrs.onCancel);
                     }
                 },
-                controller: ['$scope', '$q', 'baasicBlogService',
-                    function baasicBlogEditCtrl($scope, $q, blogService) {
+                controller: ['$scope', '$q', 'baasicBlogService', 'markdownConverter',
+                    function baasicBlogEditCtrl($scope, $q, blogService, markdownConverter) {
+                        function readingTime(text) {
+                            var words = 0, start = 0, end = text.length - 1, i;
+
+                            // fetch bounds
+                            while (whitespace(text[start])) {
+                                start++;
+                            }
+                            while (whitespace(text[end])) {
+                                end--;
+                            }
+
+                            // there no words if bounds are equal
+                            if (start === end) {
+                                return null;
+                            }
+
+                            // calculates the number of words
+                            for (i = start; i <= end;) {
+                                for (; i <= end && !whitespace(text[i]) ; i++) {
+                                    words++;
+                                }
+                                for (; i <= end && whitespace(text[i]) ; i++) {
+                                }
+                            }
+
+                            // reading time stats
+                            var minutes = words / 200;
+                            var time = minutes * 60 * 1000;
+                            var displayed = Math.ceil(minutes);
+
+                            return {
+                                text: displayed + ' min read',
+                                time: time,
+                                words: words
+                            };
+                        }
+
+                        function whitespace(c) {
+                            return (
+                                (' ' === c) ||
+                                ('\n' === c) ||
+                                ('\t' === c)
+                            );
+                        }
+
                         var isNew;
                         if (blogFn) {
                             $scope.$parent.$watch(blogFn, function (newValue) {
@@ -42,6 +87,8 @@
 
                         $scope.saveBlog = function saveBlog() {
                             if ($scope.blogPost.$valid) {
+                                $scope.blog.readingTime = readingTime($scope.blog.content);
+
                                 var promise;
                                 if ($scope.isNew) {
                                     $scope.blog.status = blogService.blogStatus.published; // Publish blog
@@ -80,20 +127,20 @@
                             var deferred = $q.defer();
 
                             blogService.tags.find({
-                                searchBy: query
-                            }).
-                            success(function (tags) {
-                                var displayTags = [{ text: 'jea' }];
-                                tags.forEach(function (tag) {
-                                    displayTags.push({
-                                        text: tag.tag
-                                    })
-                                });
-                                deferred.resolve(displayTags);
+                                search: query
                             })
-                            .error(function () {
-                                deferred.reject();
-                            });
+                                .success(function (tags) {
+                                    var displayTags = [{ text: 'jea' }];
+                                    tags.forEach(function (tag) {
+                                        displayTags.push({
+                                            text: tag.tag
+                                        });
+                                    });
+                                    deferred.resolve(displayTags);
+                                })
+                                .error(function () {
+                                    deferred.reject();
+                                });
 
                             return deferred.promise;
                         };
