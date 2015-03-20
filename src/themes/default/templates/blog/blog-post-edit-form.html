@@ -50,10 +50,10 @@
             <input type="checkbox" name="sticky" id="fieldSticky" ng-model="blog.sticky" class="input--check"><label for="fieldSticky">Sticky post</label>
         </div>
         <div class="form__field">
-            <tags-input ng-model="blog.tags" display-property="tag">
+            <tags class="form__label"-input ng-model="blog.tags" display-property="tag">
                 <auto-complete source="loadTags($query)"></auto-complete>
             </tags-input>
-            <label>Tags</label>
+            
         </div>
         <div class="form__field">
             <button type="submit" class="btn --primary --med rounded" ng-click="saveBlog()">Save</button>

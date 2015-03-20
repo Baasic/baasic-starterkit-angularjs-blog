@@ -27,5 +27,6 @@
 @media all and (--from-medium) {
     .layout__form {
         margin-top: 5rem;
+        margin-bottom: 5rem;
     }
 }

@@ -20,6 +20,7 @@
     --color-primary:     var(--color-orange);
     --color-secondary:   var(--color-citrus);
 
+    --color-bodybg: #f6f6f6;
     --color-ultralight: #e5e5e5;
     --color-light: #c1c1c1;
     --color-dark: #222;

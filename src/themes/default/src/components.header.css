@@ -8,9 +8,6 @@
 .header__toggle {
     float: right;
 }
-.header__user {
-    margin-bottom: 1.5rem;
-}
 .header__author {
     font-size: var(--type-tiny);
     font-family: var(--ff-sans);
