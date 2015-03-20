@@ -27,6 +27,9 @@
 .styledtext ol {
 }
 .styledtext pre {
+    color: var(--color-light);
+    background-color: var(--color-darkgrey);
+    padding: 1rem;
 }
 .styledtext pre code {
 }
@@ -41,8 +44,8 @@
     padding-left: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    border-left: 3px solid var(--color-ultralight);
-    color: var(--color-light);
+    border-left: 3px solid black;
+    color: black;
 }
 .styledtext blockquote:before {
 }

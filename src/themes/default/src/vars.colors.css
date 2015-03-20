@@ -24,6 +24,7 @@
     --color-ultralight: #e5e5e5;
     --color-light: #c1c1c1;
     --color-dark: #222;
+    --color-darkgrey: #333;
 
     --color-warning:     var(--color-torchred);
     --color-success:     var(--color-malachite);
