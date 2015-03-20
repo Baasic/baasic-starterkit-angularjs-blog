@@ -12,6 +12,9 @@
         <div btf-markdown="blog.content">
         </div>
     </div>
+    <div>
+        <a ng-repeat="tag in blog.tags" href="javascript:void(0);">{{ tag.tag }}</a>
+    </div>
 </article>
 <div class="post__body" ng-hide="isEdit">
     <div ng-if="$root.user.isAuthenticated">
