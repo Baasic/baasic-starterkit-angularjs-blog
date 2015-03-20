@@ -3,7 +3,9 @@
         function BlogPostCtrl($scope, $state, blogService) {
             'use strict';
 
-            blogService.get($state.params.slug)
+            blogService.get($state.params.slug, {
+                embed: 'tags'
+            })
                 .success(function (blog) {
                     $scope.blog = blog;
                 })

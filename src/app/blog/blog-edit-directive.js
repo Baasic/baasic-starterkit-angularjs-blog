@@ -130,15 +130,7 @@
                                 search: query
                             })
                                 .success(function (tags) {
-                                    var displayTags = [];
-                                    tags.item.forEach(function (tag) {
-                                        displayTags.push({
-                                            id: tag.id,
-                                            text: tag.tag,
-                                            slug: tag.slug
-                                        });
-                                    });
-                                    deferred.resolve(displayTags);
+                                    deferred.resolve(tags.item);
                                 })
                                 .error(function () {
                                     deferred.reject();
