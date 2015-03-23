@@ -9,8 +9,13 @@
     margin-bottom: 1.5rem;
 }
 .sidebar__navigation {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     padding: 0 1.5rem;
+}
+@media all and (--from-large) {
+    .sidebar__navigation {
+        margin-bottom: 3rem;
+    }
 }
 .sidebar__title {
     font-size: var(--type-tiny);
@@ -31,7 +36,7 @@
 }
 
 @media all and (--to-large) {
-    .sidebar__navigation {
+ /*   .sidebar__navigation {
         transform: translate3d(0,0,0);
         position: fixed;
         top: 3.75rem;
@@ -46,7 +51,7 @@
     }
     .sidebar__navigation.\--open {
         transform: translateX(0);
-    }
+    }*/
 }
 
 @media all and (--from-large) {

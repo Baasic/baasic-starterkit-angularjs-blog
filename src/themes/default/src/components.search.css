@@ -2,6 +2,10 @@
     # components.search
 \*------------------------------------*/
 .search {
-    margin-bottom: 1rem;
     position: relative;
+}
+@media all and (--from-large) {
+    .search {
+        margin-bottom: 1rem;
+    }
 }

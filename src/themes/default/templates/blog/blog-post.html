@@ -8,12 +8,17 @@
         </div>
     </header>
     <div class="post__body styledtext">
-        <p class="spc--bottom--med post__time">{{ blog.dateUpdated | date : 'medium' }}</p>
+        <div class="group spc--bottom--med">
+            <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
+            <span class="post__time push">{{ blog.readingTime.text }}</span>
+        </div>
         <div btf-markdown="blog.content">
         </div>
     </div>
-    <div>
-        <a ng-repeat="tag in blog.tags" href="javascript:void(0);">{{ tag.tag }}</a>
+    <ul class="post__body tags group">
+        <li ng-repeat="tag in blog.tags" class="tags__item">
+            <a class="tags__link" href="javascript:void(0);">{{ tag.tag }}</a>
+        </li>
     </div>
 </article>
 <div class="post__body" ng-hide="isEdit">
