@@ -19,7 +19,7 @@
         <li ng-repeat="tag in blog.tags" class="tags__item">
             <a class="tags__link" ui-sref="master.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
         </li>
-    </div>
+    </ul>
 </article>
 <div class="post__body" ng-hide="isEdit">
     <div ng-if="$root.user.isAuthenticated">
