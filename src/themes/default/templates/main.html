@@ -10,9 +10,11 @@
                     <header role="banner" class="header">
                         <div class="header__controls">
                             <div class="search">
-                                <input class="input--search" placeholder="Search..." type="search"/>
-               
-                                <button type="submit" class="btn--search"></button>
+                                <form novalidate ng-submit="searchBlog()">
+                                    <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+
+                                    <button type="submit" class="btn--search"></button>
+                                </form>
                             </div>
                         </div>
                         <p class="header__author">Username’s</p>
@@ -23,12 +25,7 @@
                     <nav class="sidebar__navigation" role="navigation">
                         <h2 class="sidebar__title">Recent Tags</h2>
                         <ul class="tags group">
-                            <li class="tags__item"><a href="services.html" class="tags__link ">Services</a></li>
-                            <li class="tags__item"><a href="company.html" class="tags__link">Company</a></li>
-                            <li class="tags__item"><a href="contact.html" class="tags__link">Contact</a></li>
-                            <li class="tags__item"><a href="services.html" class="tags__link">Ab</a></li>
-                            <li class="tags__item"><a href="company.html" class="tags__link">Company</a></li>
-                            <li class="tags__item"><a href="contact.html" class="tags__link">Contact</a></li>
+                            <li class="tags__item" ng-repeat="tag in tags"><a ui-sref="master.blog-search({ tags: tag.slug })" class="tags__link ">{{ tag.tag }}</a></li>
                         </ul>
                     </nav>
                     <div class="sidebar__widget header__share">

@@ -87,15 +87,33 @@ angular.module('myBlog', [
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
+            .state('master.blog-search', {
+                url: 'blog-search?{search,tags}',
+                templateUrl: 'templates/blog/blog-search-results.html',
+                controller: 'BlogSearchResultsCtrl'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
     }
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
-.controller('MainCtrl', ['$scope', '$state',
-	function MainCtrl($scope, $state) {
+.controller('MainCtrl', ['$scope', '$state', 'baasicBlogService',
+	function MainCtrl($scope, $state, blogService) {
 	    'use strict';
+
+	    blogService.tags.find({
+	        rpp: 10
+	    })
+        .success(function (tagList) {
+            $scope.tags = tagList.item;
+        });
+
+	    $scope.searchBlog = function searchBlog() {
+	        if ($scope.searchFor) {
+	            $state.go("master.blog-search", { search: $scope.searchFor })
+	        }
+	    };
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
