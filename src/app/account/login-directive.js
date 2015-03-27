@@ -36,8 +36,12 @@
                                 })
                                 .error(function (data, status) {
                                     switch (status) {
-                                        case 401:
-                                            $scope.loginError = 'Invalid email, username or password';
+                                        case 400:
+                                            if (data.error === 'invalid_grant') {
+                                                errorText = 'Invalid email, username or password';
+                                            } else {
+                                                errorText = data.error_description;
+                                            }
                                             break;
                                         default:
                                             $scope.loginError = data.message;
