@@ -22,29 +22,8 @@ bower_components/
 **/.sass-cache/
 **/node_modules/
 **/bower_components/
-*/Performance/*TestResults.txt
 **/bin
 **/obj
 
-/Source/Baasic.UIStack.Html/aspnet_client
-/Source/Baasic.WebAPI/aspnet_client
-/Source/Baasic.WebAPI/App_Data/Elmah.Errors
-/Source/TestResults
 
-/Test/LLBLGen
-/Test/MembershipEF
 
-/Documentation/Wireframes/OsmekScreenshots
-/Documentation/Wireframes/Images
-/Source/Publish/
-/Source/Baasic.WebAPI/MediaVault/
-/Backup/DB_Server_Backup.sql
-/Documentation/Baasic Manual/build/Baasic User Manual
-/Documentation/Baasic Manual/build/Default
-/Documentation/Baasic Manual/build/New Booklet
-
-/Source/Baasic.Web.HelpBuilder/HelpPageContent
-/Source/Baasic.Dashboard/bower_components/
-
-/Tools/Baasic.Web.UI.Tests/TestResults
-Source/Baasic.WebAPI/Uploads/
