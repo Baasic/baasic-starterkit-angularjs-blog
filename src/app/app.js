@@ -16,8 +16,8 @@ angular.module('myBlog', [
         'use strict';
 
         baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'baasic.buildserver',
-            apiVersion: 'staging'
+            apiRootUrl: 'api.baasic.local',
+            apiVersion: 'beta'
         });
 
         $locationProvider.html5Mode({
@@ -111,7 +111,7 @@ angular.module('myBlog', [
 
 	    $scope.searchBlog = function searchBlog() {
 	        if ($scope.searchFor) {
-	            $state.go("master.blog-search", { search: $scope.searchFor })
+	            $state.go('master.blog-search', { search: $scope.searchFor });
 	        }
 	    };
 

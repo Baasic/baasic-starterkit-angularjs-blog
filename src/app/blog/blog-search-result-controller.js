@@ -24,11 +24,11 @@
             };
 
             if ($state.params.search) {
-                options.search = $state.params.search
+                options.search = $state.params.search;
             }
 
             if ($state.params.tags) {
-                options.tags = $state.params.tags
+                options.tags = $state.params.tags;
             }
 
             blogService.find(options)

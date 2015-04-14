@@ -15,7 +15,7 @@
                         $scope.submitLogin = function submitLogin() {
                             if ($scope.login.$valid) {
                                 loginService.login({
-                                    userName: $scope.username,
+                                    username: $scope.username,
                                     password: $scope.password,
                                 })
                                 .success(function (data) {
@@ -38,9 +38,9 @@
                                     switch (status) {
                                         case 400:
                                             if (data.error === 'invalid_grant') {
-                                                errorText = 'Invalid email, username or password';
+                                                $scope.loginError = 'Invalid email, username or password';
                                             } else {
-                                                errorText = data.error_description;
+                                                $scope.loginError = data.error_description;
                                             }
                                             break;
                                         default:
