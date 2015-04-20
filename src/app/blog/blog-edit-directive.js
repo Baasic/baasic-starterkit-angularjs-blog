@@ -2,23 +2,27 @@
     .directive('baasicBlogEdit', ['$parse',
         function baasicBlogList($parse) {
             'use strict';
-            var onSaveFn,
-                onCancelFn,
-                blogFn;
 
             return {
                 restrict: 'AE',
                 scope: true,
-                compile: function (elem, attrs) {
-                    if (attrs.blog) {
-                        blogFn = attrs.blog;
-                    }
-                    if (attrs.onSave) {
-                        onSaveFn = $parse(attrs.onSave);
-                    }
+                compile: function () {
+                    return {
+                        pre: function (scope, elem, attrs) {
+                            if (attrs.blog) {
+                                scope.$parent.$watch(attrs.blog, function (newValue) {
+                                    scope.blog = newValue;
+                                    scope.isNew = newValue === undefined || newValue === null;
+                                });
+                            }
+                            if (attrs.onSave) {
+                                scope.onSaveFn = $parse(attrs.onSave);
+                            }
 
-                    if (attrs.onCancel) {
-                        onCancelFn = $parse(attrs.onCancel);
+                            if (attrs.onCancel) {
+                                scope.onCancelFn = $parse(attrs.onCancel);
+                            }
+                        }
                     }
                 },
                 controller: ['$scope', '$q', 'baasicBlogService', 'markdownConverter',
@@ -68,16 +72,7 @@
                             );
                         }
 
-                        var isNew;
-                        if (blogFn) {
-                            $scope.$parent.$watch(blogFn, function (newValue) {
-                                $scope.blog = newValue;
-                            });
-
-                            isNew = false;
-                        } else {
-                            isNew = true;
-                        }
+                        $scope.isNew = true;
 
                         $scope.state = {
                             conentent: {
@@ -90,7 +85,7 @@
                                 $scope.blog.readingTime = readingTime($scope.blog.content);
 
                                 var promise;
-                                if (isNew) {
+                                if ($scope.isNew) {
                                     $scope.blog.status = blogService.blogStatus.published; // Publish blog
                                     promise = blogService.create($scope.blog);
                                 } else {
@@ -99,8 +94,8 @@
 
                                 promise
                                     .success(function () {
-                                        if (onSaveFn) {
-                                            onSaveFn($scope.$parent);
+                                        if ($scope.onSaveFn) {
+                                            $scope.onSaveFn($scope.$parent);
                                         }
                                     })
                                     .error(function (error) {
@@ -110,8 +105,8 @@
                         };
 
                         $scope.cancelEdit = function cancelEdit() {
-                            if (onCancelFn) {
-                                onCancelFn($scope.$parent);
+                            if ($scope.onCancelFn) {
+                                $scope.onCancelFn($scope.$parent);
                             }
                         };
 
