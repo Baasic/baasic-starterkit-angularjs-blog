@@ -33,7 +33,9 @@
 
                         blogService.find({
                             statuses: ['published'],
-                            rpp: pageSizeFn($scope)
+                            rpp: pageSizeFn($scope),
+                            orderBy: 'dateUpdated',
+                            orderDirection: 'desc'
                         })
                         .success(parseBlogList)
                         .error(function (error) {
