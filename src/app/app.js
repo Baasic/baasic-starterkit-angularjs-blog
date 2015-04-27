@@ -16,8 +16,8 @@ angular.module('myBlog', [
         'use strict';
 
         baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'api.baasic.local',
-            apiVersion: 'beta'
+            apiRootUrl: 'baasic.buildserver',
+            apiVersion: 'staging'
         });
 
         $locationProvider.html5Mode({
