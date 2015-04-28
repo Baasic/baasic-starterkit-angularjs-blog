@@ -84,7 +84,7 @@
 * All project Sass or CSS plugins such as Select2, Dropit etc. 
 */
 
-/*@import "plugins.pluginname.css";*/
+@import "plugins.tageditor.css";
 
 
 /**
