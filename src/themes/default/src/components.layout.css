@@ -6,7 +6,7 @@
 @media all and (--from-large) {
     .layout {
         display: flex;
-        flex-direction: row-reverse;
+        /*flex-direction: row-reverse;*/
     }
     .layout__sidebar {
         flex: 1 0 0;

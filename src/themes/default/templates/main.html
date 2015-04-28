@@ -4,6 +4,20 @@
 
 <div class="container">
     <div class="layout">
+        <div class="layout__content">
+            <main ui-view>
+                <baasic-blog-list page-size="4" class="articles"></baasic-blog-list>
+            </main>
+            <footer class="footer" role="contentinfo">
+                <div class="footer__info">
+                    <p>Copyright @ Blog name</p>
+                    <p>Photos: <a href="http://unsplash.com">Unsplash</a></p>
+                </div>
+                <div class="footer__poweredby">
+                    <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
+                </div>
+            </footer>
+        </div>
         <aside class="layout__sidebar">
             <div class="row">
                 <div class="sidebar" role="banner">
@@ -17,7 +31,7 @@
                                 </form>
                             </div>
                         </div>
-                        <p class="header__author">Username’s</p>
+                        <!-- <p class="header__author">Username’s</p> -->
                         <h1 class="header__title">Baasic StarterKit Blog Platform</h1>
                         <p class="header__desc">I travel and write of my travelling adventures, the world, the culture and the people.</p>
                         
@@ -69,19 +83,5 @@
                 </div>
             </div>
         </aside>
-        <div class="layout__content">
-            <main ui-view>
-                <baasic-blog-list page-size="6" class="articles"></baasic-blog-list>
-            </main>
-            <footer class="footer" role="contentinfo">
-                <div class="footer__info">
-                    <p>Copyright @ Blog name</p>
-                    <p>Photos: <a href="http://unsplash.com">Unsplash</a></p>
-                </div>
-                <div class="footer__poweredby">
-                    <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
-                </div>
-            </footer>
-        </div>
     </div>
 </div>
