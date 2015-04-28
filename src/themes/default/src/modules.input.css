@@ -39,7 +39,7 @@
     width: 100%;
     cursor: pointer;
     border: 0;
-    background: white;
+    background: transparent;
     transition: all .2s;
     padding: 0 2rem 1rem 0;
     line-height: 1.5rem;
