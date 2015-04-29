@@ -14,6 +14,7 @@
                     function baasicLoginCtrl($scope, loginService, authService) {
                         $scope.submitLogin = function submitLogin() {
                             if ($scope.login.$valid) {
+                                $scope.logging = true;
                                 loginService.login({
                                     username: $scope.username,
                                     password: $scope.password,
@@ -32,9 +33,14 @@
                                         })
                                         .error(function (data) {
                                             $scope.loginError = data.message;
+                                        })
+                                        .finally(function () {
+                                            $scope.logging = false;
                                         });
                                 })
                                 .error(function (data, status) {
+                                    $scope.logging = false;
+
                                     switch (status) {
                                         case 400:
                                             if (data.error === 'invalid_grant') {
