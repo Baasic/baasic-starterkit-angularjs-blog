@@ -15,9 +15,9 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'baasic.buildserver',
-            apiVersion: 'staging'
+        baasicAppProvider.create('starterkit-blog', {
+            apiRootUrl: 'api.baasic.com',
+            apiVersion: 'beta'
         });
 
         $locationProvider.html5Mode({
