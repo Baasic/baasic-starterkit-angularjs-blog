@@ -23,11 +23,13 @@
     background: var(--color-dark);
     padding-top: 6rem;
     opacity: 1;
-    transition: opacity 2s;
+    transition: all .5s;
 }
 
 .loader.ng-hide {
     opacity: 0;
+    display: block !important;
+    visibility: hidden;
 }
 
 .loading__content {
