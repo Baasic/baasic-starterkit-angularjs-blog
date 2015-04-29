@@ -41,6 +41,7 @@
                         })
                         .success(parseBlogList)
                         .error(function (error) {
+                            conosle.log(error); // jshint ignore: line
                         })
                         .finally(function () {
                             $scope.$root.loader.resume();
@@ -52,10 +53,11 @@
                             blogService.previous($scope.blogList)
                             .success(parseBlogList)
                             .error(function (error) {
+                                conosle.log(error); // jshint ignore: line
                             })
                             .finally(function () {
                                 $scope.$root.loader.resume();
-                            });;
+                            });
                         };
 
                         $scope.nextPage = function nextPage() {
@@ -64,10 +66,11 @@
                             blogService.next($scope.blogList)
                             .success(parseBlogList)
                             .error(function (error) {
+                                conosle.log(error); // jshint ignore: line
                             })
                             .finally(function () {
                                 $scope.$root.loader.resume();
-                            });;
+                            });
                         };
                     }
                 ],

@@ -23,7 +23,7 @@
                                 scope.onCancelFn = $parse(attrs.onCancel);
                             }
                         }
-                    }
+                    };
                 },
                 controller: ['$scope', '$q', 'baasicBlogService', 'markdownConverter',
                     function baasicBlogEditCtrl($scope, $q, blogService, markdownConverter) {

@@ -46,7 +46,7 @@
                                             if (data.error === 'invalid_grant') {
                                                 $scope.loginError = 'Invalid email, username or password';
                                             } else {
-                                                $scope.loginError = data.error_description;
+                                                $scope.loginError = data.error_description; // jshint ignore:line
                                             }
                                             break;
                                         default:

@@ -57,26 +57,6 @@ angular.module('myBlog', [
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl'
             })
-            .state('master.register', {
-                url: 'register',
-                templateUrl: 'templates/account/register.html',
-                controller: 'RegisterUserCtrl'
-            })
-            .state('master.activate-user', {
-                url: 'activate-user/{activationCode}',
-                templateUrl: 'templates/account/activate-user.html',
-                controller: 'ActivateUserCtrl'
-            })
-            .state('master.forgot-password', {
-                url: 'forgot-password',
-                templateUrl: 'templates/account/password-recovery.html',
-                controller: 'PasswordRecoveryCtrl'
-            })
-            .state('master.reset-password', {
-                url: 'reset-password/{token}',
-                templateUrl: 'templates/account/password-recovery-change.html',
-                controller: 'PasswordRecoveryChangeCtrl'
-            })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',

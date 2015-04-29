@@ -34,12 +34,14 @@
             blogService.find(options)
                 .success(parseBlogList)
                 .error(function (error) {
+                    conosle.log(error); // jshint ignore: line
                 });
 
             $scope.prevPage = function prevPage() {
                 blogService.previous($scope.blogList)
                 .success(parseBlogList)
                 .error(function (error) {
+                    conosle.log(error); // jshint ignore: line
                 });
             };
 
@@ -47,6 +49,7 @@
                 blogService.next($scope.blogList)
                 .success(parseBlogList)
                 .error(function (error) {
+                    conosle.log(error); // jshint ignore: line
                 });
             };
         }

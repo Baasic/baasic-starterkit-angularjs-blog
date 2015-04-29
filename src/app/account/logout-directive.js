@@ -24,8 +24,7 @@
                         $scope.logout = function logout() {
                             var token = authService.getAccessToken();
                             if (token) {
-                                /* jshint camelcase: false */
-                                loginService.logout(token.access_token, token.token_type)
+                                loginService.logout(token.access_token, token.token_type) // jshint ignore:line
                                     .finally(clearUser);
                             } else {
                                 clearUser();
