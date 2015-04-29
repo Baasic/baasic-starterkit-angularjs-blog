@@ -1,9 +1,8 @@
 ﻿<article class="post" ng-hide="isEdit">
-    <header class="post__header">
+    <header class="post__header" style="background-image:url('{{ blog.featured }}');">
         <div class="post__header__container">
             <a class="btn --inverse --med rounded spc--bottom--med" href="javascript:void(0);" ui-sref="master.index" rel="home">Back</a>
             <h2 class="post__title">{{ blog.title }}</h2>
-            <img class="post__visual" src="{{ blog.featured }}">
             <span class="post__header__overlay"></span>
         </div>
     </header>

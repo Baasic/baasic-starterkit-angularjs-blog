@@ -3,6 +3,10 @@
 \*------------------------------------*/
 
 
+.layout__content {
+    padding-top: 3rem;
+}
+
 @media all and (--from-large) {
     .layout {
         display: flex;
@@ -16,6 +20,7 @@
     .layout__content {
         flex: 3 0 0;
         max-width: 100rem;
+        padding-top: 0;
     }
 }
 
