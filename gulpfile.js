@@ -65,7 +65,22 @@ gulp.task('styles', ['clean-css'], function () {
 });
 
 gulp.task('styles-dist', ['styles'], function () {
-    return cssFiles().pipe(dist('css', bower.name));
+    return gulp.src([
+      './src/themes/' + theme + '/src/app.css'
+    ])
+      .pipe(g.pleeease({
+          'browsers': ['last 2 version'],
+          'filters': true,
+          'rem': false,
+          'minifier': true,
+          'mqpacker': false,
+          'sourcemaps': false,
+          'next': true,
+          'import': {
+              'path': './src/themes/' + theme + '/src'
+          }
+      }))
+      .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('csslint', ['styles'], function () {
