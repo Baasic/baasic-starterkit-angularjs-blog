@@ -82,6 +82,8 @@
 
                         $scope.saveBlog = function saveBlog() {
                             if ($scope.blogPost.$valid) {
+                                $scope.$root.loader.suspend();
+
                                 $scope.blog.readingTime = readingTime($scope.blog.content);
 
                                 var promise;
@@ -100,6 +102,9 @@
                                     })
                                     .error(function (error) {
                                         $scope.error = error.message;
+                                    })
+                                    .finally(function () {
+                                        $scope.$root.loader.resume();
                                     });
                             }
                         };

@@ -29,6 +29,8 @@
                             $scope.hasBlogs = blogList.totalRecords > 0;
                         }
 
+                        $scope.$root.loader.suspend();
+
                         $scope.hasBlogs = true;
 
                         blogService.find({
@@ -39,20 +41,33 @@
                         })
                         .success(parseBlogList)
                         .error(function (error) {
+                        })
+                        .finally(function () {
+                            $scope.$root.loader.resume();
                         });
 
                         $scope.prevPage = function prevPage() {
+                            $scope.$root.loader.suspend();
+
                             blogService.previous($scope.blogList)
                             .success(parseBlogList)
                             .error(function (error) {
-                            });
+                            })
+                            .finally(function () {
+                                $scope.$root.loader.resume();
+                            });;
                         };
 
                         $scope.nextPage = function nextPage() {
+                            $scope.$root.loader.suspend();
+
                             blogService.next($scope.blogList)
                             .success(parseBlogList)
                             .error(function (error) {
-                            });
+                            })
+                            .finally(function () {
+                                $scope.$root.loader.resume();
+                            });;
                         };
                     }
                 ],
