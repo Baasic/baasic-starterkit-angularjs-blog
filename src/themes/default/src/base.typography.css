@@ -110,4 +110,7 @@ figure > figcaption {}
 /* HR */
 hr {
     border: 0;
+    border-top: 1px solid color(black a(0.1));
+    padding-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
