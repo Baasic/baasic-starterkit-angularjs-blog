@@ -38,7 +38,9 @@
                     <nav class="sidebar__navigation" role="navigation">
                         <h2 class="sidebar__title">Recent Tags</h2>
                         <ul class="tags group">
-                            <li class="tags__item" ng-repeat="tag in tags"><a ui-sref="master.blog-search({ tags: tag.slug })" class="tags__link ">{{ tag.tag }}</a></li>
+                            <li class="tags__item" ng-repeat="tag in tags">
+                                <a ui-sref="master.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                            </li>
                         </ul>
                     </nav>
                     <div class="sidebar__widget header__share">

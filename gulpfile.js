@@ -50,7 +50,7 @@ gulp.task('styles', ['clean-css'], function () {
       .pipe(g.pleeease({
           'browsers': ['last 2 version'],
           'filters': true,
-          
+          'rem': false,
           'minifier': false,
           'mqpacker': false,
           'sourcemaps': false,
