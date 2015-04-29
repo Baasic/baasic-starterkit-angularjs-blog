@@ -3,7 +3,7 @@
         function loader() {
             'use strict';
 
-            var delay = 300,
+            var delay = 0,
                 hideClass = 'ng-hide';
 
             return {

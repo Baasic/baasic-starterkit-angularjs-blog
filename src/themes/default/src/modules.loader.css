@@ -22,6 +22,12 @@
     height: 100%;
     background: var(--color-dark);
     padding-top: 6rem;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.loader.ng-hide {
+    opacity: 0;
 }
 
 .loading__content {

@@ -8,11 +8,6 @@
 }
 .article {}
 
-@media all and (--from-mediumsmall) {
-    .article:hover .article__holder {
-        background: white;
-    }
-}
 .article--ingrid {
     display: flex;
 }
@@ -22,6 +17,10 @@
 .article--lrg {
     width: 100%;
 }
+.article--lrg .article__content {
+    background: white;
+}
+
 .article__holder {
     position: relative;
     overflow: hidden;
