@@ -7,10 +7,11 @@
     flex-wrap: wrap;
 }
 .article {}
-.article:hover .article__holder {
-    background: white;
-}
-.article:hover .article__content {
+
+@media all and (--from-mediumsmall) {
+    .article:hover .article__holder {
+        background: white;
+    }
 }
 .article--ingrid {
     display: flex;

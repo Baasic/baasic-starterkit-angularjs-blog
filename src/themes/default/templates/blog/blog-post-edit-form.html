@@ -18,9 +18,6 @@
         </div>
         <div class="form__field spc--bottom--med">
             <label class="form__label" for="fieldContent">Content</label>
-            
-            
-            
             <div class="group">
                 <div class="editor__type">
                     <div class="editor__header">
@@ -28,7 +25,6 @@
                     </div>
                     <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
                 </div>
-
                 <div class="editor__preview">
                     <div class="editor__header">
                         <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
@@ -53,7 +49,6 @@
             <tags-input class="form__label"-input ng-model="blog.tags" display-property="tag">
                 <auto-complete source="loadTags($query)"></auto-complete>
             </tags-input>
-            
         </div>
         <div class="form__field">
             <button type="submit" class="btn --primary --med rounded" ng-click="saveBlog()">Save</button>
