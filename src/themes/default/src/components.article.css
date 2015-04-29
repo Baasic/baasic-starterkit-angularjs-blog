@@ -133,7 +133,6 @@
     .article--lrg .article__summary {
         float: left;
         width: 45%;
-        margin-top: 2rem;
     }
     .article--lrg .article__info {
         right: 3rem;

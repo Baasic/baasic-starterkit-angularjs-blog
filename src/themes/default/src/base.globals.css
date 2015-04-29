@@ -8,9 +8,10 @@ html {
 }
 body {
     font-family: var(--ff-serif);
-    min-width: 20rem;
+    min-width: 20em;
     background: var(--color-bodybg);
     color: var(--color-dark);
+    position: relative;
 }
 .row {
     max-width: 60em;
