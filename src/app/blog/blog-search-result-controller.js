@@ -18,7 +18,7 @@
             $scope.hasBlogs = true;
 
             var options = {
-                fields: ['title', 'slug', 'dateUpdated', 'excerpt'],
+                fields: ['title', 'slug', 'publishDate', 'excerpt'],
                 statuses: ['published'],
                 rpp: 10
             };

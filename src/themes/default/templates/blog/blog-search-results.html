@@ -1,7 +1,7 @@
 ﻿<div class="layout__form">
     <h1 class="spc--bottom--lrg">Search results</h1>
     <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
-        <span class="search__date">{{ blog.dateUpdated | date : 'medium' }}</span>
+        <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
         <h3 class="article__title"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
 
         <p class="article__summary__text">

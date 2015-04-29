@@ -36,7 +36,7 @@
                         blogService.find({
                             statuses: ['published'],
                             rpp: pageSizeFn($scope),
-                            orderBy: 'dateUpdated',
+                            orderBy: 'publishDate',
                             orderDirection: 'desc'
                         })
                         .success(parseBlogList)

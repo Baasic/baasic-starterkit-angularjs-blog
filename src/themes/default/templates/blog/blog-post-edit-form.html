@@ -1,5 +1,7 @@
-﻿<div class="layout__form">
-<h1 class="spc--bottom--lrg">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
+﻿
+
+<div class="layout__form">
+    <h1 class="spc--bottom--lrg">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
     <form name="blogPost" novalidate class="form">
         <div class="form__field">
             <label class="form__label" for="fieldTitle">Title</label>
@@ -43,8 +45,9 @@
             </div>
         </div>
         <div class="form__field">
-            <tags-input class="form__label"-input ng-model="blog.tags" display-property="tag">
-                <auto-complete source="loadTags($query)"></auto-complete>
+            <tags-input class="form__label" -input ng-model="blog.tags" display-property="tag" add-on-comma="true">
+                <auto-complete source="loadTags($query)">
+                </auto-complete>
             </tags-input>
         </div>
         <div class="form__field">
@@ -55,4 +58,31 @@
             {{ error }}
         </div>
     </form>
+
+    <script type="text/ng-template" id="ngTagsInput/my-tags-input">
+        <div class="host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append="">
+            <div class="tags" ng-class="{focused: hasfocus}">
+                <ul class="tag-list">
+                    <li class="tag-item" ng-repeat="tag in taglist.items track by track(tag)" ng-class="{ selected: tag == tagList.selected }">
+                        <ti-tag-item data="tag"></ti-tag-item>
+                    </li>
+                </ul>
+                <input class="input" autocomplete="off" ng-model="newTag.text" ng-change="eventHandlers.input.change(newTag.text)"
+                        ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)"
+                        ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)"
+                        ng-trim="false" ng-class="{'invalid-tag': newtag.invalid}" ng-disabled="disabled"
+                        ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}"
+                        ti-autosize="">
+            </div>
+        </div>
+    </script>
+
+    <!--script type="text/ng-template" id="ngTagsInput/auto-complete.html">
+        <div class="autocomplete" ng-show="suggestionList.visible">
+            <ul class="suggestion-list">
+                <li class="suggestion-item" ng-repeat="item in suggestionlist.items track by track(item)" ng-class="{selected: item == suggestionList.selected}"
+                    ng-click="addSuggestionByIndex($index)" ng-mouseenter="suggestionList.select($index)" ng-bind-html="highlight(item)"></li>
+            </ul>
+        </div>
+    </script>-->
 </div>
