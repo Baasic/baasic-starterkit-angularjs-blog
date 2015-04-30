@@ -8,9 +8,7 @@
         </div>
         <div class="form__field">
             <label class="form__label" for="fieldBody">Featured image</label>
-            <small class="form__desc">Relative paths should start with "/" and absolute paths should start with"http".</small>
-            <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" pattern="^(\/|https?:\/\/).*" />
-            <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.featured.$touched) && blogPost.featured.$error.pattern">Url link must be valid url starting with / or http</p>
+            <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
         </div>
         <div class="form__field">
             <label class="form__label" for="fieldExcerpt">Excerpt</label>

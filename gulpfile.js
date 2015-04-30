@@ -64,7 +64,7 @@ gulp.task('styles', ['clean-css'], function () {
       .pipe(livereload());
 });
 
-gulp.task('styles-dist', ['styles'], function () {
+gulp.task('styles-dist', function () {
     return gulp.src([
       './src/themes/' + theme + '/src/app.css'
     ])
@@ -134,8 +134,8 @@ gulp.task('build-all', ['styles', 'templates'], index);
 function index() {
     var opt = { read: false };
     return gulp.src('./src/app/index.html')
-      .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: true, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
-      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: true, ignorePath: ['.tmp', 'src/app'] }))
+      .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
+      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
       .pipe(gulp.dest('./src/app/'))
       .pipe(g.embedlr())
       .pipe(gulp.dest('./.tmp/'))
