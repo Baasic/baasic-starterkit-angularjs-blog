@@ -8,9 +8,6 @@
 .header__toggle {
     float: right;
 }
-.header__user {
-    margin-bottom: 1.5rem;
-}
 .header__author {
     font-size: var(--type-tiny);
     font-family: var(--ff-sans);
@@ -42,11 +39,10 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 4;
         background: #fcfcfc;
         width: 100%;
         padding: 0.75rem 1.5rem 0 1.5rem;
-        height: 3.75rem;
         box-shadow: 0 0 0 1px color(black a(0.1));
     }
 }

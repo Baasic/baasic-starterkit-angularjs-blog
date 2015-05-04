@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    # components.pager
+\*------------------------------------*/
+
+.pager {
+    overflow: hidden;
+    display: block;
+    padding: 0 2rem;
+}
+
+@media all and (--from-medium) {
+    .pager {
+        padding: 0 3rem;
+    }
+}

@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('baasic.blog')
     .directive('pager', [
         function pager() {
             'use strict';
@@ -16,9 +16,9 @@
                             pageSize = pagerData.pageSize || 10,
                             pageGroupSize = pagerData.pageGroupSize || 10,
                             totalRecords = pagerData.totalRecords || 1,
-                            numberOfPages = Math.floor(totalRecords / pageSize) + 1,
-                            numberOfGroups = Math.floor(numberOfPages / pageGroupSize) + 1,
-                            currentGroupIndex = pagerData.currentGroupIndex || Math.floor(currentPage / pageGroupSize) + 1,
+                            numberOfPages = Math.ceil(totalRecords / pageSize),
+                            numberOfGroups = Math.ceil(numberOfPages / pageGroupSize),
+                            currentGroupIndex = pagerData.currentGroupIndex || Math.ceil(currentPage / pageGroupSize),
                             groupCeil = currentGroupIndex * pageGroupSize,
                             pages = [];
 

@@ -50,7 +50,7 @@ gulp.task('styles', ['clean-css'], function () {
       .pipe(g.pleeease({
           'browsers': ['last 2 version'],
           'filters': true,
-          
+          'rem': false,
           'minifier': false,
           'mqpacker': false,
           'sourcemaps': false,
@@ -64,8 +64,23 @@ gulp.task('styles', ['clean-css'], function () {
       .pipe(livereload());
 });
 
-gulp.task('styles-dist', ['styles'], function () {
-    return cssFiles().pipe(dist('css', bower.name));
+gulp.task('styles-dist', function () {
+    return gulp.src([
+      './src/themes/' + theme + '/src/app.css'
+    ])
+      .pipe(g.pleeease({
+          'browsers': ['last 2 version'],
+          'filters': true,
+          'rem': false,
+          'minifier': true,
+          'mqpacker': false,
+          'sourcemaps': false,
+          'next': true,
+          'import': {
+              'path': './src/themes/' + theme + '/src'
+          }
+      }))
+      .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('csslint', ['styles'], function () {
@@ -119,8 +134,8 @@ gulp.task('build-all', ['styles', 'templates'], index);
 function index() {
     var opt = { read: false };
     return gulp.src('./src/app/index.html')
-      .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: true, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
-      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: true, ignorePath: ['.tmp', 'src/app'] }))
+      .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
+      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
       .pipe(gulp.dest('./src/app/'))
       .pipe(g.embedlr())
       .pipe(gulp.dest('./.tmp/'))
@@ -269,7 +284,7 @@ function buildTemplates() {
     return lazypipe()
       .pipe(g.ngHtml2js, {
           declareModule: false,
-          moduleName: 'myApp',
+          moduleName: 'myBlog',
           prefix: 'templates/'
       })
       .pipe(g.concat, bower.name + '-templates.js')

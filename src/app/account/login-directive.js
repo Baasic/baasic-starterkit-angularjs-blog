@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .directive('baasicLogin', ['$parse',
         function baasicLogin($parse) {
             'use strict';
@@ -14,8 +14,9 @@
                     function baasicLoginCtrl($scope, loginService, authService) {
                         $scope.submitLogin = function submitLogin() {
                             if ($scope.login.$valid) {
+                                $scope.logging = true;
                                 loginService.login({
-                                    userName: $scope.username,
+                                    username: $scope.username,
                                     password: $scope.password,
                                 })
                                 .success(function (data) {
@@ -32,12 +33,21 @@
                                         })
                                         .error(function (data) {
                                             $scope.loginError = data.message;
+                                        })
+                                        .finally(function () {
+                                            $scope.logging = false;
                                         });
                                 })
                                 .error(function (data, status) {
+                                    $scope.logging = false;
+
                                     switch (status) {
-                                        case 401:
-                                            $scope.loginError = 'Invalid email, username or password';
+                                        case 400:
+                                            if (data.error === 'invalid_grant') {
+                                                $scope.loginError = 'Invalid email, username or password';
+                                            } else {
+                                                $scope.loginError = data.error_description; // jshint ignore:line
+                                            }
                                             break;
                                         default:
                                             $scope.loginError = data.message;

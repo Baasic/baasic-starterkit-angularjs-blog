@@ -27,6 +27,9 @@
 .styledtext ol {
 }
 .styledtext pre {
+    color: var(--color-light);
+    background-color: var(--color-darkgrey);
+    padding: 1rem;
 }
 .styledtext pre code {
 }
@@ -35,10 +38,35 @@
 .styledtext img + em {
 }   
 .styledtext blockquote {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    font-style: italic;
+    padding-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid black;
+    color: black;
 }
 .styledtext blockquote:before {
 }
 .styledtext blockquote > p {
 }
-
+.styledtext img {
+}
+.styledtext figure {
+    position: relative;
+    /*border-top: 1px solid var(--color-ultralight);*/
+}
+.styledtext figcaption {
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    top: 0px;
+    border-top: 1px solid var(--color-light);
+    padding-top: 1rem;
+    font-size: 0.8em;
+    padding-right: 1rem;
+    font-style: italic;
+    color: var(--color-grey);
+}
         

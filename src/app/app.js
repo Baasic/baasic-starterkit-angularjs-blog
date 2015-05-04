@@ -2,9 +2,10 @@ angular.module('baasic.blog', [
     'baasic.article'
 ]);
 
-angular.module('myApp', [
+angular.module('myBlog', [
   'ui.router',
-  'ui.tree',
+  'btford.markdown',
+  'ngTagsInput',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -14,14 +15,13 @@ angular.module('myApp', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'baasic.buildserver',
-            apiVersion: 'staging'
+        baasicAppProvider.create('starterkit-blog', {
+            apiRootUrl: 'api.baasic.com',
+            apiVersion: 'beta'
         });
 
         $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
+            enabled: true
         });
 
         $urlRouterProvider.when('', '/');
@@ -56,26 +56,6 @@ angular.module('myApp', [
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl'
             })
-            .state('master.register', {
-                url: 'register',
-                templateUrl: 'templates/account/register.html',
-                controller: 'RegisterUserCtrl'
-            })
-            .state('master.activate-user', {
-                url: 'activate-user/{activationCode}',
-                templateUrl: 'templates/account/activate-user.html',
-                controller: 'ActivateUserCtrl'
-            })
-            .state('master.forgot-password', {
-                url: 'forgot-password',
-                templateUrl: 'templates/account/password-recovery.html',
-                controller: 'PasswordRecoveryCtrl'
-            })
-            .state('master.reset-password', {
-                url: 'reset-password/{token}',
-                templateUrl: 'templates/account/password-recovery-change.html',
-                controller: 'PasswordRecoveryChangeCtrl'
-            })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',
@@ -86,32 +66,33 @@ angular.module('myApp', [
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
+            .state('master.blog-search', {
+                url: 'blog-search?{search,tags}',
+                templateUrl: 'templates/blog/blog-search-results.html',
+                controller: 'BlogSearchResultsCtrl'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
     }
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
-.controller('MainCtrl', ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
-	function MainCtrl($scope, $state, loginService, baasicAuthService) {
+.controller('MainCtrl', ['$scope', '$state', 'baasicBlogService',
+	function MainCtrl($scope, $state, blogService) {
 	    'use strict';
 
-	    var userDetails = baasicAuthService.getUser();
-	    var user;
-	    if (userDetails !== undefined && userDetails !== null) {
-	        user = {
-	            isAuthenticated: true,
-	            isAdmin: userDetails.roles.indexOf('Administrators') !== -1
-	        };
+	    blogService.tags.find({
+	        rpp: 10
+	    })
+        .success(function (tagList) {
+            $scope.tags = tagList.item;
+        });
 
-	        angular.extend($scope.$root.user, userDetails);
-	    } else {
-	        user = {
-	            isAuthenticated: false
-	        };
-	    }
-
-	    $scope.$root.user = user;
+	    $scope.searchBlog = function searchBlog() {
+	        if ($scope.searchFor) {
+	            $state.go('master.blog-search', { search: $scope.searchFor });
+	        }
+	    };
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
@@ -131,5 +112,32 @@ angular.module('myApp', [
         $scope.goHome = function goHome() {
             $state.go('master.index');
         };
+    }
+])
+.run(['$rootScope', '$window', 'baasicAuthorizationService',
+    function moduleRun($rootScope, $window, baasicAuthService) {
+        'use strict';
+
+        var token = baasicAuthService.getAccessToken();
+        var userDetails;
+        if (token) {
+            userDetails = baasicAuthService.getUser();
+        }
+
+        var user;
+        if (userDetails !== undefined && userDetails !== null) {
+            user = {
+                isAuthenticated: true,
+                isAdmin: userDetails.roles.indexOf('Administrators') !== -1
+            };
+
+            angular.extend(user, userDetails);
+        } else {
+            user = {
+                isAuthenticated: false
+            };
+        }
+
+        $rootScope.user = user;
     }
 ]);

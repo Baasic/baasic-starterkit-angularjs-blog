@@ -1,4 +1,4 @@
-﻿angular.module('myApp')
+﻿angular.module('myBlog')
     .directive('contenteditable', [
         function () {
             'use strict';

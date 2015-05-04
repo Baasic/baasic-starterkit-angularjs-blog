@@ -2,6 +2,11 @@
     # Application CSS file
 \*------------------------------------*/
 
+/*
+* Fonts
+*/
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 /*
 * Variables
@@ -46,6 +51,7 @@
 @import "modules.title.css";
 @import "modules.grid.css";
 @import "modules.input.css";
+@import "modules.loader.css";
 
 
 /**
@@ -63,12 +69,14 @@
 @import "components.sidebar.css";
 @import "components.footer.css";
 @import "components.section.css";
-@import "components.nav.css";
+@import "components.tags.css";
 @import "components.smm.css";
 @import "components.user.css";
 @import "components.article.css";
 @import "components.post.css";
-@import "components.formscreen.css";
+@import "components.editor.css";
+@import "components.search.css";
+@import "components.pager.css";
 
 /*@import "components.componentname.css";*/
 
@@ -78,7 +86,7 @@
 * All project Sass or CSS plugins such as Select2, Dropit etc. 
 */
 
-/*@import "plugins.pluginname.css";*/
+@import "plugins.tageditor.css";
 
 
 /**

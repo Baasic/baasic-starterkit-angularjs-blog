@@ -3,26 +3,34 @@
         function BlogPostCtrl($scope, $state, blogService) {
             'use strict';
 
-            $scope.editTemplateUrl = 'templates/blog/new-blog-post.html';
+            $scope.$root.loader.suspend();
 
-            $scope.$on('$includeContentLoaded', function (evt) {
-                $scope.form = evt.targetScope.blogPost;
-            });
-
-            blogService.get($state.params.slug)
+            blogService.get($state.params.slug, {
+                embed: 'tags'
+            })
                 .success(function (blog) {
                     $scope.blog = blog;
                 })
                 .error(function (error) {
+                    conosle.log(error); // jshint ignore: line
+                })
+                .finally(function () {
+                    $scope.$root.loader.resume();
                 });
 
             $scope.deleteBlog = function deleteBlog() {
+                /* global confirm */
                 if (confirm('Are you sure you want to delete this post?')) {
+                    $scope.$root.loader.suspend();
                     blogService.remove($scope.blog)
                         .success(function () {
                             $state.go('master.index');
                         })
                         .error(function (error) {
+                            conosle.log(error); // jshint ignore: line
+                        })
+                        .finally(function () {
+                            $scope.$root.loader.resume();
                         });
                 }
             };
@@ -31,15 +39,12 @@
                 $scope.isEdit = true;
             };
 
-            $scope.saveBlog = function saveBlog() {
-                if ($scope.form.$valid) {
-                    blogService.update($scope.blog)
-                        .success(function () {
-                            $scope.isEdit = false;
-                        })
-                        .error(function (error) {
-                        });
-                }
+            $scope.blogSaved = function blogSaved() {
+                $scope.isEdit = false;
+            };
+
+            $scope.cancelEdit = function cancelEdit() {
+                $scope.isEdit = false;
             };
         }
     ]);
