@@ -34,6 +34,16 @@ In its default state, this kit points to the main demo site and pulls its conten
 
 As your application may be empty and there is no articles in it, and the demo page will be blank after this switch. However, you can now log in and start entering your own content. 
 
+## Production ready build
+
+To make the app ready for deploy to production run:
+
+```bash
+gulp dist
+```
+
+Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
+
 ## Get in touch
 
 Get in touch using one of the community channels 
