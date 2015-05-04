@@ -1,7 +1,7 @@
 Baasic AngularJS Blog Starter Kit
 ============
 
-##Starter Kit Functionality
+## Starter Kit Functionality
 
 This starter kit provides a bare-bones blog engine. Initially, it shows a list of blog posts, with search, tags, and login modules contained within a panel on the right side. To keep things simple, it allows you to add/edit/delete blog posts using the markdown syntax and add tags to posts. We deliberately removed more advanced features so the basic functionality is not obscured by them: however, future samples will include a complete content management functionality.
 
@@ -13,7 +13,7 @@ This kit is based on the Baasic article data type. Articles provide a standard w
 
 More information about the Starter Kit can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-Blog-Starter-Kit-part-1/).
 
-##Working with the starter kit
+## Working with the starter kit
 
 As a client-side prerequisite, you should install the basic tools for your operating system: Node.js, Bower and Gulp. Start by cloning the [AngularJS blog starter kit repository](https://github.com/Baasic/baasic-starterkit-angularjs-blog/). After that, go into the root folder of the started kit you just cloned and type
 
@@ -34,7 +34,7 @@ In its default state, this kit points to the main demo site and pulls its conten
 
 As your application may be empty and there is no articles in it, and the demo page will be blank after this switch. However, you can now log in and start entering your own content. 
 
-# Get in touch
+## Get in touch
 
 Get in touch using one of the community channels 
 
