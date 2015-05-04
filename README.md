@@ -38,6 +38,6 @@ As your application may be empty and there is no articles in it, and the demo pa
 
 Get in touch using one of the community channels 
 
-GitHub: [Baasic](https://github.com/Baasic)
-Google Groups: [Baasic Support](https://groups.google.com/forum/#!forum/baasic-baas)
-Twitter: [@baasical](https://twitter.com/baasical)
+* GitHub: [Baasic](https://github.com/Baasic)
+* Google Groups: [Baasic Support](https://groups.google.com/forum/#!forum/baasic-baas)
+* Twitter: [@baasical](https://twitter.com/baasical)
