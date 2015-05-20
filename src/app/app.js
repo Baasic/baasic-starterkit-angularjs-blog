@@ -46,10 +46,14 @@ angular.module('myBlog', [
                 url: '/',
                 templateUrl: 'templates/master.html'
             })
-            .state('master.index', {
-                url: '?{page}',
+            .state('master.main', {
+                abstract: true,
                 templateUrl: 'templates/main.html',
                 controller: 'MainCtrl'
+            })
+            .state('master.main.index', {
+                url: '?{page}',
+                templateUrl: 'templates/blog/blog-home.html'
             })
             .state('login', {
                 url: '/login',
@@ -71,7 +75,7 @@ angular.module('myBlog', [
                 templateUrl: 'templates/blog/blog-post-edit.html',
                 controller: 'BlogPostEditCtrl'
             })
-            .state('master.blog-search', {
+            .state('master.main.blog-search', {
                 url: 'blog-search?{search,tags}',
                 templateUrl: 'templates/blog/blog-search-results.html',
                 controller: 'BlogSearchResultsCtrl'
@@ -95,7 +99,7 @@ angular.module('myBlog', [
 
 	    $scope.searchBlog = function searchBlog() {
 	        if ($scope.searchFor) {
-	            $state.go('master.blog-search', { search: $scope.searchFor });
+	            $state.go('master.main.blog-search', { search: $scope.searchFor });
 	        }
 	    };
 
@@ -115,7 +119,7 @@ angular.module('myBlog', [
         'use strict';
 
         $scope.goHome = function goHome() {
-            $state.go('master.index');
+            $state.go('master.main.index');
         };
     }
 ])

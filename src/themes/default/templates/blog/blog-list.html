@@ -35,6 +35,6 @@
 </div>
 <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
     <hr>
-    <a ui-sref="master.index({ page: pager.currentPage - 1 })" class="btn --light --med rounded" ng-show="pager.hasPrevious">Prev</a>
-    <a ui-sref="master.index({ page: pager.currentPage + 1 })" class="btn --light --med rounded" ng-show="pager.hasNext">Next</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --light --med rounded" ng-show="pager.hasPrevious">Prev</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --light --med rounded" ng-show="pager.hasNext">Next</a>
 </pager>

@@ -8,11 +8,11 @@
             }
 
             $scope.blogSaved = function blogSaved() {
-                $state.go('master.index');
+                $state.go('master.main.index');
             };
 
             $scope.cancelEdit = function cancelEdit() {
-                $state.go('master.index');
+                $state.go('master.main.index');
             };
         }
     ]);

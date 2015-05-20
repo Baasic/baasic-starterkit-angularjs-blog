@@ -1,7 +1,7 @@
 ﻿<article class="post" ng-hide="isEdit">
     <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
         <div class="post__header__container">
-            <a class="btn --inverse --med rounded spc--bottom--med" href="javascript:void(0);" ui-sref="master.index" rel="home">Back</a>
+            <a class="btn --inverse --med rounded spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
             <h2 class="post__title">{{ blog.title }}</h2>
             <span class="post__header__overlay"></span>
         </div>
@@ -15,7 +15,7 @@
         </div>
         <ul class="post__tags tags group">
             <li ng-repeat="tag in blog.tags" class="tags__item">
-                <a class="tags__link" ui-sref="master.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+                <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
             </li>
         </ul>
         <hr>
@@ -25,7 +25,7 @@
                 <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
             </span>
         </span>
-        <button type="button" class="btn --light --med rounded" href="javascript:void(0);" ui-sref="master.index" rel="home">Back</button>
+        <button type="button" class="btn --light --med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
     </div>
 </article>
 
