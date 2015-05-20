@@ -3,6 +3,10 @@
         function NewBlogPostCtrl($scope, $state) {
             'use strict';
 
+            if (!$scope.$root.user.isAuthenticated) {
+                $state.go('login');
+            }
+
             $scope.blogSaved = function blogSaved() {
                 $state.go('master.index');
             };

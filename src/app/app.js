@@ -15,8 +15,8 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog', {
-            apiRootUrl: 'api.baasic.com',
+        baasicAppProvider.create('delete-me', {
+            apiRootUrl: 'api.baasic.local',
             apiVersion: 'beta'
         });
 
@@ -47,7 +47,7 @@ angular.module('myBlog', [
                 templateUrl: 'templates/master.html'
             })
             .state('master.index', {
-                url: '',
+                url: '?{page}',
                 templateUrl: 'templates/main.html',
                 controller: 'MainCtrl'
             })
@@ -65,6 +65,11 @@ angular.module('myBlog', [
                 url: 'blog-post/{slug}',
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
+            })
+            .state('master.blog-edit', {
+                url: 'blog-post/edit/{slug}',
+                templateUrl: 'templates/blog/blog-post-edit.html',
+                controller: 'BlogPostEditCtrl'
             })
             .state('master.blog-search', {
                 url: 'blog-search?{search,tags}',

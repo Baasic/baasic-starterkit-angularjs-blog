@@ -36,15 +36,7 @@
             };
 
             $scope.editBlog = function editBlog() {
-                $scope.isEdit = true;
-            };
-
-            $scope.blogSaved = function blogSaved() {
-                $scope.isEdit = false;
-            };
-
-            $scope.cancelEdit = function cancelEdit() {
-                $scope.isEdit = false;
+                $state.go('master.blog-edit', { slug: $scope.blog.slug });
             };
         }
     ]);
