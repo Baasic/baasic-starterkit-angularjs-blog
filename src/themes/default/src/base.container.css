@@ -5,6 +5,13 @@
 .container {
     margin: 0 auto;
 }
+.container__fixed {
+    height: 100%;
+}
+.container__main {
+ /*   height: 100%;*/
+    min-height: 100%;
+}
 @media all and (--from-large) {
     .container {}
 }

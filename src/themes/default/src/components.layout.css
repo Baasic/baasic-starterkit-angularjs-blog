@@ -9,18 +9,24 @@
 
 @media all and (--from-large) {
     .layout {
-        display: flex;
+        display: table;
+        height: 100%;
+        vertical-align: top;
         /*flex-direction: row-reverse;*/
     }
     .layout__sidebar {
-        flex: 1 0 0;
+        display: table-cell;
         position: relative;
         background: white;
+        width: 25%;
+        vertical-align: top;
     }
     .layout__content {
-        flex: 3 0 0;
+        display: table-cell;
         max-width: 100rem;
         padding-top: 0;
+        width: 75%;
+        vertical-align: top;
     }
 }
 
