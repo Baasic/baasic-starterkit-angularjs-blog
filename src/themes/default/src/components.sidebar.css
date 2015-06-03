@@ -24,34 +24,19 @@
     color: var(--color-light);
     text-transform: uppercase;
     letter-spacing: .15em;
-    margin-right: -3rem;
-    padding-right: 3rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--color-ultralight);
     margin-bottom: 0.75rem;
 }
+@media all and (--from-large) {
+    .sidebar__title {
+        margin-right: -3rem;
+        padding-right: 3rem;
+    }
+}
 .sidebar__message {
     margin-bottom: 1rem;
     color: var(--color-grey);
-}
-
-@media all and (--to-large) {
- /*   .sidebar__navigation {
-        transform: translate3d(0,0,0);
-        position: fixed;
-        top: 3.75rem;
-        right: 0;
-        z-index: 100;
-        background: var(--color-dark);
-        width: 100%;
-        min-height: 100%;
-        transform: translateX(100%);
-        transition: transform .2s ease-in-out;
-        padding-top: 3rem;
-    }
-    .sidebar__navigation.\--open {
-        transform: translateX(0);
-    }*/
 }
 
 @media all and (--from-large) {

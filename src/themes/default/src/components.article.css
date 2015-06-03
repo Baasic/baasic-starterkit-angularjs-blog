@@ -26,6 +26,10 @@
     overflow: hidden;
     transition: all .15s;
 }
+.article__holder:hover {
+    background: white;
+    transition: all .15s;
+}
 .article__figure {
 }
 .article__header {
@@ -61,7 +65,7 @@
 }
 .article__content {
     overflow: hidden;
-    padding: 2rem 2rem 5rem 2rem;
+    padding: 2rem 2rem 7rem 2rem;
     transition: background .1s ease-in-out;
 }
 .article__summary {
@@ -71,7 +75,7 @@
 .article__info {
     overflow: hidden;
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 2rem;
     left: 2rem;
     right: 2rem;
     font-family: var(--ff-sans);
@@ -86,9 +90,13 @@
     margin-right: 1.5rem;
 }
 .article__readingtime {
-    display: inline-block;
+    display: block;
     vertical-align: middle;
-    margin-right: 1.5rem;
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-ultralight);
+    margin-top: 1rem;
+    font-size: 0.65rem;
 }
 @media all and (--from-mediumsmall) {
     .articles {
@@ -104,6 +112,16 @@
     }
     .article--lrg {
         width: 50%;
+    }
+}
+@media all and (--from-custlarge) {
+    .article__readingtime {
+        padding: 0rem;
+        background: transparent;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1.5rem;
+        margin-top: 0rem;
     }
 }
 @media all and (--from-xlarge) {
