@@ -44,9 +44,9 @@ gulp.task('clean-css', function (done) {
 });
 
 gulp.task('styles', ['clean-css'], function () {
-    return gulp.src([
+    return gulp.src(
       './src/themes/' + theme + '/src/app.css'
-    ])
+      )
       .pipe(g.pleeease({
           'browsers': ['last 2 version'],
           'filters': true,
@@ -54,11 +54,14 @@ gulp.task('styles', ['clean-css'], function () {
           'minifier': false,
           'mqpacker': false,
           'sourcemaps': false,
-          'next': true,
           'import': {
-              'path': './src/themes/' + theme + '/src'
-            }
-        }))
+              root: 'src/themes/' + theme + '/src',
+              transform: function (content) {
+                  return content.replace('url(', 'url(../../../../../');
+              }
+          },
+          'next': true
+      }))
       .pipe(gulp.dest('./.tmp/css/'))
       .pipe(g.cached('built-css'))
       .pipe(livereload());
@@ -77,7 +80,10 @@ gulp.task('styles-dist', function () {
           'sourcemaps': false,
           'next': true,
           'import': {
-              'path': './src/themes/' + theme + '/src'
+              root: 'src/themes/' + theme + '/src',
+              transform: function (content) {
+                  return content.replace('url(', 'url(../../../../../');
+              }
           }
       }))
       .pipe(gulp.dest('./dist/css/'));

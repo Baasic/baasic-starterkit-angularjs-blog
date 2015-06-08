@@ -2,11 +2,11 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="container">
+<div class="container container__main">
     <div class="layout">
         <div class="layout__content">
             <main ui-view>
-                <baasic-blog-list page-size="5"></baasic-blog-list>
+                
             </main>
         </div>
         <aside class="layout__sidebar">
@@ -31,7 +31,7 @@
                         <h2 class="sidebar__title">Recent Tags</h2>
                         <ul class="tags group">
                             <li class="tags__item" ng-repeat="tag in tags">
-                                <a ui-sref="master.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                                <a ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
                             </li>
                         </ul>
                     </nav>

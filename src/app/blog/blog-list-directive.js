@@ -15,63 +15,40 @@
                         pageSizeFn = function () { return 10; };
                     }
                 },
-                controller: ['$scope', 'baasicBlogService',
-                    function baasicBlogListCtrl($scope, blogService) {
-                        function parseBlogList(blogList) {
-                            $scope.pagerData = {
-                                currentPage: blogList.page,
-                                pageSize: blogList.recordsPerPage,
-                                totalRecords: blogList.totalRecords
-                            };
+                controller: ['$scope', '$stateParams', 'baasicBlogService',
+                    function baasicBlogListCtrl($scope, $stateParams, blogService) {
+                        function loadBlogs() {
+                            $scope.$root.loader.suspend();
 
-                            $scope.blogList = blogList;
+                            blogService.find({
+                                statuses: ['published'],
+                                page: $stateParams.page || 1,
+                                rpp: pageSizeFn($scope),
+                                orderBy: 'publishDate',
+                                orderDirection: 'desc'
+                            })
+                            .success(function parseBlogList(blogList) {
+                                $scope.pagerData = {
+                                    currentPage: blogList.page,
+                                    pageSize: blogList.recordsPerPage,
+                                    totalRecords: blogList.totalRecords
+                                };
 
-                            $scope.hasBlogs = blogList.totalRecords > 0;
+                                $scope.blogList = blogList;
+
+                                $scope.hasBlogs = blogList.totalRecords > 0;
+                            })
+                            .error(function (error) {
+                                conosle.log(error); // jshint ignore: line
+                            })
+                            .finally(function () {
+                                $scope.$root.loader.resume();
+                            });
                         }
-
-                        $scope.$root.loader.suspend();
 
                         $scope.hasBlogs = true;
 
-                        blogService.find({
-                            statuses: ['published'],
-                            rpp: pageSizeFn($scope),
-                            orderBy: 'publishDate',
-                            orderDirection: 'desc'
-                        })
-                        .success(parseBlogList)
-                        .error(function (error) {
-                            conosle.log(error); // jshint ignore: line
-                        })
-                        .finally(function () {
-                            $scope.$root.loader.resume();
-                        });
-
-                        $scope.prevPage = function prevPage() {
-                            $scope.$root.loader.suspend();
-
-                            blogService.previous($scope.blogList)
-                            .success(parseBlogList)
-                            .error(function (error) {
-                                conosle.log(error); // jshint ignore: line
-                            })
-                            .finally(function () {
-                                $scope.$root.loader.resume();
-                            });
-                        };
-
-                        $scope.nextPage = function nextPage() {
-                            $scope.$root.loader.suspend();
-
-                            blogService.next($scope.blogList)
-                            .success(parseBlogList)
-                            .error(function (error) {
-                                conosle.log(error); // jshint ignore: line
-                            })
-                            .finally(function () {
-                                $scope.$root.loader.resume();
-                            });
-                        };
+                        loadBlogs();
                     }
                 ],
                 templateUrl: 'templates/blog/blog-list.html'

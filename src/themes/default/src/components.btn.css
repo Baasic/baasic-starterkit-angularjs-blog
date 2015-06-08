@@ -101,7 +101,7 @@
 }
 
 .btn--search {
-    background-image: url(assets/img/search.svg);
+    background-image: url(/assets/img/search.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 1.5rem;
@@ -113,15 +113,16 @@
     background-color: transparent;
     position: relative;
     user-select: none;
-    transition: all .2s;
+    /*transition: all .2s;*/
     padding: 0;
     position: absolute;
     top: 0;
     right: 0;
+    outline: 0;
 }
 .btn--search:hover,
 .btn--search:active,
 .btn--search:focus {
-    background-image: url(assets/img/search-o.svg);
+    background-image: url(/assets/img/search-o.svg);
     outline: 0;
 }

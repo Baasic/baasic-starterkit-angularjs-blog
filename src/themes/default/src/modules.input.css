@@ -37,7 +37,7 @@
 .input--search {
     display: inline-block;
     width: 100%;
-    cursor: pointer;
+    cursor: text;
     border: 0;
     background: transparent;
     transition: all .2s;

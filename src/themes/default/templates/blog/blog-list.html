@@ -11,7 +11,6 @@
             </figure>
             <div class="article__content">
                 <header class="article__header">
-                    <!-- <a href="#" class="article__cat">European culture</a> -->
                     <h2 class="article__title">
                         <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
                     </h2>
@@ -22,7 +21,8 @@
                 </div>
                 <div class="article__info">
                     <div class="article__readmore">
-                        <button type="button" ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --light --med rounded">Read more</button>
+                        <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --light --med rounded">Read more</a>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --light --med rounded">Edit</a>
                     </div>
                     <span class="article__readingtime">{{ blog.readingTime.text }}</span>
                 </div>
@@ -35,6 +35,6 @@
 </div>
 <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
     <hr>
-    <button type="button" class="btn --light --med rounded" ng-show="pager.hasPrevious" ng-click="prevPage()">Prev</button>
-    <button type="button" class="btn --light --med rounded" ng-show="pager.hasNext" ng-click="nextPage()">Next</button>
+    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --light --med rounded" ng-show="pager.hasPrevious">Prev</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --light --med rounded" ng-show="pager.hasNext">Next</a>
 </pager>
