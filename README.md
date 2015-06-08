@@ -25,7 +25,7 @@ npm (Node Package Manager) will go through its configuration file (package.json)
     
 and you are *almost* ready to go. 
 
-In its default state, this kit points to the main demo site and pulls its content from it. As it would not be a nice thing to have thousands of users editing it, you will need to point your kit to your own application. It is easy - just go to the *\src\app\app.js* and enter your Baasic application unique identifier (API Key) here:
+In its default state, this kit points to the [main demo site](http://demo.baasic.com/angularjs/starterkit-blog/) and pulls its content from it. As it would not be a nice thing to have thousands of users editing it, you will need to point your kit to your own application. It is easy - just go to the *\src\app\app.js* and enter your Baasic application unique identifier (API Key) here:
 
     baasicAppProvider.create('your-unique-identifier', {
             apiRootUrl: 'api.baasic.com',
