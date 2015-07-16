@@ -18,12 +18,12 @@
     .layout__sidebar {
         position: absolute;
         background: white;
-        width: 300px;
+        width: 280px;
         top: 0;
         right: 0;
         bottom: 0;
         z-index: 1;
-        transform: translateX(300px);
+        transform: translateX(280px);
         transition: transform 0.5s;
     }
     .expand .layout__sidebar  {
@@ -44,7 +44,7 @@
     }
     .expand .layout__content  {
         opacity: 0.5;
-        transform: translateX(-300px);
+        transform: translateX(-280px);
         transition: transform 0.5s;
     }
 
