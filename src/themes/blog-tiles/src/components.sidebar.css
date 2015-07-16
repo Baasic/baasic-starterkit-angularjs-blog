@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    # components.sidebar
+\*------------------------------------*/
+
+.sidebar {
+}
+.sidebar__widget {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.sidebar__navigation {
+    margin-bottom: 1rem;
+    padding: 0 1.5rem;
+}
+@media all and (--from-large) {
+    .sidebar__navigation {
+        margin-bottom: 3rem;
+    }
+}
+.sidebar__title {
+    font-size: var(--type-tiny);
+    font-family: var(--ff-sans);
+    font-weight: var(--type-regular);
+    color: var(--color-light);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-ultralight);
+    margin-bottom: 0.75rem;
+}
+@media all and (--from-large) {
+    .sidebar__title {
+        margin-right: -3rem;
+        padding-right: 3rem;
+    }
+}
+.sidebar__message {
+    margin-bottom: 1rem;
+    color: var(--color-grey);
+}
+
+@media all and (--from-large) {
+    .sidebar__widget {
+        padding: 0 3rem;
+        margin-bottom: 3rem;
+    }
+    .sidebar__navigation {
+        padding: 0 3rem;
+    }
+}
