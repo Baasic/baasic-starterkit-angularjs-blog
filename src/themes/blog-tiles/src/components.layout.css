@@ -3,30 +3,31 @@
 \*------------------------------------*/
 
 
-.layout__content {
-    padding-top: 3rem;
-}
 
-@media all and (--from-large) {
     .layout {
         position: fixed;
         height: 100%;
+        width: 100%;
         top: 0;
         right: 0;
         bottom: 0;
-        left:0;
-        /*flex-direction: row-reverse;*/
+        left: 0;
+
     }
+
     .layout__sidebar {
         position: absolute;
         background: white;
-        width: 25%;
+        width: 300px;
         top: 0;
         right: 0;
         bottom: 0;
+        z-index: 1;
+        transform: translateX(300px);
+        transition: transform 0.5s;
     }
     .expand .layout__sidebar  {
-        transform: translateX(100%);
+        transform: translateX(0);
         transition: transform 0.5s;
     }
     .layout__content { 
@@ -34,15 +35,19 @@
         top: 0;
         left: 0;
         bottom: 0;
-        width: 75%;
+        width: 100%;
         padding-top: 0;
         overflow-y:auto; 
+        z-index: 0;
+        transform: translateX(0);
+        transition: transform 0.5s;
     }
     .expand .layout__content  {
-        width: 100%;
-        transition: width 0.5s;
+        opacity: 0.5;
+        transform: translateX(-300px);
+        transition: transform 0.5s;
     }
-}
+
 
 .layout__form {
     max-width: 1024px;
