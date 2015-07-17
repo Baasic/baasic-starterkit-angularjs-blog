@@ -17,15 +17,15 @@
     --color-grey:        #7C7C7C;
     --color-citrus:      #B3CE00;
 
-
-    --color-primary:     var(--color-sunglow);
-    --color-secondary:   var(--color-citrus);
-
     --color-bodybg:         #f6f6f6;
     --color-ultralight:     #ddd;
     --color-light:          #999;
     --color-dark:           #222;
     --color-darkgrey:       #333;
+
+    --color-primary:     var(--color-sunglow);
+    --color-secondary:   var(--color-dark);
+
 
     --color-warning:     var(--color-torchred);
     --color-success:     var(--color-malachite);

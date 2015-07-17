@@ -31,7 +31,7 @@
 .btn.\--primary:focus,
 .btn.\--primary:active {
     background: var(--color-primary);
-    color: white;
+    color: black;
 }
 
 .btn.\--secondary {

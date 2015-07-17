@@ -8,6 +8,12 @@
             <main ui-view>
                 
             </main>
+            
+            <footer class="footer" role="contentinfo">
+                <div class="footer__info">
+                    <p>Copyright @ Blog name Powered by <a href="http://www.baasic.com">Baasic</a></p>
+                </div>
+            </footer>
         </div>
         <aside class="layout__sidebar">
             <a href="javascrpt:void(0);" ng-click="menuOpened=!menuOpened" ng-class="{'nShow': menuOpened}" class="menu-toggle"><span></span></a>
@@ -36,7 +42,20 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class="sidebar__widget header__share">
+                    <div class="sidebar__widget">
+                        <h2 class="sidebar__title">Admin</h2>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
+                            <button type="button" class="btn --primary --med radial" ng-click="newBlogPost()">New post</button>
+                            <baasic-logout on-logout="setEmptyUser()">
+                                <button type="button" class="btn --light --med radial" ng-click="logout()">Logout</button>
+                            </baasic-logout>
+                        </div>
+                        <div ng-if="!$root.user.isAuthenticated">
+                        <p class="sidebar__message">To create new blog please </p>
+                        <a class="btn --primary --med radial" ui-sref="login">login</a></div>
+                    </div>
+                    <div class="header__share sidebar__widget">
                         <h2 class="sidebar__title">Spread the word</h2>
                         <ul class="smm group">
                             <li class="smm__item">
@@ -61,27 +80,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="sidebar__widget">
-                        <h2 class="sidebar__title">Admin</h2>
-                        <div ng-if="$root.user.isAuthenticated">
-                            <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --primary --med rounded" ng-click="newBlogPost()">New post</button>
-                            <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
-                            </baasic-logout>
-                        </div>
-                        <div ng-if="!$root.user.isAuthenticated">
-                        <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn --primary --med rounded" ui-sref="login">login</a></div>
-                    </div>
-                    <footer class="footer" role="contentinfo">
-                        <div class="footer__info">
-                            <p>Copyright @ Blog name</p>
-                        </div>
-                        <div class="footer__poweredby">
-                            <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
-                        </div>
-                    </footer>
+                    
                 </div>
             </div>
         </aside>

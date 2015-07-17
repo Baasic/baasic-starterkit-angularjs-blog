@@ -3,21 +3,17 @@
 \*------------------------------------*/
 
 .footer {
-    margin: 0 0 3rem 1.5rem;
+    /*margin: 0 0 3rem 1.5rem;*/
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
     color: var(--color-light);
+    padding: 1rem 2rem;
+    text-align: center;
 }
 
 @media all and (--from-large) {
     .footer {
-        width: 100%;
-        margin: 6rem 0 1.5rem 0;
-        padding: 0 3rem;
+        text-align: left;
         overflow: hidden;
-    }
-    .footer__info {
-    }
-    .footer__poweredby {
     }
 }

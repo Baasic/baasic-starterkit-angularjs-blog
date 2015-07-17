@@ -47,7 +47,24 @@
         transform: translateX(-280px);
         transition: transform 0.5s;
     }
-
+@media all and (--from-mediumsmall) {
+    .layout__sidebar {
+        width: 350px;
+        transform: translateX(350px);
+    }
+    .expand .layout__content  {
+        transform: translateX(-350px);
+    }
+}
+@media all and (--from-medium) {
+    .layout__sidebar {
+        width: 450px;
+        transform: translateX(450px);
+    }
+    .expand .layout__content  {
+        transform: translateX(-450px);
+    }
+}
 
 .layout__form {
     max-width: 1024px;

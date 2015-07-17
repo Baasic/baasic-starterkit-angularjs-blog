@@ -25,9 +25,9 @@
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">
-                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                        <button class="btn --light --med rounded" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        <button class="btn --light --med radial" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn --light --med radial" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn --light --med radial" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
                     </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>
@@ -47,8 +47,8 @@
             </tags-input>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn --primary --med rounded" ng-click="saveBlog()">Save</button>
-            <button type="button" class="btn --light --med rounded" ng-click="cancelEdit()">Cancel</button>
+            <button type="submit" class="btn --primary --med radial" ng-click="saveBlog()">Save</button>
+            <button type="button" class="btn --light --med radial" ng-click="cancelEdit()">Cancel</button>
         </div>
         <div ng-show="error">
             {{ error }}

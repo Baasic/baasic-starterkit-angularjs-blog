@@ -5,11 +5,12 @@
 .pager {
     overflow: hidden;
     display: block;
-    padding: 0 2rem 1rem 2rem;
+    padding: 1rem 2rem 0rem 2rem;
+    text-align: center;
 }
 
 @media all and (--from-medium) {
     .pager {
-        padding: 0 3rem 1rem 3rem;
+        padding: 1rem 3rem 0rem 3rem;
     }
 }
