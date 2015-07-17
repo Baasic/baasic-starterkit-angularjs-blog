@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+    padding: 1.5rem;
+}
+.header__toggle {
+    float: right;
+}
+.header__author {
+    font-size: var(--type-tiny);
+    font-family: var(--ff-sans);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
+.header__title {
+    display: block;
+    font-size: var(--type-large);
+    line-height: calc(var(--base-line-height)*1.25);
+    font-family: var(--ff-sans);
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+}
+.header__desc {
+    margin-bottom: 1.5rem;
+    color: var(--color-grey);
+}
+
+@media all and (--to-large) {
+    .header {
+        padding-top: 6rem;
+    }
+    .header__share {
+        display: none;
+    }
+    .header__controls {
+        transform: translate3d(0,0,0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        background: #fcfcfc;
+        width: 100%;
+        padding: 0.75rem 1.5rem 0 1.5rem;
+        box-shadow: 0 0 0 1px color(black a(0.1));
+    }
+}
+
+@media all and (--from-large) {
+    .header {
+        padding: 3rem;
+    }
+    .header__toggle {
+        display: none;
+    }
+}

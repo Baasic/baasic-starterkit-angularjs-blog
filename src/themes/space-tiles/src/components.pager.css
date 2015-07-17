@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    # components.pager
+\*------------------------------------*/
+
+.pager {
+    overflow: hidden;
+    display: block;
+    padding: 1rem 2rem 0rem 2rem;
+    text-align: center;
+}
+
+@media all and (--from-medium) {
+    .pager {
+        padding: 1rem 3rem 0rem 3rem;
+    }
+}
