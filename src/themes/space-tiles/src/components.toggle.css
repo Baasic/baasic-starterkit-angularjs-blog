@@ -4,6 +4,8 @@
     position: absolute;
     left: -4rem;
     top: 2rem;
+    width: 2rem;
+    height: 2rem;
 }
 @media all and (--from-medium) {
     .menu-toggle {
