@@ -10,6 +10,6 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: color(var(--color-primary) a(0.7));
+    color: var(--color-primary);
     outline: 0;
 }

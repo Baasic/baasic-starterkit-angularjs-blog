@@ -2,9 +2,13 @@
     cursor: pointer;
     display: block;
     position: absolute;
-    left: -2rem;
-    top: 3rem;
-
+    left: -4rem;
+    top: 2rem;
+}
+@media all and (--from-medium) {
+    .menu-toggle {
+      left: -6rem;
+    }
 }
 
 .menu-toggle span, 
@@ -14,7 +18,7 @@
   border-radius: 1px;
   height: 5px;
   width: 35px;
-  background: red;
+  background: white;
   position: absolute;
   display: block;
   content: '';

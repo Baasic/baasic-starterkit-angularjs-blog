@@ -10,6 +10,7 @@
     --color-dodgerblue:  #0072FF;
     --color-malachite:   #00D369;
     --color-orange:      #F75E00;
+    --color-sunglow:     #FBD32D; 
     --color-nero:        #2b2b2b;
     --color-nightrider:  #333;
     --color-mortar:      #5B5B5B;
@@ -17,7 +18,7 @@
     --color-citrus:      #B3CE00;
 
 
-    --color-primary:     var(--color-orange);
+    --color-primary:     var(--color-sunglow);
     --color-secondary:   var(--color-citrus);
 
     --color-bodybg:         #f6f6f6;
