@@ -21,7 +21,7 @@ var htmlminOpts = {
     removeRedundantAttributes: true
 };
 
-var theme = g.util.env.theme || 'default';
+var theme = g.util.env.theme || 'space-thumbnail';
 
 /**
  * JS Hint

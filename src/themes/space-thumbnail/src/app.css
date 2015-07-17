@@ -1,0 +1,101 @@
+/*------------------------------------*\
+    # Application CSS file
+\*------------------------------------*/
+
+/*
+* Fonts
+*/
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+/*
+* Variables
+*/
+
+@import "vars.defaults.css";
+@import "vars.colors.css";
+@import "vars.responsive.css";
+@import "vars.typography.css";
+
+/**
+* Generic styles
+* Default style setup for reseting or normalizing our CSS
+*/
+
+@import "generics.normalize.css";
+@import "generics.boxmodel.css";
+
+/**
+ * Base styles
+ * The base global classes and styling
+ */
+
+@import "base.container.css";
+@import "base.globals.css";
+@import "base.typography.css";
+
+/**
+ * Core
+ */
+@import "core.styledtext.css";
+
+
+/**
+* Project specific modules
+* All our modules such as buttons, inputs, labels, tables etc. 
+*/
+
+@import "modules.anchor.css";
+@import "modules.alert.css";
+@import "modules.hamburger.css";
+@import "modules.title.css";
+@import "modules.grid.css";
+@import "modules.input.css";
+@import "modules.loader.css";
+
+
+/**
+* Project specific components
+* All project components such as headers, footer, bars, dropdowns etc.
+*/
+
+@import "components.btn.css";
+@import "components.bg.css";
+@import "components.layout.css";
+@import "components.hero.css";
+@import "components.form.css";
+@import "components.styledtext.css";
+@import "components.header.css";
+@import "components.sidebar.css";
+@import "components.footer.css";
+@import "components.section.css";
+@import "components.tags.css";
+@import "components.smm.css";
+@import "components.user.css";
+@import "components.article.css";
+@import "components.post.css";
+@import "components.editor.css";
+@import "components.search.css";
+@import "components.pager.css";
+
+/*@import "components.componentname.css";*/
+
+
+/**
+* Project specific external plugins
+* All project Sass or CSS plugins such as Select2, Dropit etc. 
+*/
+
+@import "plugins.tageditor.css";
+
+
+/**
+* Common classes
+* Class helpers such as push, pull, radius etc.
+*/
+
+@import "util.group.css";
+@import "util.floats.css";
+@import "util.spacers.css";
+@import "util.visibility.css";
+@import "util.radius.css";

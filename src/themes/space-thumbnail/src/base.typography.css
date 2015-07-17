@@ -1,0 +1,116 @@
+/*------------------------------------*\
+    # base.typography
+\*------------------------------------*/
+
+/* Default headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-sans);
+    font-weight: var(--type-bold);
+    margin: 0;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: var(--type-xlarge);
+    line-height: calc(var(--base-line-height)*1.5);
+}
+h2 {
+    font-size: var(--type-large);
+    line-height: calc(var(--base-line-height)*1.25);
+}
+h3 {
+    font-size: var(--type-medium);
+    line-height: calc(var(--base-line-height)*1.25);
+}
+h4 {
+    font-size: var(--type-base);
+}
+h5 {
+    font-size: var(--type-base);
+}
+h6 {
+    font-size: var(--type-base);
+}
+
+/* Default paragraphs */
+p {
+    margin: 0;
+}
+
+/* Ordered lists */
+ol {
+    padding: 0;
+    margin: 0;
+    list-style-position: inside;
+}
+ol > li {
+    font-size: var(--type-base);
+}
+
+/* Unordered lists */
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ol li {
+    font-size: var(--type-base);
+}
+
+/* Definition lists */
+dl {
+    margin: 0;
+}
+dl > dt {
+    font-size: var(--type-base);
+}
+dl > dd {
+    font-size: var(--type-base);
+    margin: 0;
+}
+
+/* Quotes */
+blockquote {
+    margin: 0;
+}
+cite {
+    font-style: normal;
+}
+
+/* Address */
+address {
+    font-style: normal;
+}
+
+/* Preformatted text */
+pre {}
+code {}
+
+/* Subscript and superscript */
+sub {}
+sup {}
+
+/* Abbreviations */
+abbr {}
+
+/* Small copy */
+small {}
+
+/* Strong copy */
+strong {
+    font-weight: var(--type-bold);
+}
+
+/* Figure */
+figure {
+    margin: 0;
+}
+figure > figcaption {}
+
+/* HR */
+hr {
+    border: 0;
+    border-top: 1px solid color(black a(0.1));
+    padding-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
