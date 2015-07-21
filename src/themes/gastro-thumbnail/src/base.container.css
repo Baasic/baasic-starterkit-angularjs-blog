@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    # base.container
+\*------------------------------------*/
+
+.container {
+    margin: 0 auto;
+}
+.container__fixed {
+    height: 100%;
+}
+.container__main {
+    min-height: 100%;
+}
+@media all and (--from-xlarge) {
+    .container {
+    }
+    .container__main {
+        width: 1280px;
+    }
+}

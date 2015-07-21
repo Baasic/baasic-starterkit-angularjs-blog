@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    # components.logo
+\*------------------------------------*/
+
+.logo  {
+    width: 144px; 
+    height: 144px;
+    background-image: url(/assets/img/logo.svg);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    margin: 0 auto;
+}

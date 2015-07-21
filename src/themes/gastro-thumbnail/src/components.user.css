@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    # components.user
+\*------------------------------------*/
+
+.user {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+.user__link .user__avatar {
+}
+.user__link:hover .user__avatar,
+.user__link:focus .user__avatar,
+.user__link:active  .user__avatar{
+}
+.user__avatar {
+    border-radius: 50%;
+    transition: all .15s;
+}
+
+@media all and (--from-medium) {
+    .user {
+        
+    }   
+}
+@media all and (--from-large) {
+    .user {
+    }   
+}
