@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    # components.search
+\*------------------------------------*/
+.search {
+    position: relative;
+}
+.search-holder {
+    position: relative;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+@media all and (--from-large) {
+    .search {
+        margin-bottom: 1rem;
+    }
+}
+.search__result {
+    margin-bottom: 2rem;
+}
+.search__result-holder {
+    border-top: 1px solid var(--color-ultralight);
+}
+.search__date {
+    display: block;
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--color-grey);
+}

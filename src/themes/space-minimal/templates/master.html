@@ -1,0 +1,56 @@
+﻿<div loader="loader" class="loader">
+    <div class="loading__content">
+        <div class="loader__spinner"></div>
+        <p class="loading__message">Loading blog</p>
+    </div>
+</div>
+
+<div class="container__fixed">
+	
+	<!--[if lt IE 10]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div class="container container__main">
+	    <div class="layout">
+	        <div class="layout__content">
+	            <header role="banner" class="header">
+	                <a href="/" class="header__logo">
+	                    <img src="assets/img/logo.svg" alt="Baasic Theme Logo">
+	                </a>
+	                <div class="header__membership">
+	                    <ul ng-if="!$root.user.isAuthenticated">
+	                        <li><p class="header__message">To create new blog</p></li>
+	                        <li><a ui-sref="login" class="btn --simple-accent --tny">login</a></li>
+	                    </ul>
+	                    <ul ng-if="$root.user.isAuthenticated">
+	                        <li><p class="header__message">Welcome, {{ $root.user.displayName }}</p></li>
+	                        <li>
+	                            <button type="button" class="btn --simple-accent --tny" ng-click="newBlogPost()">New post</button> or 
+	                            <baasic-logout on-logout="setEmptyUser()">
+	                                <button type="button" class="btn --simple --tny" ng-click="logout()">Logout</button>
+	                            </baasic-logout>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <div class="header__controls">
+	                    <div class="search">
+	                        <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+	                            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+	                            <button type="submit" class="btn--search"></button>
+	                        </form>
+	                    </div>
+	                </div>
+	            </header>
+	            <div ui-view></div>
+	        </div>
+	    </div>
+	    <footer class="footer" role="contentinfo">
+	        <ul class="footer__info">
+	            <li><p>Copyright @ Blog name</p></li>
+	            <li><p>Powered by <a href="http://www.baasic.com">Baasic</a></p></li>
+	        </ul>
+	    </footer>
+	</div>
+
+</div>
