@@ -97,11 +97,7 @@ angular.module('myBlog', [
             $scope.tags = tagList.item;
         });
 
-	    $scope.searchBlog = function searchBlog() {
-	        if ($scope.searchFor) {
-	            $state.go('master.main.blog-search', { search: $scope.searchFor });
-	        }
-	    };
+	    
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
@@ -123,6 +119,13 @@ angular.module('myBlog', [
         };
     }
 ])
+.controller("SearchCtrl", ["$scope", "$state", function ($scope, $state) {
+    $scope.searchBlog = function searchBlog() {
+            if ($scope.searchFor) {
+                $state.go('master.main.blog-search', { search: $scope.searchFor });
+            }
+        };
+}])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {
         'use strict';
