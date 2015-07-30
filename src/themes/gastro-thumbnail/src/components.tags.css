@@ -24,7 +24,6 @@
     text-overflow: ellipsis;
     border: 1px solid var(--color-ultralight);
     padding: 0 .5rem;
-    border-radius: 10rem;
     max-width: 8rem;
 }
 .tags__link:hover,

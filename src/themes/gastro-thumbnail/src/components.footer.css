@@ -3,21 +3,54 @@
 \*------------------------------------*/
 
 .footer {
-    margin: 0 0 3rem 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
     color: var(--color-light);
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+}
+.footer__poweredby--link {
+    color: white;    
+}
+.footer__poweredby--link:hover {
+    color: var(--color-light);    
 }
 
-@media all and (--from-large) {
+.footer__share {
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.footer__title {
+    text-align: left;
+    font-size: var(--type-small);
+    text-transform: uppercase;
+    font-weight: var(--type-light);
+    letter-spacing: 2px;
+}
+.footer__info {
+    text-align: left;
+}
+.footer__poweredby {
+    text-align: left;
+}
+
+@media all and (min-width: 460px) {
     .footer {
         width: 100%;
-        margin: 6rem 0 1.5rem 0;
-        padding: 0 3rem;
         overflow: hidden;
     }
+    .footer__share {
+        width: auto;
+        margin-bottom: 0;
+    }
     .footer__info {
+        text-align: right;
     }
     .footer__poweredby {
+        text-align: right;
     }
 }

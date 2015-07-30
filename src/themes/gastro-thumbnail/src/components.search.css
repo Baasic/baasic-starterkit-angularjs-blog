@@ -1,6 +1,25 @@
 /*------------------------------------*\
     # components.search
 \*------------------------------------*/
+.search__wrapper {
+    width: 100%;
+    float: left;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media all and (--from-mediumsmall) {
+    .search__wrapper {
+        width: 50%;
+        margin-bottom: 0;
+    }
+}
+@media all and (--from-large) {
+    .search__wrapper {
+        width: 25%;
+    }
+}
+
 .search {
     position: relative;
 }

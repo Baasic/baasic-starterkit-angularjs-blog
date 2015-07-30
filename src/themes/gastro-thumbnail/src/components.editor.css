@@ -30,7 +30,7 @@
 }
 .editor__field::placeholder { 
     color: var(--color-light);
-    font-family: var(--ff-serif);
+    font-family: var(--ff-sans);
 
 }
 .editor__header {
