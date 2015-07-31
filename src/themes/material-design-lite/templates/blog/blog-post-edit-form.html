@@ -1,0 +1,65 @@
+﻿<div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout">
+    <main class="mdl-layout__content">
+        <div class="demo-back">
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index">
+                <i class="material-icons">arrow_back</i>
+            </a>
+        </div>
+        <div class="demo-blog__posts mdl-grid">
+            <div class="mdl-card mdl-color--white mdl-color-text--grey-600 mdl-shadow--4dp mdl-cell mdl-cell--12-col spc--btm--lrg">
+                <div class="mdl-cell mdl-cell--12-col spc--top--lrg spc--left--lrg">
+                    <h3>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h3>
+                </div>
+                <form name="blogPost" novalidate class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                        <input class="mdl-textfield__input" type="text" id="blog.title" name="title" ng-model="blog.title" class="mdl-cell mdl-cell--12-col" required/>
+                        <label class="mdl-textfield__label" for="title">Enter Title of Your Blog Post</label>
+                        <div ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
+                            <span class="mdl-textfield__error">Blog Post Title is Required.</span>
+                        </div>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                        <input class="mdl-textfield__input" type="text" id="blog.featured" name="featured" ng-model="blog.featured" class="mdl-cell mdl-cell--12-col" />
+                        <label class="mdl-textfield__label" for="featured">Enter URL of Featured Image</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label" for="excerpt">Enter Excerpt for Your Blog Post</label>
+                        <textarea class="mdl-textfield__input" id="excerpt" name="excerpt" ng-model="blog.excerpt" class="mdl-cell mdl-cell--12-col"></textarea>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <small>Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
+                        <div class="push spc--top--med">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        </div>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                        <label class="mdl-textfield__label" for="content">Content</label>
+                        <textarea class="mdl-textfield__input mdl-cell mdl-cell--12-col preview__editor" id="content" name="content" ng-model="blog.content"></textarea>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet ">
+                        <div class="mdl-cell mdl-cell--12-col preview__view" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content"></div>
+                        <div class="mdl-cell mdl-cell--12-col preview__view" ng-if="state.conentent.viewMode === 'html'">{{ getHtml(blog.content) }}</div>
+                        <div class="mdl-cell mdl-cell--12-col preview__syntax" ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'"></div>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col ">
+                        <tags-input class="mdl-cell mdl-cell--12-col" input ng-model="blog.tags" display-property="tag" add-on-comma="true">
+                            <auto-complete source="loadTags($query)"></auto-complete>
+                        </tags-input>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="push spc--top--med">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" type="button" ng-click="cancelEdit()">Cancel</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" ng-click="saveBlog()">Save</button>
+                        </div>
+                    </div>
+                    <div ng-show="error">
+                    {{ error }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="mdl-layout__obfuscator"></div>
+</div>

@@ -1,0 +1,75 @@
+﻿<div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+    <main class="mdl-layout__content">
+        <div class="demo-blog__posts mdl-grid">
+            <div class="mdl-card something-else mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone second__box">
+                <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" ui-sref="master.new-blog-post">
+                    <i class="material-icons mdl-color-text--white">add</i>
+                </button>
+                <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+                    <img width="64px" src="../../assets/img/baasic.svg">Baasic
+                </div>
+                <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+                    <div>
+                        <strong>Visit Baasic</strong>
+                    </div>
+                    <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+                        <button class="mdl-menu__item mdl-js-ripple-effect">Twitter</button>
+                        <button class="mdl-menu__item mdl-js-ripple-effect">Facebook</button>
+                        <button class="mdl-menu__item mdl-js-ripple-effect">GitHub</button>
+                        <button class="mdl-menu__item mdl-js-ripple-effect">LinkedIn</button>
+                    </ul>
+                    <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                </div>
+            </div>
+            <div ng-if="hasBlogs" ng-repeat="blog in blogList.item" ng-class=" { 'mdl-card mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone first__box': $first , 'mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone third__box': !$first }">
+                <div ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }" class="mdl-card__media mdl-color-text--grey-50" >
+                    <h3>
+                        <a ui-sref="master.blog-detail({slug:blog.slug})">{{ blog.title }}</a>
+                    </h3>
+                </div>
+                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                    <div class="minilogo"></div>
+                    <div>
+                        <strong>Baasic | {{ blog.readingTime.text }}</strong>
+                        <span>{{ blog.publishDate | date : 'medium' }}</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col fourth__box">
+                <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+                    <a class="demo_nav--button link pull" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious" class="demo-nav__button">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
+                            <i class="material-icons">arrow_back</i>
+                        </button>
+                        <span>Newer</span>
+                    </a>
+                    <div class="section-spacer"></div>
+                    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext" class="demo-nav__button link push">
+                        <span>Older</span>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
+                            <i class="material-icons">arrow_forward</i>
+                        </button>
+                    </a>
+                </pager>
+            </nav>
+        </div>
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__facebook"></button>
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__linkedin"></button>
+            </div>
+            <div class="mdl-mini-footer--right-section">
+                <button class="mdl-mini-footer--social-btn social-btn__share"><i class="material-icons">share</i></button>
+            </div>
+        </footer>
+    </main>
+    <div class="mdl-layout__obfuscator"></div>
+</div>
+<baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
+<a href="#" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+</baasic-logout>
+<a href="#" ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

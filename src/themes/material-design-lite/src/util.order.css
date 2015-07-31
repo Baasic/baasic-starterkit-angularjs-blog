@@ -1,0 +1,34 @@
+/*------------------------------------*\
+    # util.order.css file
+\*------------------------------------*/
+
+
+/**
+* Order
+*/
+
+.first__box {
+	order: 1;
+}
+
+.second__box {
+	order: 2;
+}
+
+.third__box {
+	order: 3;
+}
+
+.fourth__box {
+    order: 4;
+}
+
+@media (max-width:35rem) {
+    .first__box {
+        order: 2;
+    }
+
+    .second__box {
+        order: 1;
+    }
+}

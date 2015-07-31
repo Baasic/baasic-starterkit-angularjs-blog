@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    # util.validation.css file
+\*------------------------------------*/
+
+
+/**
+* Overriding mdl isInvalid classes (because they are applied on page load)
+*/
+.mdl-textfield.is-invalid .mdl-textfield__input, .mdl-textfield.is-invalid .mdl-textfield__input:focus {
+    border-color: #9e9e9e;
+
+}
+
+.mdl-textfield.is-invalid .mdl-textfield__label:after {
+    background-color: #9e9e9e;
+}
+
+.mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
+    color: #9e9e9e;
+    font-size: 1rem;
+
+}
+
+.is-focused .mdl-textfield__label {
+    font-size: .75rem!important;
+}
