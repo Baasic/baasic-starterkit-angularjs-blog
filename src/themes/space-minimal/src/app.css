@@ -46,7 +46,6 @@
 
 @import "modules.anchor.css";
 @import "modules.alert.css";
-@import "modules.hamburger.css";
 @import "modules.title.css";
 @import "modules.grid.css";
 @import "modules.input.css";
@@ -66,7 +65,6 @@
 @import "components.form.css";
 @import "components.styledtext.css";
 @import "components.header.css";
-/*@import "components.sidebar.css";*/
 @import "components.footer.css";
 @import "components.section.css";
 @import "components.tags.css";

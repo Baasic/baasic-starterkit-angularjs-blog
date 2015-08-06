@@ -14,7 +14,7 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
-    padding: 2.5rem 1.5rem;
+    padding: 5rem 1.5rem;
 
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
@@ -72,7 +72,7 @@
         margin-bottom: calc(var(--base-line-height)*2);
     }
     .post__image {
-        padding: 6rem 3rem;
+        padding: 8rem 3rem;
         margin-bottom: 4rem;
     }
     .post__title {
@@ -82,7 +82,7 @@
 }
 @media all and (--from-large) {
     .post__image {
-        padding: 6rem;
+        padding: 8rem;
     }
     .post__title {
         font-size: var(--type-xxxlarge);

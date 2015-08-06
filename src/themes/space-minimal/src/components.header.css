@@ -20,12 +20,18 @@
 }
 .header__membership {
     display: table-cell;
-    width: 15rem;
+    width: 11rem;
     font-size: var(--type-small);
     font-family: var(--ff-sans);
 }
 .header__message {
     color: var(--color-grey);
+}
+
+@media all and (--from-mediumsmall) {
+    .header__membership {
+        width: 15rem;
+    }
 }
 
 @media all and (--to-large) {
