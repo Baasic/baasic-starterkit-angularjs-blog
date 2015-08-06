@@ -2,7 +2,7 @@
     <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
         <main class="mdl-layout__content">
             <div class="demo-back">
-                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index" target="_self">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="section-spacer"></div>
                         <div ng-if="$root.user.isAuthenticated">
-                            <a href="#" ng-click="editBlog()">
+                            <a ui-sref="master.blog-edit({slug:blog.slug})" target="_self">
                                 <i class="material-icons">edit</i>
                             </a>
                         </div>
@@ -36,7 +36,7 @@
                     </div>
                     <ul class="taglist">
                         <li ng-repeat="tag in blog.tags">
-                            <a ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+                            <a ui-sref="master.main.blog-search({ tags: tag.slug })" target="_self">{{ tag.tag }}</a>
                         </li>
                     </ul>
                 </div>
@@ -59,6 +59,6 @@
 </article>
 <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()"></baasic-blog-edit>
 <baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
-<a href="#" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+<a target="_self" ui-sref="master.main.index" ng-click="logout()" target="_self" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
 </baasic-logout>
-<a href="#" ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
+<a target="_self" ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

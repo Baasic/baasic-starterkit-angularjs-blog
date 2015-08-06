@@ -1,7 +1,7 @@
 ﻿<div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout">
     <main class="mdl-layout__content">
         <div class="demo-back">
-            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index">
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index" target="_self">
                 <i class="material-icons">arrow_back</i>
             </a>
         </div>
@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit" id="submit" class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-js-ripple-effect">Log-in</button>
+                            <button type="submit" id="submit" class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-js-ripple-effect" formtarget="_self">Log-in</button>
                         </div>
                         <div class="mdl-cell mdl-cell--12-col">
                             <span ng-show="loginError" class="mdl-textfield__error" style="visibility:visible;">{{loginError}}</span>

@@ -26,7 +26,7 @@
             <div ng-if="hasBlogs" ng-repeat="blog in blogList.item" ng-class=" { 'mdl-card mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone first__box': $first , 'mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone third__box': !$first }">
                 <div ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }" class="mdl-card__media mdl-color-text--grey-50" >
                     <h3>
-                        <a ui-sref="master.blog-detail({slug:blog.slug})">{{ blog.title }}</a>
+                        <a target="_self" ui-sref="master.blog-detail({slug:blog.slug})">{{ blog.title }}</a>
                     </h3>
                 </div>
                 <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
@@ -39,14 +39,14 @@
             </div>
             <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col fourth__box">
                 <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
-                    <a class="demo_nav--button link pull" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious" class="demo-nav__button">
+                    <a target="_self" class="demo_nav--button link pull" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious" class="demo-nav__button">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
                             <i class="material-icons">arrow_back</i>
                         </button>
                         <span>Newer</span>
                     </a>
                     <div class="section-spacer"></div>
-                    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext" class="demo-nav__button link push">
+                    <a target="_self" ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext" class="demo-nav__button link push">
                         <span>Older</span>
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
                             <i class="material-icons">arrow_forward</i>
@@ -70,6 +70,6 @@
     <div class="mdl-layout__obfuscator"></div>
 </div>
 <baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
-<a href="#" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+<a target="_self" ui-sref="master.main.index" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
 </baasic-logout>
-<a href="#" ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
+<a target="_self" ng-if="!$root.user.isAuthenticated" target="_self" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
