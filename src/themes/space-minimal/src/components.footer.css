@@ -14,7 +14,6 @@
         width: 100%;
         margin: 0;
         padding: 0;
-        /*overflow: hidden;*/
         position: fixed;
         transform: rotate(-90deg);
         transform-origin: 0% 0%;
@@ -25,8 +24,4 @@
         display: inline-block;
         width: 24em;
     }
-    /*.footer__status {
-        display: inline-block;
-        width: 12em;
-    }*/
 }
