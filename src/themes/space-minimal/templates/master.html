@@ -26,7 +26,7 @@
 	                    <ul ng-if="$root.user.isAuthenticated">
 	                        <li><p class="header__message">Welcome, {{ $root.user.displayName }}</p></li>
 	                        <li>
-	                            <button type="button" class="btn --simple-accent --tny" ng-click="newBlogPost()">New post</button> or 
+	                            <a type="button" class="btn --simple-accent --tny" ui-sref="master.new-blog-post">New post</a> or 
 	                            <baasic-logout on-logout="setEmptyUser()">
 	                                <button type="button" class="btn --simple --tny" ng-click="logout()">Logout</button>
 	                            </baasic-logout>
