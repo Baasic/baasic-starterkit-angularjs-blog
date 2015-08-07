@@ -23,6 +23,10 @@ npm (Node Package Manager) will go through its configuration file (package.json)
 
     gulp serve
     
+this will serve you the default theme, to serve a different theme please use the _--theme_ switch
+
+    gulp serve --theme gastro-thumbnail
+
 and you are *almost* ready to go. 
 
 In its default state, this kit points to the [main demo site](http://demo.baasic.com/angularjs/starterkit-blog/) and pulls its content from it. As it would not be a nice thing to have thousands of users editing it, you will need to point your kit to your own application. It is easy - just go to the *\src\app\app.js* and enter your Baasic application unique identifier (API Key) here:
@@ -40,6 +44,10 @@ To make the app ready for deploy to production run:
 
 ```bash
 gulp dist
+```
+or
+```bash
+gulp dist --theme gastro-thumbnail
 ```
 
 Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
