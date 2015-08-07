@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    # util.floats.css file
+\*------------------------------------*/
+
+
+/**
+* Floats
+*/
+.pull {
+	float: left;
+}
+
+.push {
+	float: right;
+}
+
+/*
+* Center
+*/
+.center {
+    margin: 0 auto;
+}

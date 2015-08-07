@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    # components.form.css file
+\*------------------------------------*/
+
+
+/**
+* Form style for "Add/Edit Blog Post"
+*/
+
+form{
+    max-width: 98%;
+}
+
+.preview__editor {
+    height: 28rem;
+    word-break: break-all;
+}
+
+.preview__view {
+    height: 28rem;
+    word-break: break-all;
+    padding-top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.preview__syntax {
+    height: 28rem;
+    overflow: auto;
+    overflow-y: scroll;
+    word-break: keep-all;
+
+}

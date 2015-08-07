@@ -140,6 +140,7 @@ gulp.task('build-all', ['styles', 'templates'], index);
 function index() {
     var opt = { read: false };
     return gulp.src('./src/app/index.html')
+      .pipe(g.inject(gulp.src('./src/themes/' + theme + '/assets/js/*.js'), { addRootSlash: false, ignorePath: 'src/themes/' + theme, starttag: '<!-- inject:vendorTheme -->' }))
       .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
       .pipe(gulp.dest('./src/app/'))
@@ -274,6 +275,7 @@ function appFiles() {
     return gulp.src(files)
       .pipe(g.angularFilesort());
 }
+
 
 /**
  * All AngularJS templates/partials as a stream
