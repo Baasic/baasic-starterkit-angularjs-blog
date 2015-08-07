@@ -1,0 +1,93 @@
+/*------------------------------------*\
+    # core.styledtext
+\*------------------------------------*/
+
+.styled-text h1,
+.styled-text h2,
+.styled-text h3,
+.styled-text h4,
+.styled-text h5,
+.styled-text h6 {
+    margin-bottom: 1.5rem;
+}
+.styled-text p,
+.styled-text ul,
+.styled-text dl,
+.styled-text ol,
+.styled-text table,
+.styled-text object,
+.styled-text cite,
+.styled-text section,
+.styled-text header,
+.styled-text pre {
+    margin-bottom: 1.5rem;
+}
+.styled-text ul, 
+.styled-text ol {
+    list-style: outside;
+    padding-left: 1em;
+}
+.styled-text ol {
+    list-style-type: decimal;
+}
+.styled-text dl > dt {
+    font-weight: var(--type-bold);
+}
+.styled-text p + pre {
+}
+.styled-text p code {
+    background: lighten($zircon, 5%);
+}
+.styled-text pre {
+    margin-bottom: 1.5rem;
+}
+.styled-text pre code {
+    font-size: var(--type-small);
+    padding: rem-calc(24) 0 rem-calc(24) rem-calc(24);
+    overflow: auto;
+}
+.styled-text em {
+    font-style: italic;
+}
+.styled-text img + em {
+    margin-bottom: 0.75rem;
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    display: block;
+}   
+.styled-text blockquote {
+    margin: 3rem 0;
+    position: relative;
+}
+.styled-text blockquote > p {
+    font-size: var(--type-large);
+    line-height: calc(var(--base-line-height)*1.5);
+    color: darken($grey, 15%);
+}
+.styled-text blockquote > cite {
+    margin-bottom: 1.5rem;
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height)*0.75);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-style: normal;
+    color: var(--color-grey);
+}
+.styled-text table {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.styled-text th {
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    text-align: left;
+}
+.styled-text td {
+    padding: 0.75rem 0.75rem 0.75rem 0;
+}
+.styled-text tfoot td {
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height)*0.75);
+    color: var(--color-grey);
+}

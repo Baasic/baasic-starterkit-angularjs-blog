@@ -1,0 +1,85 @@
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container container__main">
+    <div class="" role="banner">
+        <header role="banner" class="header">
+            <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
+
+            <div class="group--old spc--top--med">
+                <div class="search__wrapper">
+                    <div class="search">
+                        <form novalidate ng-submit="searchBlog()">
+                            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+
+                            <button type="submit" class="btn--search"></button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="profile__wrapper">
+                    <a href="#" class="avatar push">
+                        <img src="../assets/img/avatar.jpg" alt="logo">
+                        <h2 class="profile__title">Admin</h2>
+                    </a>
+                    <div class="push profile__settings">
+                        <div ng-if="$root.user.isAuthenticated">
+                            <p class="profile__message">Welcome, {{ $root.user.displayName }}</p>
+                            <button type="button" class="btn --primary --med" ng-click="newBlogPost()">New post</button>
+                            <baasic-logout on-logout="setEmptyUser()">
+                                <button type="button" class="btn --light --med" ng-click="logout()">Logout</button>
+                            </baasic-logout>
+                        </div>
+                        
+                        <div ng-if="!$root.user.isAuthenticated">
+                            <p class="profile__message">To create new blog please </p>
+                            <a class="btn --primary --med" ui-sref="login">login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    
+    <div class="container">
+        <main ui-view>
+            
+        </main>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__share">
+            <h2 class="footer__title">Spread the word</h2>
+            <ul class="smm group">
+                <li class="smm__item">
+                    <a class="smm__link" href="https://www.facebook.com/">
+                        <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://www.linkedin.com">
+                        <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://twitter.com/">
+                        <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://github.com/">
+                        <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__info">
+            <p>Copyright @ Blog name</p>
+        </div>
+        <div class="footer__poweredby">
+            <p>Powered by <a href="http://www.baasic.com" class="footer__poweredby--link">Baasic</a></p>
+        </div>
+    </footer>
+</div>

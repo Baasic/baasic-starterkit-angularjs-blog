@@ -15,7 +15,7 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog', {
+        baasicAppProvider.create('starterkit-blog-gastro', {
             apiRootUrl: 'api.baasic.com',
             apiVersion: 'beta'
         });
