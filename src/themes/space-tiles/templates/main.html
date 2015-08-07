@@ -22,7 +22,7 @@
                     <header role="banner" class="header">
                         <div class="header__controls">
                             <div class="search">
-                                <form novalidate ng-submit="searchBlog()">
+                                <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
                                     <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
 
                                     <button type="submit" class="btn--search"></button>
