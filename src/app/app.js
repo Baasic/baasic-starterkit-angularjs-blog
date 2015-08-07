@@ -22,7 +22,7 @@ angular.module('myBlog', [
 
         $locationProvider.html5Mode({
             enabled: true
-        });
+        });       
 
         $urlRouterProvider.when('', '/');
 
@@ -86,10 +86,15 @@ angular.module('myBlog', [
     }
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
-.controller('MainCtrl', ['$scope', '$state', 'baasicBlogService',
-	function MainCtrl($scope, $state, blogService) {
+.controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
+	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
 	    'use strict';
-
+        
+        $rootScope.baseHref = $browser.baseHref().trimRight('/');
+        if ($rootScope.baseHref === '/') {
+            $rootScope.baseHref = '';
+        }
+        
 	    blogService.tags.find({
 	        rpp: 10
 	    })

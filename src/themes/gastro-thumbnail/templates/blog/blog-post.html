@@ -1,5 +1,5 @@
 ﻿<article class="post" ng-hide="isEdit">
-    <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
+    <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
         <div class="post__header__container">
             <h2 class="post__title">{{ blog.title }}</h2>
             <span class="post__header__overlay"></span>

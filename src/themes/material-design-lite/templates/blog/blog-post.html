@@ -2,13 +2,13 @@
     <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
         <main class="mdl-layout__content">
             <div class="demo-back">
-                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index" target="_self">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index" >
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
             <div class="demo-blog__posts mdl-grid">
                 <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-                    <div class="mdl-card__media mdl-color-text--grey-50" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
+                    <div class="mdl-card__media mdl-color-text--grey-50" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
                         <h3>{{blog.title}}</h3>
                     </div>
                     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
@@ -19,7 +19,7 @@
                         </div>
                         <div class="section-spacer"></div>
                         <div ng-if="$root.user.isAuthenticated">
-                            <a ui-sref="master.blog-edit({slug:blog.slug})" target="_self">
+                            <a ui-sref="master.blog-edit({slug:blog.slug})" >
                                 <i class="material-icons">edit</i>
                             </a>
                         </div>
@@ -36,7 +36,7 @@
                     </div>
                     <ul class="taglist">
                         <li ng-repeat="tag in blog.tags">
-                            <a ui-sref="master.main.blog-search({ tags: tag.slug })" target="_self">{{ tag.tag }}</a>
+                            <a ui-sref="master.main.blog-search({ tags: tag.slug })" >{{ tag.tag }}</a>
                         </li>
                     </ul>
                 </div>
@@ -59,6 +59,6 @@
 </article>
 <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()"></baasic-blog-edit>
 <baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
-<a target="_self" ui-sref="master.main.index" ng-click="logout()" target="_self" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+<a  ui-sref="master.main.index" ng-click="logout()"  class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
 </baasic-logout>
-<a target="_self" ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
+<a  ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

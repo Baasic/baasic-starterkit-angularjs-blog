@@ -8,7 +8,7 @@
         <div class="article__holder">
             <div class="article__figure">
                 <a ui-sref="master.blog-detail({ slug: blog.slug })" class="article__link"></a>
-                <img ng-src="{{ blog.featured }}" alt="Test photo">
+                <img ng-src="{{ baseHref + blog.featured }}" alt="Test photo">
                 <div class="article__content">
                     <header class="article__header">
                         <h2 class="article__title">
