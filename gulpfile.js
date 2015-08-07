@@ -23,7 +23,7 @@ var htmlminOpts = {
 };
 
 var baseUrl = g.util.env.baseUrl || '/'; 
-var theme = g.util.env.theme || 'gastro-thumbnail';
+var theme = g.util.env.theme || 'space-thumbnail';
 
 /**
  * JS Hint
