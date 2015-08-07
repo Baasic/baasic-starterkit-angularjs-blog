@@ -119,7 +119,9 @@ angular.module('myBlog', [
         };
     }
 ])
-.controller("SearchCtrl", ["$scope", "$state", function ($scope, $state) {
+.controller('SearchCtrl', ['$scope', '$state', function ($scope, $state) {
+    'use strict';
+
     $scope.searchBlog = function searchBlog() {
             if ($scope.searchFor) {
                 $state.go('master.main.blog-search', { search: $scope.searchFor });
