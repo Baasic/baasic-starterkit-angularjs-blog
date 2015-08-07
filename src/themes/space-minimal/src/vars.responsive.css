@@ -13,7 +13,7 @@
 @custom-media --to-small (max-width: 20em); /*320px*/
 @custom-media --to-mediumsmall (max-width: 40em); /*640px*/
 @custom-media --to-medium (max-width: 48em); /*768px*/
-@custom-media --to-large (max-width: 64em); /*1024px*/
+@custom-media --to-large (max-width: 63.98em); /*1024px - 1px*/
 @custom-media --to-xlarge (max-width: 80em); /*1280px*/
 @custom-media --to-xxlarge (max-width: 90em); /*1440px*/
 @custom-media --to-xxxlarge (max-width: 100em); /*1600px*/
