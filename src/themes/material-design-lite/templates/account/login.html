@@ -11,14 +11,14 @@
                     <form name="login" novalidate ng-submit="submitLogin()" class="mdl-cell mdl-cell--12-col">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
                             <input class="mdl-textfield__input" type="text" id="username" name="username" ng-model="username" class="mdl-cell mdl-cell--12-col" required/>
-                            <label class="mdl-textfield__label" for="username">Enter Your Username or Email</label>
+                            <label class="mdl-textfield__label" for="username" ng-class="{'has-data':username.length>0}">Enter Your Username or Email</label>
                             <div ng-show="login.$submitted || login.username.$touched">
                                 <span ng-show="login.username.$error.required && !login.username.length" class="mdl-textfield__error">Username is required.</span>
                             </div>
                         </div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
                             <input class="mdl-textfield__input" type="password" id="password" name="password" ng-model="password" class="mdl-cell mdl-cell--12-col" required />
-                            <label class="mdl-textfield__label" for="password">Enter Your Password</label>
+                            <label class="mdl-textfield__label" for="password" ng-class="{'has-data':password.length>0}">Enter Your Password</label>
                             <div ng-show="login.$submitted || login.password.$touched">
                                 <span ng-show="login.password.$error.required" class="mdl-textfield__error">Password is required.</span>
                             </div>

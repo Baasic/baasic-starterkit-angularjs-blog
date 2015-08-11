@@ -10,12 +10,10 @@
 form{
     max-width: 98%;
 }
-
 .preview__editor {
     height: 28rem;
     word-break: break-all;
 }
-
 .preview__view {
     height: 28rem;
     word-break: break-all;
@@ -23,11 +21,25 @@ form{
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 .preview__syntax {
     height: 28rem;
     overflow: auto;
     overflow-y: scroll;
     word-break: keep-all;
 
+}
+.demo-blog .meta > form:first-child {
+    margin-right: 0;
+    width: 100%;
+}
+.input--search {
+    width: calc(100% - 3rem);
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.search--btn {
+    float: right;
 }

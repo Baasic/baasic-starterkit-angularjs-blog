@@ -9,18 +9,14 @@
                     <img width="64px" src="assets/img/baasic.svg">Baasic
                 </div>
                 <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-                    <div>
-                        <strong>Visit Baasic</strong>
-                    </div>
-                    <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-                        <button class="mdl-menu__item mdl-js-ripple-effect">Twitter</button>
-                        <button class="mdl-menu__item mdl-js-ripple-effect">Facebook</button>
-                        <button class="mdl-menu__item mdl-js-ripple-effect">GitHub</button>
-                        <button class="mdl-menu__item mdl-js-ripple-effect">LinkedIn</button>
-                    </ul>
-                    <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons">more_vert</i>
-                    </button>
+                    <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                        <div>
+                            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                            <button id="menubtn" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon search--btn">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div ng-if="hasBlogs" ng-repeat="blog in blogList.item" ng-class=" { 'mdl-card mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone first__box': $first , 'mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone third__box': !$first }">
