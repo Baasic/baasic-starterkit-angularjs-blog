@@ -1,33 +1,35 @@
-/*------------------------------------*\
-    # components.form.css file
-\*------------------------------------*/
-
-
+/* ==========  FORMS  ========== */
 /**
 * Form style for "Add/Edit Blog Post"
 */
-
 form{
     max-width: 98%;
 }
 .preview__editor {
     height: 28rem;
     word-break: break-all;
+    border: 1px solid #eee;
+    padding: 1rem;
 }
 .preview__view {
     height: 28rem;
     word-break: break-all;
-    padding-top: 0;
+    padding: 1rem;
     overflow-y: auto;
     overflow-x: hidden;
+    border: 1px solid #eee;
 }
 .preview__syntax {
     height: 28rem;
     overflow: auto;
     overflow-y: scroll;
     word-break: keep-all;
-
+    border: 1px solid #eee;
+    padding: 1rem;
 }
+/**
+* Form style for search form
+*/
 .demo-blog .meta > form:first-child {
     margin-right: 0;
     width: 100%;

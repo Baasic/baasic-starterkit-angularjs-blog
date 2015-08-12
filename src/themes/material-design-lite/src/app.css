@@ -1,8 +1,4 @@
-/*------------------------------------*\
-    # Application CSS file
-\*------------------------------------*/
-
-
+/* ==========  Application CSS file  ========== */
 /**
 * Fonts
 */
@@ -13,7 +9,7 @@
 /**
 * Material Design Lite
 */
-@import "material.min.css";
+@import "material.css";
 @import "styles.css";
 
 /**
@@ -31,3 +27,4 @@
 @import "util.globals.css";
 @import "util.tags.css";
 @import "util.validation.css";
+@import "util.animation.css";

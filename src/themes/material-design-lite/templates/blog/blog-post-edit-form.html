@@ -11,14 +11,14 @@
                     <h3>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h3>
                 </div>
                 <form name="blogPost" novalidate class="mdl-grid">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
                         <input type="text" id="blog.title" name="title" ng-model="blog.title" class="mdl-textfield__input" required/>
                         <label class="mdl-textfield__label" for="title" ng-class="{'has-data':blog.title.length>0}" >Enter Title of Your Blog Post</label>
                         <div ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
                             <span class="mdl-textfield__error">Blog Post Title is Required.</span>
                         </div>
                     </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
                         <input class="mdl-textfield__input" type="text" id="blog.featured" name="featured" ng-model="blog.featured" />
                         <label class="mdl-textfield__label" for="featured" ng-class="{'has-data':blog.featured.length>0}">Enter URL of Featured Image</label>
                     </div>
@@ -26,7 +26,9 @@
                         <label class="mdl-textfield__label" for="excerpt" ng-class="{'has-data':blog.excerpt.length>0}">Enter Excerpt for Your Blog Post</label>
                         <textarea class="mdl-textfield__input" id="excerpt" name="excerpt" ng-model="blog.excerpt"></textarea>
                     </div>
+                    <label for="content">Content</label>
                     <div class="mdl-cell mdl-cell--12-col">
+
                         <small>Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
                         <div class="push spc--top--med">
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
@@ -35,7 +37,7 @@
                         </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                        <label class="mdl-textfield__label" for="content" ng-class="{'has-data':blog.content.length>0}">Content</label>
+
                         <textarea class="mdl-textfield__input mdl-cell mdl-cell--12-col preview__editor" id="content" name="content" ng-model="blog.content"></textarea>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet ">

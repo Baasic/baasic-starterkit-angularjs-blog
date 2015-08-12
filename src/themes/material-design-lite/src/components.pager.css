@@ -1,12 +1,7 @@
-/*------------------------------------*\
-    # components.pager.css file
-\*------------------------------------*/
-
-
+/* ==========  PAGER  ========== */
 /**
 * Pager
 */
-
 pager {
     width: 100%;
 }
@@ -14,7 +9,6 @@ pager>a.link {
     text-decoration: none;
     color: #FFF;
 }
-
 pager>a.link>span {
     padding: 0 .5rem;
 }

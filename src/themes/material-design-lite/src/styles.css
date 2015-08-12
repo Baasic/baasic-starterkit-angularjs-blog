@@ -3,7 +3,7 @@ body {
 }
 
 body::before {
-    background-image: url(assets/img/bg.jpg);
+    background-image: url(/assets/img/bg.jpg);
     background-size: cover;
     background-attachment: fixed;
     content: '';
@@ -81,11 +81,15 @@ body .demo-blog {
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end;
-  cursor: pointer;
 }
 .demo-blog .mdl-card__media a,
 .demo-blog .mdl-card__title a {
   color: inherit;
+  transition: color .2s ease-in-out;
+}
+.demo-blog .mdl-card__media a:hover,
+.demo-blog .mdl-card__title a:hover {
+  color: rgb(255,152,0);
 }
 .demo-blog .mdl-card__supporting-text {
   width: 100%;
@@ -150,7 +154,6 @@ body .demo-blog {
 }
 .demo-blog .meta > .meta__favorites .material-icons {
   font-size: 2em;
-  cursor: pointer;
   margin-left: 12px;
 }
 .demo-blog .mdl-card .meta.meta--fill {
@@ -478,7 +481,7 @@ body .demo-blog {
 .demo-blog .minilogo {
   width: 44px;
   height: 44px;
-  background-image: url(../../../../../assets/img/baasic.svg);
+  background-image: url(/assets/img/baasic.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
@@ -536,4 +539,23 @@ body .demo-blog {
   margin-right: 30px;
   margin-top: 15px;
   z-index: 3;
+}
+/**
+* Prev/Next buttons
+*/
+span, i{
+    transition: color .2s ease-in-out;
+}
+a:hover span, a:hover i {
+    color: rgb(255,152,0);
+}
+a:hover {
+    color: rgb(255,69,0);
+}
+
+/**
+* search results container height override
+*/
+.mdl-card-no-height {
+    min-height: 100px!important;
 }

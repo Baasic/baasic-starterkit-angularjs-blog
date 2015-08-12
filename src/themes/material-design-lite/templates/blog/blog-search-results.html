@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="center mdl-color--white mdl-color-text--grey-600 mdl-shadow--4dp mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                <div class="mdl-cell mdl-cell--12-col mdl-card spc--btm--lrg">
+                <div class="mdl-cell mdl-cell--12-col mdl-card spc--btm--lrg mdl-card-no-height">
                     <span class="mdl-cell mdl-cell--12-col mdl-layout-title spc--top--med">Search Results</span>
                     <div class="mdl-cell--12-col center spc--btm--med" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
                         <h4>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div>
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  ui-sref="master.blog-detail({slug:blog.slug})"> READ MORE </a>
+                            <a class="mdl-button mdl-button--raised mdl-color--accent mdl-color-text--accent-contrast push mdl-js-button mdl-js-ripple-effect"  ui-sref="master.blog-detail({slug:blog.slug})"> READ MORE </a>
                         </div>
                     </div>
                     <article ng-if="!hasBlogs">
