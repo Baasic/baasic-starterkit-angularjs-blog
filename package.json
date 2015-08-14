@@ -2,7 +2,7 @@
   "name": "baasic-angularjs-blog-starter-kit",
   "version": "0.1.0",
   "private": true,
-   "scripts": {
+  "scripts": {
     "postinstall": "bower install"
   },
   "dependencies": {},
@@ -26,6 +26,7 @@
     "gulp-ng-html2js": "~0.1.8",
     "gulp-pleeease": "^1.2.0",
     "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.4",
     "gulp-serve": "~0.3.0",
     "gulp-uglify": "^1.0.2",
     "gulp-util": "^3.0.2",

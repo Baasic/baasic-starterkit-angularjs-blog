@@ -1,0 +1,37 @@
+﻿<article class="post" ng-hide="isEdit">
+
+    <div class="post__header">
+        <h2 class="post__title">{{ blog.title }}</h2>
+        <div class="group spc--bottom--med">
+            <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
+            <span class="post__time push">{{ blog.readingTime.text }}</span>
+        </div>
+    </div>
+
+    <div class="post__image" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
+        <div class="post__image__container">
+            <span class="post__image__overlay"></span>
+        </div>
+    </div>
+
+    <div class="post__body">
+        <div btf-markdown="blog.content" class="styledtext">
+        </div>
+        <ul class="post__tags tags group">
+            <li ng-repeat="tag in blog.tags" class="tags__item">
+                <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+            </li>
+        </ul>
+        <hr>
+        <span ng-hide="isEdit">
+            <span ng-if="$root.user.isAuthenticated" class="push">
+                <button type="button" class="btn --primary --med rounded" ng-click="editBlog()">Edit</button>
+                <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
+            </span>
+        </span>
+        <button type="button" class="btn --light --med rounded arrow-holder" href="javascript:void(0);" ui-sref="master.main.index" rel="home"><span class="arrow --small --bck"></span> Back</button>
+    </div>
+</article>
+
+<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+</baasic-blog-edit>

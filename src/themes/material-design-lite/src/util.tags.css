@@ -1,0 +1,50 @@
+/* ==========  TAGS  ========== */
+/**
+* Tags in Edit Mode
+*/
+tags-input .tags {
+    border: none;
+    box-shadow: none;
+}
+tags-input .tags.focused {
+    box-shadow: none;
+}
+tags-input {
+    border-bottom: 1px solid #ccc;
+}
+tags-input .tags .tag-item {
+    background: none;
+}
+tags-input .tags .tag-item span {
+    text-transform: uppercase;
+}
+tags-input .tags .tag-item.selected {
+    background: none;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+/**
+* Tags in View Blog Post Mode
+*/
+.taglist {
+    list-style: none;
+    padding: 1rem;
+    margin: 2rem auto;
+}
+.taglist li {
+    display: inline-block;
+   margin: .2rem;
+}
+.taglist li a {
+    display: block;
+    padding: .4rem .6rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-color: rgb(255,152,0);
+    border-radius: 2px;
+}
+.taglist li a:hover {
+    color: rgb(255,69,0);
+    border-color: rgb(255,69,0);
+}

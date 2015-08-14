@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+    padding: 1rem 0.75rem 1.5rem 0.75rem;
+    display: table;
+    width: 100%;
+}
+.header__logo {
+    display: table-cell;
+}
+.header__logo:hover {
+    opacity: .7;
+}
+.header__controls {
+    display: table-cell;
+    width: 20%;
+    vertical-align: top;
+}
+.header__membership {
+    display: table-cell;
+    width: 11rem;
+    font-size: var(--type-small);
+    font-family: var(--ff-sans);
+}
+.header__message {
+    color: var(--color-grey);
+}
+
+@media all and (--from-mediumsmall) {
+    .header__membership {
+        width: 15rem;
+    }
+}
+
+@media all and (--to-large) {
+    .header__controls {
+        transform: translate3d(0,0,0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        background: #fcfcfc;
+        width: 100%;
+        padding: 0.75rem 1.5rem 0 1.5rem;
+        box-shadow: 0 0 0 1px color(black a(0.1));
+    }
+}
+
+@media all and (--from-large) {
+    .header {
+        padding: 3rem 0.75rem 1.5rem 0.75rem;
+    }
+    .header__logo {
+        position: fixed;
+        left: 2rem;
+        top: 2rem;
+        z-index: 2;
+    }
+}

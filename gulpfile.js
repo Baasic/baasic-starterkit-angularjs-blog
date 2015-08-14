@@ -3,6 +3,7 @@
 
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({ lazy: false }),
+    replace = require('gulp-replace'),
     noop = g.util.noop,
     es = require('event-stream'),
     bowerFiles = require('main-bower-files'),
@@ -21,6 +22,7 @@ var htmlminOpts = {
     removeRedundantAttributes: true
 };
 
+var baseUrl = g.util.env.baseUrl || '/'; 
 var theme = g.util.env.theme || 'space-thumbnail';
 
 /**
@@ -140,8 +142,11 @@ gulp.task('build-all', ['styles', 'templates'], index);
 function index() {
     var opt = { read: false };
     return gulp.src('./src/app/index.html')
+      .pipe(g.inject(gulp.src('./src/themes/' + theme + '/assets/js/*.js'), { addRootSlash: false, ignorePath: 'src/themes/' + theme, starttag: '<!-- inject:vendorTheme -->' }))
       .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
+      .pipe(replace(/\"\/assets\/img\/(.*)\"/g, baseUrl + '/assets/img/$1'))
+      .pipe(replace('<base href="/">', '<base href="' + baseUrl + '" />'))
       .pipe(gulp.dest('./src/app/'))
       .pipe(g.embedlr())
       .pipe(gulp.dest('./.tmp/'))
@@ -274,6 +279,7 @@ function appFiles() {
     return gulp.src(files)
       .pipe(g.angularFilesort());
 }
+
 
 /**
  * All AngularJS templates/partials as a stream

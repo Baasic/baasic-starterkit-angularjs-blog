@@ -22,7 +22,7 @@ angular.module('myBlog', [
 
         $locationProvider.html5Mode({
             enabled: true
-        });
+        });       
 
         $urlRouterProvider.when('', '/');
 
@@ -86,10 +86,15 @@ angular.module('myBlog', [
     }
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
-.controller('MainCtrl', ['$scope', '$state', 'baasicBlogService',
-	function MainCtrl($scope, $state, blogService) {
+.controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
+	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
 	    'use strict';
-
+        
+        $rootScope.baseHref = $browser.baseHref().trimRight('/');
+        if ($rootScope.baseHref === '/') {
+            $rootScope.baseHref = '';
+        }
+        
 	    blogService.tags.find({
 	        rpp: 10
 	    })
@@ -97,11 +102,7 @@ angular.module('myBlog', [
             $scope.tags = tagList.item;
         });
 
-	    $scope.searchBlog = function searchBlog() {
-	        if ($scope.searchFor) {
-	            $state.go('master.main.blog-search', { search: $scope.searchFor });
-	        }
-	    };
+	    
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
@@ -123,6 +124,15 @@ angular.module('myBlog', [
         };
     }
 ])
+.controller('SearchCtrl', ['$scope', '$state', function ($scope, $state) {
+    'use strict';
+
+    $scope.searchBlog = function searchBlog() {
+            if ($scope.searchFor) {
+                $state.go('master.main.blog-search', { search: $scope.searchFor });
+            }
+        };
+}])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {
         'use strict';

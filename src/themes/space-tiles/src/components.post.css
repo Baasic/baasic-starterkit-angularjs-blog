@@ -13,6 +13,17 @@
 
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
+    z-index: 1;
+}
+.post__bg__overlay {
+    background-color: rgba(0,0,0,0.35);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .5s;
 }
 .post__header__container {
     max-width: 60em;

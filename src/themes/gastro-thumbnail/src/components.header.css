@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+    padding: 1.5rem;
+}
+@media all and (--to-large) {
+    .header {
+        padding-top: 6rem;
+    }
+}
+@media all and (--from-large) {
+    .header {
+        padding: 3rem 3rem 0 3rem;
+    }
+}

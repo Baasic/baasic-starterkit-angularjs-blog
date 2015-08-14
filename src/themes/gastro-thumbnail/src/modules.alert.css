@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    # modules.alert
+\*------------------------------------*/
+
+.alert {
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    display: block;
+    padding: .75rem 0;
+}
+.alert--warning {
+    color: var(--color-warning);
+}
+.alert--success {
+    color: var(--color-success);
+}
+.alert--note {
+    color: var(--color-note);
+}

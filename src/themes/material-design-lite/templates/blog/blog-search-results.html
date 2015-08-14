@@ -1,0 +1,64 @@
+﻿<div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
+    <main class="mdl-layout__content">
+        <div class="demo-blog__posts mdl-grid">
+            <div class="demo-back">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"  ui-sref="master.main.index">
+                    <i class="material-icons">home</i>
+                </a>
+            </div>
+            <div class="center mdl-color--white mdl-color-text--grey-600 mdl-shadow--4dp mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                <div class="mdl-cell mdl-cell--12-col mdl-card spc--btm--lrg mdl-card-no-height">
+                    <span class="mdl-cell mdl-cell--12-col mdl-layout-title spc--top--med">Search Results</span>
+                    <div class="mdl-cell--12-col center spc--btm--med" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+                        <h4>
+                            <a ui-sref="master.blog-detail({slug:blog.slug})" >{{ blog.title }}</a>
+                        </h4>
+                        <div class="mdl-color-text--grey-600">
+                            <div>
+                                <p>{{ blog.excerpt }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="mdl-button mdl-button--raised mdl-color--accent mdl-color-text--accent-contrast push mdl-js-button mdl-js-ripple-effect"  ui-sref="master.blog-detail({slug:blog.slug})"> READ MORE </a>
+                        </div>
+                    </div>
+                    <article ng-if="!hasBlogs">
+                        <p class="mdl-cell mdl-cell--12-col">Nothing found.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <nav ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext" class="mdl-navigation mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+            <div class="pull">
+                <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()" class="demo-nav__button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+                <span>Previous</span>
+            </div>
+            <div class="section-spacer"></div>
+            <div class="push">
+                <span>Next</span>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+            </div>
+        </nav>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__facebook"></button>
+                <button class="mdl-mini-footer--social-btn social-btn social-btn__linkedin"></button>
+            </div>
+            <div class="mdl-mini-footer--right-section">
+                <button class="mdl-mini-footer--social-btn social-btn__share">
+                    <i class="material-icons">share</i>
+                </button>
+            </div>
+        </footer>
+    </main>
+    <div class="mdl-layout__obfuscator"></div>
+</div>
+<baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
+    <a ui-sref="master.main.index"  ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+</baasic-logout>
+<a  ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

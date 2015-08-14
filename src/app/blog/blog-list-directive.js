@@ -39,7 +39,7 @@
                                 $scope.hasBlogs = blogList.totalRecords > 0;
                             })
                             .error(function (error) {
-                                conosle.log(error); // jshint ignore: line
+                                console.log(error); // jshint ignore: line
                             })
                             .finally(function () {
                                 $scope.$root.loader.resume();

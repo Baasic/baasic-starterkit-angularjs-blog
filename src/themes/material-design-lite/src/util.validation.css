@@ -1,0 +1,22 @@
+/* ==========  Validation  ========== */
+/**
+* Overriding mdl isInvalid classes
+*/
+.mdl-textfield.is-invalid .mdl-textfield__input, .mdl-textfield.is-invalid .mdl-textfield__input:focus {
+    border-color: #ddd;
+}
+.mdl-textfield.is-invalid .mdl-textfield__label:after {
+    background-color: #9e9e9e;
+}
+.mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
+    color: rgba(0,0,0,0.26);
+    font-size: 1.15rem;
+}
+.is-focused .mdl-textfield__label {
+    font-size: .85rem!important;
+    color: #9e9e9e!important;
+}
+.has-data {
+    font-size: .85rem!important;
+    top:4px;
+}

@@ -1,0 +1,59 @@
+﻿<article class="post" ng-hide="isEdit">
+    <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
+        <main class="mdl-layout__content">
+            <div class="demo-back">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ui-sref="master.main.index" >
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <div class="demo-blog__posts mdl-grid">
+                <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
+                        <h3>{{blog.title}}</h3>
+                    </div>
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>Baasic | {{blog.readingTime.text}}</strong>
+                            <span>{{blog.publishDate | date : 'medium' }}</span>
+                        </div>
+                        <div class="section-spacer"></div>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <a ui-sref="master.blog-edit({slug:blog.slug})" >
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </div>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <a href="#">
+                                <i class="material-icons" ng-click="deleteBlog()">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div btf-markdown="blog.content" class="mdl-color-text--grey-700 mdl-card__supporting-text">
+                    </div>
+                    <ul class="taglist">
+                        <li ng-repeat="tag in blog.tags">
+                            <a ui-sref="master.main.blog-search({ tags: tag.slug })" >{{ tag.tag }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__facebook"></button>
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__linkedin"></button>
+                </div>
+                <div class="mdl-mini-footer--right-section">
+                    <p class="">Powered by <a href="http://baasic.com">Baasic</a></p>
+                </div>
+            </footer>
+        </main>
+        <div class="mdl-layout__obfuscator"></div>
+    </div>
+</article>
+<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()"></baasic-blog-edit>
+<baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
+<a  ui-sref="master.main.index" ng-click="logout()"  class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+</baasic-logout>
+<a  ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

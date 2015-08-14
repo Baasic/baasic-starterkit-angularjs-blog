@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout {}
+
+.layout__content {
+    padding-top: 3rem;
+}
+
+@media all and (--from-large) {
+    .layout {
+        padding-left: 10rem;
+        padding-right: 2rem;
+        right: 0;
+        max-width: 1920px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .layout__content {
+        max-width: 80rem;
+        padding-top: 0;
+    }
+}
+
+.layout__form {
+    padding-top: 3rem;
+    padding: 0 2.25rem;
+}
+.layout__login {
+    max-width: 1024px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-bottom: 5rem;
+    }
+    .layout__login {
+        margin: 3rem auto;
+    }
+}
