@@ -18,6 +18,7 @@
 @import "components.pager.css";
 @import "components.form.css";
 @import "components.loader.css";
+@import "components.footer.css";
 
 /**
 * Various Utility Classes
@@ -28,3 +29,4 @@
 @import "util.tags.css";
 @import "util.validation.css";
 @import "util.animation.css";
+@import "util.404.css";
