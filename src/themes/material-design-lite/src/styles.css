@@ -17,6 +17,9 @@ body::before {
 }
 body .demo-blog {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  /*pin footer to bottom when page has lot of content*/
+  min-height: 100vh;
+  height: auto;
 }
 .demo-blog .demo-blog__posts {
   max-width: 900px;
@@ -37,6 +40,9 @@ body .demo-blog {
   padding-top: 230px;
   position: relative;
   -webkit-overflow-scrolling: touch;
+  /*stretch layout to 100% to pin the footer on bottom*/
+  min-height: 100vh;
+  height: auto;
 }
 @media all and (max-width: 600px){
     .demo-blog.mdl-layout .mdl-layout__content {
