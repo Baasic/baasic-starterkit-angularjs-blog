@@ -1,0 +1,25 @@
+﻿<h1>Search results</h1>
+<div ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+    <span>{{ blog.publishDate | date : 'medium' }}</span>
+    <h3>
+        <a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
+    </h3>
+    <p>
+        {{ blog.excerpt }}
+    </p>
+</div>
+
+<article ng-if="!hasBlogs">
+    <p>Nothing found.</p>
+</article>
+
+<div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
+    <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
+    <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
+</div>
+
+<hr>
+
+<a href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+<div ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+</div>

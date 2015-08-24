@@ -34,14 +34,4 @@ form{
     margin-right: 0;
     width: 100%;
 }
-.input--search {
-    width: calc(100% - 3rem);
-    background: none;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    font-size: 1rem;
-    line-height: 1.5rem;
-}
-.search--btn {
-    float: right;
-}
+

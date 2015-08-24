@@ -1,6 +1,6 @@
 ﻿<div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-    <main class="mdl-layout__content">
-        <div class="demo-blog__posts mdl-grid">
+    <main class="mdl-layout__content main">
+        <div class="demo-blog__posts mdl-grid" id="grid">
             <div class="mdl-card something-else mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone second__box">
                 <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" ui-sref="master.new-blog-post">
                     <i class="material-icons mdl-color-text--white">add</i>
@@ -10,11 +10,14 @@
                 </div>
                 <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                     <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
-                        <div>
-                            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-                            <button id="menubtn" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon search--btn">
-                                <i class="material-icons">search</i>
-                            </button>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo" ng-class="{'is-focused':isFocused}">
+                            <label ng-click="isFocused=true" class="mdl-button mdl-js-button mdl-button--icon" for="search__field">
+                                <i class="material-icons" >search</i>
+                            </label>
+                            <div class="mdl-textfield__expandable-holder">
+                                <input class="mdl-textfield__input" type="search" id="search__field" ng-model="searchFor"  />
+                                <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -65,6 +68,6 @@
     <div class="mdl-layout__obfuscator"></div>
 </div>
 <baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
-<a ui-sref="master.main.index" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+    <a ui-sref="master.main.index" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
 </baasic-logout>
 <a ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>

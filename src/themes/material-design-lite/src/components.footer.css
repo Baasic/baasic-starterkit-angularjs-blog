@@ -1,0 +1,10 @@
+/* ==========  FOOTER  ========== */
+/**
+* If no content, stick to the bottom of the page
+*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

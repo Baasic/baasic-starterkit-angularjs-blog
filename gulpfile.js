@@ -64,6 +64,7 @@ gulp.task('styles', ['clean-css'], function () {
           },
           'next': true
       }))
+      .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./.tmp/css/'))
       .pipe(g.cached('built-css'))
       .pipe(livereload());
@@ -88,6 +89,7 @@ gulp.task('styles-dist', function () {
               }
           }
       }))
+      .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./dist/css/'));
 });
 
@@ -146,7 +148,7 @@ function index() {
       .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
       .pipe(replace(/\"\/assets\/img\/(.*)\"/g, baseUrl + '/assets/img/$1'))
-      .pipe(replace('<base href="/">', '<base href="' + baseUrl + '" />'))
+      .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
       .pipe(gulp.dest('./src/app/'))
       .pipe(g.embedlr())
       .pipe(gulp.dest('./.tmp/'))
@@ -167,6 +169,7 @@ gulp.task('assets', function () {
 gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
     return gulp.src('./src/app/index.html')
       .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
+      .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
       .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist' }))
       .pipe(g.htmlmin(htmlminOpts))
       .pipe(gulp.dest('./dist/'));

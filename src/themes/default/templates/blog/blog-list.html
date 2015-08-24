@@ -1,0 +1,24 @@
+﻿<section>
+    <article ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+        <h2><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
+        <p>
+            {{ blog.dateUpdated | date : 'medium' }}
+        </p>
+        <p>
+            {{ blog.excerpt }}
+        </p>
+    </article>
+    
+    <article ng-if="!hasBlogs">
+        <p>
+            No blogs.
+        </p>
+    </article>
+
+    <hr>
+    
+    <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+        <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious">Prev</a>
+        <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext">Next</a>
+    </pager>
+</section>
