@@ -6,7 +6,7 @@
                 <input class="input input--text" type="text" id="fieldUsername" name="username" ng-model="username" required placeholder="" />
                 <span class="input--highlight"></span>
                 <span class="input--bar"></span>
-                <label class="form__label" for="fieldUsername">Username</label>
+                <label class="form__label position--abs" for="fieldUsername">Username</label>
                 <div ng-show="login.$submitted || login.username.$touched">
                     <p class="alert alert--warning" ng-show="login.username.$error.required">Username is required.</p>
                 </div>
@@ -15,7 +15,7 @@
                 <input class="input input--text" type="password" id="fieldPassword" name="password" ng-model="password" required placeholder="" autocomplete="off" />
                 <span class="input--highlight"></span>
                 <span class="input--bar"></span>
-                <label class="form__label" for="fieldPassword">Password</label>
+                <label class="form__label position--abs" for="fieldPassword">Password</label>
                 <div ng-show="login.$submitted || login.password.$touched">
                     <p class="alert alert--warning" ng-show="login.password.$error.required">Password is required.</p>
                 </div>

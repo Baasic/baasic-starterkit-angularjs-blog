@@ -30,7 +30,6 @@
 }
 
 .form__label {
-    position: absolute;
     left: .5rem;
     top: 1.25rem;
     font-family: var(--ff-sans);
@@ -38,13 +37,11 @@
     margin-bottom: .75rem;
     display: block;
     color: var(--color-grey);
-    pointer-events:none;
     transition:0.2s ease all; 
 }
 
 .input:focus ~ .form__label, 
-.input:valid ~ .form__label
-.input:enabled ~ .form__label {
+.input:valid ~ .form__label {
     top: -1rem;
     font-size: var(--type-small);
     color: var(--color-primary);
