@@ -42,7 +42,9 @@
     transition:0.2s ease all; 
 }
 
-.input:focus ~ .form__label, .input:valid ~ .form__label        {
+.input:focus ~ .form__label, 
+.input:valid ~ .form__label
+.input:enabled ~ .form__label {
     top: -1rem;
     font-size: var(--type-small);
     color: var(--color-primary);
