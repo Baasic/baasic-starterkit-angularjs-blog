@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    # components.logo
+\*------------------------------------*/
+
+.logo  {
+    width: 47px; 
+    height: 48px;
+    background-image: url(/assets/img/logo.svg);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+.expand .logo  {
+    position: inherit;
+    right: 2rem;
+    top: 1rem;
+}

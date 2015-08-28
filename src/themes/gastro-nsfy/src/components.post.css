@@ -1,0 +1,117 @@
+/*------------------------------------*\
+    # components.post
+\*------------------------------------*/
+
+.post {
+}
+.post__header {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    padding: 2.5rem 1.5rem;
+    z-index: -2;
+
+    /* Background image URL comes from HTML style attribute */
+    background-size: cover;
+}
+.post__header__container {
+    max-width: 60em;
+    margin-right: auto;
+    margin-left: auto;
+}
+.post__header__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.post__time {
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-light);
+}
+.post__title {
+    font-family: var(--ff-sans);
+    font-size: var(--type-large);
+    line-height: calc(var(--base-line-height)*1.5);
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+.post__body__holder {
+    margin-top: -5rem;
+}
+.post__body {
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 6rem;
+    padding: 1rem 2rem;
+    max-width: 48em;
+    margin-right: auto;
+    margin-left: auto;
+}
+.post__body .styledtext p:first-of-type {
+    font-family: var(--ff-sans);
+    font-size: var(--type-medium);
+    line-height: calc(var(--base-line-height)*1.25);
+    margin-bottom: calc(var(--base-line-height)*1);
+}
+.post__tags {
+}
+
+@media all and (--from-medium) {
+    .post__body__holder {
+        margin-top: -10rem;
+    }
+
+    .post__body .styledtext p:first-of-type {
+        font-family: var(--ff-sans);
+        font-size: var(--type-large);
+        line-height: calc(var(--base-line-height)*1.5);
+        margin-bottom: calc(var(--base-line-height)*2);
+    }
+    .post__body {
+
+    }
+    .post__header {
+        padding: 6rem 3rem;
+        margin-bottom: 6rem;
+    }
+    .post__title {
+        font-size: var(--type-xlarge);
+        line-height: calc(var(--base-line-height)*1.75);
+    }
+}
+@media all and (--from-large) {
+    .post__body__holder {
+        margin-top: -15rem;
+    }
+
+    .post__body { 
+        /*padding: 0 6rem;*/
+    }
+    .post__header {
+        padding: 6rem;
+    }
+    .post__title {
+        font-size: 3rem;
+        line-height: calc(var(--base-line-height)*2.5);
+    }
+}
+
+@media all and (--from-xlarge) {
+    .post {
+    }
+    .post__header {
+        min-height: 40vh;
+    }
+    .post__visual {
+    }
+    .post__body {
+       /* padding: 0 30rem 0 30rem;*/
+    }
+}
