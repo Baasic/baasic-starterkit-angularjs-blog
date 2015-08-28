@@ -1,0 +1,109 @@
+﻿<div class="layout__form">
+    <h1>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
+    <form name="blogPost" novalidate class="form">
+        <div class="form__field">
+            <label class="form__label" for="fieldTitle">Title</label>
+            <input class="input input--text" type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
+            <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+        </div>
+
+        <div class="form__field">
+            <label class="form__label" for="fieldBody">Featured image</label>
+            <input class="input input--text" type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="fieldContent">Description</label>
+            <textarea class="input input--textarea" placeholder="Type your text here..." name="content" id="fieldContent" ng-model="blog.content"></textarea>
+        </div>
+        <div class="cf">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldStartDate">Start Date</label>
+                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate"></textarea>
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="fieldEndDate">End Date</label>
+                <input class="input input--text" type="date" name="enddate" id="fieldEndDate" ng-model="blog.enddate"></textarea>
+            </div>
+        </div>
+        <div class="cf">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldStartTime">Start Time</label>
+                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime"></textarea>
+            </div>
+
+            <div class="form__field--half">
+                <label class="form__label" for="fieldEndTime">End Time</label>
+                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime"></textarea>
+            </div>
+        </div>
+
+        <div class="form__field">
+            <label class="form__label" for="fieldType">Type Of Event</label>
+            <select class="input input--select" name="type" id="fieldType" ng-model="blog.type">
+                <option value="">---Please select---</option>
+                <option value="Concerte">Concerte</option>
+                <option value="Talk">Talk</option>
+                <option value="Conference">Conference</option>
+                <option value="Party">Party</option>
+                <option value="Fair">Fair</option>
+                <option value="Fair">Other</option>
+            </select>
+        </div>
+        <div class="cf">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldFirstPerformer">First Performer</label>
+                <input class="input input--text" type="text" name="title" id="fieldFirstPerformer" ng-model="blog.firstperformer" />
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="fieldFirstPerformerDesc">First Performer Description</label>
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldFirstPerformerDesc" ng-model="blog.firstperformerdesc" />
+            </div>
+        </div>
+        <div class="cf">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldSecondPerformer">Second Performer</label>
+                <input class="input input--text" type="text" name="title" id="fieldSecondPerformer" ng-model="blog.secondperformer" />
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="fieldSecondPerformerDesc">Second Performer Description</label>
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldSecondPerformerDesc" ng-model="blog.secondperformerdesc" />
+            </div>
+        </div>
+        <div class="cf">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldThirdPerformer">Third Performer</label>
+                <input class="input input--text" type="text" name="title" id="fieldThirdPerformer" ng-model="blog.thirdperformer" />
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="fieldThirdPerformerDesc">Third Performer Description</label>
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldThirdPerformerDesc" ng-model="blog.thirdperformerdesc" />
+            </div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="fieldThirdPerformer">Other Performers</label>
+            <input class="input input--text" type="text" placeholder="Separate performers with comma..." name="title" id="fieldThirdPerformer" ng-model="blog.thirdperformer" />
+        </div>
+        <div class="cf">
+            <div class="form__field">
+                <label class="form__label" for="fieldPrice">Ticket Price</label>
+                <input class="input input--price" type="number" name="price" id="fieldPrice" ng-model="blog.price"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div class="form__field">
+            <tags-input ng-model="blog.tags" display-property="tag" add-on-comma="true">
+                <auto-complete source="loadTags($query)">
+                </auto-complete>
+            </tags-input>
+        </div>
+
+    <hr> 
+        <div class="form__field">
+            <button type="submit" ng-click="saveBlog()">Save</button>
+            <button type="button" ng-click="cancelEdit()">Cancel</button>
+        </div>
+        <div ng-show="error">
+            {{ error }}
+        </div>
+    </form>
+</div>

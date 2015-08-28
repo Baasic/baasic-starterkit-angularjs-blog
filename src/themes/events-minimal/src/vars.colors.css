@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    # vars.colors
+\*------------------------------------*/
+
+:root {
+
+    --color-scampi:      #6267A4;
+    --color-emerald:     #47BF86;
+    --color-torchred:    #FF0043;
+    --color-dodgerblue:  #0072FF;
+    --color-malachite:   #00D369;
+    --color-orange:      #F75E00;
+    --color-nero:        #2b2b2b;
+    --color-nightrider:  #333;
+    --color-mortar:      #5B5B5B;
+    --color-grey:        #7C7C7C;
+    --color-citrus:  #B3CE00;
+
+
+    --color-primary:     var(--color-orange);
+    --color-secondary:   var(--color-citrus);
+
+    --color-bodybg: #f6f6f6;
+    --color-ultralight: #ddd;
+    --color-light: #999;
+    --color-dark: #222;
+    --color-darkgrey: #333;
+
+    --color-warning:     var(--color-torchred);
+    --color-success:     var(--color-malachite);
+    --color-note:        var(--color-orange);
+}
