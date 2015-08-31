@@ -1,17 +1,38 @@
-﻿<section>
-    <article ng-if="hasBlogs" ng-repeat="blog in blogList.item">
-        <h2><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
-        <p>{{ blog.startdate | date:'yyyy' }}</p>
-        <p>{{ blog.startdate | date:'mm' }}</p>
-        <p>{{ blog.startdate | date:'dd' }}</p>
-        <p>{{ blog.starttime | date:'mediumTime' }}</p>
-        <p>{{ blog.endttime | date:'mediumTime' }}</p>
-        <p>
-            {{ blog.dateUpdated | date : 'medium' }}
-        </p>
-        <p>
-            {{ blog.excerpt }}
-        </p>
+﻿<section class="articles">
+    <article 
+        class="article article--ingrid" 
+        ng-if="hasBlogs" 
+        ng-repeat="blog in blogList.item" 
+        ng-class=" { 'article--lrg': $first , 'article--sml': !$first } "
+        
+    >
+
+
+            <div class="article__holder" style="background-image: url('{{ blog.featured }}')">
+                <div class="article__content col col--third col--center">
+                    <div class="article__aside">
+                        <span class="meta__label ">{{ blog.startdate | date:'MMM' }}</span>
+                        <span class="meta__label--lrg">{{ blog.startdate | date:'dd' }}</span>
+                        <span class="meta__label">{{ blog.startdate | date:'EEE' }}</span>
+                    </div>
+                    <div class="article__main">
+                        <span class="meta__label">{{ blog.type }}</span>
+                        <h1 class="article__title spc--bottom--lrg"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h1>
+                        <div ng-repeat="field in blog.customFields">
+                            <div class="article__item spc--bottom--sml">
+                                <h3>{{ field.customField}}</h3>
+                                <small>{{ field.customFieldDesc }}</small>
+                            </div>
+                        </div>
+                        <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">Read More </a>
+                    </div>
+                </div>
+                <div class="article__overlay"></div>
+            </div>
+            
+
+
+
     </article>
     
     <article ng-if="!hasBlogs">

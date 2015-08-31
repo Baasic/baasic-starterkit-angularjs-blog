@@ -3,41 +3,49 @@
 \*------------------------------------*/
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -2.5%;
+    overflow: hidden;
 }
-.grid > .col {
-    padding: 0 2.5%;
+..col {
+    width: 100%;
 }
-
-.grid > .col--half {
-    flex: 0 0 100%;
+.col--half {
 }
-.grid > .col--quad {
-    flex: 0 0 100%;
+.col--quad {
 }
-.grid > .col--third {
-    flex: 0 0 100%;
+.col--third {
 }
-
+.col--center {
+    margin-left: auto;
+    margin-right: auto;
+}
 @media all and (--from-medium) and (--to-large) {
-    .grid > .col--half {
-        flex: 0 0 100%;
+    .col {
+        float: left;
+        padding: 0.5rem;
     }
-    .grid > .col--quad {
-        flex: 0 0 50%;
+    .col--half {
+        width: 50%;
     }
-    .grid > .col--third {}
+    .col--quad {
+        width: 33.33%;
+    }
+    .col--third {
+        width: 50%;
+    }
+    .col--center {
+        float: none;
+    }
 }
 @media all and (--from-large) {
-    .grid > .col--half {
-        flex: 0 0 50%;
+    .col {
     }
-    .grid > .col--quad {
-        flex: 0 0 25%;
+    .col--quad {
+        width: 25%;
     }
-    .grid > .col--third {
-        flex: 0 0 33.3333%;
+    .col--third {
+        width: 33.33%;
+    }
+    .col--center {
+        float: none;
     }
 }

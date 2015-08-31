@@ -1,4 +1,5 @@
-﻿<header>
+﻿<header class="header">
+    <h1>The Club</h1>
     <div ng-if="$root.user.isAuthenticated">
         <div>Welcome, {{ $root.user.displayName }}</div>
         <button type="button" ng-click="newBlogPost()">New post</button>
@@ -9,7 +10,7 @@
     <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a> or <a ui-sref="master.register">register</a></div>
 </header>
 
-<h1>My New Blog</h1>
+
 
 <main ui-view>
         

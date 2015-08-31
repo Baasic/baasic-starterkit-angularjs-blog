@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    # components.date
+\*------------------------------------*/
+
+.meta__label {
+    font-size: 0.85rem;
+    display: block; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+.meta__label--lrg {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}

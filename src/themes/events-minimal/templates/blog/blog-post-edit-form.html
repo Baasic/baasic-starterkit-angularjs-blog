@@ -49,40 +49,23 @@
                 <option value="Fair">Other</option>
             </select>
         </div>
-        <div class="cf">
+
+        
+        <div ng-repeat="field in blog.customFields">
             <div class="form__field--half">
-                <label class="form__label" for="fieldFirstPerformer">First Performer</label>
-                <input class="input input--text" type="text" name="title" id="fieldFirstPerformer" ng-model="blog.firstperformer" />
+                <label class="form__label" for="fieldPerformer + {{$index}}">Performer</label>
+                <input class="input input--text" type="text" name="title" id="fieldPerformer + {{$index}}" ng-model="field.customField" />
             </div>
             <div class="form__field--half">
-                <label class="form__label" for="fieldFirstPerformerDesc">First Performer Description</label>
-                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldFirstPerformerDesc" ng-model="blog.firstperformerdesc" />
-            </div>
+                <label class="form__label" for="fieldPerformerDesc + {{$index}}">First Performer Description</label>
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldPerformerDesc + {{$index}}" ng-model="field.customFieldDesc" />
+            </div>   
+            <button type="button" ng-click="removeCustomField($index)">Remove</button>       
         </div>
-        <div class="cf">
-            <div class="form__field--half">
-                <label class="form__label" for="fieldSecondPerformer">Second Performer</label>
-                <input class="input input--text" type="text" name="title" id="fieldSecondPerformer" ng-model="blog.secondperformer" />
-            </div>
-            <div class="form__field--half">
-                <label class="form__label" for="fieldSecondPerformerDesc">Second Performer Description</label>
-                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldSecondPerformerDesc" ng-model="blog.secondperformerdesc" />
-            </div>
-        </div>
-        <div class="cf">
-            <div class="form__field--half">
-                <label class="form__label" for="fieldThirdPerformer">Third Performer</label>
-                <input class="input input--text" type="text" name="title" id="fieldThirdPerformer" ng-model="blog.thirdperformer" />
-            </div>
-            <div class="form__field--half">
-                <label class="form__label" for="fieldThirdPerformerDesc">Third Performer Description</label>
-                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldThirdPerformerDesc" ng-model="blog.thirdperformerdesc" />
-            </div>
-        </div>
-        <div class="form__field">
-            <label class="form__label" for="fieldThirdPerformer">Other Performers</label>
-            <input class="input input--text" type="text" placeholder="Separate performers with comma..." name="title" id="fieldThirdPerformer" ng-model="blog.thirdperformer" />
-        </div>
+            <button type="button" ng-click="addCustomField()">Add</button>                      
+
+
+
         <div class="cf">
             <div class="form__field">
                 <label class="form__label" for="fieldPrice">Ticket Price</label>
