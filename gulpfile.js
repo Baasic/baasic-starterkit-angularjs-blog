@@ -2,6 +2,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
     g = require('gulp-load-plugins')({ lazy: false }),
     replace = require('gulp-replace'),
     noop = g.util.noop,
@@ -11,7 +12,7 @@ var gulp = require('gulp'),
     queue = require('streamqueue'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
-    bower = require('./bower'),    
+    bower = require('./bower'),
     isWatching = false;
 
 var htmlminOpts = {
@@ -42,29 +43,43 @@ gulp.task('jshint', function () {
  * CSS
  */
 gulp.task('clean-css', function (done) {
-    rimraf.sync('./.tmp/css', {});
-    done();
+    rimraf('./.tmp/css', done);
 });
 
-gulp.task('styles', ['clean-css'], function () {
+//Plugins
+var atImport = require('postcss-import');
+var customProperties = require('postcss-custom-properties');
+var customMedia = require('postcss-custom-media');
+var calc = require('postcss-calc');
+var autoprefixer = require('autoprefixer-core');
+var pixrem = require('pixrem');
+var colorFunction = require('postcss-color-function');
+// var mqpacker = require('css-mqpacker');
+// var minifier = require('csswring');
+// var cssnano = require('cssnano');
+
+
+//Processor
+
+gulp.task('styles', ['clean-css'], function () {    
+    var processors = [
+      autoprefixer({ 
+        browsers: ['last 2 version'],
+          cascade: false 
+      }),
+      atImport ({
+          from: './src/themes/' + theme + '/src/app.css'
+        }),
+      customMedia,
+      customProperties,
+      calc,
+      pixrem,
+      colorFunction,
+    ];
+
     return gulp.src(
-      './src/themes/' + theme + '/src/app.css'
-      )
-      .pipe(g.pleeease({
-          'browsers': ['last 2 version'],
-          'filters': true,
-          'rem': false,
-          'minifier': false,
-          'mqpacker': false,
-          'sourcemaps': false,
-          'import': {
-              root: 'src/themes/' + theme + '/src',
-              transform: function (content) {
-                  return content.replace('url(', 'url(../../../../../');
-              }
-          },
-          'next': true
-      }))
+      './src/themes/' + theme + '/src/app.css')
+      .pipe(postcss(processors))
       .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./.tmp/css/'))
       .pipe(g.cached('built-css'))
@@ -72,27 +87,27 @@ gulp.task('styles', ['clean-css'], function () {
 });
 
 gulp.task('styles-dist', function () {
+    var processors = [
+      autoprefixer({ 
+        browsers: ['last 2 version'],
+          cascade: false 
+      }),
+      atImport ({
+          from: './src/themes/' + theme + '/src/app.css'
+        }),
+      customMedia,
+      customProperties,
+      calc,
+      pixrem,
+      colorFunction,
+    ];
     return gulp.src([
       './src/themes/' + theme + '/src/app.css'
     ])
-      .pipe(g.pleeease({
-          'browsers': ['last 2 version'],
-          'filters': true,
-          'rem': false,
-          'minifier': true,
-          'mqpacker': false,
-          'sourcemaps': false,
-          'next': true,
-          'import': {
-              root: 'src/themes/' + theme + '/src',
-              transform: function (content) {
-                  return content.replace('url(', 'url(../../../../../');
-              }
-          }
-      }))
+      .pipe(postcss(processors))
       .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./dist/css/'));
-});
+});});
 
 gulp.task('csslint', ['styles'], function () {
     //return cssFiles()
@@ -159,28 +174,15 @@ function index() {
 /**
  * Assets
  */
-gulp.task('assets', ['favicon'], function () {
+gulp.task('assets', function () {
     return gulp.src(['./src/assets/**', './src/themes/' + theme + '/assets/**'])
-    .pipe(gulp.dest('./dist/assets'));    
+    .pipe(gulp.dest('./dist/assets'));
 });
-gulp.task('favicon', function () {
-    return gulp.src(['./src/themes/' + theme + '/favicon.ico'])
-    .pipe(gulp.dest('./dist'));    
-});
-
-/**
- * Clenaup
- */
-gulp.task('clean-dist', function (done) {
-    rimraf.sync('./dist', {});
-    done();
-});
-
 
 /**
  * Dist
  */
-gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
+gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
     return gulp.src('./src/app/index.html')
       .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
