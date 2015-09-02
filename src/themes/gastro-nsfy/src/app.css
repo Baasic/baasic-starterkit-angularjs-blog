@@ -50,7 +50,6 @@
 @import "modules.grid.css";
 @import "modules.input.css";
 @import "modules.loader.css";
-@import "modules.lost.css";
 
 /**
 * Project specific components
@@ -75,6 +74,8 @@
 @import "components.sidebar.css";
 @import "components.pager.css";
 @import "components.visibility.css";
+@import "components.lost.css";
+
 
 /*@import "components.componentname.css";*/
 
