@@ -13,6 +13,7 @@
     --type-bold: 700;
 
     /* Type scale */
+    --type-ultratiny: 0.65rem;
     --type-tiny: 0.75rem;
     --type-small: 0.875rem;
     --type-base: 1rem;
@@ -20,7 +21,7 @@
     --type-large: 1.563rem;
     --type-xlarge: 1.953rem;
     --type-xxlarge: 2.441rem;
-    --type-xxxlarge: 3.051rem;
+    --type-xxxlarge: 4rem;
 
     /* Type families */
     --ff-sans: 'Montserrat', Arial, sans-serif;

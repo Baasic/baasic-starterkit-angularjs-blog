@@ -26,7 +26,20 @@
 .spc--top--xlrg {
     margin-top: 3rem;
 }
-
+.spc--right--lrg {
+    margin-right: 2rem;
+}
+.spc--right--xlrg {
+    margin-right: 3rem;
+}
+.spc--inside--tb--sml {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.spc--inside--tb--med {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 
 
 @media all and (--from-medium) {

@@ -5,7 +5,7 @@
 .grid {
     overflow: hidden;
 }
-..col {
+.col {
     width: 100%;
 }
 .col--half {
@@ -38,6 +38,9 @@
 }
 @media all and (--from-large) {
     .col {
+    }
+    .col--half {
+        width: 50%;
     }
     .col--quad {
         width: 25%;

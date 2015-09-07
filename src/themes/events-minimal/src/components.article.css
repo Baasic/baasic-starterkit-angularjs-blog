@@ -10,6 +10,24 @@
     min-height: 70vh;
 }
 .article--sml {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+    transition: all .2s;
+}
+.article--sml .article__items {
+    transition: all 1s;
+    transition-delay: 0s;
+    max-height: 0;
+    overflow: hidden;
+}
+.article--sml:hover .article__items {
+    transition: all 1s;
+    transition-delay: 0.2s;
+    max-height: 10rem;
+}
+.article--sml:hover {
+    background-color: white;
 }
 .article__item {
 }
@@ -30,6 +48,9 @@
 .article--lrg:hover .article__holder {
     background-blend-mode: luminosity;
 }
+.article--lrg .article__title {
+    font-size: var(--type-xxlarge);
+}
 .article--lrg .article__title a {
     color: color(var(--color-primary) lightness(60%));
 }
@@ -43,10 +64,13 @@
     float: right;
     padding-left: 2rem;
     width: 75%;
+    height: auto;
+}
+.article--lrg .article__divider {
     border-left: 2px solid white;
 }
 .article--lrg .article__content {
-    margin-top: 12.5%;
+    margin-top: 10rem;
     z-index: 2;
     position: relative;
     overflow: hidden;
@@ -57,13 +81,20 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.35);
+    background-image: url(/assets/img/overlay-bg.png);
+    background-color: rgba(0,0,0,0.5);
     z-index: 1;
     transition: all .5s;
 }
-.article--lrg:hover .article__overlay {
+.article--lrg:hover .overlay__hero {
 
     background-color: rgba(0,0,0,.65);
     transition: all .5s;
+}
+.article--sml .overlay__hero {
+    display: none;
+}
+.article--sml .article__divider {
+    border-left: 2px solid black;
 }
 

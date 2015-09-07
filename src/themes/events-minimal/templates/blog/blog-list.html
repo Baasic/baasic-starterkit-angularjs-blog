@@ -11,23 +11,25 @@
             <div class="article__holder" style="background-image: url('{{ blog.featured }}')">
                 <div class="article__content col col--third col--center">
                     <div class="article__aside">
-                        <span class="meta__label ">{{ blog.startdate | date:'MMM' }}</span>
-                        <span class="meta__label--lrg">{{ blog.startdate | date:'dd' }}</span>
-                        <span class="meta__label">{{ blog.startdate | date:'EEE' }}</span>
+                        <span class="meta__label block">{{ blog.startdate | date:'MMM' }}</span>
+                        <span class="meta__label--lrg block">{{ blog.startdate | date:'dd' }}</span>
+                        <span class="meta__label block">{{ blog.startdate | date:'EEE' }}</span>
                     </div>
-                    <div class="article__main">
-                        <span class="meta__label">{{ blog.type }}</span>
+                    <div class="article__main article__divider">
+                        <span class="meta__label block">{{ blog.type }}</span>
                         <h1 class="article__title spc--bottom--lrg"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h1>
-                        <div ng-repeat="field in blog.customFields">
-                            <div class="article__item spc--bottom--sml">
-                                <h3>{{ field.customField}}</h3>
-                                <small>{{ field.customFieldDesc }}</small>
+                        <div class="article__items">
+                            <div  ng-repeat="field in blog.customFields">
+                                <div class="article__item spc--bottom--lrg">
+                                    <h2>{{ field.customField}}</h2>
+                                    <small>{{ field.customFieldDesc }}</small>
+                                </div>
                             </div>
+                            <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">Read More </a>
                         </div>
-                        <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">Read More </a>
                     </div>
                 </div>
-                <div class="article__overlay"></div>
+                <div class="overlay__hero"></div>
             </div>
             
 

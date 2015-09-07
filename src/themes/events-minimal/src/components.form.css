@@ -3,7 +3,9 @@
 \*------------------------------------*/
 
 .form {
+    overflow: hidden;
 }
+
 .form__field {
     margin-bottom: 1.5rem;
 }
@@ -26,6 +28,13 @@
         padding-left: 1rem;
     }
 }
+@media all and (--from-medium) {
+    .form__field--single {
+        margin-bottom: 1.5rem;
+        float: left;
+        width: 50%;
+    }
+}
 
 .form__label {
     font-family: var(--ff-sans);
@@ -34,4 +43,10 @@
     margin-bottom: .75rem;
     display: block;
     color: var(--color-grey);
+}
+.form__field--grouped input {
+    width: 90%;
+}
+.form__field--btn {
+    float: right;
 }

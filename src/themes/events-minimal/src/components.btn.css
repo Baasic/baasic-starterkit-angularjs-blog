@@ -12,8 +12,6 @@
     position: relative;
     user-select: none;
     transition: all .2s;
-    text-transform: uppercase;
-    letter-spacing: .1em;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -30,52 +28,98 @@
 .btn--primary:hover,
 .btn--primary:focus,
 .btn--primary:active {
-    background: var(--color-primary);
+    background: color(var(--color-primary) blackness(20%));
     color: white;
 }
 
 .btn--secondary {
-    border: 1px solid var(--color-secondary);
-    color: var(--color-secondary);
+    background: var(--color-dgrey);
+    color: white;
 }
 .btn--secondary:hover,
 .btn--secondary:focus,
 .btn--secondary:active {
-    background: var(--color-secondary);
+    background: var(--color-dark);
     color: white;
 }
 
-.btn--inverse {
-    border: 1px solid var(--color-ultralight);
-    color: var(--color-ultralight);
+
+
+.btn--icon {
+    color: white;
+    position: relative;
+    max-width: 1rem;
+    overflow: hidden;
+    text-indent: -100rem;
 }
-.btn--inverse:hover,
-.btn--inverse:focus,
-.btn--inverse:active {
-    background: var(--color-ultralight);
-    color: black;
+.btn--icon:before {
+    text-indent: 0rem;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
 }
 
-.btn--light {
-    border: 1px solid var(--color-ultralight);
-    color: var(--color-grey);
-}
-.btn--light:hover,
-.btn--light:focus,
-.btn--light:active {
-    border-color: var(--color-light);
-}
-
-.btn--light.active {
-    border: 1px solid var(--color-primary);
+.btn--icon:hover,
+.btn--icon:focus,
+.btn--icon:active {
     color: var(--color-primary);
 }
-.btn--light.active:hover,
-.btn--light.active:focus,
-.btn--light.active:active {
-    background: var(--color-primary);
-    color: white;
+
+.btn--icon--round {
+    border: 1px solid var(--color-primary);
+    padding: .75rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    vertical-align: middle;
 }
+
+.btn--remove {
+    color: white;
+    position: relative;
+    background: var(--color-dgrey);
+    line-height: 2rem;
+    width: calc(10% - 1rem);
+    height: 2.7rem;
+}
+.btn--remove:hover,
+.btn--remove:focus,
+.btn--remove:active {
+    background: var(--color-dark);
+}
+
+.btn--close {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 6rem;
+}
+.btn--close:before,
+.btn--close:after {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+    background-color: white;
+}
+.btn--close:hover:before,
+.btn--close:focus:before,
+.btn--close:active:before,
+.btn--close:hover:after,
+.btn--close:focus:after,
+.btn--close:active:after {
+    background-color: var(--color-primary);
+}
+.btn--close:before {
+    transform:rotate(45deg);
+    left:2px;
+}
+.btn--close:after {
+    transform:rotate(-45deg);
+    left:2px;
+}
+
+
 
 
 .btn--sml {
@@ -100,29 +144,3 @@
     padding-right: 1.5rem;
 }
 
-.btn--search {
-    background-image: url(/assets/img/search.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 1.5rem;
-    height: 1.5rem;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    border: 0;
-    background-color: transparent;
-    position: relative;
-    user-select: none;
-    /*transition: all .2s;*/
-    padding: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    outline: 0;
-}
-.btn--search:hover,
-.btn--search:active,
-.btn--search:focus {
-    background-image: url(/assets/img/search-o.svg);
-    outline: 0;
-}
