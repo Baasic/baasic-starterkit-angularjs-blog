@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     queue = require('streamqueue'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
-    bower = require('./bower'),
+    bower = require('./bower'),    
     isWatching = false;
 
 var htmlminOpts = {
@@ -43,7 +43,8 @@ gulp.task('jshint', function () {
  * CSS
  */
 gulp.task('clean-css', function (done) {
-    rimraf('./.tmp/css', done);
+    rimraf.sync('./.tmp/css', {});
+    done();
 });
 
 //Plugins
@@ -55,7 +56,6 @@ var autoprefixer = require('autoprefixer-core');
 var pixrem = require('pixrem');
 var colorFunction = require('postcss-color-function');
 // var mqpacker = require('css-mqpacker');
-// var minifier = require('csswring');
 // var cssnano = require('cssnano');
 
 
@@ -107,7 +107,7 @@ gulp.task('styles-dist', function () {
       .pipe(postcss(processors))
       .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./dist/css/'));
-});});
+});
 
 gulp.task('csslint', ['styles'], function () {
     //return cssFiles()
@@ -174,15 +174,28 @@ function index() {
 /**
  * Assets
  */
-gulp.task('assets', function () {
+gulp.task('assets', ['favicon'], function () {
     return gulp.src(['./src/assets/**', './src/themes/' + theme + '/assets/**'])
-    .pipe(gulp.dest('./dist/assets'));
+    .pipe(gulp.dest('./dist/assets'));    
 });
+gulp.task('favicon', function () {
+    return gulp.src(['./src/themes/' + theme + '/favicon.ico'])
+    .pipe(gulp.dest('./dist'));    
+});
+
+/**
+ * Clenaup
+ */
+gulp.task('clean-dist', function (done) {
+    rimraf.sync('./dist', {});
+    done();
+});
+
 
 /**
  * Dist
  */
-gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
+gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
     return gulp.src('./src/app/index.html')
       .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
