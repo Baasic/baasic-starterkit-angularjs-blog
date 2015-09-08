@@ -20,3 +20,10 @@
     letter-spacing: .1em;
     color: var(--color-grey);
 }
+.search__label {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: var(--type-ultratiny);
+    font-weight: bold;
+}

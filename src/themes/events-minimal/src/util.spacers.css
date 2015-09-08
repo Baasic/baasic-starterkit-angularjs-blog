@@ -9,7 +9,7 @@
     margin-bottom: 1.5rem;
 }
 .spc--bottom--lrg {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .spc--bottom--xlrg {
     margin-bottom: 3rem;
@@ -25,9 +25,6 @@
 }
 .spc--top--xlrg {
     margin-top: 3rem;
-}
-.spc--right--lrg {
-    margin-right: 2rem;
 }
 .spc--right--xlrg {
     margin-right: 3rem;
@@ -66,5 +63,19 @@
     }
     .spc--top--xlrg {
         margin-top: 6rem;
+    }
+    .spc--right--lrg {
+    margin-right: 2rem;
+    }
+    .spc--right--xlrg {
+        margin-right: 3rem;
+    }
+    .spc--inside--tb--sml {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .spc--inside--tb--med {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 }

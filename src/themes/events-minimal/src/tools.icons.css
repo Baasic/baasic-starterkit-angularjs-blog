@@ -59,3 +59,6 @@
 .icon--payment:before {
     content: "\e2b5";
 }
+.icon--hamburger:before {
+    content: "\e15c";
+}

@@ -11,11 +11,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: var(--type-xlarge);
+    font-size: var(--type-large);
     line-height: calc(var(--base-line-height)*1.5);
 }
+
 h2 {
-    font-size: var(--type-large);
+    font-size: var(--type-medium);
     line-height: calc(var(--base-line-height)*1.25);
 }
 h3 {
@@ -30,6 +31,16 @@ h5 {
 }
 h6 {
     font-size: var(--type-base);
+}
+@media all and (--from-small) {
+    h1 {
+        font-size: var(--type-xlarge);
+        line-height: calc(var(--base-line-height)*1.5);
+    }
+    h2 {
+        font-size: var(--type-large);
+        line-height: calc(var(--base-line-height)*1.25);
+    }
 }
 
 /* Default paragraphs */

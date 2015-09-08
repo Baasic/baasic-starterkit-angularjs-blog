@@ -4,11 +4,18 @@
 
 .meta__label {
     font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     margin-bottom: 1rem;
 }
-.meta__label--lrg {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+@media all and (--from-small) {
+    .meta__label {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+@media all and (--from-small) {
+    .meta__label--lrg {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
 }

@@ -102,7 +102,9 @@ angular.module('myBlog', [
             $scope.tags = tagList.item;
         });
 
-	    
+	    $scope.setParentVariable = function(variableName, variableValue) {
+            $scope[variableName] = variableValue;
+        };
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {

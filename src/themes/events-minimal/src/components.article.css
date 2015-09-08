@@ -7,7 +7,13 @@
 }
 .article--lrg {
     background-color: black;
-    min-height: 70vh;
+    min-height: 80vh;
+}
+@media all and (--from-small) {
+    .article--lrg {
+        background-color: black;
+        min-height: 70vh;
+    }
 }
 .article--sml {
     padding-top: 4rem;
@@ -17,14 +23,12 @@
 }
 .article--sml .article__items {
     transition: all 1s;
-    transition-delay: 0s;
     max-height: 0;
     overflow: hidden;
 }
 .article--sml:hover .article__items {
     transition: all 1s;
-    transition-delay: 0.2s;
-    max-height: 10rem;
+    max-height: 20rem;
 }
 .article--sml:hover {
     background-color: white;
@@ -49,31 +53,54 @@
     background-blend-mode: luminosity;
 }
 .article--lrg .article__title {
-    font-size: var(--type-xxlarge);
+    font-size: var(--type-xlarge);
+}
+@media all and (--from-small) {
+    .article--lrg .article__title {
+        font-size: var(--type-xxlarge);
+    }
 }
 .article--lrg .article__title a {
     color: color(var(--color-primary) lightness(60%));
 }
 .article__aside {
-    float: left;
-    padding-right: 2rem;
-    width: 25%;
-    text-align: right;
+
+}
+@media all and (--from-small) {
+    .article__aside {
+        float: left;
+        padding-right: 2rem;
+        width: 25%;
+        text-align: right;
+    }
 }
 .article__main {
-    float: right;
-    padding-left: 2rem;
-    width: 75%;
-    height: auto;
 }
-.article--lrg .article__divider {
-    border-left: 2px solid white;
+@media all and (--from-small) {
+    .article__main {
+        float: right;
+        padding-left: 2rem;
+        width: 75%;
+        height: auto;
+    }
+}
+@media all and (--from-small) {
+    .article--lrg .article__divider {
+        border-left: 2px solid white;
+    }
 }
 .article--lrg .article__content {
-    margin-top: 10rem;
+    margin-top: 2rem;
     z-index: 2;
     position: relative;
     overflow: hidden;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+@media all and (--from-small) {
+    .article--lrg .article__content {
+        margin-top: 10rem;
+    }
 }
 .article--lrg .article__overlay {
     position: absolute;
@@ -90,6 +117,9 @@
 
     background-color: rgba(0,0,0,.65);
     transition: all .5s;
+}
+.article--sml .article__holder {
+    background-image: none !important;
 }
 .article--sml .overlay__hero {
     display: none;

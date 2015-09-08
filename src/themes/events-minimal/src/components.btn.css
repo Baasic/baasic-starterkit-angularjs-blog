@@ -46,11 +46,28 @@
 
 
 .btn--icon {
-    color: white;
+    color: var(--color-dark);
     position: relative;
-    max-width: 1rem;
-    overflow: hidden;
+    max-width: 0.5rem;
+    overflow: hidden; 
     text-indent: -100rem;
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.btn--icon.last {
+    padding-right: 0;
+}
+@media all and (--from-small) {
+    .btn--icon {
+        max-width: 1rem;
+        height: calc(var(--base-line-height)*2);
+        line-height: calc(var(--base-line-height)*2);
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 .btn--icon:before {
     text-indent: 0rem;
@@ -92,7 +109,6 @@
     position: relative;
     width: 2rem;
     height: 2rem;
-    margin-bottom: 6rem;
 }
 .btn--close:before,
 .btn--close:after {
@@ -118,10 +134,6 @@
     transform:rotate(-45deg);
     left:2px;
 }
-
-
-
-
 .btn--sml {
     font-size: var(--type-tiny);
     height: var(--base-line-height);

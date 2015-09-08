@@ -36,6 +36,10 @@
     min-height: 9rem;
     border-bottom: 1px solid var(--color-ultralight);
 }
+.input--price {
+    width: auto;
+    min-width: 4rem;
+}
 .input--search {
     display: inline-block;
     width: 100%;
@@ -46,11 +50,8 @@
     padding: 0 2rem 1rem 0;
     line-height: 1.5rem;
     overflow: hidden;
+    color: white;
 }
-.input--price {
-    width: auto;
-    min-width: 4rem;
-    }
 .input--search:hover,
 .input--search:focus,
 .input--search:active {
