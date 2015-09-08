@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    # components.logo
+\*------------------------------------*/
+
+.logo  {
+}
+.logo a {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    background: url(/assets/img/logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}

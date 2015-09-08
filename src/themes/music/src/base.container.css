@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # base.container
+\*------------------------------------*/
+
+.container {
+    overflow: hidden;
+    margin: 0 auto;
+}
+@media all and (--from-xlarge) {
+    .container {
+        padding-top: 10rem;
+        max-width: 70rem;
+    }
+}

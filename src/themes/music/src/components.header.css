@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+}
+@media all and (--to-large) {
+    .header {
+    }
+}
+@media all and (--from-large) {
+    .header {
+    }
+}

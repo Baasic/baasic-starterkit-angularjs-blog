@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    # components.article
+\*------------------------------------*/
+
+.article {
+    margin-bottom: 1.5rem;
+}
+.article__holder {
+    overflow: hidden;
+}
+.article__figure {
+    float: left;
+    width: 30%;
+}
+.article__figure img {
+    border: 3px solid white;
+}
+.article__content {
+    float: right;
+    width: 65%;
+}
+.article__title {
+    margin-bottom: 0.75rem;
+}
+.article__title__link {
+    display: inline-block;
+    color: white;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.article__summary {
+    margin-bottom: 0.75rem;
+}
+.article__summary__text {
+    color: white;
+}
+.article__info {
+    font-size: var(--type-small);
+    color: rgba(255,255,255,0.7);
+}
+.article__info:before {
+    content: '\2014';
+}

@@ -1,0 +1,79 @@
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+    <div class="layout--page">
+        <div class="layout--page__header">
+            <header role="banner" class="header">
+                <h1 class="logo"><a ui-sref="master.main.index">Baasic Starter Kit Blog Platform</a></h1>
+                <div class="group--old spc--top--med">
+                    <div class="search__wrapper">
+                        <div class="search">
+                            <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                                <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+
+                                <button type="submit" class="btn--search"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <div class="push profile__settings">
+                            <div ng-if="$root.user.isAuthenticated">
+                                <p class="profile__message">Welcome, {{ $root.user.displayName }}</p>
+                                <div class="profile__buttons">
+                                    <button type="button" class="btn --negative --sml rounded" ng-click="newBlogPost()">New post</button>
+                                    <baasic-logout on-logout="setEmptyUser()">
+                                    <button type="button" class="btn --negative --sml rounded" ng-click="logout()">Logout</button>
+                                </baasic-logout>
+                            </div>
+                        </div>
+                        <div ng-if="!$root.user.isAuthenticated">
+                            <div class="profile__buttons">
+                                <a class="btn --negative --sml rounded" ui-sref="login">login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="layout--page__content">
+        <main ui-view>
+        </main>
+    </div>
+    </div>
+    <footer class="footer" role="contentinfo">
+        <div class="footer__share">
+            <h2 class="footer__title">Spread the word</h2>
+            <ul class="smm group">
+                <li class="smm__item">
+                    <a class="smm__link" href="https://www.facebook.com/">
+                        <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://www.linkedin.com">
+                        <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://twitter.com/">
+                        <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+                    </a>
+                </li>
+                <li class="smm__item">
+                    <a class="smm__link" href="https://github.com/">
+                        <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__info">
+            <p>Copyright @ Blog name</p>
+        </div>
+        <div class="footer__poweredby">
+            <p>Powered by <a href="http://www.baasic.com" class="footer__poweredby--link">Baasic</a></p>
+        </div>
+    </footer>
+</div>

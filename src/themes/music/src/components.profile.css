@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    # components.profile
+\*------------------------------------*/
+
+.profile {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.profile__message {
+    font-size: var(--type-small);
+    color: white;
+    float: left;
+    margin-right: 1rem;
+}
+.profile__buttons {
+    float: left;
+}
