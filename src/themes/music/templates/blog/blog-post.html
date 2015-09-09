@@ -10,6 +10,7 @@
             <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
             <span class="post__time push">{{ blog.readingTime.text }}</span>
         </div>
+        <p class="post__body__excerpt">{{ blog.excerpt }}</p>
         <div btf-markdown="blog.content" class="styledtext">
         </div>
         <ul class="post__tags tags group">
@@ -18,13 +19,13 @@
             </li>
         </ul>
         <hr>
+        <button type="button" class="btn --primary --med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
-                <button type="button" class="btn --negative --med rounded" ng-click="editBlog()">Edit</button>
-                <button type="button" class="btn --negative --med rounded" ng-click="deleteBlog()">Delete</button>
+                <button type="button" class="btn --light --med rounded" ng-click="editBlog()">Edit</button>
+                <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
             </span>
         </span>
-        <button type="button" class="btn --negative --med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
     </div>
 </article>
 

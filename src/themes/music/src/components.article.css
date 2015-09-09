@@ -2,22 +2,47 @@
     # components.article
 \*------------------------------------*/
 
+.articles {
+    background: var(--color-dark);
+}
+@media all and (--from-medium) {
+    .articles__grid {
+        -webkit-column-count: 2;
+        -webkit-column-gap: 2.5%;
+        -webkit-column-width: 50%;
+    }
+}
+@media all and (--from-large) {
+    .articles__grid {
+        transform: translateY(-12rem);
+        -webkit-column-count: 3;
+        -webkit-column-gap: 5%;
+        -webkit-column-width: 33.3333%;
+    }
+}
 .article {
-    margin-bottom: 1.5rem;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 5%;
+}
+.article:hover .article__content {
+    opacity: 1;
 }
 .article__holder {
-    overflow: hidden;
 }
 .article__figure {
-    float: left;
-    width: 30%;
+}
+.article__figure a {
+    display: block;
 }
 .article__figure img {
-    border: 3px solid white;
 }
 .article__content {
-    float: right;
-    width: 65%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    padding: 2.5rem;
+    opacity: 0.6;
+    transition: opacity .3s ease-in-out;
+    will-change: opacity;
 }
 .article__title {
     margin-bottom: 0.75rem;
@@ -26,7 +51,6 @@
     display: inline-block;
     color: white;
     font-weight: 400;
-    text-decoration: underline;
 }
 .article__summary {
     margin-bottom: 0.75rem;

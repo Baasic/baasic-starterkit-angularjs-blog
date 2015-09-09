@@ -1,41 +1,45 @@
 <div class="articles">
-    <article
-        class="article article--ingrid"
-        ng-if="hasBlogs"
-        ng-repeat="blog in blogList.item"
-        ng-class=" { 'article--lrg': $first , 'article--sml': !$first } "
-    >
-        <div class="article__holder">
-            <div class="article__figure">
-                <img ng-src="{{ baseHref + blog.featured }}" alt="Test photo">
-            </div>
-            <div class="article__content">
-                <header class="article__header">
-                    <h2 class="article__title">
-                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --negative --sml rounded spc--bottom--sml">Edit</a>
-                        <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
-                    </h2>
-                </header>
-                <div class="article__summary">
-                    <p class="article__summary__text">{{ blog.excerpt }}</p>
-                </div>
-                <div class="article__info">
-                    <div>
-                        <span class="article__date">{{ blog.publishDate | date : 'medium' }}</span>
-                        <span class="article__readingtime">{{ blog.readingTime.text }}</span>
+    <div class="row">
+        <div class="articles__grid">
+            <article
+                class="article article--ingrid"
+                ng-if="hasBlogs"
+                ng-repeat="blog in blogList.item"
+                ng-class=" { 'article--lrg': $first , 'article--sml': !$first } "
+            >
+                <div class="article__holder">
+                    <div class="article__figure" ng-if="blog.featured">
+                        <a ui-sref="master.blog-detail({ slug: blog.slug })"><img ng-src="{{ baseHref + blog.featured }}" alt="{{ blog.title }}"></a>
+                    </div>
+                    <div class="article__content">
+                        <header class="article__header">
+                            <h2 class="article__title">
+                                <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
+                            </h2>
+                        </header>
+                        <div class="article__summary">
+                            <p class="article__summary__text">{{ blog.excerpt }}</p>
+                        </div>
+                        <div class="article__info">
+                            <div>
+                                <p class="article__date">{{ blog.publishDate | date : 'medium' }}</p>
+                                <p class="article__readingtime">{{ blog.readingTime.text }}</p>
+                            </div>
+                        </div>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --negative --sml rounded spc--top--lrg">Edit</a>
                     </div>
                 </div>
-            </div>
+            </article>
+
+            <article ng-if="!hasBlogs">
+                <p>No blog posts added.</p>
+            </article>
         </div>
-    </article>
 
-    <article ng-if="!hasBlogs">
-        <p>No blog posts added.</p>
-    </article>
+        <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
+            <hr>
+            <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --light --med" ng-show="pager.hasPrevious">Prev</a>
+            <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --light --med" ng-show="pager.hasNext">Next</a>
+        </pager>
+    </div>
 </div>
-
-<pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
-    <hr>
-    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --light --med" ng-show="pager.hasPrevious">Prev</a>
-    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --light --med" ng-show="pager.hasNext">Next</a>
-</pager>

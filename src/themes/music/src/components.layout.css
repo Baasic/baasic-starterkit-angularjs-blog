@@ -2,20 +2,6 @@
     # components.layout
 \*------------------------------------*/
 
-.layout--page {
-    overflow: hidden;
-    margin-bottom: 12rem;
-}
-.layout--page__header {
-    width: 25%;
-    float: left;
-}
-.layout--page__content {
-    width: 70%;
-    padding-left: 5%;
-    float: right;
-    border-left: 1px dotted white;
-}
 .layout--form {
     background: white;
     padding: 3rem;

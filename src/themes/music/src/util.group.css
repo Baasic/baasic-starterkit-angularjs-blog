@@ -6,14 +6,11 @@
     overflow: hidden;
 }
 
-.group--old:before,
-.group--old:after {
+.group--cf:before,
+.group--cf:after {
   content: "";
   display: table;
 }
-.group--old:after {
+.group--cf:after {
   clear: both;
-}
-.group--old {
-  zoom: 1; /* ie 6/7 */
 }
