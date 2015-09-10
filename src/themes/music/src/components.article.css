@@ -4,7 +4,6 @@
 
 .articles {
     background: var(--color-dark);
-    background: linear-gradient(to bottom, black 0%, red 100%);
 }
 @media all and (--from-medium) {
     .articles__grid {
