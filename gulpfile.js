@@ -52,21 +52,14 @@ var atImport = require('postcss-import');
 var customProperties = require('postcss-custom-properties');
 var customMedia = require('postcss-custom-media');
 var calc = require('postcss-calc');
-var autoprefixer = require('autoprefixer-core');
 var pixrem = require('pixrem');
 var colorFunction = require('postcss-color-function');
-// var mqpacker = require('css-mqpacker');
-// var cssnano = require('cssnano');
-
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
 
 //Processor
-
 gulp.task('styles', ['clean-css'], function () {    
     var processors = [
-      autoprefixer({ 
-        browsers: ['last 2 version'],
-          cascade: false 
-      }),
       atImport ({
           from: './src/themes/' + theme + '/src/app.css'
         }),
@@ -75,6 +68,9 @@ gulp.task('styles', ['clean-css'], function () {
       calc,
       pixrem,
       colorFunction,
+      autoprefixer({ 
+        browsers: ['last 2 versions']
+      })
     ];
 
     return gulp.src(
@@ -88,10 +84,6 @@ gulp.task('styles', ['clean-css'], function () {
 
 gulp.task('styles-dist', function () {
     var processors = [
-      autoprefixer({ 
-        browsers: ['last 2 version'],
-          cascade: false 
-      }),
       atImport ({
           from: './src/themes/' + theme + '/src/app.css'
         }),
@@ -100,6 +92,10 @@ gulp.task('styles-dist', function () {
       calc,
       pixrem,
       colorFunction,
+      autoprefixer({ 
+        browsers: ['last 2 versions'] 
+      }),
+      cssnano
     ];
     return gulp.src([
       './src/themes/' + theme + '/src/app.css'

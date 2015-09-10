@@ -4,6 +4,7 @@ angular.module('baasic.blog', [
 
 angular.module('myBlog', [
   'ui.router',
+  'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
   'baasic.security',
@@ -15,7 +16,7 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog', {
+        baasicAppProvider.create('starterkit-blog-music', {
             apiRootUrl: 'api.baasic.com',
             apiVersion: 'beta'
         });
