@@ -2,53 +2,67 @@
     cursor: pointer;
     display: block;
     position: absolute;
-    right: 5rem;
-    top: 6rem;
+    right: -5rem;
+    top: 2rem;
     width: 2rem;
     height: 2rem;
 }
-@media all and (--from-medium) {
-    .menu-toggle {
-      right: 2.5rem;
-    }
-}
 .expand .menu-toggle {
-  top: 4.5rem;
-}
-.menu-toggle span, 
-.menu-toggle span:before, 
-.menu-toggle span:after {
-  cursor: pointer;
-  border-radius: 1px;
-  height: 5px;
-  width: 35px;
-  background: var(--color-primary);
-  position: absolute;
-  display: block;
-  content: '';
-}
-.menu-toggle span:before {
-  top: -10px;
-}
-.menu-toggle span:after {
-  bottom: -10px; 
+    top: 3rem;
+    right: 2rem;
 }
 
 .menu-toggle span, 
 .menu-toggle span:before, 
 .menu-toggle span:after {
-  transition: all 500ms ease-in-out;
+    display: block;
+    content: '';
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    top: 10px;
+    background: var(--color-primary);
+    position: absolute;
+}
+.menu-toggle span:before {
+    top: -10px;
+}
+.menu-toggle span:after {
+    bottom: -10px; 
+}
+
+.menu-toggle span, 
+.menu-toggle span:before, 
+.menu-toggle span:after {
+    transition: all 500ms ease-in-out;
 }
 .menu-toggle.nShow span {
-  background-color: transparent;
+    background-color: transparent;
 }
 .menu-toggle.nShow span:before, 
 .menu-toggle.nShow span:after {
-  top: 0;
+    top: 0;
 }
 .menu-toggle.nShow span:before {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 .menu-toggle.nShow span:after {
-  transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+@media all and (--from-mediumsmall) {
+    .menu-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 6rem;
+        right: 2.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .expand .menu-toggle {
+        top: 2.5rem;
+        right: 3rem;
+    }  
 }

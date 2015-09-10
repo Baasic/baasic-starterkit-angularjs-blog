@@ -21,7 +21,7 @@
         
         <nav class="sidebar__navigation" role="navigation" ng-class="{'expand': menuOpened}">
             <h2 class="sidebar__title">Recent Tags</h2>
-            <ul class="tags group">
+            <ul class="tags group" ng-controller='MainCtrl'>
                 <li class="tags__item" ng-repeat="tag in tags">
                     <a ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
                 </li>
@@ -56,7 +56,7 @@
             <h2 class="sidebar__title">Admin</h2>
             <div ng-if="$root.user.isAuthenticated">
                 <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                <button type="button" class="btn --primary --med" ng-click="newBlogPost()">New post</button>
+                <button ng-controller="MainCtrl" type="button" class="btn --primary --med" ng-click="newBlogPost()">New post</button>
                 <baasic-logout on-logout="setEmptyUser()">
                 <button type="button" class="btn --secondary --med" ng-click="logout()">Logout</button>
             </baasic-logout>

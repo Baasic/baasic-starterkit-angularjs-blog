@@ -13,7 +13,14 @@
     top: 1rem;
 }
 .expand .logo  {
-    position: inherit;
-    right: 2rem;
-    top: 1rem;
+    position: absolute;
+    left: 1rem;
+    top: 2rem;
+}
+
+@media all and (--from-large) {
+    .expand .logo  {
+        top: 1.5rem;
+        left: 2.5rem;
+    }   
 }
