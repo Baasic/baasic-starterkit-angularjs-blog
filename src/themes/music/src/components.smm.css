@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    # components.smm
+\*------------------------------------*/
+
+.smm {
+    list-style: none;
+    max-width: 10rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.smm__item {
+    float: left;
+}
+.smm__link {
+    cursor: pointer;
+    display: block;
+    padding: .75rem .75rem .75rem 0;
+    opacity: 0.5;
+}
+.smm__link:focus {
+    outline: 0;
+}
+.smm__link:hover,
+.smm__link:focus,
+.smm__link:active {
+    opacity: 1;
+}
+
+.smm__icon {
+    height: 1rem;
+}

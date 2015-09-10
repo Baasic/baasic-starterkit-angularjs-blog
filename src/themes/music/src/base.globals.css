@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    # base.globals
+\*------------------------------------*/
+
+html {
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    height: 100%;
+}
+body {
+    position: relative;
+    font-family: var(--ff-sans);
+    font-weight: 400;
+    min-width: 20em;
+    min-height: 100%;
+    background: var(--color-bodybg);
+    color: var(--color-dark);
+}
+@media all and (--from-large) {
+    body {
+        border: 1rem solid white;
+    }
+}
+img, object, iframe {
+    vertical-align: middle;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
