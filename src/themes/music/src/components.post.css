@@ -5,17 +5,37 @@
 .post {
 }
 .post__header {
-    text-align: center;
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
-    padding: 2.5rem 1.5rem;
+    padding: 7rem 1.5rem 3rem 1.5rem;
     z-index: -2;
 
     /* Background image URL comes from HTML style attribute */
     background: var(--color-primary);
     background-size: cover;
     background-position: center center;
+}
+@media all and (--from-medium) {
+}
+@media all and (--from-large) {
+}
+@media all and (--from-xlarge) {
+    .post__header {
+        text-align: center;
+        padding-top: 14rem;
+        min-height: 50vh;
+    }
+}
+.post__logo {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+}
+@media all and (--from-medium) {
+    .post__logo {
+    }
 }
 .post__header__container {
     max-width: 60em;
@@ -43,6 +63,18 @@
     color: white;
     font-weight: 700;
 }
+@media all and (--from-medium) {
+    .post__title {
+        font-size: var(--type-xxlarge);
+        line-height: calc(var(--base-line-height)*2.25);
+    }
+}
+@media all and (--from-large) {
+    .post__title {
+        font-size: var(--type-xxxlarge);
+        line-height: calc(var(--base-line-height)*2.75);
+    }
+}
 .post__body {
     margin-bottom: 6rem;
     padding: 0 1.5rem;
@@ -55,49 +87,13 @@
     line-height: calc(var(--base-line-height)*1.25);
     margin-bottom: calc(var(--base-line-height)*1);
 }
-.post__tags {
-    margin-top: calc(var(--base-line-height)*2);   
-}
-
 @media all and (--from-medium) {
     .post__body__excerpt {
         font-size: var(--type-xlarge);
         line-height: calc(var(--base-line-height)*1.75);
         margin-bottom: calc(var(--base-line-height)*2);
     }
-    .post__body {
-    }
-    .post__header {
-        padding: 0 3rem;
-        margin-bottom: 6rem;
-    }
-    .post__title {
-        font-size: var(--type-xxlarge);
-        line-height: calc(var(--base-line-height)*2.25);
-    }
 }
-@media all and (--from-large) {
-    .post__body { 
-        /*padding: 0 6rem;*/
-    }
-    .post__header {
-        padding: 9rem 0 3rem 0;
-    }
-    .post__title {
-        font-size: var(--type-xxxlarge);
-        line-height: calc(var(--base-line-height)*2.75);
-    }
-}
-
-@media all and (--from-xlarge) {
-    .post {
-    }
-    .post__header {
-        min-height: 60vh;
-    }
-    .post__visual {
-    }
-    .post__body {
-       /* padding: 0 30rem 0 30rem;*/
-    }
+.post__tags {
+    margin-top: calc(var(--base-line-height)*2);   
 }

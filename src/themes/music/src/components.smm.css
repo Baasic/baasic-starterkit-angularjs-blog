@@ -4,6 +4,9 @@
 
 .smm {
     list-style: none;
+    max-width: 10rem;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 .smm__item {
     float: left;

@@ -25,6 +25,22 @@
 }
 .styledtext ul, 
 .styledtext ol {
+    list-style-position: inside;
+}
+.styledtext ul {
+}
+.styledtext ol li {
+    text-indent: -1.75em;
+    padding-left: 1.75em;
+}
+.styledtext ul li {
+    text-indent: -1em;
+    padding-left: 1.75em;
+}
+.styledtext ul li:before {
+    content: '\2015';
+    margin-left: -0.75em;
+    margin-right: 0.75em;
 }
 .styledtext pre {
     color: var(--color-light);

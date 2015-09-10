@@ -30,7 +30,7 @@
 .btn.\--primary:focus,
 .btn.\--primary:active {
     background: var(--color-primary);
-    color: white;
+    color: black;
 }
 
 .btn.\--light {
@@ -41,6 +41,17 @@
 .btn.\--light:focus,
 .btn.\--light:active {
     background: var(--color-light);
+    color: white;
+}
+
+.btn.\--dark {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+}
+.btn.\--dark:hover,
+.btn.\--dark:focus,
+.btn.\--dark:active {
+    background: var(--color-dark);
     color: white;
 }
 
@@ -96,10 +107,11 @@
     top: 0;
     right: 0;
     outline: 0;
+    opacity: 0.7;
 }
 .btn--search:hover,
 .btn--search:active,
 .btn--search:focus {
-    background-image: url(/assets/img/search-o.svg);
     outline: 0;
+    opacity: 1;
 }

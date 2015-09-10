@@ -4,5 +4,7 @@
 
 .row {
     margin: 0 auto;
-    max-width: 70rem;
+    max-width: 72rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

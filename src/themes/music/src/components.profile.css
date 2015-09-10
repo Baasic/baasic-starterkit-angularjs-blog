@@ -3,16 +3,18 @@
 \*------------------------------------*/
 
 .profile {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1;
 }
 .profile__message {
     font-size: var(--type-small);
-    color: white;
+    color: rgba(255,255,255,0.6);
     float: left;
     margin-right: 1rem;
+    display: none;
+}
+@media all and (--from-medium) {
+    .profile__message {
+        display: block;
+    }
 }
 .profile__buttons {
     float: left;

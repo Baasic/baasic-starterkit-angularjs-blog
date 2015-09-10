@@ -3,13 +3,15 @@
 \*------------------------------------*/
 
 tags-input .tags {
-    border: 0;
     box-shadow: none;
     padding: .5rem;
 }
+tags-input .tags.focused {
+    box-shadow: none;
+}
 tags-input .tags .tag-item {
     background: #f5f5f5;
-    border-color: #ddd;
+    border: 1px solid #eee;
 }
 tags-input .tags .input span {
     font-size: 12px;
@@ -19,11 +21,8 @@ tags-input .tags .tag-item.selected {
     color: white;
     border: 1px solid var(--color-warning);
 }
-
 tags-input .tags .input {
-    width: 100px !important;
 }
-
 tags-input .tags .input::placeholder {
     font-size: 12px;    
 }

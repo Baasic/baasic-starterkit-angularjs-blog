@@ -65,7 +65,7 @@ gulp.task('styles', ['clean-css'], function () {
     var processors = [
       autoprefixer({ 
         browsers: ['last 2 version'],
-          cascade: false 
+          cascade: false
       }),
       atImport ({
           from: './src/themes/' + theme + '/src/app.css'

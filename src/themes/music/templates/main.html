@@ -3,33 +3,35 @@
 <![endif]-->
 
 <header role="banner" class="header">
-    <div class="search">
-        <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
-            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor">
-            <button type="submit" class="btn--search"></button>
-        </form>
-    </div>
-    <div class="profile">
-        <div class="profile__settings">
-            <div ng-if="$root.user.isAuthenticated">
-                <p class="profile__message">Welcome, {{ $root.user.displayName }}</p>
-                <div class="profile__buttons">
-                    <button type="button" class="btn --negative --sml rounded" ng-click="newBlogPost()">New post</button>
-                    <baasic-logout on-logout="setEmptyUser()">
-                        <button type="button" class="btn --negative --sml rounded" ng-click="logout()">Logout</button>
-                    </baasic-logout>
+    <div class="header__top">
+        <div class="header__search search">
+            <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor">
+                <button type="submit" class="btn--search"></button>
+            </form>
+        </div>
+        <div class="header__profile profile">
+            <div class="profile__settings">
+                <div ng-if="$root.user.isAuthenticated">
+                    <p class="profile__message">Welcome, {{ $root.user.displayName }}!</p>
+                    <div class="profile__buttons">
+                        <button type="button" class="btn --negative --sml rounded" ng-click="newBlogPost()">New post</button>
+                        <baasic-logout on-logout="setEmptyUser()">
+                            <button type="button" class="btn --negative --sml rounded" ng-click="logout()">Logout</button>
+                        </baasic-logout>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div ng-if="!$root.user.isAuthenticated">
-            <div class="profile__buttons">
-                <a class="btn --negative --sml rounded" ui-sref="login">login</a>
+            <div ng-if="!$root.user.isAuthenticated">
+                <div class="profile__buttons">
+                    <a class="btn --negative --sml rounded" ui-sref="login">login</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="header__container">
         <div class="header__content row">
-            <h1 class="logo"><a ui-sref="master.main.index">Baasic Starter Kit Blog Platform</a></h1>
+            <h1 class="logo"><a ui-sref="master.main.index" class="logo__link logo__link--large">Your Site Title</a></h1>
             <ul class="smm group">
                 <li class="smm__item">
                     <a class="smm__link" href="https://www.facebook.com/">

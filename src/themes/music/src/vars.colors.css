@@ -8,13 +8,12 @@
     --color-malachite:   #00D369;
     --color-orange:      #F75E00;
     --color-grey:        #7C7C7C;
-    --color-citrus:      #B3CE00;
+    --color-citrus:      #18FF9F;
     --color-tomato:      #FF8100;
     --color-purple:      #9018FF;
 
 
-    --color-primary:     var(--color-purple);
-    --color-secondary:   var(--color-citrus);
+    --color-primary:     var(--color-citrus);
 
     --color-bodybg:      #f6f6f6;
     --color-ultralight:  #ddd;

@@ -1,5 +1,5 @@
 <div class="articles">
-    <div class="row">
+    <div class="articles__container row">
         <div class="articles__grid">
             <article
                 class="article article--ingrid"
@@ -30,16 +30,13 @@
                     </div>
                 </div>
             </article>
-
             <article ng-if="!hasBlogs">
                 <p>No blog posts added.</p>
             </article>
         </div>
-
         <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
-            <hr>
-            <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --light --med" ng-show="pager.hasPrevious">Prev</a>
-            <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --light --med" ng-show="pager.hasNext">Next</a>
+            <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --primary --med rounded" ng-show="pager.hasPrevious">Prev</a>
+            <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --primary --med rounded push" ng-show="pager.hasNext">Next</a>
         </pager>
     </div>
 </div>
