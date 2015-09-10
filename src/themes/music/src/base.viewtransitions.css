@@ -19,16 +19,20 @@
 
 [ui-view].ng-enter {
     opacity: 0;
+    transform: translateY(-2em);
 }
 
 [ui-view].ng-enter-active {
     opacity: 1;
+    transform: translateY(0);
 }
 
 [ui-view].ng-leave {
     opacity: 1;
+    transform: translateY(0);
 }
 
 [ui-view].ng-leave-active {
     opacity: 0;
+    transform: translateY(-2em);
 }

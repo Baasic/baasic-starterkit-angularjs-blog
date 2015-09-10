@@ -42,12 +42,6 @@
 .input--search::placeholder {
     color: white;
 }
-.input--search::-moz-placeholder {
-    color: white;
-}
-.input--search::-webkit-input-placeholder {
-    color: white;
-}
 .input--search:focus,
 .input--search:active {
     outline: 0;
