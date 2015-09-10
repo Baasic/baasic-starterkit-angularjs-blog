@@ -16,6 +16,7 @@
     --color-primary:     var(--color-citrus);
 
     --color-bodybg:      #f6f6f6;
+    --color-anchor:      var(--color-purple);
     --color-ultralight:  #ddd;
     --color-light:       #999;
     --color-dark:        #222;
