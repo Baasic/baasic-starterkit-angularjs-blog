@@ -63,8 +63,13 @@
     margin-bottom: 0.75rem;
 }
 .article__title__link {
+    color: var(--color-primary);
     display: inline-block;
     font-weight: 400;
+}
+.article__title__link:hover,
+.article__title__link:focus {
+    color: white;
 }
 .article__summary {
     margin-bottom: 0.75rem;
