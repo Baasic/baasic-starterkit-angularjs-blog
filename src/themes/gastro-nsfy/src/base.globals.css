@@ -5,7 +5,6 @@
 html {
     font-size: var(--base-font-size);
     line-height: var(--base-line-height);
-
     height: 100%;
 }
 body {
@@ -14,8 +13,6 @@ body {
     background: var(--color-bodybg);
     color: var(--color-dark);
     position: relative;
-
-    height: 100%;
 }
 
 .row {

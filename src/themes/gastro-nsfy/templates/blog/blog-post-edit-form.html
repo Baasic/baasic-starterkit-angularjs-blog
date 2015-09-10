@@ -3,33 +3,31 @@
     <form name="blogPost" novalidate class="form">
         <div class="form__field group--old">
             <input type="text" name="title" id="fieldTitle" ng-model="blog.title" class="input input--text" required />
-            <label class="form__label" for="fieldTitle">Title</label>
+            <label class="form__label position--abs" for="fieldTitle">Title</label>
             <span class="input--highlight"></span>
             <span class="input--bar"></span>
             <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
         </div>
-        <div class="form__field">
+        <div class="form__field group--old">
             <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
-            <label class="form__label" for="fieldBody">Featured image</label>
+            <label class="form__label position--abs" for="fieldBody">Featured image</label>
             <span class="input--highlight"></span>
             <span class="input--bar"></span>
         </div>
         <div class="form__field">
             <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea"></textarea>
-            <label class="form__label" for="fieldExcerpt">Excerpt</label>
+            <label class="form__label position--abs" for="fieldExcerpt">Excerpt</label>
             <span class="input--highlight"></span>
             <span class="input--bar"></span>
         </div>
         <div class="form__field spc--bottom--med">
+            <label class="form__label" for="fieldContent">Content</label>
             <div class="group--old">
-                <div class="editor__type">
+                <div class="editor__type group--old">
                     <div class="editor__header">
                         <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
                     </div>
                     <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
-                    <label class="form__label" for="fieldContent">Content</label>
-                    <span class="input--highlight"></span>
-                    <span class="input--bar"></span>
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">

@@ -36,7 +36,7 @@
 .styled-text p + pre {
 }
 .styled-text p code {
-    background: lighten($zircon, 5%);
+    background: lighten(var(--color-primary), 5%);
 }
 .styled-text pre {
     margin-bottom: 1.5rem;
@@ -63,7 +63,7 @@
 .styled-text blockquote > p {
     font-size: var(--type-large);
     line-height: calc(var(--base-line-height)*1.5);
-    color: darken($grey, 15%);
+    color: darken(var(--color-grey), 15%);
 }
 .styled-text blockquote > cite {
     margin-bottom: 1.5rem;
