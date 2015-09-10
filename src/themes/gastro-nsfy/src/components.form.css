@@ -24,11 +24,12 @@
         width: 50%;
         padding-right: 1rem;
     }
+}
+@media all and (--from-medium) {
     .form__field--half:last-child {
         float: right;
     }
 }
-
 .form__label {
     left: .5rem;
     top: 1.25rem;

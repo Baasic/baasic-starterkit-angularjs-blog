@@ -12,12 +12,6 @@ body {
     min-width: 20em;
     background: var(--color-bodybg);
     color: var(--color-dark);
-    position: relative;
-}
-
-.row {
-    max-width: 60em;
-    margin: 0 auto;
 }
 img, object, iframe {
     vertical-align: middle;
@@ -25,4 +19,8 @@ img, object, iframe {
 img {
     max-width: 100%;
     height: auto;
+}
+.row {
+    max-width: 60em;
+    margin: 0 auto;
 }

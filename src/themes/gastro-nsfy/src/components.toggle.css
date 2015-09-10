@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    # components.toggle
+\*------------------------------------*/
+
 .menu-toggle {
     cursor: pointer;
     display: block;
@@ -7,11 +11,27 @@
     width: 2rem;
     height: 2rem;
 }
+@media all and (--from-mediumsmall) {
+    .menu-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 6rem;
+        right: 2.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+}
 .expand .menu-toggle {
     top: 3rem;
     right: 2rem;
 }
-
+@media all and (--from-mediumsmall) {
+    .expand .menu-toggle {
+        top: 2.5rem;
+        right: 3rem;
+    }  
+}
 .menu-toggle span, 
 .menu-toggle span:before, 
 .menu-toggle span:after {
@@ -49,20 +69,4 @@
 }
 .menu-toggle.nShow span:after {
     transform: rotate(-45deg);
-}
-
-@media all and (--from-mediumsmall) {
-    .menu-toggle {
-        cursor: pointer;
-        display: block;
-        position: absolute;
-        top: 6rem;
-        right: 2.5rem;
-        width: 2rem;
-        height: 2rem;
-    }
-    .expand .menu-toggle {
-        top: 2.5rem;
-        right: 3rem;
-    }  
 }

@@ -1,7 +1,7 @@
 ﻿   <div class="group layout" ng-class="{'expand': menuOpened}">
         <aside class="layout__sidebar">
             <blog-menu>
-
+            
             </blog-menu>
         </aside>
         <article class="post layout__post" ng-hide="isEdit">
@@ -10,15 +10,15 @@
                     <span class="post__header__overlay"></span>
                 </div>
             </header>
+
             <div class="post__body__holder">
                 <div class="post__body">
                     <h2 class="post__title">{{ blog.title }}</h2>
                     
                     <div btf-markdown="blog.content" class="styledtext">
-                    </div>
 
+                    </div>
                     <hr>
-                    
                     <div class="group spc--bottom--lrg">
                         <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
                         
