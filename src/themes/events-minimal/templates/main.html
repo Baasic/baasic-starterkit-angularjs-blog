@@ -1,7 +1,7 @@
 ﻿<header class="header">
     <div class="header--aside">
         <h1 class="header__identity">The Club</h1>
-        <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger last push"></a>
+        <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
     </div>
 
     <div ng-class="{'nShow': menuOpen}" class="header--main"> 
@@ -13,16 +13,11 @@
             <baasic-logout on-logout="setEmptyUser()" class="spc--right--lrg">
                 <button class="btn btn--icon icon--logout" title="Log Out" type="button" ng-click="logout()">Logout</button>
             </baasic-logout>
-            <div class="inline-block header--membership">Welcome {{ $root.user.displayName }}</div>
 
         </div>
         <div class="inline-block" ng-if="!$root.user.isAuthenticated"><button type="button" title="Log In" class="btn btn--icon icon--login" ui-sref="login">login</button></div>
     </div>
-    <!-- modals -->
-    
-    </header>
-
-
+</header>
 
 <main ui-view>
         
@@ -34,7 +29,6 @@
                 <div class="search">
                     <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
                         <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-
                         <button ng-click="setParentVariable('searchOpen', !searchOpen)" type="submit" class="btn btn--icon btn--lrg icon--search"></button>
                     </form>
                 </div>

@@ -22,11 +22,12 @@
         padding: .5rem 1rem .5rem 1.5rem;
     }
 }
-@media all and (--to-mediumsmall) {
+@media all and (--to-medium) {
     .header--main {
         opacity: 0;
         visibility: none;
         transition: all .5s;
+        transition-delay: .5s;
         position: absolute;
         z-index: 5;
         top: 0;
@@ -42,6 +43,7 @@
         opacity: 1;
         visibility: visible;
         transition: all .5s;
+        transition-delay: .5s;
     }
 }
 @media all and (--from-medium) {

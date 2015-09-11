@@ -6,23 +6,21 @@
                 <h1 class="post__title spc--bottom--lrg spc--inside--tb--med">{{ blog.title }}</h1>
                 <div class="post__hero-holder spc--bottom--med">
                     <div class="post__hero-holder--cell"><hr class="post__line"></div>
-                    <div class="post__hero-holder--cell"><hr class="post__line"></div>
                     <div class="post__hero-holder--cell">
                         <span class="meta__label">{{ blog.type }}</span>
                     </div>
-                    <div class="post__hero-holder--cell"><hr class="post__line"></div>
                     <div class="post__hero-holder--cell"><hr class="post__line"></div>
                 </div>
             </div>
             <div class="overlay__hero"></div>
         </div>
     </div>
-    <div class="col col--third col--center spc--inside--tb--med offset--top--lrg">
+    <div class="col col--third col--center post__wrapper spc--inside--tb--med offset--top--lrg">
         <div class="post__infobox">
-            <div class="pull">
+            <div class="pull--on-med">
                 <small class="icon--calendar post__icon"></small> <small>{{ blog.startdate | date:'EEEE, MMMM d, y' }}</small> 
             </div>
-            <div class="push">
+            <div class="push--on-med">
                 <small class="icon--time post__icon"></small> <small>From {{ blog.starttime | date:'hh : mm a' }}</small>
                 <small>till {{ blog.endtime | date:'hh : mm a' }}</small>
             </div>
@@ -39,8 +37,9 @@
             <small class="icon--payment post__icon"></small> <small>Ticket Price: € {{ blog.price }}</small>
         </div>
         <div class="post__infobox">
-            <p>{{ blog.content }}</p>
+            <div btf-markdown="blog.content" class="styledtext"></div>
         </div>
+        
         <div class="post__infobox">
             <div ng-repeat="tag in blog.tags" class="tags__item">
                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
@@ -48,7 +47,7 @@
         </div>
     </div>
 </article>
-<div class="col col--third col--center spc--inside--tb--med">
+<div class="col col--third col--center post__wrapper spc--inside--tb--med">
     <span ng-hide="isEdit">
         <span ng-if="$root.user.isAuthenticated">
             <button class="btn btn--primary btn--med" type="button" ng-click="editBlog()">Edit</button>

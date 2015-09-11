@@ -18,13 +18,13 @@
     margin-left: auto;
     margin-right: auto;
 }
-@media all and (--from-medium) and (--to-large) {
+@media all and (--from-medium) and (--to-xlarge) {
     .col {
         float: left;
         padding: 0.5rem;
     }
     .col--half {
-        width: 50%;
+        width: 70%;
     }
     .col--quad {
         width: 33.33%;
@@ -36,7 +36,7 @@
         float: none;
     }
 }
-@media all and (--from-large) {
+@media all and (--from-xlarge) {
     .col {
     }
     .col--half {
@@ -46,9 +46,14 @@
         width: 25%;
     }
     .col--third {
-        width: 33.33%;
+        width: 50%;
     }
     .col--center {
         float: none;
+    }
+}
+@media all and (--from-xxxlarge) {
+    .col--third {
+        width: 33.33%;
     }
 }

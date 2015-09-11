@@ -5,11 +5,16 @@
 .push {
     float: right;
 }
-
+@media all and (--from-large) {
+    .push--on-med {
+        float: right;
+    }
+}
 .pull {
     float: left;
 }
-
-.center {
-    text-align: center;
+@media all and (--from-large) {
+    .pull--on-med {
+        float: left;
+    }
 }

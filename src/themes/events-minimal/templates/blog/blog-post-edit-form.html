@@ -11,17 +11,40 @@
             <label class="form__label" for="fieldBody">Featured image</label>
             <input class="input input--text" type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
         </div>
-        <div class="form__field">
+        <div class="group">
+                <div class="editor__type">
+                    <div class="editor__header">
+                        <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
+                    </div>
+                    <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
+                </div>
+                <div class="editor__preview">
+                    <div class="editor__header">
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                    </div>
+                    <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
+                    </div>
+                    <div class="editor__field" ng-if="state.conentent.viewMode === 'html'">
+                        {{ getHtml(blog.content) }}
+                    </div>
+                    <div class="editor__field" ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'">
+
+                    </div>
+                </div>
+            </div>
+        <!-- <div class="form__field">
             <label class="form__label" for="fieldContent">Description</label>
             <textarea class="input input--textarea" placeholder="Type your text here..." name="content" id="fieldContent" ng-model="blog.content"></textarea>
-        </div>
+        </div> -->
         <div class="cf">
             <div class="form__field--single">
                 <label class="form__label" for="fieldStartDate">Start Date</label>
                 <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate"></textarea>
             </div>
         </div>
-        <div class="cf spc--bottom--lrg">
+        <div class="cf ">
             <div class="form__field--half">
                 <label class="form__label" for="fieldStartTime">Start Time</label>
                 <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime"></textarea>
@@ -32,7 +55,7 @@
                 <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime"></textarea>
             </div>
         </div>
-        <div class="cf">
+        <div class="cf spc--bottom--lrg">
             <div class="form__field--single">
                 <label class="form__label" for="fieldType">Type Of Event</label>
                 <select class="input input--select" name="type" id="fieldType" ng-model="blog.type">

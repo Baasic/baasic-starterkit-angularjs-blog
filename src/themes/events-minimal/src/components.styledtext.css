@@ -10,6 +10,7 @@
 .styledtext h6 {
     font-weight: var(--type-bold);
     font-family: var(--ff-sans);
+    margin-bottom: 1rem;
 }
 .styledtext p, 
 .styledtext ul, 
@@ -40,11 +41,12 @@
 .styledtext blockquote {
     font-size: 1.2rem;
     line-height: 1.8rem;
-    font-style: italic;
+    font-weight: bold;
+    font-style: normal;
     padding-left: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    border-left: 3px solid black;
+    border-left: 3px solid var(--color-primary);
     color: black;
 }
 .styledtext blockquote:before {

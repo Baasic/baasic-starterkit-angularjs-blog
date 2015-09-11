@@ -2,7 +2,7 @@
     # modules.hamburger
 \*------------------------------------*/
 @media all and (--from-small) {
-    .hamb {
+    .hamburger {
         display: none !important;
     }
 }
