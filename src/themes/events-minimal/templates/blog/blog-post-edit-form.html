@@ -49,18 +49,18 @@
         <div class="cf">
             <div class="form__field--single">
                 <label class="form__label" for="fieldStartDate">Start Date</label>
-                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate"/>
+                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate" date-converter/>
             </div>
         </div>
         <div class="cf ">
             <div class="form__field--half">
                 <label class="form__label" for="fieldStartTime">Start Time</label>
-                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime"/>
+                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime" date-converter/>
             </div>
 
             <div class="form__field--half">
                 <label class="form__label" for="fieldEndTime">End Time</label>
-                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime"/>   
+                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime" date-converter/>   
             </div>
         </div>
         <div class="cf spc--bottom--lrg">
@@ -77,20 +77,20 @@
                 </select>
             </div>
         </div>
-        <h2 class="spc--bottom--lrg">Performers</h2>
-        <div ng-repeat="field in blog.customFields" class="form">
+        <h2 class="spc--bottom--lrg" ng-init="blog.performers = []">Performers</h2>
+        <div ng-repeat="performer in blog.performers" class="form">
             <div class="form__field--half">
                 <label class="form__label" for="fieldPerformer + {{$index}}">Performer</label>
-                <input class="input input--text" type="text" name="title" id="fieldPerformer + {{$index}}" ng-model="field.customField" />
+                <input class="input input--text" type="text" name="title" id="fieldPerformer + {{$index}}" ng-model="performer.name" />
             </div>
             <div class="form__field--half form__field--grouped">
                 <label class="form__label" for="fieldPerformerDesc + {{$index}}">First Performer Description</label>
-                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldPerformerDesc + {{$index}}" ng-model="field.customFieldDesc" />
-                <button class="btn btn--remove form__field--btn" type="button" ng-click="removeCustomField($index)">x</button> 
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldPerformerDesc + {{$index}}" ng-model="performer.desc" />
+                <button class="btn btn--remove form__field--btn" type="button" ng-click="blog.performers.splice($index, 1)">x</button> 
             </div>   
         </div>
         <div class="spc--bottom--lrg">
-            <button class="btn btn--primary btn--med"  type="button" ng-click="addCustomField()">Add Performer</button>                      
+            <button class="btn btn--primary btn--med"  type="button" ng-click="blog.performers.push({name:'', desc:''})">Add Performer</button>                      
         </div>
 
 

@@ -158,7 +158,7 @@ function index() {
     return gulp.src('./src/app/index.html')
       .pipe(g.inject(gulp.src('./src/themes/' + theme + '/assets/js/*.js'), { addRootSlash: false, ignorePath: 'src/themes/' + theme, starttag: '<!-- inject:vendorTheme -->' }))
       .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
-      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
+      .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app', 'src/themes/' + theme] }))
       .pipe(replace(/\"\/assets\/img\/(.*)\"/g, baseUrl + '/assets/img/$1'))
       .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
       .pipe(gulp.dest('./src/app/'))
@@ -302,7 +302,8 @@ function appFiles() {
       './.tmp/src/app/**/*.js',
       '!./.tmp/src/app/**/*_test.js',
       './src/app/**/*.js',
-      '!./src/app/**/*_test.js'
+      '!./src/app/**/*_test.js',
+	  './src/themes/' + theme + '/templates/js/*.js'	  
     ];
     return gulp.src(files)
       .pipe(g.angularFilesort());

@@ -14,9 +14,6 @@
             })
                 .success(function (blog) {
                     $scope.blog = blog;
-                    $scope.blog.starttime = new Date($scope.blog.starttime);
-                    $scope.blog.endtime = new Date($scope.blog.endtime);
-                    $scope.blog.startdate = new Date($scope.blog.startdate);
                 })
                 .error(function (error) {
                     conosle.log(error); // jshint ignore: line
