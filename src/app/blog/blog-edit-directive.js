@@ -141,11 +141,11 @@
 
                         $scope.addCustomField = function addCustomField() {
                             if (!$scope.blog.customFields){
-                               $scope.blog.customFields = []
+                               $scope.blog.customFields = [];
                             }                               
                             $scope.blog.customFields.push({
-                                customField: "",
-                                customFieldDesc: ""
+                                customField: '',
+                                customFieldDesc: ''
                             });
                         };
 

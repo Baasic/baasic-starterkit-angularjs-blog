@@ -1,0 +1,34 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+    padding: 1.5rem;
+}
+@media all and (--to-large) {
+    .header {
+        padding-top: 6rem;
+    }
+}
+@media all and (--from-large) {
+    .header {
+        padding: 3rem 3rem 0 3rem;
+    }
+}
+
+.header__desc {
+    padding: 1.5rem 0;
+    color: var(--color-primary);
+    font-size: var(--type-medium);
+    font-weight: var(--type-light: 300);
+    font-style: italic;
+}
+
+.header__auth {
+    display: block;
+    color: var(--color-secondary);
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--type-base);
+    margin-top: .5rem;
+}

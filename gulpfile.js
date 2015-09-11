@@ -2,6 +2,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
     g = require('gulp-load-plugins')({ lazy: false }),
     replace = require('gulp-replace'),
     noop = g.util.noop,
@@ -46,25 +47,35 @@ gulp.task('clean-css', function (done) {
     done();
 });
 
-gulp.task('styles', ['clean-css'], function () {
+//Plugins
+var atImport = require('postcss-import');
+var customProperties = require('postcss-custom-properties');
+var customMedia = require('postcss-custom-media');
+var calc = require('postcss-calc');
+var pixrem = require('pixrem');
+var colorFunction = require('postcss-color-function');
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+
+//Processor
+gulp.task('styles', ['clean-css'], function () {    
+    var processors = [
+      atImport ({
+          from: './src/themes/' + theme + '/src/app.css'
+        }),
+      customMedia,
+      customProperties,
+      calc,
+      pixrem,
+      colorFunction,
+      autoprefixer({ 
+        browsers: ['last 2 versions']
+      })
+    ];
+
     return gulp.src(
-      './src/themes/' + theme + '/src/app.css'
-      )
-      .pipe(g.pleeease({
-          'browsers': ['last 2 version'],
-          'filters': true,
-          'rem': false,
-          'minifier': false,
-          'mqpacker': false,
-          'sourcemaps': false,
-          'import': {
-              root: 'src/themes/' + theme + '/src',
-              transform: function (content) {
-                  return content.replace('url(', 'url(../../../../../');
-              }
-          },
-          'next': true
-      }))
+      './src/themes/' + theme + '/src/app.css')
+      .pipe(postcss(processors))
       .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./.tmp/css/'))
       .pipe(g.cached('built-css'))
@@ -72,24 +83,24 @@ gulp.task('styles', ['clean-css'], function () {
 });
 
 gulp.task('styles-dist', function () {
+    var processors = [
+      atImport ({
+          from: './src/themes/' + theme + '/src/app.css'
+        }),
+      customMedia,
+      customProperties,
+      calc,
+      pixrem,
+      colorFunction,
+      autoprefixer({ 
+        browsers: ['last 2 versions'] 
+      }),
+      cssnano
+    ];
     return gulp.src([
       './src/themes/' + theme + '/src/app.css'
     ])
-      .pipe(g.pleeease({
-          'browsers': ['last 2 version'],
-          'filters': true,
-          'rem': false,
-          'minifier': true,
-          'mqpacker': false,
-          'sourcemaps': false,
-          'next': true,
-          'import': {
-              root: 'src/themes/' + theme + '/src',
-              transform: function (content) {
-                  return content.replace('url(', 'url(../../../../../');
-              }
-          }
-      }))
+      .pipe(postcss(processors))
       .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
       .pipe(gulp.dest('./dist/css/'));
 });

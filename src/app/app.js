@@ -4,6 +4,7 @@ angular.module('baasic.blog', [
 
 angular.module('myBlog', [
   'ui.router',
+  'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
   'baasic.security',
