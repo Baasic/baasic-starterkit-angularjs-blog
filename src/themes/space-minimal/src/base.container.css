@@ -11,6 +11,3 @@
 .container__main {
     min-height: 100%;
 }
-@media all and (--from-large) {
-    .container {}
-}
