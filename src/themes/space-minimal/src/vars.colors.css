@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 :root {
-
     --color-scampi:      #6267A4;
     --color-emerald:     #47BF86;
     --color-torchred:    #FF0043;
@@ -15,7 +14,6 @@
     --color-mortar:      #5B5B5B;
     --color-grey:        #7C7C7C;
     --color-citrus:      #B3CE00;
-
 
     --color-primary:     var(--color-orange);
     --color-secondary:   var(--color-citrus);
