@@ -91,7 +91,20 @@ angular.module('myBlog', [
 	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
 	    'use strict';
         
-        $rootScope.baseHref = $browser.baseHref().trimRight('/');
+        // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
+        function rtrim(str, ch){
+            for (var i = str.length - 1; i >= 0; i--)
+            {
+                if (ch != str.charAt(i))
+                {
+                    str = str.substring(0, i + 1);
+                    break;
+                }
+            } 
+            return str;
+        }        
+        
+        $rootScope.baseHref = rtrim($browser.baseHref, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
