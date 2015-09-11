@@ -58,6 +58,7 @@
 */
 
 @import "components.logo.css";
+@import "components.message.css";
 @import "components.btn.css";
 @import "components.bg.css";
 @import "components.layout.css";

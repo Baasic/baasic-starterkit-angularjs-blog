@@ -17,7 +17,6 @@
     "gulp-cached": "^1.1.0",
     "gulp-concat": "^2.4.3",
     "gulp-csslint": "~0.1.4",
-    "gulp-cssnext": "^1.0.1",
     "gulp-embedlr": "~0.5.2",
     "gulp-header": "^1.2.2",
     "gulp-htmlmin": "^1.1.4",
@@ -53,10 +52,7 @@
     "postcss-custom-media": "^5.0.0",
     "postcss-custom-properties": "^5.0.0",
     "postcss-import": "^7.0.0",
-    "postcss-mixins": "^1.0.0",
-    "postcss-nested": "^1.0.0",
     "postcss-pxtorem": "^3.0.0",
-    "postcss-simple-vars": "^1.0.0",
     "rimraf": "^2.4.3",
     "streamqueue": "~0.1.1"
   }
