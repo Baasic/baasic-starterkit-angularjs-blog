@@ -1,6 +1,18 @@
-.expand .layout__sidebar .header__controls, .expand .layout__sidebar .header__desc, .expand .layout__sidebar .sidebar__navigation, .expand .layout__sidebar .sidebar__widget, .expand .layout__sidebar .footer  {
+/*------------------------------------*\
+    # components.visibility
+\*------------------------------------*/
+
+.expand .layout__sidebar .header__controls, 
+.expand .layout__sidebar .header__desc, 
+.expand .layout__sidebar .sidebar__navigation, 
+.expand .layout__sidebar .sidebar__widget, 
+.expand .layout__sidebar .footer  {
     visibility: visible;
 }
-.layout__sidebar .header__controls, .layout__sidebar .header__desc, .layout__sidebar .sidebar__navigation, .layout__sidebar .sidebar__widget, .layout__sidebar .footer  {
+.layout__sidebar .header__controls, 
+.layout__sidebar .header__desc, 
+.layout__sidebar .sidebar__navigation, 
+.layout__sidebar .sidebar__widget, 
+.layout__sidebar .footer  {
     visibility: hidden;
 }

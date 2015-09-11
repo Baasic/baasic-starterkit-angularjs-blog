@@ -15,7 +15,6 @@
         padding: 3rem 3rem 0 3rem;
     }
 }
-
 .header__desc {
     padding: 1.5rem 0;
     color: var(--color-primary);
@@ -23,7 +22,6 @@
     font-weight: var(--type-light: 300);
     font-style: italic;
 }
-
 .header__auth {
     display: block;
     color: var(--color-secondary);

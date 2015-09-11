@@ -28,5 +28,5 @@
     font-size: var(--type-small);
     text-transform: uppercase;
     font-weight: var(--type-light);
-    letter-spacing: 2px;
+    letter-spacing: .125rem;
 }

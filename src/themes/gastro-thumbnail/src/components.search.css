@@ -8,7 +8,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-
 @media all and (--from-mediumsmall) {
     .search__wrapper {
         width: 50%;
@@ -20,7 +19,6 @@
         width: 25%;
     }
 }
-
 .search {
     position: relative;
 }

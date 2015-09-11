@@ -5,6 +5,10 @@
 .container {
     margin: 0 auto;
 }
+@media all and (--from-xlarge) {
+    .container {
+    }
+}
 .container__fixed {
     height: 100%;
 }
@@ -12,8 +16,6 @@
     min-height: 100%;
 }
 @media all and (--from-xlarge) {
-    .container {
-    }
     .container__main {
         width: 1280px;
     }

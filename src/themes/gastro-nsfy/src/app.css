@@ -33,6 +33,7 @@
 @import "base.container.css";
 @import "base.globals.css";
 @import "base.typography.css";
+@import "base.viewtransitions.css";
 
 /**
  * Core
@@ -57,6 +58,7 @@
 */
 
 @import "components.logo.css";
+@import "components.message.css";
 @import "components.btn.css";
 @import "components.bg.css";
 @import "components.layout.css";
