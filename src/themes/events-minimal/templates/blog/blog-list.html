@@ -3,50 +3,39 @@
         class="article article--ingrid" 
         ng-if="hasBlogs" 
         ng-repeat="blog in blogList.item" 
-        ng-class=" { 'article--lrg': $first , 'article--sml': !$first } "
-        
-    >
-
-
-            <div class="article__holder" style="background-image: url('{{ blog.featured }}')">
-                <div class="article__content col col--third col--center">
-                    <div class="article__aside">
-                        <span class="meta__label">{{ blog.startdate | date:'MMM' }}</span>
-                        <span class="meta__label--lrg">{{ blog.startdate | date:'dd' }}</span>
-                        <span class="meta__label">{{ blog.startdate | date:'EEE' }}</span>
-                    </div>
-                    <div class="article__main article__divider">
-                        <span class="meta__label">{{ blog.type }}</span>
-                        <h1 class="article__title spc--bottom--lrg"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h1>
-                        <div class="article__items">
-                            <div ng-repeat="field in blog.customFields | limitTo: 3">
-                                <div class="article__item spc--bottom--lrg">
-                                    <h2>{{ field.customField}}</h2>
-                                    <small>{{ field.customFieldDesc }}</small>
-                                </div>
+        ng-class=" { 'article--lrg': $first , 'article--sml': !$first } ">
+        <div class="article__holder" style="background-image: url('{{ blog.featured }}')">
+            <div class="article__content col col--third col--center">
+                <div class="article__aside">
+                    <span class="meta__label">{{ blog.startdate | date:'MMM' }}</span>
+                    <span class="meta__label--lrg">{{ blog.startdate | date:'dd' }}</span>
+                    <span class="meta__label">{{ blog.startdate | date:'yyyy' }}</span>
+                </div>
+                <div class="article__main article__divider">
+                    <span class="meta__label">{{ blog.type }}</span>
+                    <h1 class="article__title spc--bottom--sml"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h1>
+                    <span class="meta__label spc--bottom--med">{{ blog.location }}</span>
+                    <div class="article__items" ng-if="$first">
+                        <div ng-repeat="field in blog.customFields | limitTo: 3">
+                            <div class="article__item spc--bottom--lrg">
+                                <h2>{{ field.customField}}</h2>
+                                <small>{{ field.customFieldDesc }}</small>
                             </div>
-                            <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">More Info</a>
                         </div>
+                        <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">More Info</a>
                     </div>
                 </div>
-                <div class="overlay__hero"></div>
             </div>
-            
-
-
-
-    </article>
-    
-    <article ng-if="!hasBlogs">
-        <p>
+            <div class="overlay__hero"></div>
+        </div>
+    </article> 
+    <article class="alert" ng-if="!hasBlogs">
+        <span class="alert--note">
             No blogs.
-        </p>
-    </article>
-
-    <hr>
-    
-    <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
-        <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious">Prev</a>
-        <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext">Next</a>
+        </span>
+    </article>    
+    <pager class="pager" pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+        <a class="btn btn--primary btn--med" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious">Prev</a>
+        <a class="btn btn--primary btn--med" ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext">Next</a>
     </pager>
 </section>

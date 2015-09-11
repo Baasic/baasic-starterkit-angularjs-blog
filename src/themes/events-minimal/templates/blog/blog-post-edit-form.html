@@ -1,15 +1,27 @@
 ﻿<div class="layout__form">
     <h1 class="spc--bottom--lrg">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
     <form name="blogPost" novalidate class="form">
-        <div class="form__field">
-            <label class="form__label" for="fieldTitle">Title</label>
-            <input class="input input--text" type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
-            <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldTitle">Title</label>
+                <input class="input input--text" type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
+                <div class="alert" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
+                    <span class="alert--warning">Title is required.</span>
+                </div>
+            </div>
+        </div>
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldLocation">Location</label>
+                <input class="input input--text" type="text" name="location" id="fieldLocation" ng-model="blog.location"/>
+            </div>
         </div>
 
-        <div class="form__field">
-            <label class="form__label" for="fieldBody">Featured image</label>
-            <input class="input input--text" type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldBody">Featured image</label>
+                <input class="input input--text" type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+            </div>
         </div>
         <div class="group">
                 <div class="editor__type">
@@ -34,25 +46,21 @@
                     </div>
                 </div>
             </div>
-        <!-- <div class="form__field">
-            <label class="form__label" for="fieldContent">Description</label>
-            <textarea class="input input--textarea" placeholder="Type your text here..." name="content" id="fieldContent" ng-model="blog.content"></textarea>
-        </div> -->
         <div class="cf">
             <div class="form__field--single">
                 <label class="form__label" for="fieldStartDate">Start Date</label>
-                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate"></textarea>
+                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate"/>
             </div>
         </div>
         <div class="cf ">
             <div class="form__field--half">
                 <label class="form__label" for="fieldStartTime">Start Time</label>
-                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime"></textarea>
+                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime"/>
             </div>
 
             <div class="form__field--half">
                 <label class="form__label" for="fieldEndTime">End Time</label>
-                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime"></textarea>
+                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime"/>   
             </div>
         </div>
         <div class="cf spc--bottom--lrg">
@@ -61,11 +69,11 @@
                 <select class="input input--select" name="type" id="fieldType" ng-model="blog.type">
                     <option value="">---Please select---</option>
                     <option value="Concerte">Concerte</option>
-                    <option value="Talk">Talk</option>
+                    <option value="Play">Play</option>
                     <option value="Conference">Conference</option>
                     <option value="Party">Party</option>
                     <option value="Fair">Fair</option>
-                    <option value="Fair">Other</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
         </div>
@@ -89,7 +97,7 @@
         <div class="cf">
             <div class="form__field">
                 <label class="form__label" for="fieldPrice">Ticket Price</label>
-                <input class="input input--price" type="number" name="price" id="fieldPrice" ng-model="blog.price"></textarea>
+                <input class="input input--price" type="number" name="price" id="fieldPrice" ng-model="blog.price"/>
             </div>
         </div>
         <hr>
@@ -105,8 +113,8 @@
             <button class="btn btn--primary btn--med" type="submit" ng-click="saveBlog()">Save</button>
             <button class="btn btn--secondary btn--med" type="button" ng-click="cancelEdit()">Cancel</button>
         </div>
-        <div ng-show="error">
-            {{ error }}
+        <div class="alert" ng-show="error">
+            <span class="alert--warning">{{ error }}</span>
         </div>
     </form>
 </div>

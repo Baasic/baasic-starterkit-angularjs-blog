@@ -2,8 +2,7 @@
     # components.post
 \*------------------------------------*/
 
-.post {
-    
+.post { 
 }
 .post__header {
     min-height: 22rem;
@@ -104,12 +103,6 @@
 .post__hero-holder--cell .meta__label {
     margin-bottom: 0;
 }
-/*@media all and (--to-mediumsmall) {
-    .post__hero-holder--cell:first-child,
-    .post__hero-holder--cell:last-child {
-        width: 25%;
-    }
-}*/
 .post__hero-holder--top {
     width: 100%;
     margin: 0 auto;

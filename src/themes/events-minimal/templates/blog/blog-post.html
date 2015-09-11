@@ -26,15 +26,20 @@
             </div>
         </div>
         <div class="post__infobox">
+            <div class="pull--on-med">
+                <small class="icon--home post__icon"></small> <small>{{ blog.location }}</small>
+            </div>
+            <div class="push--on-med">
+                <small class="icon--payment post__icon"></small> <small>Ticket Price: € {{ blog.price }}</small>
+            </div>
+        </div>
+        <div class="post__infobox">
             <div  ng-repeat="field in blog.customFields">
-                <div class="post__item spc--bottom--sml">
+                <div class="post__item">
                     <h2 class="post__item__title">{{ field.customField}}</h2>
                     <small>{{ field.customFieldDesc }}</small>
                 </div>
             </div>
-        </div>
-        <div class="post__infobox">
-            <small class="icon--payment post__icon"></small> <small>Ticket Price: € {{ blog.price }}</small>
         </div>
         <div class="post__infobox">
             <div btf-markdown="blog.content" class="styledtext"></div>

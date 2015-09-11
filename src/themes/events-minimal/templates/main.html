@@ -1,6 +1,6 @@
 ﻿<header class="header">
     <div class="header--aside">
-        <h1 class="header__identity">The Club</h1>
+        <h1 class="header__identity"><a ui-sref="master.main.index">Events</a></h1>
         <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
     </div>
 
@@ -22,14 +22,34 @@
 <main ui-view>
         
 </main>
+<footer class="footer smm center">
+
+
+            <a class="smm__link" href="https://www.facebook.com/">
+                <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://www.linkedin.com">
+                <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://twitter.com/">
+                <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://github.com/">
+                <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+            </a>
+
+</footer>
 <div class="modal" ng-class="{'nShow': searchOpen}">
         <div class="modal--dialog">
             <div class="modal--content">
                 <button ng-click="searchOpen=!searchOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
                 <div class="search">
                     <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                    <button ng-click="setParentVariable('searchOpen', !searchOpen)" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
                         <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-                        <button ng-click="setParentVariable('searchOpen', !searchOpen)" type="submit" class="btn btn--icon btn--lrg icon--search"></button>
                     </form>
                 </div>
             </div>

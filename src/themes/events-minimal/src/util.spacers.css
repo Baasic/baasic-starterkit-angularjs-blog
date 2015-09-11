@@ -37,8 +37,6 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-
-
 @media all and (--from-medium) {
     .spc--bottom--sml {
         margin-bottom: 0.75rem;
@@ -65,7 +63,7 @@
         margin-top: 6rem;
     }
     .spc--right--lrg {
-    margin-right: 2rem;
+        margin-right: 2rem;
     }
     .spc--right--xlrg {
         margin-right: 3rem;

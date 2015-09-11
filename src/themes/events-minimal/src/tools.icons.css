@@ -12,7 +12,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 [class^="icon--"]:before, [class*=" icon--"]:before {
     font-family: 'icomoon';
     speak: none;
@@ -21,14 +20,9 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-
-    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-
-
 .icon--write:before {
     content: "\e013";
 }

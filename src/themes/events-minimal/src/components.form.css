@@ -5,7 +5,6 @@
 .form {
     overflow: hidden;
 }
-
 .form__field {
     margin-bottom: 1.5rem;
 }
@@ -27,15 +26,12 @@
         float: right;
         padding-left: 1rem;
     }
-}
-@media all and (--from-medium) {
     .form__field--single {
         margin-bottom: 1.5rem;
         float: left;
         width: 50%;
     }
 }
-
 .form__label {
     font-family: var(--ff-sans);
     font-size: var(--type-small);

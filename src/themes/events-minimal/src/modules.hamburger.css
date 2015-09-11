@@ -1,6 +1,7 @@
 /*------------------------------------*\
     # modules.hamburger
 \*------------------------------------*/
+
 @media all and (--from-small) {
     .hamburger {
         display: none !important;

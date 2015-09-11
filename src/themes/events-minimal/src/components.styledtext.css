@@ -57,7 +57,6 @@
 }
 .styledtext figure {
     position: relative;
-    /*border-top: 1px solid var(--color-ultralight);*/
 }
 .styledtext figcaption {
     position: absolute;

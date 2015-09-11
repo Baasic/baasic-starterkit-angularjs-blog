@@ -3,10 +3,12 @@
 \*------------------------------------*/
 
 .alert {
-    font-family: var(--ff-sans);
     font-size: var(--type-small);
     display: block;
-    padding: .75rem 0;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: white;
+    border: 1px solid var(--color-ultralight);
 }
 .alert--warning {
     color: var(--color-warning);

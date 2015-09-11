@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 tags-input .tags {
-    border: 0;
+    border: 1px solid var(--color-ultralight);
     box-shadow: none;
     padding: .5rem;
 }
@@ -19,11 +19,9 @@ tags-input .tags .tag-item.selected {
     color: white;
     border: 1px solid var(--color-warning);
 }
-
 tags-input .tags .input {
     width: 100px !important;
 }
-
 tags-input .tags .input::placeholder {
     font-size: 12px;    
 }

@@ -10,7 +10,6 @@
         transform: rotate(360deg);
     }
 }
-
 .loader {
     position: fixed;
     z-index: 5;
@@ -25,17 +24,14 @@
     opacity: 1;
     transition: all .5s;
 }
-
 .loader.ng-hide {
     opacity: 0;
     display: block !important;
     visibility: hidden;
 }
-
 .loading__content {
     text-align: center;
 }
-
 .loader__spinner {
     display: block;
     width: 2rem;
@@ -49,7 +45,6 @@
     animation: spinneranimation .5s infinite linear;
     transform: translateZ(0);
  }
-
  .loading__message {
     font-size: var(--type-small);
     font-family: var(--ff-sans);;
