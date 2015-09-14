@@ -16,8 +16,8 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('delete-me', {
-            apiRootUrl: 'api.baasic.local',
+        baasicAppProvider.create('starterkit-blog', {
+            apiRootUrl: 'api.baasic.com',
             apiVersion: 'beta'
         });
 
@@ -90,23 +90,28 @@ angular.module('myBlog', [
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
 	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
 	    'use strict';
-
-	    // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
-	    function rtrim(str, ch) {
-	        for (var i = str.length - 1; i >= 0; i--) {
-	            if (ch !== str.charAt(i)) {
-	                str = str.substring(0, i + 1);
-	                break;
-	            }
-	        }
-	        return str;
-	    }
-
-	    $rootScope.baseHref = rtrim($browser.baseHref, ('/'));
-	    if ($rootScope.baseHref === '/') {
-	        $rootScope.baseHref = '';
-	    }
-
+        
+        // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
+        var rightTrim = function (str, ch){
+            if (!str){
+                return '';
+            }
+            for (var i = str.length - 1; i >= 0; i--)
+            {
+                if (ch !== str.charAt(i))
+                {
+                    str = str.substring(0, i + 1);
+                    break;
+                }
+            } 
+            return str ? str : '';
+        };       
+        
+        $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
+        if ($rootScope.baseHref === '/') {
+            $rootScope.baseHref = '';
+        }
+        
 	    blogService.tags.find({
 	        rpp: 10
 	    })

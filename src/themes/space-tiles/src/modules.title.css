@@ -5,25 +5,25 @@
 .title {
     font-weight: var(--type-regular);
 }
-.title.\--negative {
+.title--negative {
     color: white;
 }
 
-.title.\--huge {
+.title--huge {
     font-size: var(--type-xxlarge);
     line-height: calc(var(--base-line-height)*2);
 }
-.title.\--xxlrg {
+.title--xxlrg {
     font-size: var(--type-xlarge);
     line-height: calc(var(--base-line-height)*1.5);
 }
 
 @media all and (--from-large) {
-    .title.\--huge {
+    .title--huge {
         font-size: var(--type-xxxlarge);
         line-height: calc(var(--base-line-height)*2.5);
     }
-    .title.\--xxlrg {
+    .title--xxlrg {
         font-size: var(--type-xxlarge);
         line-height: calc(var(--base-line-height)*2);
     }

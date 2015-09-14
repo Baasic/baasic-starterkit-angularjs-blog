@@ -10,8 +10,6 @@
     overflow: hidden;
     margin-bottom: 3rem;
     padding: 2.5rem 1.5rem;
-
-    /* Background image URL comes from HTML style attribute */
     background-size: cover;
     z-index: 1;
 }
@@ -75,9 +73,6 @@
         line-height: calc(var(--base-line-height)*1.75);
         margin-bottom: calc(var(--base-line-height)*2);
     }
-    .post__body {
-        /*padding: 0 3rem;*/
-    }
     .post__header {
         padding: 6rem 3rem;
         margin-bottom: 6rem;
@@ -89,9 +84,6 @@
     }
 }
 @media all and (--from-large) {
-    .post__body { 
-        /*padding: 0 6rem;*/
-    }
     .post__header {
         padding: 6rem;
     }
@@ -107,10 +99,5 @@
     .post__header {
         padding: 12rem;
         min-height: 40vh;
-    }
-    .post__visual {
-    }
-    .post__body {
-       /* padding: 0 30rem 0 30rem;*/
     }
 }
