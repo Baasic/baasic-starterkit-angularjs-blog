@@ -16,6 +16,8 @@
 @import "vars.colors.css";
 @import "vars.responsive.css";
 @import "vars.typography.css";
+@import "vars.shadows.css";
+@import "vars.transitions.css";
 
 /**
 * Generic styles
