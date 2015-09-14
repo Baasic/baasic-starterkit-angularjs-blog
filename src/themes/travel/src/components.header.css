@@ -8,9 +8,6 @@
     position: relative;
     padding-top: 8rem;
     padding-bottom: 3rem;
-    background-image: url(../assets/img/visual.jpg);
-    background-size: cover;
-    background-position: center center;
     overflow: hidden;
 }
 .header__top {
@@ -46,7 +43,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, var(--color-dark) 100%);
+    background: linear-gradient(to bottom, var(--color-dark) 0%, transparent 100%);
 }
 .header__content {
     position: relative;

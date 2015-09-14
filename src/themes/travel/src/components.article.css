@@ -3,27 +3,9 @@
 \*------------------------------------*/
 
 .articles {
-    background: var(--color-dark);
-}
-@media all and (--from-medium) {
-    .articles__grid {
-        column-count: 2;
-        column-gap: 2.5%;
-        column-width: 50%;
-    }
-}
-@media all and (--from-large) {
-    .articles__container {
-        transform: translateY(-12rem);
-    }
-    .articles__grid { 
-        column-count: 3;
-        column-gap: 5%;
-        column-width: 33.3333%;
-    }
+    
 }
 .article {
-    width: 100%;
     display: inline-block;
     vertical-align: top;
     margin-bottom: 5%;

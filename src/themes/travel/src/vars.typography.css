@@ -23,6 +23,6 @@
     --type-xxxlarge: 3.051rem;
 
     /* Type families */
-    --ff-sans: 'Roboto Mono', Helvetica, Arial sans-serif;
-    --ff-serif: Georgia, Times, serif;
+    --ff-sans: Arial, Helvetica, Arial sans-serif;
+    --ff-serif: 'Neuton', Times, Georgia, serif;
 }
