@@ -23,7 +23,7 @@ angular.module('myBlog', [
 
         $locationProvider.html5Mode({
             enabled: true
-        });       
+        });
 
         $urlRouterProvider.when('', '/');
 
@@ -119,8 +119,6 @@ angular.module('myBlog', [
             $scope.tags = tagList.item;
         });
 
-	    
-
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
 	            isAuthenticated: false
@@ -145,10 +143,10 @@ angular.module('myBlog', [
     'use strict';
 
     $scope.searchBlog = function searchBlog() {
-            if ($scope.searchFor) {
-                $state.go('master.main.blog-search', { search: $scope.searchFor });
-            }
-        };
+        if ($scope.searchFor) {
+            $state.go('master.main.blog-search', { search: $scope.searchFor });
+        }
+    };
 }])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {
