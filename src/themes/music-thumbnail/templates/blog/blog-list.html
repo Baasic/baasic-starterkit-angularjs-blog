@@ -1,0 +1,47 @@
+<div class="articles">
+    <article
+        class="article article--ingrid article--sml"
+        ng-if="hasBlogs"
+        ng-repeat="blog in blogList.item"
+    >
+        <div class="article__holder">
+            <div class="article__figure">
+                <a ui-sref="master.blog-detail({ slug: blog.slug })" class="article__link"></a>
+                <div class="article__figure__holder">
+                    <img class="clip" ng-src="{{ baseHref + blog.featured }}" alt="Test photo">
+                </div>
+                <div class="article__content">
+                    <header class="article__header">
+                        <span class="article__date">{{ blog.publishDate | date : 'medium' }}</span>
+                        <h2 class="article__title">
+                            <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
+                        </h2>
+                    </header>
+                    <div class="article__summary">
+                        <p class="article__summary__text">{{ blog.excerpt }}</p>
+                    </div>
+                    <div class="article__info">
+                        <hr>
+                        <div class="center push">
+                            <span class="article__readingtime">{{ blog.readingTime.text }}</span>
+                        </div>
+                        <div class="article__readmore block pull">
+                            <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --primary --med">Read more</a>
+                            <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --secondary --med">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article ng-if="!hasBlogs">
+        <p>No blog posts added.</p>
+    </article>
+</div>
+
+<pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
+    <hr>
+    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --secondary --med" ng-show="pager.hasPrevious">Prev</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --secondary --med" ng-show="pager.hasNext">Next</a>
+</pager>

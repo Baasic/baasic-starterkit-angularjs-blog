@@ -1,0 +1,66 @@
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div >
+    <div  ng-class="{'expand': menuOpened}">
+        <aside >
+            <blog-menu>
+
+            </blog-menu>
+        </aside>
+        <div >
+            <main ui-view>
+                
+            </main>
+        </div>
+        <footer class="footer smm center" role="contentinfo">
+            <a class="smm__link" href="https://www.facebook.com/">
+                <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://www.linkedin.com">
+                <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://twitter.com/">
+                <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+            </a>
+
+            <a class="smm__link" href="https://github.com/">
+                <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+            </a>
+            <div class="footer__info">
+                <p>Copyright @ Events</p>
+            </div>
+            <div class="footer__poweredby">
+                <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="modal" ng-class="{'nShow': searchOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="searchOpen=!searchOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <div class="search">
+                <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                <button ng-click="setParentVariable('searchOpen', !searchOpen)" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
+                    <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" ng-class="{'nShow': tagOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="tagOpen=!tagOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <ul class="tags group">
+                <li class="tags__item" ng-repeat="tag in tags">
+                    <a ng-click="setParentVariable('tagOpen', !tagOpen)" ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

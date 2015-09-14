@@ -11,8 +11,8 @@
         
     </div>
 
-    <article ng-if="!hasBlogs">
-        <p>Nothing found.</p>
+    <article ng-if="!hasBlogs" class="alert">
+        <span class="alert--note ">Nothing found.</span>
     </article>
 
     <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">

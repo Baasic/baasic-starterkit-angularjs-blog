@@ -51,7 +51,7 @@
             <button ng-click="searchOpen=!searchOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
             <div class="search">
                 <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
-                <button ng-click="setParentVariable('searchOpen', !searchOpen)" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
+                <button ng-click="$parent.searchOpen = false" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
                     <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
                 </form>
             </div>
@@ -64,7 +64,7 @@
             <button ng-click="tagOpen=!tagOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
             <ul class="tags group">
                 <li class="tags__item" ng-repeat="tag in tags">
-                    <a ng-click="setParentVariable('tagOpen', !tagOpen)" ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                    <a ng-click="$parent.tagOpen = false" ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
                 </li>
             </ul>
         </div>

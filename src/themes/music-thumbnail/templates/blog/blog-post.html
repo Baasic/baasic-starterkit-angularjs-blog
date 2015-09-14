@@ -1,0 +1,46 @@
+﻿   <div  ng-class="{'expand': menuOpened}">
+        <aside >
+            <blog-menu>
+
+            </blog-menu>
+        </aside>
+        <article  ng-hide="isEdit">
+            <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
+                <div class="post__header__container">
+                    <span class="post__header__overlay"></span>
+                </div>
+            </header>
+            <div class="post__body__holder">
+                <div class="post__body">
+                    <h2 class="post__title">{{ blog.title }}</h2>
+                    
+                    <div btf-markdown="blog.content" class="styledtext">
+                    </div>
+
+                    <hr>
+                    
+                    <div class="group spc--bottom--lrg">
+                        <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
+                        
+                        <ul class="post__tags push tags group">
+                            <li ng-repeat="tag in blog.tags" class="tags__item">
+                                <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="spc--bottom--med">
+                        <span ng-hide="isEdit">
+                            <span ng-if="$root.user.isAuthenticated" class="push">
+                                <button type="button" class="btn --primary --med" ng-click="editBlog()">Edit</button>
+                                <button type="button" class="btn --secondary --med" ng-click="deleteBlog()">Delete</button>
+                            </span>
+                        </span>
+                        <button type="button" class="btn --secondary --med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+        </baasic-blog-edit>
+    </div>

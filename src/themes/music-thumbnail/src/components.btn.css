@@ -1,0 +1,164 @@
+/*------------------------------------*\
+    # components.btn
+\*------------------------------------*/
+
+.btn {
+    cursor: pointer;
+    font-family: var(--ff-sans);
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    transition: all .2s;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.btn:focus {
+    outline: 0;
+}
+.btn--primary {
+    background: var(--color-primary);
+    color: white;
+}
+.btn--primary:hover,
+.btn--primary:focus,
+.btn--primary:active {
+    background: color(var(--color-primary) blackness(20%));
+    color: white;
+}
+.btn--secondary {
+    background: var(--color-dgrey);
+    color: white;
+}
+.btn--secondary:hover,
+.btn--secondary:focus,
+.btn--secondary:active {
+    background: var(--color-dark);
+    color: white;
+}
+.btn--icon {
+    color: var(--color-dark);
+    position: relative;
+    max-width: 0.5rem;
+    overflow: hidden; 
+    text-indent: -100rem;
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.btn--icon.last {
+    padding-right: 0;
+}
+@media all and (--from-small) {
+    .btn--icon {
+        max-width: 1rem;
+        height: calc(var(--base-line-height)*2);
+        line-height: calc(var(--base-line-height)*2);
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+.btn--icon:before {
+    text-indent: 0rem;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+}
+.btn--icon:hover,
+.btn--icon:focus,
+.btn--icon:active {
+    color: var(--color-primary);
+}
+.btn--icon--round {
+    border: 1px solid var(--color-primary);
+    padding: .75rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    vertical-align: middle;
+}
+.btn--remove {
+    color: white;
+    position: relative;
+    background: var(--color-dgrey);
+    line-height: 2rem;
+    width: calc(10% - 1rem);
+    height: 2.7rem;
+}
+.btn--remove:hover,
+.btn--remove:focus,
+.btn--remove:active {
+    background: var(--color-dark);
+}
+.btn--close {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+}
+.btn--close:before,
+.btn--close:after {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+    background-color: white;
+}
+.btn--close:hover:before,
+.btn--close:focus:before,
+.btn--close:active:before,
+.btn--close:hover:after,
+.btn--close:focus:after,
+.btn--close:active:after {
+    background-color: var(--color-primary);
+}
+.btn--close:before {
+    transform:rotate(45deg);
+    left:2px;
+}
+.btn--close:after {
+    transform:rotate(-45deg);
+    left:2px;
+}
+.btn--search {
+    position: absolute;
+    top: -0.5rem;
+    right: -1rem;
+}
+.btn--search:before,
+.btn--search:after {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+}
+.btn--sml {
+    font-size: var(--type-tiny);
+    height: var(--base-line-height);
+    line-height: var(--base-line-height);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn--med {
+    font-size: var(--type-tiny);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn--lrg {
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*2);
+    line-height: calc(var(--base-line-height)*2);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.active,
+.active:hover,
+.active:focus,
+.active:active {
+    background-color: var(--color-primary);
+}
