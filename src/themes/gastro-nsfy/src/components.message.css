@@ -22,14 +22,17 @@
 .message__title {
 	font-size: var(--type-tiny);
 	font-weight: var(--type-light);
-	line-height: calc(var(--base-line-height)*2);
+	line-height: var(--base-line-height);
+	padding: 1rem 0 4rem 0;
 	text-transform: uppercase;
 	letter-spacing: .15rem;
 	color: white;
-	width: 90%;
+	width: 100%;
 }
 @media all and (--from-mediumsmall) {
 	.message__title {
+		line-height: calc(var(--base-line-height)*2);
+		padding: 1rem 0 .75rem 5rem;
 		width: 100%;
 	}
 }
@@ -40,24 +43,35 @@
     text-indent: -999999px;
     background-repeat: no-repeat;
     position: absolute;
-    left: 1rem;
-    bottom: 1.25rem;
+    left: 1.5rem;
+    bottom: 1.5rem;
+}
+@media all and (--from-mediumsmall) {
+	.message__icon--primary {
+	    left: 1rem;
+	    bottom: 1.65rem;
+	}
 }
 .message__icon--secondary {
 	background-image: url(/assets/img/close.svg);
-    width: px;
+    width: 24px;
     height: 24px;
     text-indent: -999999px;
     background-repeat: no-repeat;
     position: absolute;
     right: 1rem;
-    bottom: 1.25rem;
+    bottom: 1.5rem;
 }
 @media all and (min-width: 430px) {
 	.message__icon--secondary {
-	    bottom: .75rem;
+	    bottom: 1.5rem;
 	}
 }
 .message.close {
-	transform: translateY(4rem);
+	transform: translateY(8rem);
+}
+@media all and (--from-mediumsmall) {
+	.message.close {
+		transform: translateY(5rem);
+	}
 }
