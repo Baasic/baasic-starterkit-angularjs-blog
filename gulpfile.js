@@ -161,7 +161,6 @@ function index() {
       .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app'] }))
       .pipe(replace(/\"\/assets\/img\/(.*)\"/g, baseUrl + '/assets/img/$1'))
       .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
-      .pipe(gulp.dest('./src/app/'))
       .pipe(g.embedlr())
       .pipe(gulp.dest('./.tmp/'))
       .pipe(livereload());
