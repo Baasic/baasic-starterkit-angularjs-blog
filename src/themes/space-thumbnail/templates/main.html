@@ -64,14 +64,14 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --primary --med rounded" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--primary btn--med rounded" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--light btn--med rounded" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn --primary --med rounded" ui-sref="login">login</a></div>
+                        <a class="btn btn--primary btn--med rounded" ui-sref="login">login</a></div>
                     </div>
                     <footer class="footer" role="contentinfo">
                         <div class="footer__info">

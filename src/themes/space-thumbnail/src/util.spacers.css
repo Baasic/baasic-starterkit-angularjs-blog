@@ -26,9 +26,6 @@
 .spc--top--xlrg {
     margin-top: 3rem;
 }
-
-
-
 @media all and (--from-medium) {
     .spc--bottom--sml {
         margin-bottom: 0.75rem;

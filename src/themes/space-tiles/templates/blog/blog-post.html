@@ -2,7 +2,7 @@
     <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
         <div class="post__bg__overlay"></div>
         <div class="post__header__container">
-            <a class="btn --inverse --med radial spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+            <a class="btn btn--inverse btn--med radial spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
             <h2 class="post__title">{{ blog.title }}</h2>
             <span class="post__header__overlay"></span>
         </div>
@@ -22,11 +22,11 @@
         <hr>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
-                <button type="button" class="btn --light --med radial" ng-click="editBlog()">Edit</button>
-                <button type="button" class="btn --light --med radial" ng-click="deleteBlog()">Delete</button>
+                <button type="button" class="btn btn--light btn--med radial" ng-click="editBlog()">Edit</button>
+                <button type="button" class="btn btn--light btn--med radial" ng-click="deleteBlog()">Delete</button>
             </span>
         </span>
-        <button type="button" class="btn --light --med radial" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+        <button type="button" class="btn btn--light btn--med radial" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
     </div>
 </article>
 
