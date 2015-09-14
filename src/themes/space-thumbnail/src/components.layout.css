@@ -6,13 +6,11 @@
 .layout__content {
     padding-top: 3rem;
 }
-
 @media all and (--from-large) {
     .layout {
         display: table;
         height: 100%;
         vertical-align: top;
-        /*flex-direction: row-reverse;*/
     }
     .layout__sidebar {
         display: table-cell;
@@ -29,7 +27,6 @@
         vertical-align: top;
     }
 }
-
 .layout__form {
     max-width: 1024px;
     margin: 1rem auto;
