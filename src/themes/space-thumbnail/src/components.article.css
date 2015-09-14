@@ -7,7 +7,6 @@
     flex-wrap: wrap;
 }
 .article {}
-
 .article--ingrid {
     display: flex;
 }
@@ -20,7 +19,6 @@
 .article--lrg .article__content {
     background: white;
 }
-
 .article__holder {
     position: relative;
     overflow: hidden;
@@ -29,10 +27,6 @@
 .article__holder:hover {
     background: white;
     transition: all .15s;
-}
-.article__figure {
-}
-.article__header {
 }
 .article__title {
     margin-bottom: 0.75rem;
