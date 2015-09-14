@@ -38,7 +38,6 @@
     margin-bottom: 1rem;
     color: var(--color-grey);
 }
-
 @media all and (--from-large) {
     .sidebar__widget {
         padding: 0 3rem;
