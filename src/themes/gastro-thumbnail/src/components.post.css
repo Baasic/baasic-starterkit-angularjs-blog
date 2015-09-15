@@ -14,6 +14,7 @@
 
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
+    background-position: center;
 }
 @media all and (--from-medium) {
     .post__header {
