@@ -1,0 +1,1 @@
+angular.module('myBlog').constant('hero-img', './assets/img/title-photo.jpg');

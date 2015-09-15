@@ -1,2 +1,4 @@
-﻿<baasic-blog-edit blog="blog" on-save="backToDetails()" on-cancel="backToDetails()">
+﻿<div class="hero-image" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }"></div>
+
+<baasic-blog-edit blog="blog" on-save="backToDetails()" on-cancel="backToDetails()">
 </baasic-blog-edit>
