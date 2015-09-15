@@ -11,7 +11,7 @@
     padding: 2.5rem 1rem; 
     z-index: 0;
     transform: translateX(-19.6875rem);
-    transition: transform 0.5s;
+    transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
     .layout__content {  
@@ -20,13 +20,12 @@
         padding-top: 0;
         z-index: 0;
         transform: translateX(-21.875rem);
-        transition: transform 0.5s;
     }
 }
-.expand .layout__content  {
+.expand .layout__content {
     opacity: 0.5;
     transform: translateX(20px);
-    transition: transform 0.5s;
+    transition: var(--transition-tertiary);
 }
 @media all and (--from-medium) {
     .expand .layout__content  {
@@ -38,13 +37,25 @@
         transform: translateX(0px);
     }
 }
+.expand .layout__content:after {
+    content: "";
+    opacity: 0.5;
+    user-select: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 .layout__sidebar {
     flex: 1 0 20rem;
     background: white;
     z-index: 1;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.19), 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+    box-shadow: var(--shadow-level-1);
     transform: translateX(-22rem);
-    transition: transform 0.5s;
+    transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
     .layout__sidebar {
@@ -52,13 +63,13 @@
     }
 }
 .layout__sidebar:hover {
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    box-shadow: var(--shadow-level-2);
 }
 .expand .layout__sidebar  {
     transform: translateX(0);
     transition: transform 0.5s;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.23), 3px 8px 20px 0 rgba(0, 0, 0, 0.18), -3px 8px 20px 0 rgba(0, 0, 0, 0.18);
-    transition: all 0.5s cubic-bezier(0.32, 0, 0, 1.01);
+    box-shadow: var(--shadow-level-4);
+    transition: var(--transition-tertiary);
 }
 .layout__post {
     flex: 4 0 100%;
@@ -67,7 +78,7 @@
     z-index: 0;
     padding-top: 0;
     transform: translateX(-20rem);
-    transition: transform 0.5s;
+    transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
     .layout__post {
@@ -85,7 +96,7 @@
 .expand .layout__post  {
     opacity: 0.5;
     transform: translateX(0px);
-    transition: transform 0.5s;
+    transition: var(--transition-secondary);
 }
 .layout__form {
     max-width: 1024px;
