@@ -6,7 +6,6 @@
 }
 .search-holder {
     position: relative;
-    /*margin-left: 2rem;*/
     margin-top: 1rem;
 }
 @media all and (--from-medium) {
@@ -16,9 +15,6 @@
 }
 .search__result {
     margin-bottom: 3rem;
-}
-.search__result-holder {
-    /*border-top: 1px solid var(--color-ultralight);*/
 }
 .search__date {
     display: block;

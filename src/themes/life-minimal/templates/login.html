@@ -1,40 +1,37 @@
-﻿<div class="container__fixed">
-    
-    <!--[if lt IE 10]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+﻿
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <div class="container container__main">
-        <div class="layout__content">
-            <header role="banner" class="header">
-                <a href="/" class="header__logo">
-                    <img src="assets/img/logo.svg" alt="Baasic Theme Logo">
-                </a>
-                <div class="header__controls">
-                    <div class="search">
-                        <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
-                            <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-                            <button type="submit" class="btn--search"></button>
-                        </form>
-                    </div>
+<div class="container container__main">
+    <div class="layout__content">
+        <header role="banner" class="header">
+            <a href="/" class="header__logo">
+                <img src="assets/img/logo.svg" alt="Baasic Theme Logo">
+            </a>
+            <div class="header__controls">
+                <div class="search">
+                    <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                        <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                        <button type="submit" class="btn--search"></button>
+                    </form>
                 </div>
-            </header>
-
-            <div class="layout__login">
-                <a class="btn --light --med rounded" ui-sref="master.main.index">Home</a>
             </div>
+        </header>
 
-            <div class="hero-image" style="background-image: url('/assets/img/title-photo.jpg');"></div>
-
-            <baasic-login on-login="goHome()"></baasic-login>
+        <div class="layout__login">
+            <a class="btn --light --med rounded" ui-sref="master.main.index">Home</a>
         </div>
+
+        <div class="hero-image" style="background-image: url('./assets/img/title-photo.jpg');"></div>
+
+        <baasic-login on-login="goHome()"></baasic-login>
     </div>
-
-    <footer class="footer" role="contentinfo">
-        <ul class="footer__info">
-            <li><p>Copyright @ Blog name</p></li>
-            <li><p>Powered by <a href="http://www.baasic.com">Baasic</a></p></li>
-        </ul>
-    </footer>
-
 </div>
+
+<footer class="footer" role="contentinfo">
+    <ul class="footer__info">
+        <li><p>Copyright @ Blog name</p></li>
+        <li><p>Powered by <a href="http://www.baasic.com">Baasic</a></p></li>
+    </ul>
+</footer>
