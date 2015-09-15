@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    # components.navbar
+\*------------------------------------*/
+
+.navbar {
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+.navbar__container {
+    max-width: 100rem;
+    margin:0 auto;
+    padding: 0 .625rem;
+}
+
+.navbar__logo {
+    height: 2rem;
+    width:auto;
+    margin: .5rem auto;
+    transition: opacity .2s ease-in-out;
+}
+
+.navbar__logo:hover {
+    opacity: .6;
+}
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+}
