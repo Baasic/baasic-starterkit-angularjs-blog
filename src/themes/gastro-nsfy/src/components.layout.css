@@ -22,7 +22,7 @@
         transform: translateX(-21.875rem);
     }
 }
-.expand .layout__content  {
+.expand .layout__content {
     opacity: 0.5;
     transform: translateX(20px);
     transition: var(--transition-tertiary);
@@ -36,6 +36,18 @@
     .expand .layout__content  {
         transform: translateX(0px);
     }
+}
+.expand .layout__content:after {
+    content: "";
+    opacity: 0.5;
+    user-select: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 .layout__sidebar {
     flex: 1 0 20rem;
