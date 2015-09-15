@@ -16,10 +16,6 @@
     background-size: cover;
     background-position: center center;
 }
-@media all and (--from-medium) {
-}
-@media all and (--from-large) {
-}
 @media all and (--from-xlarge) {
     .post__header {
         text-align: center;
@@ -33,10 +29,6 @@
     top: 1.5rem;
     left: 1.5rem;
     z-index: 2;
-}
-@media all and (--from-medium) {
-    .post__logo {
-    }
 }
 .post__header__container {
     max-width: 60em;

@@ -1,11 +1,11 @@
 ﻿<header class="header" role="header">
     <div class="header--aside">
-        <h1 class="header__identity"><a ui-sref="master.main.index">Events</a></h1>
+        <h1 class="header__identity"><a href="/">Events</a></h1>
         <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
     </div>
 
     <nav ng-class="{'nShow': menuOpen}" class="header--main" role="navigation"> 
-            <a class="btn btn--icon icon--home spc--right--lrg" ui-sref="master.main.index"></a>
+            <a class="btn btn--icon icon--home spc--right--lrg" href="/"></a>
             <button ng-click="searchOpen=!searchOpen" title="Search" class="btn btn--icon icon--search spc--right--lrg" type="button">Search</button>
             <button ng-click="tagOpen=!tagOpen" title="Tag Cloud" class="btn btn--icon icon--tagcloud spc--right--lrg">Tag Cloud</button>
         <div class="inline header--membership" ng-if="$root.user.isAuthenticated">
