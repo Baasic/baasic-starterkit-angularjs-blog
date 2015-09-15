@@ -303,7 +303,7 @@ function appFiles() {
       '!./.tmp/src/app/**/*_test.js',
       './src/app/**/*.js',
       '!./src/app/**/*_test.js',
-	  './src/themes/' + theme + '/templates/js/*.js'	  
+	    './src/themes/' + theme + '/js/*.js'	  
     ];
     return gulp.src(files)
       .pipe(g.angularFilesort());
