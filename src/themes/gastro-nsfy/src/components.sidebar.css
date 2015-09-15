@@ -21,6 +21,12 @@
         padding: 0 3rem;
     }
 }
+.sidebar__container {
+    visibility: hidden;
+}
+.expand .sidebar__container {
+    visibility: visible;
+}
 .sidebar__title {
     font-size: var(--type-tiny);
     font-family: var(--ff-sans);

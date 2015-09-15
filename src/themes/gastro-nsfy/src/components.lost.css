@@ -28,8 +28,8 @@
     width: 100%;
     margin-top: 12rem;
     padding: 2rem;
-    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.19), 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+    transition: var(--transition-primary);
+    box-shadow: var(--shadow-level-2);
 }
 @media all and (--from-mediumsmall) {
     .lost__card {
@@ -39,10 +39,7 @@
     }
 }
 .lost__card:hover {
-    transition-delay: 0.15s;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.23), 3px 8px 20px 0 rgba(0, 0, 0, 0.18), -3px 8px 20px 0 rgba(0, 0, 0, 0.18);
-    transition: all 0.3s cubic-bezier(0.84, 0.09, 0.23, 0.96);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-level-3);
 }
 .lost__title {
     font-weight: 300;
