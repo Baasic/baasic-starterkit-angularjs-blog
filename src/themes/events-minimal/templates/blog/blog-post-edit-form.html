@@ -5,8 +5,8 @@
             <div class="form__field--single">
                 <label class="form__label" for="fieldTitle">Title</label>
                 <input class="input input--text" type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
-                <div class="alert" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
-                    <span class="alert--warning">Title is required.</span>
+                <div ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
+                    <span class="alert alert--warning">Title is required.</span>
                 </div>
             </div>
         </div>
@@ -113,8 +113,8 @@
             <button class="btn btn--primary btn--med" type="submit" ng-click="saveBlog()">Save</button>
             <button class="btn btn--secondary btn--med" type="button" ng-click="cancelEdit()">Cancel</button>
         </div>
-        <div class="alert" ng-show="error">
-            <span class="alert--warning">{{ error }}</span>
+        <div ng-show="error">
+            <span class="alert alert--warning">{{ error }}</span>
         </div>
     </form>
 </div>
