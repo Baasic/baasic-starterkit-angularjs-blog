@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # components.pager
+\*------------------------------------*/
+
+.pager {
+    overflow: hidden;
+    display: block;
+    margin: 2rem 0 0 0.75rem;
+}
+@media all and (--from-medium) {
+    .pager {
+        margin-left: 1.5rem;
+    }
+}

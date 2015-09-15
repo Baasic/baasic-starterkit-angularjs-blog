@@ -1,0 +1,30 @@
+﻿<div class="hero-image" style="background-image: url('/assets/img/title-photo.jpg');"></div>
+
+<div class="articles">
+    <article
+        class="article"
+        ng-if="hasBlogs"
+        ng-repeat="blog in blogList.item"
+        ng-class=" { 'article--lrg': $first , 'article--sml': !$first } ">
+        <div class="article__content">
+            <header class="article__header">
+                <h2 class="article__title">
+                    <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">
+                        <span class="article__date">{{ blog.publishDate | date : 'M/d/yy' }}</span>
+                        <span class="article__heading">{{ blog.title }}</span>
+                    </a>
+                </h2>
+                <p class="article__summary__text">
+                    {{ blog.excerpt }}
+                </p>
+            </header>
+        </div>
+    </article>
+    <article ng-if="!hasBlogs">
+        <p>No blog posts added.</p>
+    </article>
+</div>
+<pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
+    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --simple --med arrow-holder" ng-show="pager.hasPrevious"><span class="arrow --small --bck"></span> Prev</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --simple --med arrow-holder" ng-show="pager.hasNext">Next <span class="arrow --small --fwd"></span></a>
+</pager>

@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # base.container
+\*------------------------------------*/
+
+.container {
+    margin: 0 auto;
+}
+.container__fixed {
+    height: 100%;
+}
+.container__main {
+    min-height: 100%;
+    width: 100%;
+}

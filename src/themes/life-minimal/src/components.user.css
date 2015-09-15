@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    # components.user
+\*------------------------------------*/
+
+.user {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+.user__avatar {
+    border-radius: 50%;
+    transition: all .15s;
+}
