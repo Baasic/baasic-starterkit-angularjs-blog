@@ -7,6 +7,7 @@ angular.module('myBlog', [
   'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
+  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -16,7 +17,7 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog-gastro', {
+        baasicAppProvider.create('starterkit-blog-events', {
             apiRootUrl: 'api.baasic.com',
             apiVersion: 'beta'
         });
@@ -143,10 +144,10 @@ angular.module('myBlog', [
     'use strict';
 
     $scope.searchBlog = function searchBlog() {
-        if ($scope.searchFor) {
-            $state.go('master.main.blog-search', { search: $scope.searchFor });
-        }
-    };
+            if ($scope.searchFor) {
+                $state.go('master.main.blog-search', { search: $scope.searchFor });
+            }
+        };
 }])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {

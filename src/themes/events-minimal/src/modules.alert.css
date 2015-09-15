@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    # modules.alert
+\*------------------------------------*/
+
+.alert {
+    font-size: var(--type-small);
+    display: block;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: white;
+    border: 1px solid var(--color-ultralight);
+}
+.alert--warning {
+    color: var(--color-warning);
+}
+.alert--success {
+    color: var(--color-success);
+}
+.alert--note {
+    color: var(--color-note);
+}
