@@ -7,7 +7,6 @@ angular.module('myBlog', [
   'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
-  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -17,7 +16,7 @@ angular.module('myBlog', [
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog-events', {
+        baasicAppProvider.create('starterkit-blog', {
             apiRootUrl: 'api.baasic.com',
             apiVersion: 'beta'
         });

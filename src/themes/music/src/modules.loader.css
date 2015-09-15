@@ -2,15 +2,6 @@
     # modules.loader
 \*------------------------------------*/
 
-@keyframes spinneranimation {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 .loader {
     position: fixed;
     z-index: 5;
@@ -25,7 +16,6 @@
     opacity: 1;
     transition: all .5s;
 }
-
 .loader.ng-hide {
     opacity: 0;
     display: block !important;
@@ -35,7 +25,6 @@
 .loading__content {
     text-align: center;
 }
-
 .loader__spinner {
     display: block;
     width: 2rem;
@@ -57,3 +46,13 @@
     color: var(--color-grey);
     letter-spacing: .1em;
  }
+
+/*Animation*/
+@keyframes spinneranimation {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

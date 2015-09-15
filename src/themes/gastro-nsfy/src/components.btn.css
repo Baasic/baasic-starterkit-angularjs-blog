@@ -18,19 +18,18 @@
     padding-bottom: 0;
     border-radius: 2px;
     margin-right: .5rem;
-    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    transition: var(--transition-primary);
+    box-shadow: var(--shadow-level-1);
 }
 
 .btn:hover,
 .btn:focus {
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    box-shadow: var(--shadow-level-2);
     outline: 0;
 }
 
 .btn:active, .btn.active {
-    transform: scale(1.01) translateY(-1px);
-    box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+    box-shadow: var(--shadow-level-3);
 }
 
 .btn.\--primary {
@@ -105,7 +104,6 @@
     background-color: transparent;
     position: relative;
     user-select: none;
-    /*transition: all .2s;*/
     padding: 0;
     position: absolute;
     top: 0;
