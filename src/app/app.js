@@ -7,6 +7,7 @@ angular.module('myBlog', [
   'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
+  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
