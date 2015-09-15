@@ -28,3 +28,13 @@
         right: 50%; 
     }
 }
+
+@media all and (--to-medium) {
+    .hero-hide-mobile {
+        display: none;
+    }
+}
+
+.hero-edit {
+    background-color: var(--color-ultralight);
+}

@@ -3,6 +3,6 @@ angular.module('baasic.blog').directive('baasicHeroImg', [function() {
 	return {
 		restrict: 'E',
         scope: true,		
-		template: '<div class="hero-image" style="background-image: url(\'./assets/img/title-photo.jpg\');"></div>'
+		template: '<div class="hero-image hero-hide-mobile" style="background-image: url(\'./assets/img/title-photo.jpg\');"></div>'
 	};
 }]);
