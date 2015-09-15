@@ -10,7 +10,6 @@
 .grid > .col {
     padding: 0 2.5%;
 }
-
 .grid > .col--half {
     flex: 0 0 100%;
 }
@@ -20,7 +19,6 @@
 .grid > .col--third {
     flex: 0 0 100%;
 }
-
 @media all and (--from-medium) and (--to-large) {
     .grid > .col--half {
         flex: 0 0 100%;
