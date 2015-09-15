@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout__content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+@media all and (--from-large) {
+    .layout {
+        display: table;
+        height: 100%;
+        vertical-align: top;
+    }
+    .layout__sidebar {
+        display: table-cell;
+        position: relative;
+        background: white;
+        width: 25%;
+        vertical-align: top;
+    }
+    .layout__content {
+        display: table-cell;
+        max-width: 100rem;
+        padding-top: 0;
+        width: 75%;
+        vertical-align: top;
+    }
+}
+.layout__form {
+    max-width: 1024px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}

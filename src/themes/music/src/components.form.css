@@ -21,12 +21,13 @@
         float: left;
         width: 50%;
     }
+}
+@media all and (--from-medium) {
     .form__field--half:last-child {
         float: right;
         padding-left: 1rem;
     }
 }
-
 .form__label {
     font-family: var(--ff-sans);
     font-size: var(--type-small);
