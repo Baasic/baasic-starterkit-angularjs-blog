@@ -7,7 +7,6 @@
     display: block;
     padding: 0 2rem 1rem 2rem;
 }
-
 @media all and (--from-medium) {
     .pager {
         padding: 0 2rem 1rem 2rem;

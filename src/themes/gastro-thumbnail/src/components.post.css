@@ -15,6 +15,22 @@
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
 }
+@media all and (--from-medium) {
+    .post__header {
+        padding: 6rem 3rem;
+        margin-bottom: 6rem;
+    }
+}
+@media all and (--from-large) {
+    .post__header {
+        padding: 6rem;
+    }
+}
+@media all and (--from-xlarge) {
+    .post__header {
+        min-height: 40vh;
+    }
+}
 .post__header__container {
     max-width: 60em;
     margin-right: auto;
@@ -43,6 +59,18 @@
     color: var(--color-primary);
     font-weight: 300;
 }
+@media all and (--from-medium) {
+    .post__title {
+        font-size: var(--type-xxlarge);
+        line-height: calc(var(--base-line-height)*2.25);
+    }
+}
+@media all and (--from-large) {
+    .post__title {
+        font-size: 4rem;
+        line-height: calc(var(--base-line-height)*3);
+    }
+}
 .post__body {
     margin-bottom: 6rem;
     padding: 0 1.5rem;
@@ -56,10 +84,6 @@
     line-height: calc(var(--base-line-height)*1.25);
     margin-bottom: calc(var(--base-line-height)*1);
 }
-.post__tags {
-    margin-top: calc(var(--base-line-height)*2);   
-}
-
 @media all and (--from-medium) {
     .post__body .styledtext p:first-of-type {
         font-family: var(--ff-sans);
@@ -67,40 +91,7 @@
         line-height: calc(var(--base-line-height)*1.75);
         margin-bottom: calc(var(--base-line-height)*2);
     }
-    .post__body {
-        /*padding: 0 3rem;*/
-    }
-    .post__header {
-        padding: 6rem 3rem;
-        margin-bottom: 6rem;
-    }
-    .post__title {
-        font-size: var(--type-xxlarge);
-        line-height: calc(var(--base-line-height)*2.25);
-    }
 }
-@media all and (--from-large) {
-    .post__body { 
-        /*padding: 0 6rem;*/
-    }
-    .post__header {
-        padding: 6rem;
-    }
-    .post__title {
-        font-size: 4rem;
-        line-height: calc(var(--base-line-height)*3);
-    }
-}
-
-@media all and (--from-xlarge) {
-    .post {
-    }
-    .post__header {
-        min-height: 40vh;
-    }
-    .post__visual {
-    }
-    .post__body {
-       /* padding: 0 30rem 0 30rem;*/
-    }
+.post__tags {
+    margin-top: calc(var(--base-line-height)*2);   
 }

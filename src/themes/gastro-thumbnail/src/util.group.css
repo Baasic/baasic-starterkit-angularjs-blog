@@ -5,15 +5,11 @@
 .group {
     overflow: hidden;
 }
-
-.group--old:before,
-.group--old:after {
+.clearfix:before,
+.clearfix:after {
   content: "";
   display: table;
 }
-.group--old:after {
+.clearfix:after {
   clear: both;
-}
-.group--old {
-  zoom: 1; /* ie 6/7 */
 }
