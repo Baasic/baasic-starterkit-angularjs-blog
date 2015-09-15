@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    # components.post
+\*------------------------------------*/
+
+.post { 
+}
+.post__header {
+    min-height: 22rem;
+    position: relative;
+    z-index: 0;
+}
+@media all and (--from-small) {
+    .post__header {
+        min-height: 35rem;
+    }
+}
+.post__holder {
+    background-size: cover; 
+    background-position: center center;
+    background-color: white;
+    background-blend-mode: initial;
+    color: white;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.post__title {
+    font-size: var(--type-large);
+    padding: 1rem;
+}
+@media all and (--from-small) {
+    .post__title {
+        font-size: var(--type-xlarge);
+        line-height: 1.2;
+    }
+}
+@media all and (--from-large) {
+    .post__title {
+        font-size: var(--type-xxxlarge);
+    }
+}
+.post__content {
+    color: white;
+    z-index: 2;
+    margin-top: 2rem;
+}
+@media all and (--from-small) {
+    .post__content {
+        margin-top: 3rem;
+    }
+}
+@media all and (--from-large) {
+    .post__content {
+        margin-top: 4rem;
+    }
+}
+@media all and (--from-xlarge) {
+    .post__content {
+        margin-top: 6rem;
+    }
+}
+.post__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(/assets/img/overlay-bg.png);
+    background-color: rgba(0,0,0,0.5);
+    background-repeat: repeat;
+    z-index: -1;
+    transition: all .5s;
+}
+.post__icon {
+    color: var(--color-primary);
+    font-size: var(--type-base);
+    vertical-align: middle;
+    margin-right: .5rem;
+}
+.post__item {
+    padding: 1rem 0;
+}
+.post__item__title {
+    color: var(--color-primary);
+}
+.post__hero-holder {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+@media all and (--to-medium) {
+    .post__hero-holder {
+        padding: 0 2rem;
+    }
+}
+.post__hero-holder--cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.post__hero-holder--cell .meta__label {
+    margin-bottom: 0;
+}
+.post__hero-holder--top {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.post__line {
+    border-top: 1px dotted white;
+    padding: 0rem;
+    margin: 0rem;
+}
+.post__infobox {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: .25rem;
+}  
+@media all and (--from-medium) {
+    .post__infobox {
+        padding: 2rem;
+    } 
+}
+.post__wrapper {
+    padding: 0 2rem;
+}

@@ -12,7 +12,7 @@
                             if (attrs.blog) {
                                 scope.$parent.$watch(attrs.blog, function (newValue) {
                                     scope.blog = newValue;
-                                    scope.isNew = newValue === undefined || newValue === null;
+                                    scope.isNew = newValue === undefined || newValue === null;                                 
                                 });
                             }
                             if (attrs.onSave) {
@@ -137,7 +137,7 @@
                                 });
 
                             return deferred.promise;
-                        };
+                        };                                              
                     }
                 ],
                 templateUrl: 'templates/blog/blog-post-edit-form.html'

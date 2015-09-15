@@ -1,41 +1,120 @@
-﻿<div>
-    <h1>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
-    <form name="blogPost" novalidate >
-        <div>
-            <div>
-                <label for="fieldTitle">Title</label>
-            </div>
-            <input type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
-            <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
-        </div>
-        <div>
-            <div>
-                <label for="fieldExcerpt">Excerpt</label>
-            </div>
-            <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt"></textarea>
-        </div>
-        <div>
-            <div>
-                <label for="fieldContent">Content</label>
-            </div>
-            <textarea placeholder="Type your text here..." name="content" id="fieldContent" ng-model="blog.content"></textarea>
+﻿<div class="layout__form">
+    <h1 class="spc--bottom--lrg">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
+    <form name="blogPost" novalidate class="form">
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldTitle">Title</label>
+                <input class="input input--text" type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
+                <div class="alert" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">
+                    <span class="alert--warning">Title is required.</span>
                 </div>
             </div>
         </div>
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldLocation">Location</label>
+                <input class="input input--text" type="text" name="location" id="fieldLocation" ng-model="blog.location"/>
+            </div>
+        </div>
+
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldBody">Featured image</label>
+                <input class="input input--text" type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+            </div>
+        </div>
+        <div class="group">
+                <div class="editor__type">
+                    <div class="editor__header">
+                        <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
+                    </div>
+                    <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
+                </div>
+                <div class="editor__preview">
+                    <div class="editor__header">
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                    </div>
+                    <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
+                    </div>
+                    <div class="editor__field" ng-if="state.conentent.viewMode === 'html'">
+                        {{ getHtml(blog.content) }}
+                    </div>
+                    <div class="editor__field" ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'">
+
+                    </div>
+                </div>
+            </div>
+        <div class="cf">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldStartDate">Start Date</label>
+                <input class="input input--text" type="date" name="startdate" id="fieldStartDate" ng-model="blog.startdate" date-converter/>
+            </div>
+        </div>
+        <div class="cf ">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldStartTime">Start Time</label>
+                <input class="input input--text" type="time" name="starttime" id="fieldStartTime" ng-model="blog.starttime" date-converter/>
+            </div>
+
+            <div class="form__field--half">
+                <label class="form__label" for="fieldEndTime">End Time</label>
+                <input class="input input--text" type="time" name="endtime" id="fieldEndTime" ng-model="blog.endtime" date-converter/>   
+            </div>
+        </div>
+        <div class="cf spc--bottom--lrg">
+            <div class="form__field--single">
+                <label class="form__label" for="fieldType">Type Of Event</label>
+                <select class="input input--select" name="type" id="fieldType" ng-model="blog.type">
+                    <option value="">---Please select---</option>
+                    <option value="Concerte">Concerte</option>
+                    <option value="Play">Play</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Party">Party</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <h2 class="spc--bottom--lrg" ng-init="blog.performers = []">Performers</h2>
+        <div ng-repeat="performer in blog.performers" class="form">
+            <div class="form__field--half">
+                <label class="form__label" for="fieldPerformer + {{$index}}">Performer</label>
+                <input class="input input--text" type="text" name="title" id="fieldPerformer + {{$index}}" ng-model="performer.name" />
+            </div>
+            <div class="form__field--half form__field--grouped">
+                <label class="form__label" for="fieldPerformerDesc + {{$index}}">First Performer Description</label>
+                <input class="input input--text" type="text" placeholder="e.g. punk rock..." name="title" id="fieldPerformerDesc + {{$index}}" ng-model="performer.desc" />
+                <button class="btn btn--remove form__field--btn" type="button" ng-click="blog.performers.splice($index, 1)">x</button> 
+            </div>   
+        </div>
+        <div class="spc--bottom--lrg">
+            <button class="btn btn--primary btn--med"  type="button" ng-click="blog.performers.push({name:'', desc:''})">Add Performer</button>                      
+        </div>
+
+
+        <div class="cf">
+            <div class="form__field">
+                <label class="form__label" for="fieldPrice">Ticket Price</label>
+                <input class="input input--price" type="number" name="price" id="fieldPrice" ng-model="blog.price"/>
+            </div>
+        </div>
         <hr>
-        <div>
+        <div class="form__field">
             <tags-input ng-model="blog.tags" display-property="tag" add-on-comma="true">
                 <auto-complete source="loadTags($query)">
                 </auto-complete>
             </tags-input>
         </div>
-        <hr>
+
+    <hr> 
         <div class="form__field">
-            <button type="submit" ng-click="saveBlog()">Save</button>
-            <button type="button" ng-click="cancelEdit()">Cancel</button>
+            <button class="btn btn--primary btn--med" type="submit" ng-click="saveBlog()">Save</button>
+            <button class="btn btn--secondary btn--med" type="button" ng-click="cancelEdit()">Cancel</button>
         </div>
-        <div ng-show="error">
-            {{ error }}
+        <div class="alert" ng-show="error">
+            <span class="alert--warning">{{ error }}</span>
         </div>
     </form>
 </div>

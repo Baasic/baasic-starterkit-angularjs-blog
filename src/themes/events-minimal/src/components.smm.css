@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    # components.smm
+\*------------------------------------*/
+
+.smm {
+}
+.smm__link {
+    cursor: pointer;
+    display: inline-block;
+    padding: .75rem .75rem .75rem 0;
+    opacity: 0.5;
+}
+.smm__link:focus {
+    outline: 0;
+}
+.smm__link:hover,
+.smm__link:focus,
+.smm__link:active {
+    opacity: 1;
+}
+.smm__icon {
+    height: 1rem;
+}
