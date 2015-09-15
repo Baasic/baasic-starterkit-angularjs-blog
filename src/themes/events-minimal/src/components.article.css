@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    # components.article
+\*------------------------------------*/
+
+.article {
+    position: relative;
+}
+.article--lrg {
+    background-color: black;
+    min-height: 30rem;
+}
+@media all and (--from-small) {
+    .article--lrg {
+        background-color: black;
+        min-height: 40rem;
+    }
+}
+.article--sml {
+    padding: 2rem;
+    overflow: hidden;
+    transition: all .2s;
+}
+@media all and (--to-mediumsmall) {
+    .article--sml {
+        background-color: white;
+        margin-bottom: 0.25rem;
+    }
+}
+@media all and (--from-small) {
+    .article--sml {
+        padding: 4rem 2rem;
+    }
+    .article--sml .article__items {
+        transition: all 1s;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .article--sml:hover {
+        background-color: white;
+    }
+    .article--sml:hover .article__items {
+        transition: all 1s;
+        max-height: 20rem;
+    }
+}
+.article--lrg .article__holder {
+
+    background-size: cover; 
+    background-position: center center;
+    background-color: white;
+    background-blend-mode: initial;
+    color: white;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.article--lrg:hover .article__holder {
+    background-blend-mode: luminosity;
+}
+.article--lrg .article__title {
+    font-size: var(--type-xlarge);
+}
+@media all and (--from-small) {
+    .article--lrg .article__title {
+        font-size: var(--type-xxlarge);
+    }
+}
+.article--lrg .article__title a {
+    color: color(var(--color-primary) lightness(60%));
+}
+@media all and (--from-small) {
+    .article__aside {
+        float: left;
+        padding-right: 2rem;
+        width: 25%;
+        text-align: right;
+    }
+}
+@media all and (--from-small) {
+    .article__main {
+        float: right;
+        padding-left: 2rem;
+        width: 75%;
+        height: auto;
+    }
+}
+@media all and (--from-small) {
+    .article--lrg .article__divider {
+        border-left: 2px solid white;
+    }
+}
+.article--lrg .article__content {
+    margin-top: 2rem;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+@media all and (--from-large) {
+    .article--lrg .article__content {
+        margin-top: 5rem;
+    }
+}
+@media all and (--from-xxlarge) {
+    .article--lrg .article__content {
+        margin-top: 7rem;
+    }
+}
+.article--lrg .article__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(/assets/img/overlay-bg.png);
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    transition: all .5s;
+}
+.article--lrg:hover .overlay__hero {
+    background-color: rgba(0,0,0,.65);
+    transition: all .5s;
+}
+.article--sml .article__holder {
+    background-image: none !important;
+}
+.article--sml .overlay__hero {
+    display: none;
+}
+@media all and (--from-small) {
+    .article--sml .article__divider {
+        border-left: 2px solid black;
+    }
+}
+

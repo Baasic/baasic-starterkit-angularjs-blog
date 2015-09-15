@@ -13,3 +13,12 @@ a:active {
     color: var(--color-primary);
     outline: 0;
 }
+.anchor--negative {
+    color: var(--color-secondary);
+}
+.anchor--negative:hover,
+.anchor--negative:focus,
+.anchor--negative:active {
+    color: black;
+    outline: 0;
+}
