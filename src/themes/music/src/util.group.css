@@ -6,11 +6,11 @@
     overflow: hidden;
 }
 
-.group--cf:before,
-.group--cf:after {
+.clearfix:before,
+.clearfix:after {
   content: "";
   display: table;
 }
-.group--cf:after {
+.clearfix:after {
   clear: both;
 }

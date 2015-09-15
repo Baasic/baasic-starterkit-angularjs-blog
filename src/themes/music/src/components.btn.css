@@ -20,8 +20,6 @@
 .btn:focus {
     outline: 0;
 }
-
-
 .btn.\--primary {
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
@@ -32,7 +30,6 @@
     background: var(--color-primary);
     color: black;
 }
-
 .btn.\--light {
     border: 1px solid var(--color-light);
     color: var(--color-light);
@@ -43,7 +40,6 @@
     background: var(--color-light);
     color: white;
 }
-
 .btn.\--dark {
     border: 1px solid var(--color-dark);
     color: var(--color-dark);
@@ -54,7 +50,6 @@
     background: var(--color-dark);
     color: white;
 }
-
 .btn.\--negative {
     border: 1px solid white;
     color: white;
@@ -65,7 +60,6 @@
     background: white;
     color: black;
 }
-
 .btn.\--sml {
     font-size: var(--type-tiny);
     height: var(--base-line-height);
@@ -87,7 +81,6 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-
 .btn--search {
     background-image: url(/assets/img/search.svg);
     background-repeat: no-repeat;

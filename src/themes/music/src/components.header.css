@@ -8,10 +8,17 @@
     position: relative;
     padding-top: 8rem;
     padding-bottom: 3rem;
-    background-image: url(../assets/img/player.jpg);
+    background-image: url(../assets/img/visual.jpg);
     background-size: cover;
     background-position: center center;
     overflow: hidden;
+}
+@media all and (--from-medium) {
+    .header__container {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        min-height: 70vh;
+    }
 }
 .header__top {
     position: absolute;
@@ -26,18 +33,13 @@
     width: 30%;
     float: left;
 }
-.header__profile {
-    float: right;
-}
 @media all and (--from-medium) {
     .header__search {
         width: 20%;
     }
-    .header__container {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-        min-height: 70vh;
-    }
+}
+.header__profile {
+    float: right;
 }
 .header__overlay {
     position: absolute;
