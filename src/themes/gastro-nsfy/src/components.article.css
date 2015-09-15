@@ -30,11 +30,9 @@
     transition: all 0.3s cubic-bezier(0.84, 0.09, 0.23, 0.96);
     transform: translateY(-2px);
 }
-.article__figure {
-}
 .article__figure__holder {
     overflow: hidden;
-    height: 240px;
+    height: 15rem;
     width: 100%;
 }
 .article__title {

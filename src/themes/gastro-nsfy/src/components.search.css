@@ -2,6 +2,14 @@
     # components.search
 \*------------------------------------*/
 
+.search {
+    position: relative;
+}
+@media all and (--from-large) {
+    .search {
+        margin-bottom: 1rem;
+    }
+}
 .search__wrapper {
     width: 100%;
     float: left;
@@ -18,15 +26,6 @@
 @media all and (--from-large) {
     .search__wrapper {
         width: 25%;
-    }
-}
-
-.search {
-    position: relative;
-}
-@media all and (--from-large) {
-    .search {
-        margin-bottom: 1rem;
     }
 }
 .search__result {

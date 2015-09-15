@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    # components.toggle
+\*------------------------------------*/
+
 .menu-toggle {
     cursor: pointer;
     display: block;
@@ -12,7 +16,6 @@
       left: -6rem;
     }
 }
-
 .menu-toggle span, 
 .menu-toggle span:before, 
 .menu-toggle span:after {
@@ -31,7 +34,6 @@
 .menu-toggle span:after {
   bottom: -10px; 
 }
-
 .menu-toggle span, 
 .menu-toggle span:before, 
 .menu-toggle span:after {

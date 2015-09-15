@@ -7,11 +7,9 @@
     flex-wrap: wrap;
 }
 .article {}
-
 .article--ingrid {
     display: flex;
 }
-
 .article--sml {
     width: 100%;
 }
@@ -20,7 +18,6 @@
 }
 .article--lrg .article__content {
 }
-
 .article__holder {
     width: 100%;
     position: relative;
@@ -31,12 +28,7 @@
     z-index: 1;
 }
 .article__holder:hover {
-    background: white;
-    transition: all .5s;
-    background-size: cover;
-    background-position: 5% 5%;
 }
-
 .article__bg__overlay {
     background-color: rgba(0,0,0,0.35);
     position: absolute;
@@ -49,9 +41,7 @@
 }
 .article__holder:hover .article__bg__overlay {
     background-color: rgba(0,0,0,0.75);
-    transition: all .5s;
 }
-
 .article__header {
 }
 .article__title {
@@ -65,7 +55,6 @@
     line-height: calc(var(--base-line-height)*1.25);
     color: var(--color-primary);
 }
-
 .article__title__link:hover {
     color: color(var(--color-primary) a(0.75));
 }

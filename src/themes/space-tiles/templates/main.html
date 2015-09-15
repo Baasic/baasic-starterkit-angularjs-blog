@@ -5,7 +5,7 @@
 <div class="container container__main">
     <div class="layout" ng-class="{'expand': menuOpened}">
         <div class="layout__content">
-            <main ui-view>
+            <main ui-view smooth-scroll>
                 
             </main>
             
@@ -46,14 +46,14 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --light --med radial" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--light btn--med radial" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med radial" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--light btn--med radial" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn --light --med radial" ui-sref="login">login</a></div>
+                        <a class="btn btn--light btn--med radial" ui-sref="login">login</a></div>
                     </div>
                     <div class="header__share sidebar__widget">
                         <h2 class="sidebar__title">Spread the word</h2>

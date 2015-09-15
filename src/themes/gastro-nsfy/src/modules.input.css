@@ -47,16 +47,16 @@
     overflow: hidden;
     border-bottom: 1px solid var(--color-ultralight);
 }
+@media all and (--from-large) {
+    .input--search {
+        margin-bottom: 1rem;
+    }
+}
 .input--search:hover,
 .input--search:focus,
 .input--search:active {
     outline: 0;
     border-color: var(--color-light);
-}
-@media all and (--from-large) {
-    .input--search {
-        margin-bottom: 1rem;
-    }
 }
 .input--search:focus {
     padding: 0rem 2rem 1rem 1rem;
@@ -66,7 +66,6 @@
     position: absolute;
     left: -99999px;
 }
-
 .input--check + label {
     cursor: pointer;
     font-size: var(--type-small);
@@ -76,7 +75,6 @@
     color: var(--color-light);
     font-size: 0.8em;
 }
-
 .input--check + label:before {
     transition: all .5s;
     content: '';
@@ -89,16 +87,13 @@
     border: 1px solid var(--color-light);
     display: inline-block;
 }
-
 .input--check:checked + label:before {
     border-color: var(--color-primary);
     background: var(--color-primary);
 }
-
 .input--check:focus + label:before {
     border-color: var(--color-primary);
 }
-
 .input--hightlight {
   position:absolute;
   height:60%; 
@@ -108,7 +103,6 @@
   pointer-events:none;
   opacity:0.5;
 }
-
 .input--bar    { 
     position: relative; 
     display: block; 
@@ -130,16 +124,15 @@
   right: 50%; 
 }
 
-/* active state */
+/* Active state */
 .input:focus ~ .input--bar:before, .input:focus ~ .input--bar:after {
   width: 50%;
 }
-
 .input:focus ~ .input--hightlight {
   animation:inputHighlighter 0.3s ease;
 }
 
-/* ANIMATIONS ================ */
+/*Animation*/
 keyframes inputHighlighter {
     from { 
         background: var(--color-primary); 

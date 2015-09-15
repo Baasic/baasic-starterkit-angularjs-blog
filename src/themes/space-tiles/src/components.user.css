@@ -17,13 +17,3 @@
     border-radius: 50%;
     transition: all .15s;
 }
-
-@media all and (--from-medium) {
-    .user {
-        
-    }   
-}
-@media all and (--from-large) {
-    .user {
-    }   
-}
