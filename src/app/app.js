@@ -7,6 +7,7 @@ angular.module('myBlog', [
   'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
+  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -88,8 +89,8 @@ angular.module('myBlog', [
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
-	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
-	    'use strict';
+    function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
+        'use strict';
         
         // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
         var rightTrim = function (str, ch){
@@ -112,23 +113,23 @@ angular.module('myBlog', [
             $rootScope.baseHref = '';
         }
         
-	    blogService.tags.find({
-	        rpp: 10
-	    })
+        blogService.tags.find({
+            rpp: 10
+        })
         .success(function (tagList) {
             $scope.tags = tagList.item;
         });
 
-	    $scope.setEmptyUser = function setEmptyUser() {
-	        $scope.$root.user = {
-	            isAuthenticated: false
-	        };
-	    };
+        $scope.setEmptyUser = function setEmptyUser() {
+            $scope.$root.user = {
+                isAuthenticated: false
+            };
+        };
 
-	    $scope.newBlogPost = function newBlogPost() {
-	        $state.go('master.new-blog-post');
-	    };
-	}
+        $scope.newBlogPost = function newBlogPost() {
+            $state.go('master.new-blog-post');
+        };
+    }
 ])
 .controller('LoginCtrl', ['$scope', '$state',
     function LoginCtrl($scope, $state) {
