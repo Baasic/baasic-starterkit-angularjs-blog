@@ -2,19 +2,10 @@
     # components.layout
 \*------------------------------------*/
 
-@media all and (--from-large) {
-    .layout {
-        padding-left: 10rem;
-        padding-right: 2rem;
-        right: 0;
-        max-width: 1920px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+
 .layout__content {
     padding: 4.5rem 1rem 1rem 1rem;
-    max-width: 120rem;
+    max-width: 112rem;
 }
 @media all and (--from-medium) {
     .layout__content {
@@ -24,13 +15,5 @@
 @media all and (--from-large) {
     .layout__content {
         padding-left: calc(50% + 3rem);
-    }
-}
-.layout__login {
-    margin: 1rem auto;
-}
-@media all and (--from-medium) {
-    .layout__login {
-        margin: 3rem auto;
     }
 }
