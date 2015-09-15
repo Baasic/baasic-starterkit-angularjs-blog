@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    # util.visibility
+\*------------------------------------*/
+
+.hide--onsmall {
+    display: none;
+}
+@media all and (--from-small) {
+    .hide--onsmall {
+        display: block;
+    }
+}

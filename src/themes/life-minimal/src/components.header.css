@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+    padding-bottom: 1.5rem;
+    display: table;
+    width: 100%;
+}
+.header__logo {
+    display: table-cell;
+}
+@media all and (--from-medium) {
+    .header__logo {
+        position: fixed;
+        left: calc(30% - 100px);
+        top: 4.5rem;
+        z-index: 2;
+    }
+}
+@media all and (--from-large) {
+    .header__logo {
+        left: calc(50% - 100px);
+    }
+}
+.header__logo:hover {
+    opacity: .5;
+}
+.header__logo img {
+    width: auto;
+}
+@media all and (--to-medium) {
+    .header__logo img {
+        width: 5em;
+    }
+}
+.header__controls {
+    display: table-cell;
+    width: 30%;
+    vertical-align: top;
+}
+@media all and (--to-medium) {
+    .header__controls {
+        transform: translate3d(0,0,0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        background: #fcfcfc;
+        width: 100%;
+        padding: 0.75rem 1.5rem 0 1.5rem;
+        box-shadow: 0 0 0 1px color(black a(0.1));
+    }
+}
+.header__membership {
+    display: table-cell;
+    font-size: var(--type-small);
+    font-family: var(--ff-sans);
+}
+@media all and (--to-medium) {
+    .header__membership {
+        vertical-align: middle;
+    }
+}
+.header__message {
+    color: var(--color-grey);
+}

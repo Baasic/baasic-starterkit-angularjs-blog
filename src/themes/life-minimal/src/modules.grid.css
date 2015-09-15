@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    # modules.grid
+\*------------------------------------*/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -2.5%;
+}
+.grid > .col {
+    padding: 0 2.5%;
+}
+.grid > .col--half {
+    flex: 0 0 100%;
+}
+@media all and (--from-medium) and (--to-large) {
+    .grid > .col--half {
+        flex: 0 0 100%;
+    }
+}
+@media all and (--from-large) {
+    .grid > .col--half {
+        flex: 0 0 50%;
+    }
+}
+.grid > .col--quad {
+    flex: 0 0 100%;
+}
+@media all and (--from-medium) and (--to-large) {
+    .grid > .col--quad {
+        flex: 0 0 50%;
+    }
+}
+@media all and (--from-large) {
+    .grid > .col--quad {
+        flex: 0 0 25%;
+    }
+}
+.grid > .col--third {
+    flex: 0 0 100%;
+}
+@media all and (--from-large) {
+    .grid > .col--third {
+        flex: 0 0 33.3333%;
+    }
+}
