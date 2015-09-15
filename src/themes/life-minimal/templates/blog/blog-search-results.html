@@ -1,15 +1,15 @@
 ﻿<div class="hero-image" style="background-image: url('./assets/img/title-photo.jpg');"></div>
 
 <div class="search-holder">
-    <h2 class="spc--bottom--lrg">Search results</h1>
+    <h1 class="spc--bottom--lrg">Search results</h1>
     <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
         <div class="search__result-holder">
-            <h3 class="article__title">
+            <h2 class="article__title">
                 <a ui-sref="master.blog-detail({ slug: blog.slug })" class="article__title__link">
                     <span class="article__date">{{ blog.publishDate | date : 'M/d/yy' }}</span>
                     <span class="article__heading">{{ blog.title }}</span>
                 </a>
-            </h3>
+            </h2>
             <p class="article__summary__text">
                 {{ blog.excerpt }}
             </p>
