@@ -1,9 +1,0 @@
-/*------------------------------------*\
-    # modules.hamburger
-\*------------------------------------*/
-
-@media all and (--from-mediumsmall) {
-    .hamburger {
-        display: none !important;
-    }
-}
