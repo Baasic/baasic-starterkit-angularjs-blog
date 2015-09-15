@@ -4,6 +4,7 @@ angular.module('baasic.blog', [
 
 angular.module('myBlog', [
   'ui.router',
+  'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
   'baasic.security',
@@ -22,7 +23,7 @@ angular.module('myBlog', [
 
         $locationProvider.html5Mode({
             enabled: true
-        });       
+        });
 
         $urlRouterProvider.when('', '/');
 
@@ -90,7 +91,23 @@ angular.module('myBlog', [
 	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
 	    'use strict';
         
-        $rootScope.baseHref = $browser.baseHref().trimRight('/');
+        // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
+        var rightTrim = function (str, ch){
+            if (!str){
+                return '';
+            }
+            for (var i = str.length - 1; i >= 0; i--)
+            {
+                if (ch !== str.charAt(i))
+                {
+                    str = str.substring(0, i + 1);
+                    break;
+                }
+            } 
+            return str ? str : '';
+        };       
+        
+        $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
@@ -101,8 +118,6 @@ angular.module('myBlog', [
         .success(function (tagList) {
             $scope.tags = tagList.item;
         });
-
-	    
 
 	    $scope.setEmptyUser = function setEmptyUser() {
 	        $scope.$root.user = {
@@ -128,10 +143,10 @@ angular.module('myBlog', [
     'use strict';
 
     $scope.searchBlog = function searchBlog() {
-            if ($scope.searchFor) {
-                $state.go('master.main.blog-search', { search: $scope.searchFor });
-            }
-        };
+        if ($scope.searchFor) {
+            $state.go('master.main.blog-search', { search: $scope.searchFor });
+        }
+    };
 }])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {

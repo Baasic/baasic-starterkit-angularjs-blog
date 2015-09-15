@@ -18,7 +18,7 @@
     "src"
   ],
   "dependencies": {
-    "angular": "~1.3.0",
+    "angular": "~1.4.0",
     "angular-ui-router": "~0.2.13",
     "baasic-angular-security": "Baasic/baasic-sdk-angularjs-security#~0.2.0",
     "baasic-angular-membership": "Baasic/baasic-sdk-angularjs-membership#~0.2.0",
@@ -26,12 +26,10 @@
     "baasic-angular-dynamic-resource": "Baasic/baasic-sdk-angularjs-dynamic-resource#~0.2.0",
     "angular-markdown-directive": "~0.3.1",
     "ng-tags-input": "~2.3.0",
-    "ng-readingtime": "*"
+    "ng-readingtime": "*",
+    "angular-animate": "~1.4.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.0"
-  },
-  "resolutions": {
-    "angular": "~1.3.0"
   }
 }

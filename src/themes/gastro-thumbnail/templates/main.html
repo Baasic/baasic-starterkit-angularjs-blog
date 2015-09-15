@@ -5,14 +5,16 @@
 <div class="container container__main">
     <div class="" role="banner">
         <header role="banner" class="header">
-            <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
+            
+            <div class="group">
+                <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
+            </div>
 
-            <div class="group--old spc--top--med">
+            <div class="clearfix spc--top--med">
                 <div class="search__wrapper">
                     <div class="search">
                         <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
                             <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-
                             <button type="submit" class="btn--search"></button>
                         </form>
                     </div>

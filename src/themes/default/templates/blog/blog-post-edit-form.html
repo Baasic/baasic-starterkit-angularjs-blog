@@ -1,0 +1,39 @@
+﻿<div>
+    <h1>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
+    <form name="blogPost" novalidate >
+        <div>
+            <div>
+                <label for="fieldTitle">Title</label>
+            </div>
+            <input type="text" name="title" id="fieldTitle" ng-model="blog.title" required />
+            <p ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
+        </div>
+        <div>
+            <div>
+                <label for="fieldExcerpt">Excerpt</label>
+            </div>
+            <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt"></textarea>
+        </div>
+        <div>
+            <div>
+                <label for="fieldContent">Content</label>
+            </div>
+            <textarea placeholder="Type your text here..." name="content" id="fieldContent" ng-model="blog.content"></textarea>
+        </div>
+        <hr>
+        <div>
+            <tags-input ng-model="blog.tags" display-property="tag" add-on-comma="true">
+                <auto-complete source="loadTags($query)">
+                </auto-complete>
+            </tags-input>
+        </div>
+        <hr>
+        <div class="form__field">
+            <button type="submit" ng-click="saveBlog()">Save</button>
+            <button type="button" ng-click="cancelEdit()">Cancel</button>
+        </div>
+        <div ng-show="error">
+            {{ error }}
+        </div>
+    </form>
+</div>

@@ -10,8 +10,8 @@
                 </div>
                 <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                     <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo" ng-class="{'is-focused':isActive}">
-                            <label ng-click="isActive=!isActive" class="mdl-button mdl-js-button mdl-button--icon" for="search__field">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo" ng-class="{'is-focused':isFocused}">
+                            <label ng-click="isFocused=true" class="mdl-button mdl-js-button mdl-button--icon" for="search__field">
                                 <i class="material-icons" >search</i>
                             </label>
                             <div class="mdl-textfield__expandable-holder">
@@ -48,7 +48,7 @@
                     <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" ng-show="pager.hasNext" class="demo-nav__button link push">
                         <span>Older</span>
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--grey-900">
-                            <i class="material-icons">arrow_forward</i>
+                            <i class="material-icons hover-color">arrow_forward</i>
                         </button>
                     </a>
                 </pager>

@@ -9,9 +9,5 @@
     height: 100%;
 }
 .container__main {
- /*   height: 100%;*/
     min-height: 100%;
-}
-@media all and (--from-large) {
-    .container {}
 }

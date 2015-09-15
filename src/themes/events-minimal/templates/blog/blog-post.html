@@ -1,0 +1,33 @@
+﻿<a ui-sref="master.main.index">Home</a>
+
+<article ng-hide="isEdit">
+    <h2>{{ blog.title }}</h2>
+    <p>{{ blog.dateUpdated | date : 'medium' }}</p>
+
+    <p>
+        {{ blog.content }}
+    </p>
+</article>
+
+<hr>
+
+<div>
+    <h3>Tags</h3>
+    <span ng-repeat="tag in blog.tags" class="tags__item">
+        <a ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+    </span>
+</div>
+
+<hr>
+
+<span ng-hide="isEdit">
+    <span ng-if="$root.user.isAuthenticated">
+        <button type="button" ng-click="editBlog()">Edit</button>
+        <button type="button" ng-click="deleteBlog()">Delete</button>
+    </span>
+</span>
+
+<button type="button" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+
+<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+</baasic-blog-edit>

@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout {
+    display: flex;
+}
+.layout__content {
+    flex: 1 0 100%;
+    margin-top: 3rem;
+    padding: 2.5rem 1rem; 
+    z-index: 0;
+    transform: translateX(-19.6875rem);
+    transition: transform 0.5s;
+}
+@media all and (--from-mediumsmall) {
+    .layout__content {  
+        flex: 1 0 90%;
+        margin-top: 0rem;
+        padding-top: 0;
+        z-index: 0;
+        transform: translateX(-21.875rem);
+        transition: transform 0.5s;
+    }
+}
+.expand .layout__content  {
+    opacity: 0.5;
+    transform: translateX(20px);
+    transition: transform 0.5s;
+}
+@media all and (--from-medium) {
+    .expand .layout__content  {
+        transform: translateX(0px);
+    }
+}
+@media all and (--from-mediumsmall) {
+    .expand .layout__content  {
+        transform: translateX(0px);
+    }
+}
+.layout__sidebar {
+    flex: 1 0 20rem;
+    background: white;
+    z-index: 1;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.19), 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+    transform: translateX(-22rem);
+    transition: transform 0.5s;
+}
+@media all and (--from-mediumsmall) {
+    .layout__sidebar {
+        flex: 1 0 28.125rem;
+    }
+}
+.layout__sidebar:hover {
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.expand .layout__sidebar  {
+    transform: translateX(0);
+    transition: transform 0.5s;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.23), 3px 8px 20px 0 rgba(0, 0, 0, 0.18), -3px 8px 20px 0 rgba(0, 0, 0, 0.18);
+    transition: all 0.5s cubic-bezier(0.32, 0, 0, 1.01);
+}
+.layout__post {
+    flex: 4 0 100%;
+    margin-top: 5rem;
+    padding: 1rem;
+    z-index: 0;
+    padding-top: 0;
+    transform: translateX(-20rem);
+    transition: transform 0.5s;
+}
+@media all and (--from-mediumsmall) {
+    .layout__post {
+        flex: 4 0 85%;
+        margin-top: 0;
+        transform: translateX(-22rem);
+    }
+}
+@media all and (--from-large) {
+    .layout__post {
+        flex: 4 0 100%;
+        padding: 0rem;
+    }
+}
+.expand .layout__post  {
+    opacity: 0.5;
+    transform: translateX(0px);
+    transition: transform 0.5s;
+}
+.layout__form {
+    max-width: 1024px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}

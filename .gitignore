@@ -16,6 +16,7 @@ bower_components/
 *.sublime-project
 *.sublime-workspace
 *.exe
+*.cache
 
 **/nuspec.list
 **/packages/
@@ -25,5 +26,8 @@ bower_components/
 **/bin
 **/obj
 
+Code
 
 
+
+deploy-all-themes-dist.cmd
