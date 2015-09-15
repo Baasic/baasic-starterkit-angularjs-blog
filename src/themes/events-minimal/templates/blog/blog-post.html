@@ -1,33 +1,67 @@
-﻿<a ui-sref="master.main.index">Home</a>
-
-<article ng-hide="isEdit">
-    <h2>{{ blog.title }}</h2>
-    <p>{{ blog.dateUpdated | date : 'medium' }}</p>
-
-    <p>
-        {{ blog.content }}
-    </p>
+﻿<article class="post" ng-hide="isEdit">
+    <div class="post__header" >
+        <div class="post__holder" style="background-image: url('{{ blog.featured }}')">
+            <div class="post__content col col--half col--center center">
+                <a class="icon--home btn--icon--round center inline-block spc--bottom--lrg" ui-sref="master.main.index"></a>
+                <h1 class="post__title spc--bottom--lrg spc--inside--tb--med">{{ blog.title }}</h1>
+                <div class="post__hero-holder spc--bottom--med">
+                    <div class="post__hero-holder--cell"><hr class="post__line"></div>
+                    <div class="post__hero-holder--cell">
+                        <span class="meta__label">{{ blog.type }}</span>
+                    </div>
+                    <div class="post__hero-holder--cell"><hr class="post__line"></div>
+                </div>
+            </div>
+            <div class="overlay__hero"></div>
+        </div>
+    </div>
+    <div class="col col--third col--center post__wrapper spc--inside--tb--med offset--top--lrg">
+        <div class="post__infobox">
+            <div class="pull--on-med">
+                <small class="icon--calendar post__icon"></small> <small>{{ blog.startdate | date:'EEEE, MMMM d, y' }}</small> 
+            </div>
+            <div class="push--on-med">
+                <small class="icon--time post__icon"></small> <small>From {{ blog.starttime | date:'hh : mm a' }}</small>
+                <small>till {{ blog.endtime | date:'hh : mm a' }}</small>
+            </div>
+        </div>
+        <div class="post__infobox">
+            <div class="pull--on-med">
+                <small class="icon--home post__icon"></small> <small>{{ blog.location }}</small>
+            </div>
+            <div class="push--on-med">
+                <small class="icon--payment post__icon"></small> <small>Ticket Price: € {{ blog.price }}</small>
+            </div>
+        </div>
+        <div class="post__infobox">
+            <div  ng-repeat="field in blog.customFields">
+                <div class="post__item">
+                    <h2 class="post__item__title">{{ field.customField}}</h2>
+                    <small>{{ field.customFieldDesc }}</small>
+                </div>
+            </div>
+        </div>
+        <div class="post__infobox">
+            <div btf-markdown="blog.content" class="styledtext"></div>
+        </div>
+        
+        <div class="post__infobox">
+            <div ng-repeat="tag in blog.tags" class="tags__item">
+                <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+            </div>
+        </div>
+    </div>
 </article>
-
-<hr>
-
-<div>
-    <h3>Tags</h3>
-    <span ng-repeat="tag in blog.tags" class="tags__item">
-        <a ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+<div class="col col--third col--center post__wrapper spc--inside--tb--med">
+    <span ng-hide="isEdit">
+        <span ng-if="$root.user.isAuthenticated">
+            <button class="btn btn--primary btn--med" type="button" ng-click="editBlog()">Edit</button>
+            <button class="btn btn--secondary btn--med" type="button" ng-click="deleteBlog()">Delete</button>
+        </span>
     </span>
+
+    <button class="btn btn--secondary btn--med" type="button" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+
+    <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+    </baasic-blog-edit>
 </div>
-
-<hr>
-
-<span ng-hide="isEdit">
-    <span ng-if="$root.user.isAuthenticated">
-        <button type="button" ng-click="editBlog()">Edit</button>
-        <button type="button" ng-click="deleteBlog()">Delete</button>
-    </span>
-</span>
-
-<button type="button" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
-
-<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
-</baasic-blog-edit>

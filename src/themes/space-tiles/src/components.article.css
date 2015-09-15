@@ -28,10 +28,6 @@
     z-index: 1;
 }
 .article__holder:hover {
-    background: white;
-    transition: all .5s;
-    background-size: cover;
-    background-position: 5% 5%;
 }
 .article__bg__overlay {
     background-color: rgba(0,0,0,0.35);
@@ -45,7 +41,6 @@
 }
 .article__holder:hover .article__bg__overlay {
     background-color: rgba(0,0,0,0.75);
-    transition: all .5s;
 }
 .article__header {
 }

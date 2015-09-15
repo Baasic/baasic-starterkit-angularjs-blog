@@ -1,16 +1,72 @@
-﻿<header>
-    <div ng-if="$root.user.isAuthenticated">
-        <div>Welcome, {{ $root.user.displayName }}</div>
-        <button type="button" ng-click="newBlogPost()">New post</button>
-        <baasic-logout on-logout="setEmptyUser()">
-            <button type="button" ng-click="logout()">Logout</button>
-        </baasic-logout>
+﻿<header class="header" role="header">
+    <div class="header--aside">
+        <h1 class="header__identity"><a href="/">Events</a></h1>
+        <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
     </div>
-    <div ng-if="!$root.user.isAuthenticated">To create new blog please <a ui-sref="login">login</a> or <a ui-sref="master.register">register</a></div>
+
+    <nav ng-class="{'nShow': menuOpen}" class="header--main" role="navigation"> 
+            <a class="btn btn--icon icon--home spc--right--lrg" href="/"></a>
+            <button ng-click="searchOpen=!searchOpen" title="Search" class="btn btn--icon icon--search spc--right--lrg" type="button">Search</button>
+            <button ng-click="tagOpen=!tagOpen" title="Tag Cloud" class="btn btn--icon icon--tagcloud spc--right--lrg">Tag Cloud</button>
+        <div class="inline header--membership" ng-if="$root.user.isAuthenticated">
+            <button class="btn btn--icon icon--write spc--right--lrg" title="New Post" type="button" ng-click="newBlogPost()">New post</button>
+            <baasic-logout on-logout="setEmptyUser()" class="spc--right--lrg">
+                <button class="btn btn--icon icon--logout" title="Log Out" type="button" ng-click="logout()">Logout</button>
+            </baasic-logout>
+
+        </div>
+        <div class="inline-block" ng-if="!$root.user.isAuthenticated"><button type="button" title="Log In" class="btn btn--icon icon--login" ui-sref="login">login</button></div>
+    </nav>
 </header>
 
-<h1>My New Blog</h1>
-
-<main ui-view>
+<main ui-view role="main">
         
 </main>
+<footer class="footer smm center" role="contentinfo">
+    <a class="smm__link" href="https://www.facebook.com/">
+        <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://www.linkedin.com">
+        <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://twitter.com/">
+        <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://github.com/">
+        <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+    </a>
+    <div class="footer__info">
+        <p>Copyright @ Events</p>
+    </div>
+    <div class="footer__poweredby">
+        <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
+    </div>
+</footer>
+<div class="modal" ng-class="{'nShow': searchOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="searchOpen=!searchOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <div class="search">
+                <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                <button ng-click="$parent.searchOpen = false" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
+                    <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" ng-class="{'nShow': tagOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="tagOpen=!tagOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <ul class="tags group">
+                <li class="tags__item" ng-repeat="tag in tags">
+                    <a ng-click="$parent.tagOpen = false" ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

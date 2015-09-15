@@ -7,7 +7,6 @@ angular.module('myBlog', [
   'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
-  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
@@ -144,10 +143,10 @@ angular.module('myBlog', [
     'use strict';
 
     $scope.searchBlog = function searchBlog() {
-        if ($scope.searchFor) {
-            $state.go('master.main.blog-search', { search: $scope.searchFor });
-        }
-    };
+            if ($scope.searchFor) {
+                $state.go('master.main.blog-search', { search: $scope.searchFor });
+            }
+        };
 }])
 .run(['$rootScope', '$window', 'baasicAuthorizationService',
     function moduleRun($rootScope, $window, baasicAuthService) {
