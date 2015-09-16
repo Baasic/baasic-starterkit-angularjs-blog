@@ -22,11 +22,11 @@
             </li>
         </ul>
         <hr>
-        <button type="button" class="btn --dark --med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+        <button type="button" class="btn btn--dark btn--med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
-                <button type="button" class="btn --light --med rounded" ng-click="editBlog()">Edit</button>
-                <button type="button" class="btn --light --med rounded" ng-click="deleteBlog()">Delete</button>
+                <button type="button" class="btn btn--light btn--med rounded" ng-click="editBlog()">Edit</button>
+                <button type="button" class="btn btn--light btn--med rounded" ng-click="deleteBlog()">Delete</button>
             </span>
         </span>
     </div>
