@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    # components.btn
+\*------------------------------------*/
+
+.btn {
+    cursor: pointer;
+    font-family: var(--ff-sans);
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    transition: all .2s;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.btn:focus {
+    outline: 0;
+}
+
+
+.btn.\--primary {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn.\--primary:hover,
+.btn.\--primary:focus,
+.btn.\--primary:active {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn.\--secondary {
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+}
+.btn.\--secondary:hover,
+.btn.\--secondary:focus,
+.btn.\--secondary:active {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.btn.\--inverse {
+    border: 1px solid var(--color-ultralight);
+    color: var(--color-ultralight);
+}
+.btn.\--inverse:hover,
+.btn.\--inverse:focus,
+.btn.\--inverse:active {
+    background: var(--color-ultralight);
+    color: black;
+}
+
+.btn.\--light {
+    border: 1px solid var(--color-ultralight);
+    color: var(--color-grey);
+}
+.btn.\--light:hover,
+.btn.\--light:focus,
+.btn.\--light:active {
+    border-color: var(--color-light);
+}
+
+.btn.\--light.active {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.btn.\--light.active:hover,
+.btn.\--light.active:focus,
+.btn.\--light.active:active {
+    background: var(--color-primary);
+    color: white;
+}
+
+
+.btn.\--sml {
+    font-size: var(--type-tiny);
+    height: var(--base-line-height);
+    line-height: var(--base-line-height);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn.\--med {
+    font-size: var(--type-tiny);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn.\--lrg {
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*2);
+    line-height: calc(var(--base-line-height)*2);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.btn--search {
+    background-image: url(/assets/img/search.svg);
+    background-size: 1.3rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    display: inline-block;
+    border: 0;
+    background-color: color(var(--color-secondary) a(.6));
+    position: relative;
+    user-select: none;
+    transition: all .2s ease-in-out;
+    padding: 5px;
+    position: absolute;
+    top: 0.3125rem;
+    outline: 0;
+    opacity: 0.5;
+    border-radius:50%;
+}
+.btn--search:hover,
+.btn--search:active,
+.btn--search:focus {
+    opacity: 1;
+    outline: 0;
+    background-color: color(var(--color-secondary) a(1));
+}
+
+.btn--nav {
+    margin-right: .5rem;
+    color: white;
+    background-color: color(var(--color-secondary) a(0));
+    transition: background-color .2s ease-in-out;
+    padding: .8rem .5rem;
+    height: 3rem;
+}
+
+.btn--nav:hover {
+    background-color: color(var(--color-secondary) a(1));
+    color:white;
+}
