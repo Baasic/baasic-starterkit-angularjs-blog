@@ -23,7 +23,8 @@
                             <div class="editor__header">
                                 <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
                             </div>
-                            <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
+                            <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field" required></textarea>
+                            <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.content.$touched) && blogPost.content.$error.required">Content is required.</p>
                         </div>
                         <div class="editor__preview">
                             <div class="editor__header">
