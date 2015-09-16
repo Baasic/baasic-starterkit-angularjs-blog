@@ -33,7 +33,6 @@
     .header__container {
         padding-top: 6rem;
         padding-bottom: 6rem;
-        min-height: 70vh;
     }
 }
 .header__overlay {

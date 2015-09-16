@@ -23,6 +23,6 @@
     --type-xxxlarge: 3.051rem;
 
     /* Type families */
-    --ff-sans: Arial, Helvetica, Arial sans-serif;
+    --ff-sans: 'Work Sans', Helvetica, Arial sans-serif;
     --ff-serif: 'Cardo', Times, Georgia, serif;
 }

@@ -4,7 +4,7 @@
 
 /* Default headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--ff-serif);
+    font-family: var(--ff-sans);
     font-weight: var(--type-bold);
     margin: 0;
     text-rendering: optimizeLegibility;

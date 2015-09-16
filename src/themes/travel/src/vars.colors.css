@@ -11,11 +11,12 @@
     --color-citrus:      #18FF9F;
     --color-tomato:      #FF8100;
     --color-purple:      #9018FF;
+    --color-brown:       #A79586;
 
 
-    --color-primary:     var(--color-citrus);
+    --color-primary:     var(--color-brown);
 
-    --color-bodybg:      #f6f6f6;
+    --color-bodybg:      #E8E2DD;
     --color-anchor:      var(--color-purple);
     --color-ultralight:  #ddd;
     --color-light:       #999;

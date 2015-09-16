@@ -15,9 +15,6 @@
 .article:hover {
     transform: translateY(-0.5rem);
 }
-.article:hover .article__content {
-    opacity: 1;
-}
 .article:hover .article__figure img {
     -webkit-filter: grayscale(0);
 }
@@ -35,11 +32,8 @@
     transition: all .2s ease-in-out;
 }
 .article__content {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
-    padding: 2.5rem;
-    opacity: 0.6;
-    transition: opacity .3s ease-in-out;
-    will-change: opacity;
+    padding: 5rem 5rem 4rem 5rem;
+    text-align: center;
 }
 .article__title {
     margin-bottom: 0.75rem;
@@ -47,21 +41,19 @@
 .article__title__link {
     color: var(--color-primary);
     display: inline-block;
-    font-weight: 400;
 }
 .article__title__link:hover,
 .article__title__link:focus {
-    color: white;
 }
 .article__summary {
     margin-bottom: 0.75rem;
 }
 .article__summary__text {
-    color: white;
+    width: 50%;
+    margin: 0 auto;
 }
 .article__info {
     font-size: var(--type-small);
-    color: rgba(255,255,255,0.7);
 }
 .article__info:before {
     content: '\2014';
