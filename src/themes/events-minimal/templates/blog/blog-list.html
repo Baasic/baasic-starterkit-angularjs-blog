@@ -16,10 +16,10 @@
                     <h1 class="article__title spc--bottom--sml"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h1>
                     <span class="meta__label spc--bottom--med">{{ blog.location }}</span>
                     <div class="article__items" ng-if="$first">
-                        <div ng-repeat="field in blog.customFields | limitTo: 3">
+                        <div ng-repeat="performer in blog.performers | limitTo: 3">
                             <div class="article__item spc--bottom--lrg">
-                                <h2>{{ field.customField}}</h2>
-                                <small>{{ field.customFieldDesc }}</small>
+                                <h2>{{ performer.name}}</h2>
+                                <small>{{ performer.desc }}</small>
                             </div>
                         </div>
                         <a class="btn btn--primary btn--med" ui-sref="master.blog-detail({ slug: blog.slug })">More Info</a>
