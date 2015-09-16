@@ -1,0 +1,29 @@
+﻿<div class="container container__main">
+    <div class="layout__content">
+        <header role="banner" class="header">
+            <a href="/" class="header__logo">
+                <img src="assets/img/logo.svg" alt="Baasic Theme Logo">
+            </a>
+            <div class="header__controls">
+                <div class="search">
+                    <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                        <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                        <button type="submit" class="btn--search"></button>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <baasic-hero-img></baasic-hero-img>
+
+        <a class="btn --light --med rounded spc--bottom--lrg" ui-sref="master.main.index">Home</a>
+        <baasic-login on-login="goHome()"></baasic-login>
+    </div>
+</div>
+
+<footer class="footer" role="contentinfo">
+    <ul class="footer__info">
+        <li><p>Copyright @ Blog name</p></li>
+        <li><p>Powered by <a href="http://www.baasic.com">Baasic</a></p></li>
+    </ul>
+</footer>
