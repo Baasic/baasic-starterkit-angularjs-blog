@@ -2,26 +2,18 @@
     <h1 class="spc--bottom--lrg">Search results</h1>
     <div class="box spc--bottom--sml spc--right--med" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
         <small class="search__label block"> {{ blog.type }} </small> 
-
         <h3>
             <a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
         </h3>
         <small>{{ blog.startdate | date:'EEEE, MMMM d, y' }} at {{ blog.location }}</small>
-        
-        
     </div>
-
-    <article ng-if="!hasBlogs">
+    <div ng-if="!hasBlogs">
         <span class="alert alert--note ">Nothing found.</span>
-    </article>
-
+    </div>
     <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
         <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
         <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
     </div>
-
-
     <a class="btn btn--primary btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
-    <div ng-if="hasBlogs" ng-repeat="blog in blogList.item">
     </div>
 </div>

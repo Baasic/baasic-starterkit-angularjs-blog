@@ -1,0 +1,72 @@
+/*------------------------------------*\
+    # components.styledtext
+\*------------------------------------*/
+
+.styledtext h1, 
+.styledtext h2, 
+.styledtext h3, 
+.styledtext h4, 
+.styledtext h5, 
+.styledtext h6 {
+    font-weight: var(--type-bold);
+    font-family: var(--ff-sans);
+}
+.styledtext p, 
+.styledtext ul, 
+.styledtext dl, 
+.styledtext ol, 
+.styledtext table, 
+.styledtext object, 
+.styledtext cite, 
+.styledtext section, 
+.styledtext header, 
+.styledtext pre {
+    margin-bottom: 1rem;
+}
+.styledtext ul, 
+.styledtext ol {
+}
+.styledtext pre {
+    color: var(--color-light);
+    background-color: var(--color-darkgrey);
+    padding: 1rem;
+}
+.styledtext pre code {
+}
+.styledtext em {
+}
+.styledtext img + em {
+}   
+.styledtext blockquote {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    font-style: italic;
+    padding-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid black;
+    color: black;
+}
+.styledtext blockquote:before {
+}
+.styledtext blockquote > p {
+}
+.styledtext img {
+}
+.styledtext figure {
+    position: relative;
+    /*border-top: 1px solid var(--color-ultralight);*/
+}
+.styledtext figcaption {
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    top: 0px;
+    border-top: 1px solid var(--color-light);
+    padding-top: 1rem;
+    font-size: 0.8em;
+    padding-right: 1rem;
+    font-style: italic;
+    color: var(--color-grey);
+}
+        

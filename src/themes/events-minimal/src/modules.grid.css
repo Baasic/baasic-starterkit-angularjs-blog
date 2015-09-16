@@ -8,12 +8,6 @@
 .col {
     width: 100%;
 }
-.col--half {
-}
-.col--quad {
-}
-.col--third {
-}
 .col--center {
     margin-left: auto;
     margin-right: auto;
