@@ -15,16 +15,16 @@
                 <div ng-if="$root.user.isAuthenticated">
                     <p class="profile__message">Welcome, {{ $root.user.displayName }}!</p>
                     <div class="profile__buttons">
-                        <button type="button" class="btn --negative --sml rounded" ng-click="newBlogPost()">New post</button>
+                        <button type="button" class="btn btn--negative btn--sml rounded" ng-click="newBlogPost()">New post</button>
                         <baasic-logout on-logout="setEmptyUser()">
-                            <button type="button" class="btn --negative --sml rounded" ng-click="logout()">Logout</button>
+                            <button type="button" class="btn btn--negative btn--sml rounded" ng-click="logout()">Logout</button>
                         </baasic-logout>
                     </div>
                 </div>
             </div>
             <div ng-if="!$root.user.isAuthenticated">
                 <div class="profile__buttons">
-                    <a class="btn --negative --sml rounded" ui-sref="login">login</a>
+                    <a class="btn btn--negative btn--sml rounded" ui-sref="login">login</a>
                 </div>
             </div>
         </div>
