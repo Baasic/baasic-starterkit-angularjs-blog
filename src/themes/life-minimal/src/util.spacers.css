@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    # util.spacers
+\*------------------------------------*/
+
+.spc--bottom--sml {
+    margin-bottom: 0.75rem;
+}
+.spc--bottom--med {
+    margin-bottom: 1.5rem;
+}
+.spc--bottom--lrg {
+    margin-bottom: 1.5rem;
+}
+.spc--bottom--xlrg {
+    margin-bottom: 3rem;
+}
+.spc--top--sml {
+    margin-top: 0.75rem;
+}
+.spc--top--med {
+    margin-top: 1.5rem;
+}
+.spc--top--lrg {
+    margin-top: 1.5rem;
+}
+.spc--top--xlrg {
+    margin-top: 3rem;
+}
+@media all and (--from-medium) {
+    .spc--bottom--sml {
+        margin-bottom: 0.75rem;
+    }
+    .spc--bottom--med {
+        margin-bottom: 1.5rem;
+    }
+    .spc--bottom--lrg {
+        margin-bottom: 3rem;
+    }
+    .spc--bottom--xlrg {
+        margin-bottom: 6rem;
+    }
+    .spc--top--sml {
+        margin-top: 0.75rem;
+    }
+    .spc--top--med {
+        margin-top: 1.5rem;
+    }
+    .spc--top--lrg {
+        margin-top: 3rem;
+    }
+    .spc--top--xlrg {
+        margin-top: 6rem;
+    }
+}

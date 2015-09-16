@@ -26,7 +26,7 @@
                                 <p class="article__readingtime">{{ blog.readingTime.text }}</p>
                             </div>
                         </div>
-                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --negative --sml rounded spc--top--lrg">Edit</a>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--negative btn--sml rounded spc--top--lrg">Edit</a>
                     </div>
                 </div>
             </article>
@@ -35,8 +35,8 @@
             </article>
         </div>
         <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
-            <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --primary --med rounded" ng-show="pager.hasPrevious">Prev</a>
-            <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --primary --med rounded push" ng-show="pager.hasNext">Next</a>
+            <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn btn--primary btn--med rounded" ng-show="pager.hasPrevious">Prev</a>
+            <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn btn--primary btn--med rounded push" ng-show="pager.hasNext">Next</a>
         </pager>
     </div>
 </div>

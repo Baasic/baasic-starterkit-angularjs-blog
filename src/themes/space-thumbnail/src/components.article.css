@@ -6,15 +6,70 @@
     display: flex;
     flex-wrap: wrap;
 }
+@media all and (--from-mediumsmall) {
+    .articles {
+        margin: 1.5rem 0.75rem 0 0.75rem;
+    }
+}
+@media all and (--from-xlarge) {
+    .articles {
+        margin: 3rem 1.5rem 0 0.75rem;
+    }
+}
 .article {}
+@media all and (--from-mediumsmall) {
+    .article {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+        padding-bottom: 1.5rem;
+    }
+}
 .article--ingrid {
     display: flex;
+}
+@media all and (--from-xlarge) {
+    .article--ingrid {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        padding-bottom: 3rem;
+    }
 }
 .article--sml {
     width: 100%;
 }
 .article--lrg {
     width: 100%;
+}
+@media all and (--from-mediumsmall) {
+    .article--sml {
+        width: 50%;
+    }
+    .article--lrg {
+        width: 50%;
+    }
+}
+@media all and (--from-xlarge) {
+    .article--sml {
+        width: 33.333%;
+    }
+    .article--lrg {
+        width: 66.666%;
+    }
+    .article--lrg .article__content {
+        padding-right: 3rem;
+    }
+    .article--lrg .article__header {
+        float: left;
+        width: 45%;
+        margin-right: 10%;
+    }
+    .article--lrg .article__summary {
+        float: left;
+        width: 45%;
+    }
+    .article--lrg .article__info {
+        right: 3rem;
+    }
 }
 .article--lrg .article__content {
     background: white;
@@ -92,22 +147,6 @@
     margin-top: 1rem;
     font-size: 0.65rem;
 }
-@media all and (--from-mediumsmall) {
-    .articles {
-        margin: 1.5rem 0.75rem 0 0.75rem;
-    }
-    .article {
-        padding-right: 0.75rem;
-        padding-left: 0.75rem;
-        padding-bottom: 1.5rem;
-    }
-    .article--sml {
-        width: 50%;
-    }
-    .article--lrg {
-        width: 50%;
-    }
-}
 @media all and (--from-custlarge) {
     .article__readingtime {
         padding: 0rem;
@@ -116,36 +155,5 @@
         vertical-align: middle;
         margin-right: 1.5rem;
         margin-top: 0rem;
-    }
-}
-@media all and (--from-xlarge) {
-    .articles {
-        margin: 3rem 1.5rem 0 0.75rem;
-    }
-    .article--ingrid {
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
-        padding-bottom: 3rem;
-    }
-    .article--sml {
-        width: 33.333%;
-    }
-    .article--lrg {
-        width: 66.666%;
-    }
-    .article--lrg .article__content {
-        padding-right: 3rem;
-    }
-    .article--lrg .article__header {
-        float: left;
-        width: 45%;
-        margin-right: 10%;
-    }
-    .article--lrg .article__summary {
-        float: left;
-        width: 45%;
-    }
-    .article--lrg .article__info {
-        right: 3rem;
     }
 }
