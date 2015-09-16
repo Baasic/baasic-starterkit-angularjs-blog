@@ -126,5 +126,10 @@
     } 
 }
 .post__wrapper {
-    padding: 0 2rem;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .post__wrapper {
+        padding: 0 2rem;
+    }
 }

@@ -57,7 +57,6 @@
         float: right;
     }
 }
- 
 @media all and (--to-mediumsmall) {
     .header--membership {
         width: 100%;
