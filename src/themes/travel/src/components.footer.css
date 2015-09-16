@@ -3,18 +3,16 @@
 \*------------------------------------*/
 
 .footer {
-    background: rgba(0,0,0,0.9);
+    background: white;
     padding: 1.5rem;
 }
 .footer__info {
     font-size: var(--type-tiny);
-    color: var(--color-light);
     text-transform: uppercase;
     letter-spacing: .2em;
 }
 .footer__poweredby {
     font-size: var(--type-tiny);
-    color: var(--color-light);
     text-transform: uppercase;
     letter-spacing: .2em;
 }
