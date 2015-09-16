@@ -5,7 +5,7 @@
 .alert {
     font-size: var(--type-small);
     color: white;
-    display: block;
+    display: block; 
     padding: 1rem;
     margin: 1rem 0;
 }

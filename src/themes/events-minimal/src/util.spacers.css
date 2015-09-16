@@ -26,7 +26,10 @@
 .spc--top--xlrg {
     margin-top: 3rem;
 }
-.spc--right--xlrg {
+.spc--right--lrg {
+    margin-right: 3rem;
+}
+.spc--left--lrg {
     margin-right: 3rem;
 }
 .spc--inside--tb--sml {
