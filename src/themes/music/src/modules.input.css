@@ -11,6 +11,8 @@
     transition: all .2s;
     padding: 1rem;
     font-family: var(--ff-sans);
+    appearance: none !important;
+    border-radius: 0;
 }
 .input:hover,
 .input:focus,
@@ -38,6 +40,8 @@
     overflow: hidden;
     border-bottom: 1px solid rgba(255,255,255,0.6);
     color: white;
+    appearance: none !important;
+    border-radius: 0;
 }
 .input--search::placeholder {
     color: white;
