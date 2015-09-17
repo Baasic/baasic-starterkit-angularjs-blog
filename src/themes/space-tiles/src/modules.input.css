@@ -10,6 +10,8 @@
     background: white;
     transition: all .2s;
     padding: 1rem;
+    appearance: none !important;
+    border-radius: 0;
 }
 .input:hover,
 .input:focus,
@@ -44,6 +46,8 @@
     padding: 0 2rem 1rem 0;
     line-height: 1.5rem;
     overflow: hidden;
+    appearance: none !important;
+    border-radius: 0;
 }
 .input--search:hover,
 .input--search:focus,
