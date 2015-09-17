@@ -4,11 +4,16 @@
 
 .footer {
     margin-top: 2rem;
-    padding: 1rem 3rem;
+    padding: 1rem 1.5rem;
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
     color: var(--color-light);
     color: var(--color-secondary);
+}
+@media all and (--from-large) {
+    .footer {
+        padding: 1rem 3rem;
+    }
 }
 .footer__poweredby--link {
     color: white;    
