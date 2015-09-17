@@ -84,13 +84,14 @@
     .layout__post {
         flex: 4 0 85%;
         margin-top: 0;
-        transform: translateX(-22rem);
+        transform: translateX(-20rem);
     }
 }
 @media all and (--from-large) {
     .layout__post {
         flex: 4 0 100%;
         padding: 0rem;
+        transform: translateX(-24rem);
     }
 }
 .expand .layout__post  {
