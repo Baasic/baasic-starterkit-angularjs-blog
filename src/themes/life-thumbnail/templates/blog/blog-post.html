@@ -1,9 +1,10 @@
-﻿   <div class="group layout" ng-class="{'expand': menuOpened}">
-        <aside class="layout__sidebar">
-            <blog-menu>
-            
+﻿   <blog-menu>
+
             </blog-menu>
-        </aside>
+            <div class="group layout">
+
+
+
         <article class="post layout__post" ng-hide="isEdit">
             <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
                 <div class="post__header__container">
@@ -14,14 +15,14 @@
             <div class="post__body__holder">
                 <div class="post__body">
                     <h2 class="post__title">{{ blog.title }}</h2>
-                    
+
                     <div btf-markdown="blog.content" class="styledtext">
 
                     </div>
                     <hr>
                     <div class="group spc--bottom--lrg">
                         <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
-                        
+
                         <ul class="post__tags push tags group">
                             <li ng-repeat="tag in blog.tags" class="tags__item">
                                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>

@@ -7,19 +7,18 @@
 }
 .layout__content {
     flex: 1 0 100%;
+    max-width: 90rem;
     margin-top: 3rem;
-    padding: 2.5rem 1rem; 
+    padding: 2.5rem 1rem;
     z-index: 0;
-    transform: translateX(-19.6875rem);
     transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
-    .layout__content {  
+    .layout__content {
         flex: 1 0 90%;
         margin-top: 0rem;
         padding-top: 0;
         z-index: 0;
-        transform: translateX(-21.875rem);
     }
 }
 .expand .layout__content {
@@ -77,14 +76,12 @@
     padding: 1rem;
     z-index: 0;
     padding-top: 0;
-    transform: translateX(-20rem);
     transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
     .layout__post {
         flex: 4 0 85%;
         margin-top: 0;
-        transform: translateX(-22rem);
     }
 }
 @media all and (--from-large) {

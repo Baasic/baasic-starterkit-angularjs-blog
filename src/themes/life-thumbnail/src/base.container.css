@@ -4,6 +4,7 @@
 
 .container {
     margin: 0 auto;
+    max-width: 80rem;
 }
 @media all and (--from-xlarge) {
     .container {

@@ -3,23 +3,30 @@
 \*------------------------------------*/
 
 :root {
-    --color-torchred:    #FF0043;
-    --color-malachite:   #00D369;
-    --color-orange:      #F75E00;
-    --color-grey:        #7C7C7C;
-    --color-ruby:        #ED1E79;
+    --color-madison:        #2f4856;
+    --color-niagara:        #34b297;
+    --color-sunglo:         #c45c4c;
+
+    --color-white:          #ffffff;
+    --color-white-smoke:    #ececec;
+    --color-dim-grey:       #6f6f6f;
+
+    --color-torchred:       #FF0043;
+    --color-malachite:      #00D369;
+    --color-orange:         #F75E00;
 
 
-    --color-primary:     var(--color-ruby);
-    --color-secondary:   var(--color-grey);
+    --color-primary:    var(--color-madison);
+    --color-secondary:  var(--color-niagara);
+    --color-tertiary:   var(--color-sunglo);
 
-    --color-bodybg:      #F2F2F2;
-    --color-ultralight:  #ddd;
-    --color-light:       #999;
-    --color-dark:        #222;
-    --color-darkgrey:    #333;
+    --color-ultralight: var(--color-white);
+    --color-light:      var(--color-white-smoke);
+    --color-grey:       var(--color-dim-grey);
 
     --color-warning:     var(--color-torchred);
     --color-success:     var(--color-malachite);
     --color-note:        var(--color-orange);
 }
+
+

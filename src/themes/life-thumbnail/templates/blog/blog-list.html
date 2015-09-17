@@ -1,6 +1,10 @@
+    <blog-menu>
+
+            </blog-menu>
+
 <div class="articles">
     <article
-        class="article article--ingrid article--sml"
+        ng-class="{'article article--ingrid article--sml':!$first, 'article article--ingrid article--lrg':$first}"
         ng-if="hasBlogs"
         ng-repeat="blog in blogList.item"
     >

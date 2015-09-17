@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 .article {
-    perspective: 1000;
+
 }
 
 .article--ingrid {
@@ -128,7 +128,7 @@
         margin-bottom: 0;
     }
     .article--lrg {
-        width: 50%;
+        width: 100%;
         margin-bottom: 0;
     }
 }
