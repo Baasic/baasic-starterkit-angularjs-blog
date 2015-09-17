@@ -8,7 +8,6 @@
             <main ui-view smooth-scroll>
                 
             </main>
-            
             <footer class="footer" role="contentinfo">
                 <div class="footer__info">
                     <p>Copyright @ Blog name Powered by <a href="http://www.baasic.com">Baasic</a></p>
@@ -80,9 +79,18 @@
                             </li>
                         </ul>
                     </div>
-                    
                 </div>
             </div>
         </aside>
+    </div>
+    <div class="message" ng-class="{'close': messageClosed}">
+        <div class="message__container">
+            <a href="http://baasic.com" class="message__icon--primary">
+            </a>
+            <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+                <p class="message__title">Grab a Starter Kit and start building!</p>
+            </a>
+        </div>
+        <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
     </div>
 </div>
