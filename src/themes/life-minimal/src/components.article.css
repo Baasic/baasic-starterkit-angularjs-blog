@@ -40,7 +40,11 @@
 }
 .article__summary__text {
     max-width: 40rem;
-    padding-left: 2rem;
+}
+@media all and (--from-medium) {
+    .article__summary__text {
+        padding-left: 2rem;
+    }
 }
 .article__date {
     display: block;

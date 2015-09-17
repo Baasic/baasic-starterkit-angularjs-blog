@@ -6,13 +6,19 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
     padding: 6.5rem 1.5rem;
     z-index: -2;
 
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
     background-position: center;
+}
+@media all and (--from-mediumsmall) {
+    .post__header {
+        padding: 6rem 3rem;
+        margin-bottom: 5rem;
+    }
 }
 @media all and (--from-medium) {
     .post__header {
@@ -83,13 +89,18 @@
     }
 }
 .post__body {
-    background-color: #fff;
-    box-shadow: var(--shadow-level-2);
     margin-bottom: 6rem;
     padding: 1rem 1rem;
     max-width: 48em;
     margin-right: auto;
     margin-left: auto;
+}
+@media all and (--from-mediumsmall) {
+    .post__body {
+        padding: 2rem 2rem;
+        background-color: #fff;
+        box-shadow: var(--shadow-level-2);
+    }
 }
 @media all and (--from-medium) {
     .post__body {

@@ -34,9 +34,12 @@
 }
 .post__body {
     margin-bottom: 3rem;
-    padding: 0 1.5rem;
     max-width: 48em;
-    margin-left: .75rem;
+}
+@media all and (--from-medium) {
+    .post__body {
+        padding: 0 1.5rem 0 2.25rem;
+    }
 }
 @media all and (--from-medium) {
     .post__body .styledtext p:first-of-type {
