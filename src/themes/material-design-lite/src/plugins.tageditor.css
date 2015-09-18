@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    # plugins.tageditor
+\*------------------------------------*/
+
+tags-input {
+    border-bottom: 1px solid #ccc;
+}
+tags-input .tags {
+    border: 0;
+    box-shadow: none;
+    padding: .5rem;
+}
+tags-input .tags.focused {
+    box-shadow: none;
+}
+tags-input .tags .tag-item {
+    background: none;
+    border-color: #ddd;
+}
+tags-input .tags .input span {
+    font-size: 12px;
+}
+tags-input .tags .tag-item.selected {
+    background: none;
+    color: #ff0000;
+}
+tags-input .tags .input {
+    width: 100px !important;
+}
+tags-input .tags .input::placeholder {
+    font-size: 12px;
+}
+tags-input span {
+    text-transform: uppercase;
+}

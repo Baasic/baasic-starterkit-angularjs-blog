@@ -1,9 +1,8 @@
 /*------------------------------------*\
-    # components.footer
+    # components.search
 \*------------------------------------*/
 
-.mdl-mini-footer {
-    position: absolute;
-    bottom: 0;
+.demo-blog .meta > .search__form:first-child {
+    margin-right: 0;
     width: 100%;
 }

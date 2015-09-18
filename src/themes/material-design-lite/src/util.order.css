@@ -1,24 +1,26 @@
-/* ==========  ORDERING  ========== */
-/**
-* Order
-*/
-.first__box {
+/*------------------------------------*\
+    # util.order
+\*------------------------------------*/
+.box--primary {
 	order: 1;
+    margin-top: 5rem;
 }
-.second__box {
+.box--secondary {
 	order: 2;
+    margin-top: 5rem;
 }
-.third__box {
+.box--tertiary {
 	order: 3;
 }
-.fourth__box {
+.box--quartenary {
     order: 4;
 }
 @media (max-width:35rem) {
-    .first__box {
+    .box--primary {
         order: 2;
+        margin-top: 1rem;
     }
-    .second__box {
+    .box-secondary {
         order: 1;
     }
 }

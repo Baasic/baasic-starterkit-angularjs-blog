@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    # components.tags
+\*------------------------------------*/
+.taglist {
+    list-style: none;
+    padding: 1rem;
+    margin: 2rem auto;
+}
+.tags__item {
+    display: block;
+    margin-right: .35rem;
+    margin-bottom: .35rem;
+    float: left;
+}
+.tags__link {
+    display: block;
+    position: relative;
+    color: #666;
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    line-height: calc(var(--base-line-height)*1);
+    height: calc(var(--base-line-height)*1);
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 .5rem;
+    max-width: 8rem;
+}
+.tags__link:hover,
+.tags__link:focus,
+.tags__link:active {
+    border: 1px solid #FF9800;
+}
+@media all and (--from-large) {
+    .tags__link--active {
+        color: #FF9800;
+        font-weight: var(--type-bold);
+    }
+}
