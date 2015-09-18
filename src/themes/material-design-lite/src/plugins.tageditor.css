@@ -23,7 +23,6 @@ tags-input .tags .input span {
 tags-input .tags .tag-item.selected {
     background: none;
     color: #ff0000;
-    border: 1px solid #ff0000;
 }
 tags-input .tags .input {
     width: 100px !important;
