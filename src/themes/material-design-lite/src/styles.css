@@ -28,24 +28,18 @@ body .demo-blog {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  margin: 0 auto;
+  margin: 10rem auto 0 auto;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
   margin-bottom: 10rem;
 }
 .demo-blog.mdl-layout .mdl-layout__content {
-  padding-top: 230px;
   position: relative;
   -webkit-overflow-scrolling: touch;
   /*stretch layout to 100% to pin the footer on bottom*/
   min-height: 100vh;
   height: auto;
-}
-@media all and (max-width: 600px){
-    .demo-blog.mdl-layout .mdl-layout__content {
-        padding-top: 100px;
-    }
 }
 .demo-blog .mdl-card {
   display: -webkit-box;

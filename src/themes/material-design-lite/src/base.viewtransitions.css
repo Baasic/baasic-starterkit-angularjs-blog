@@ -8,9 +8,10 @@
     position: relative;
 }
 [ui-view].ng-enter, [ui-view].ng-leave {
-    /*position: absolute;*/
-    margin: 0 auto;
-    transition: opacity .5s ease-in-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .5s ease-in-out;
 }
 [ui-view].ng-enter {
     opacity: 0;

@@ -3,9 +3,11 @@
 \*------------------------------------*/
 .box--primary {
 	order: 1;
+    margin-top: 5rem;
 }
 .box--secondary {
 	order: 2;
+    margin-top: 5rem;
 }
 .box--tertiary {
 	order: 3;
@@ -16,6 +18,7 @@
 @media (max-width:35rem) {
     .box--primary {
         order: 2;
+        margin-top: 1rem;
     }
     .box-secondary {
         order: 1;
