@@ -30,7 +30,7 @@
 .message__title:hover {
     background-color: color(#00c2e8 blackness(20%));
 }
-@media all and (--from-mediumsmall) {
+@media all and (min-width: 40em) {
     .message__title {
         width: 80%;
         float: right;
@@ -39,14 +39,14 @@
         border-left: 1px solid color(white a(40%));
     }
 }
-@media all and (--from-large) {
+@media all and (min-width: 64em) {
     .message__title {
         width: 85%;
         padding: 1rem 2.5rem;
 
     }
 }
-@media all and (--from-xlarge) {
+@media all and (min-width: 80em) {
     .message__title {
         width: 90%;
     }
@@ -64,18 +64,18 @@
 .message__icon--primary:hover {
     background-color: color(#00c2e8 blackness(20%));
 }
-@media all and (--from-mediumsmall) {
+@media all and (min-width: 40em) {
     .message__icon--primary {
         width: 20%;
         float: left;
     }
 }
-@media all and (--from-large) {
+@media all and (min-width: 64em) {
     .message__icon--primary {
         width: 15%;
     }
 }
-@media all and (--from-xlarge) {
+@media all and (min-width: 80em) {
     .message__icon--primary {
         width: 10%;
     }
@@ -98,7 +98,7 @@
 .message.close {
     transform: translateY(9rem);
 }
-@media all and (--from-mediumsmall) {
+@media all and (min-width: 40em) {
     .message.close {
         transform: translateY(5rem);
     }
