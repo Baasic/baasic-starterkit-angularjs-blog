@@ -17,6 +17,7 @@ More information about the Starter Kit can be found in the series of blog posts 
 
 ### Space themes
 [Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)
+
 API Key: starterkit-blog
 
 [Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)
