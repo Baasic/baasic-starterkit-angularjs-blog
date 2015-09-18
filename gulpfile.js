@@ -75,7 +75,7 @@ gulp.task('styles', ['clean-css'], function () {
 
     return gulp.src(
         './src/themes/' + theme + '/src/app.css')
-        .pipe(postcss(processors))
+        .pipe(postcss(processors))        
         .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
         .pipe(gulp.dest('./.tmp/css/'))
         .pipe(g.cached('built-css'))
@@ -95,13 +95,13 @@ gulp.task('styles-dist', function () {
         autoprefixer({
             browsers: ['last 2 versions']
         }),
-        cssnano
+        //cssnano
     ];
     return gulp.src([
         './src/themes/' + theme + '/src/app.css'
-    ])
+    ])        
         .pipe(postcss(processors))
-        .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))
+        .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))        
         .pipe(gulp.dest('./dist/css/'));
 });
 
