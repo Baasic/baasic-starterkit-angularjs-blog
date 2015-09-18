@@ -6,3 +6,7 @@
     margin-right: 0;
     width: 100%;
 }
+.input--search {
+    appearance: none !important;
+    border-radius: 0;
+}
