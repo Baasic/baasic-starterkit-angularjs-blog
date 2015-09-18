@@ -2,7 +2,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    postcss = require('gulp-postcss'),
+    postcss = require('gulp-postcss'),    
     g = require('gulp-load-plugins')({ lazy: false }),
     replace = require('gulp-replace'),
     noop = g.util.noop,
@@ -105,18 +105,22 @@ gulp.task('styles-dist', function () {
       .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('csslint', ['styles'], function () {
-    //return cssFiles()
-    //  .pipe(g.cached('csslint'))
-    //  .pipe(g.csslint('./.csslintrc'))
-    //  .pipe(g.csslint.reporter());
+gulp.task('csslint', ['styles'], function () {    
 });
 
 /**
  * Scripts
  */
 gulp.task('scripts-dist', ['templates-dist'], function () {
-    return appFiles().pipe(dist('js', bower.name, { ngAnnotate: true }));
+    var filter = g.filter(['./src/app/app.config.js']);
+    var appConfig = baasicAppConfiguratinProvider();
+    return appFiles()
+    .pipe(filter)
+    .pipe(replace('<apiKey>', appConfig.apiKey))
+    .pipe(replace('<apiRootUrl>', appConfig.apiRootUrl))
+    .pipe(replace('<apiVersion>', appConfig.apiVersion))
+    .pipe(filter.restore)    
+    .pipe(dist('js', bower.name, { ngAnnotate: true }));
 });
 
 /**
@@ -190,13 +194,13 @@ gulp.task('clean-dist', function (done) {
 /**
  * Dist
  */
-gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
+gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {    
     return gulp.src('./src/app/index.html')
       .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
       .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
       .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist' }))
       .pipe(g.htmlmin(htmlminOpts))
-      .pipe(gulp.dest('./dist/'));
+      .pipe(gulp.dest('./dist/'));      
 });
 
 /**
@@ -218,6 +222,13 @@ gulp.task('watch', ['default'], function () {
     // Initiate livereload server:
     g.livereload.listen();
     gulp.watch('./src/app/**/*.js', ['jshint']).on('change', function (evt) {
+        if (evt.type !== 'changed') {
+            gulp.start('index');
+        } else {
+            g.livereload.changed(evt);
+        }
+    });
+    gulp.watch('./src/themes/' + theme + '/templates/**/*.js', ['jshint']).on('change', function (evt) {
         if (evt.type !== 'changed') {
             gulp.start('index');
         } else {
@@ -302,7 +313,7 @@ function appFiles() {
       '!./.tmp/src/app/**/*_test.js',
       './src/app/**/*.js',
       '!./src/app/**/*_test.js',
-	    './src/themes/' + theme + '/js/*.js'	  
+	  './src/themes/' + theme + '/**/*.js'	  
     ];
     return gulp.src(files)
       .pipe(g.angularFilesort());
@@ -380,3 +391,21 @@ function jshint(jshintfile) {
       .pipe(g.jshint, jshintfile)
       .pipe(g.jshint.reporter, stylish)();
 }
+
+function extend(){
+    for(var i=1; i<arguments.length; i++)
+        for(var key in arguments[i])
+            if(arguments[i].hasOwnProperty(key))
+                arguments[0][key] = arguments[i][key];
+    return arguments[0];
+}
+
+function baasicAppConfiguratinProvider(opt) {
+    var rootAppConfig =  require('./app.conf.json'); 
+    var themeAppConfig = require('./src/themes/' + theme + '/app.conf.json');
+    return extend({}, themeAppConfig, rootAppConfig);
+
+    return gulp.src('./src/app/app.config.js', opt)
+    .pipe(opt && opt.min ? g.htmlmin(htmlminOpts) : noop());
+}
+
