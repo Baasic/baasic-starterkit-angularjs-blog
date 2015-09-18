@@ -17,7 +17,6 @@ body::before {
 }
 body .demo-blog {
   font-family: 'Roboto', 'Helvetica', sans-serif;
-  /*pin footer to bottom when page has lot of content*/
   min-height: 100vh;
   height: auto;
 }
@@ -35,7 +34,6 @@ body .demo-blog {
           flex-shrink: 0;
   margin-bottom: 10rem;
 }
-
 .demo-blog.mdl-layout .mdl-layout__content {
   padding-top: 230px;
   position: relative;
@@ -49,7 +47,6 @@ body .demo-blog {
         padding-top: 100px;
     }
 }
-
 .demo-blog .mdl-card {
   display: -webkit-box;
   display: -webkit-flex;

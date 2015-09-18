@@ -1,10 +1,19 @@
-/* ==========  Application CSS file  ========== */
+/*------------------------------------*\
+    # app.css
+\*------------------------------------*/
+
 /**
 * Fonts
 */
 @import url(http://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
+/**
+ * Variables
+ * Different variables
+ */
+@import "vars.typography.css";
+@import "vars.responsive.css";
 
 /**
 * Material Design Lite
@@ -24,8 +33,10 @@
 */
 @import "components.pager.css";
 @import "components.form.css";
+@import "components.search.css";
 @import "components.loader.css";
 @import "components.footer.css";
+@import "components.tags.css";
 @import "components.message.css";
 
 /**
@@ -33,8 +44,11 @@
 */
 @import "util.floats.css";
 @import "util.order.css";
-@import "util.globals.css";
-@import "util.tags.css";
+@import "util.spacers.css";
 @import "util.validation.css";
-@import "util.animation.css";
-@import "util.404.css";
+@import "util.lost.css";
+
+/**
+* Various Plugins Style
+*/
+@import "plugins.tageditor.css";

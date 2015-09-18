@@ -1,8 +1,8 @@
-/* ==========  FORMS  ========== */
-/**
-* Form style for "Add/Edit Blog Post"
-*/
-form{
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
+
+.form{
     max-width: 98%;
 }
 .preview__editor {
@@ -27,11 +27,3 @@ form{
     border: 1px solid #eee;
     padding: 1rem;
 }
-/**
-* Form style for search form
-*/
-.demo-blog .meta > form:first-child {
-    margin-right: 0;
-    width: 100%;
-}
-

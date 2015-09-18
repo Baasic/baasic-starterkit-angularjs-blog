@@ -10,7 +10,7 @@
                 <div class="mdl-cell mdl-cell--12-col spc--top--lrg spc--left--lrg">
                     <h3>{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h3>
                 </div>
-                <form name="blogPost" novalidate class="mdl-grid">
+                <form name="blogPost" novalidate class="mdl-grid" class="form">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
                         <input type="text" id="blog.title" name="title" ng-model="blog.title" class="mdl-textfield__input" required/>
                         <label class="mdl-textfield__label" for="title" ng-class="{'has-data':blog.title.length>0}" >Enter Title of Your Blog Post</label>

@@ -1,7 +1,7 @@
 ﻿<div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
     <main class="mdl-layout__content main">
         <div class="demo-blog__posts mdl-grid" id="grid">
-            <div class="mdl-card something-else mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone second__box">
+            <div class="mdl-card something-else mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--4-col-phone box--secondary">
                 <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" ui-sref="master.new-blog-post">
                     <i class="material-icons mdl-color-text--white">add</i>
                 </button>
@@ -9,7 +9,7 @@
                     <img width="64px" src="assets/img/baasic.svg">Baasic
                 </div>
                 <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-                    <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                    <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()" class="search__form">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo" ng-class="{'is-focused':isFocused}">
                             <label ng-click="isFocused=true" class="mdl-button mdl-js-button mdl-button--icon" for="search__field">
                                 <i class="material-icons" >search</i>
@@ -22,7 +22,7 @@
                     </form>
                 </div>
             </div>
-            <div ng-if="hasBlogs" ng-repeat="blog in blogList.item" ng-class=" { 'mdl-card mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone first__box': $first , 'mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone third__box': !$first }">
+            <div ng-if="hasBlogs" ng-repeat="blog in blogList.item" ng-class=" { 'mdl-card mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--4-col-phone box--primary': $first , 'mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone box--tertiary': !$first }">
                 <div ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }" class="mdl-card__media mdl-color-text--grey-50" >
                     <h3>
                         <a ui-sref="master.blog-detail({slug:blog.slug})">{{ blog.title }}</a>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col fourth__box">
+            <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col box--quartenary">
                 <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
                     <a class="demo_nav--button link pull" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious" class="demo-nav__button">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
