@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    # components.bg
+\*------------------------------------*/
+
+.bg--white {
+    background: white;
+}
+.bg--ultralight {
+    background: #f5f5f5;
+}
+.bg--light {
+    background: #eee;
+}
+.bg--primary {
+    background-color: var(--color-primary);
+}

@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    # components.tags
+\*------------------------------------*/
+
+.tags__item {
+    display: block;
+    float: left;
+    margin-right: .5rem;
+}
+.tags__link {
+    display: block;
+    font-size: var(--type-tiny);
+    background: var(--color-ultralight);
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: var(--color-dark);
+    padding: 0 .75rem;
+    border-radius: 1000px;
+}
+.tags__link:hover,
+.tags__link:focus,
+.tags__link:active {
+    background: var(--color-anchor);
+    color: white;
+}

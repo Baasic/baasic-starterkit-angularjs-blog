@@ -13,22 +13,43 @@ This Kit is based on the Baasic article data type. Articles provide a standard w
 
 More information about the Starter Kit can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-Blog-Starter-Kit-part-1/).
 
-
 ## Test out Starter Kit themes live demo
 
+### Space themes
 [Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)
+API Key: starterkit-blog
 
 [Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)
 
+API Key: starterkit-blog
+
 [Space Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-thumbnail/)
 
+API Key: starterkit-blog
+
+### Gastro themes
 [Gastro Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-thumbnail/)
 
+API Key: starterkit-blog-gastro
+
+[Gastro NSFY](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-nsfy/)
+
+API Key: starterkit-blog-gastro
+
+### Life theme
+[Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)
+
+API Key: starterkit-blog-life
+
+### Events theme
+[Events Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/events-minimal/)
+
+API Key: starterkit-blog-events
 
 
 ## Working with the Starter kit
-
-As a client-side prerequisite, you should install the basic tools for your operating system: Node.js, Bower and Gulp. Start by cloning the [AngularJS blog Starter Kit repository](https://github.com/Baasic/baasic-starterkit-angularjs-blog/). After that, go into the root folder of the started Kit you just cloned and type
+ 
+As a client-side prerequisite, you should install the basic tools for your operating system: Node.js (4.x and above), Bower and Gulp. Start by cloning the [AngularJS blog Starter Kit repository](https://github.com/Baasic/baasic-starterkit-angularjs-blog/). After that, go into the root folder of the started Kit you just cloned and type
 
     npm install
     
