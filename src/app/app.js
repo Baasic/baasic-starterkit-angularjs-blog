@@ -13,13 +13,13 @@ angular.module('myBlog', [
   'baasic.dynamicResource',
   'baasic.blog'
 ])
-.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider',
-    function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
+.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider', 'baasicAppConfigProvider',
+    function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider, baasicAppConfigProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog-life', {
-            apiRootUrl: 'api.baasic.com',
-            apiVersion: 'beta'
+        baasicAppProvider.create(baasicAppConfigProvider.config.apiKey, {
+            apiRootUrl: baasicAppConfigProvider.config.apiRootUrl,
+            apiVersion: baasicAppConfigProvider.config.apiVersion
         });
 
         $locationProvider.html5Mode({
