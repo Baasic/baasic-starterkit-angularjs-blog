@@ -112,14 +112,7 @@ gulp.task('csslint', ['styles'], function () {
  * Scripts
  */
 gulp.task('scripts-dist', ['templates-dist'], function () {
-    var filter = g.filter(['./src/app/app.config.js']);
-    var appConfig = baasicAppConfiguratinProvider();
-    return appFiles()
-    .pipe(filter)
-    .pipe(replace('<apiKey>', appConfig.apiKey))
-    .pipe(replace('<apiRootUrl>', appConfig.apiRootUrl))
-    .pipe(replace('<apiVersion>', appConfig.apiVersion))
-    .pipe(filter.restore)    
+    return es.merge(appFiles(), appConfigSource())
     .pipe(dist('js', bower.name, { ngAnnotate: true }));
 });
 
@@ -313,7 +306,8 @@ function appFiles() {
       '!./.tmp/src/app/**/*_test.js',
       './src/app/**/*.js',
       '!./src/app/**/*_test.js',
-	  './src/themes/' + theme + '/**/*.js'	  
+	  './src/themes/' + theme + '/**/*.js',
+      '!./src/app/app.config.js'	  
     ];
     return gulp.src(files)
       .pipe(g.angularFilesort());
@@ -394,18 +388,37 @@ function jshint(jshintfile) {
 
 function extend(){
     for(var i=1; i<arguments.length; i++)
-        for(var key in arguments[i])
+    {
+        for(var key in arguments[i]){
             if(arguments[i].hasOwnProperty(key))
+            {
                 arguments[0][key] = arguments[i][key];
+            }
+        }
+    }
     return arguments[0];
 }
 
-function baasicAppConfiguratinProvider(opt) {
-    var rootAppConfig =  require('./app.conf.json'); 
-    var themeAppConfig = require('./src/themes/' + theme + '/app.conf.json');
-    return extend({}, themeAppConfig, rootAppConfig);
-
-    return gulp.src('./src/app/app.config.js', opt)
-    .pipe(opt && opt.min ? g.htmlmin(htmlminOpts) : noop());
+function module_exists( name ) {
+  try { return require.resolve( name ) }
+  catch( e ) { return false }
 }
 
+function baasicAppConfiguratinProvider(opt) {
+    var themeConfigPath = './src/themes/' + theme + '/app.conf.json';
+    var rootAppConfig =  require('./app.conf.json'); 
+    var themeAppConfig = {};
+    if (module_exists(themeConfigPath))
+    {
+        themeAppConfig = require(themeConfigPath);
+    }
+    return extend({}, themeAppConfig, rootAppConfig);
+}
+
+function appConfigSource() {
+    var appConfig = baasicAppConfiguratinProvider();
+    return gulp.src(['./src/app/app.config.js'])    
+    .pipe(replace('<apiKey>', appConfig.apiKey))
+    .pipe(replace('<apiRootUrl>', appConfig.apiRootUrl))
+    .pipe(replace('<apiVersion>', appConfig.apiVersion));
+};
