@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    # components.search
+\*------------------------------------*/
+
+.demo-blog .meta > .search__form:first-child {
+    margin-right: 0;
+    width: 100%;
+}
+.input--search {
+    appearance: none !important;
+    border-radius: 0;
+}

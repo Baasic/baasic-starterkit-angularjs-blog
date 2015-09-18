@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    # modules.row
+\*------------------------------------*/
+
+.row {
+    margin: 0 auto;
+    max-width: 72rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

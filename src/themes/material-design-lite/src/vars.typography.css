@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    # vars.typography
+\*------------------------------------*/
+
+:root {
+    /* Baseline */
+    --base-font-size: 1rem;
+    --base-line-height: 1.5rem;
+
+    /* Type weights */
+    --type-light: 300;
+    --type-regular: 400;
+    --type-bold: 700;
+
+    /* Type scale */
+    --type-tiny: 0.75rem;
+    --type-small: 0.875rem;
+    --type-base: 1rem;
+    --type-medium: 1.25rem;
+    --type-large: 1.563rem;
+    --type-xlarge: 1.953rem;
+    --type-xxlarge: 2.441rem;
+    --type-xxxlarge: 3.051rem;
+
+    /* Type families */
+    --ff-sans: 'Open Sans', Arial, sans-serif;
+    --ff-serif: 'Sacramento', cursive;
+}

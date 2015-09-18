@@ -32,7 +32,7 @@
                     <div btf-markdown="blog.content" class="mdl-color-text--grey-700 mdl-card__supporting-text">
                     </div>
                     <div class="taglist">
-                        <a ng-repeat="tag in blog.tags" ui-sref="master.main.blog-search({ tags: tag.slug })" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast tag-padding">{{ tag.tag }}</a>
+                        <a ng-repeat="tag in blog.tags" ui-sref="master.main.blog-search({ tags: tag.slug })" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast tag-padding tags__item tags__link">{{ tag.tag }}</a>
                     </div>
                 </div>
             </div>
