@@ -314,8 +314,7 @@ function cssFilesDist(opt) {
 function appFiles() {
     var files = [
         './.tmp/' + bower.name + '-templates.js',
-        './.tmp/**/*.js',
-        '!./.tmp/app.config.js',        
+        './.tmp/**/*.js',                
         '!./.tmp/src/app/**/*_test.js',
         './src/app/**/*.js',
         '!./src/app/**/*_test.js',
