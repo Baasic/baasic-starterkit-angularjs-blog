@@ -1,7 +1,7 @@
-/* ==========  Validation  ========== */
-/**
-* Overriding mdl isInvalid classes
-*/
+/*------------------------------------*\
+    # util.validation
+\*------------------------------------*/
+
 .mdl-textfield.is-invalid .mdl-textfield__input, .mdl-textfield.is-invalid .mdl-textfield__input:focus {
     border-color: #ddd;
 }

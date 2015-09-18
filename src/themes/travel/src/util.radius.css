@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    # util.radius
+\*------------------------------------*/
+
+.radial {
+    border-radius: var(--global-radius);
+}
+.rounded {
+    border-radius: var(--global-rounded);
+}

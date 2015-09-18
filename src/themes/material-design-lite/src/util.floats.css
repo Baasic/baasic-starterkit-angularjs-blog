@@ -1,16 +1,13 @@
-/* ==========  FLOATS  ========== */
-/**
-* Floats
-*/
+/*------------------------------------*\
+    # util.floats
+\*------------------------------------*/
+
 .pull {
 	float: left;
 }
 .push {
 	float: right;
 }
-/*
-* Center
-*/
 .center {
     margin: 0 auto;
 }
