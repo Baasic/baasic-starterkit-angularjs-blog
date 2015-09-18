@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    # components.tags
+\*------------------------------------*/
+
+.tags__item {
+    display: block;
+    margin-right: .35rem;
+    margin-bottom: .35rem;
+    float: left;
+
+}
+.tags__link {
+    display: block;
+    position: relative;
+    color: var(--color-grey);
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    line-height: calc(var(--base-line-height)*1);
+    height: calc(var(--base-line-height)*1);
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 .5rem;
+    max-width: 8rem;
+}
+.tags__link:hover,
+.tags__link:focus,
+.tags__link:active {
+    background-color: var(--color-primary);
+    color: white;
+}
+@media all and (--from-large) {
+    .tags__link--active {
+        color: var(--color-primary);
+        font-weight: var(--type-bold);
+    }
+}
