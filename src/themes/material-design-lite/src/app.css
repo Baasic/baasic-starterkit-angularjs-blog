@@ -13,12 +13,20 @@
 @import "styles.css";
 
 /**
+ * Base styles
+ * The base global classes and styling
+ */
+
+@import "base.viewtransitions.css";
+
+/**
 * Aditional Components for Baasic Blog
 */
 @import "components.pager.css";
 @import "components.form.css";
 @import "components.loader.css";
 @import "components.footer.css";
+@import "components.message.css";
 
 /**
 * Various Utility Classes

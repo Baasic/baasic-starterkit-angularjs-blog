@@ -1,0 +1,110 @@
+/*------------------------------------*\
+    # components.btn
+\*------------------------------------*/
+
+.btn {
+    cursor: pointer;
+    font-family: var(--ff-sans);
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    transition: all .2s;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.btn:focus {
+    outline: 0;
+}
+.btn--primary {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.btn--primary:hover,
+.btn--primary:focus,
+.btn--primary:active {
+    background: var(--color-primary);
+    color: black;
+}
+.btn--light {
+    border: 1px solid var(--color-light);
+    color: var(--color-light);
+}
+.btn--light:hover,
+.btn--light:focus,
+.btn--light:active {
+    background: var(--color-light);
+    color: white;
+}
+.btn--dark {
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+}
+.btn--dark:hover,
+.btn--dark:focus,
+.btn--dark:active {
+    background: var(--color-dark);
+    color: white;
+}
+.btn--negative {
+    border: 1px solid white;
+    color: white;
+}
+.btn--negative:hover,
+.btn--negative:focus,
+.btn--negative:active {
+    background: white;
+    color: black;
+}
+.btn--sml {
+    font-size: var(--type-tiny);
+    height: var(--base-line-height);
+    line-height: var(--base-line-height);
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+.btn--med {
+    font-size: var(--type-tiny);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn--lrg {
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*2);
+    line-height: calc(var(--base-line-height)*2);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.btn--search {
+    background-image: url(/assets/img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    /*transition: all .2s;*/
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: 0;
+    opacity: 0.7;
+}
+.btn--search:hover,
+.btn--search:active,
+.btn--search:focus {
+    outline: 0;
+    opacity: 1;
+}

@@ -5,8 +5,23 @@
 .header {
     padding: 1.5rem;
 }
+@media all and (--to-large) {
+    .header {
+        padding-top: 6rem;
+    }
+}
+@media all and (--from-large) {
+    .header {
+        padding: 3rem;
+    }
+}
 .header__toggle {
     float: right;
+}
+@media all and (--from-large) {
+    .header__toggle {
+        display: none;
+    }
 }
 .header__author {
     font-size: var(--type-tiny);
@@ -27,9 +42,6 @@
     color: var(--color-grey);
 }
 @media all and (--to-large) {
-    .header {
-        padding-top: 6rem;
-    }
     .header__share {
         display: none;
     }
@@ -43,13 +55,5 @@
         width: 100%;
         padding: 0.75rem 1.5rem 0 1.5rem;
         box-shadow: 0 0 0 1px color(black a(0.1));
-    }
-}
-@media all and (--from-large) {
-    .header {
-        padding: 3rem;
-    }
-    .header__toggle {
-        display: none;
     }
 }

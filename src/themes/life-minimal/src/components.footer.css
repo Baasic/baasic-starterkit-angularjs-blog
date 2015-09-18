@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
+
+.footer {
+    margin: 2rem 0 3rem 2rem;
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    color: var(--color-light);
+}
+@media all and (--from-medium) {
+    .footer {
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        left: 1.5rem;
+        bottom: 1rem;
+    }
+    .footer__info {
+        display: inline-block;
+        width: 24em;
+    }
+}

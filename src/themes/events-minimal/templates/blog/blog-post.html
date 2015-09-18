@@ -34,10 +34,10 @@
             </div>
         </div>
         <div class="post__infobox">
-            <div  ng-repeat="field in blog.customFields">
+            <div  ng-repeat="performer in blog.performers">
                 <div class="post__item">
-                    <h2 class="post__item__title">{{ field.customField}}</h2>
-                    <small>{{ field.customFieldDesc }}</small>
+                    <h2 class="post__item__title">{{ performer.name }}</h2>
+                    <small>{{ performer.desc }}</small>
                 </div>
             </div>
         </div>
