@@ -112,8 +112,15 @@ gulp.task('csslint', ['styles'], function () {
  * Scripts
  */
 gulp.task('scripts-dist', ['templates-dist'], function () {
-    return es.merge(appFiles(), appConfigSource())
+    return es.merge(appConfigSource(), appFiles())
+        .pipe(g.angularFilesort())
         .pipe(dist('js', bower.name, { ngAnnotate: true }));
+});
+
+gulp.task('scripts', [], function () {
+    return appConfigSource()
+        .pipe(g.angularFilesort())
+        .pipe(gulp.dest('./.tmp'));
 });
 
 /**
@@ -148,7 +155,7 @@ gulp.task('vendors', function () {
  * Index
  */
 gulp.task('index', index);
-gulp.task('build-all', ['styles', 'templates'], index);
+gulp.task('build-all', ['styles', 'templates', 'scripts'], index);
 
 function index() {
     var opt = { read: false };
@@ -214,7 +221,7 @@ gulp.task('watch', ['default'], function () {
     isWatching = true;
     // Initiate livereload server:
     g.livereload.listen();
-    gulp.watch('./src/app/**/*.js', ['jshint']).on('change', function (evt) {
+    gulp.watch('./src/app/**/*.js', ['jshint', 'scripts']).on('change', function (evt) {
         if (evt.type !== 'changed') {
             gulp.start('index');
         } else {
@@ -302,7 +309,7 @@ function cssFiles(opt) {
 function appFiles() {
     var files = [
         './.tmp/' + bower.name + '-templates.js',
-        './.tmp/src/app/**/*.js',
+        './.tmp/**/*.js',        
         '!./.tmp/src/app/**/*_test.js',
         './src/app/**/*.js',
         '!./src/app/**/*_test.js',
@@ -402,7 +409,7 @@ function module_exists(name) {
     catch (e) { return false }
 }
 
-function baasicAppConfiguratinProvider(opt) {
+function baasicAppConfiguratinProvider() {
     var themeConfigPath = './src/themes/' + theme + '/app.conf.json';
     var rootAppConfig = require('./app.conf.json');
     var themeAppConfig = {};
@@ -416,7 +423,6 @@ function baasicAppConfiguratinProvider(opt) {
 
 function appConfigSource() {
     var appConfig = baasicAppConfiguratinProvider();
-    process.stdout.write(JSON.stringify(appConfig));
     return gulp.src(['./src/app/app.config.js'])
         .pipe(replace('<apiKey>', appConfig.apiKey))
         .pipe(replace('<apiRootUrl>', appConfig.apiRootUrl))

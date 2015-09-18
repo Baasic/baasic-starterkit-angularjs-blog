@@ -1,9 +1,10 @@
 angular.module('myBlog').provider('baasicAppConfig', function () {
-    this.config = function () {
-        return {
-            apiKey: '<apiKey>',
-            apiRootUrl: '<apiRootUrl>',
-            apiVersion: '<apiVersion>'
-        }
+    'use strict';
+    this.config = {
+        apiKey: '<apiKey>',
+        apiRootUrl: '<apiRootUrl>',
+        apiVersion: '<apiVersion>'
+    };
+    this.$get = function () {
     };
 });
