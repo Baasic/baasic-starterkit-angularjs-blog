@@ -2,7 +2,6 @@ body {
   margin: 0;
   position: relative;
 }
-
 body::before {
     background-image: url(/assets/img/bg.jpg);
     background-size: cover;
@@ -237,7 +236,7 @@ body .demo-blog {
   border-bottom-right-radius: 2px;
 }
 .demo-blog .demo-blog__posts > .demo-nav {
-  margin: 12px 15px;
+  margin: 12px 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

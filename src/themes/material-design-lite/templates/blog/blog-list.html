@@ -15,7 +15,7 @@
                                 <i class="material-icons" >search</i>
                             </label>
                             <div class="mdl-textfield__expandable-holder">
-                                <input class="mdl-textfield__input" type="search" id="search__field" ng-model="searchFor"  />
+                                <input class="mdl-textfield__input input--search" type="search" id="search__field" ng-model="searchFor"  />
                                 <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col box--quartenary">
-                <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+                <pager class="pager" pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext">
                     <a class="demo_nav--button link pull" ui-sref="master.main.index({ page: pager.currentPage - 1 })" ng-show="pager.hasPrevious" class="demo-nav__button">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
                             <i class="material-icons">arrow_back</i>
