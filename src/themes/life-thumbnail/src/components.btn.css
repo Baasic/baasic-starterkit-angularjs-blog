@@ -1,0 +1,118 @@
+/*------------------------------------*\
+    # components.btn
+\*------------------------------------*/
+
+.btn {
+    cursor: pointer;
+    font-family: var(--ff-sans);
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    transition: all .2s;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 2px;
+    margin-right: .5rem;
+    transition: var(--transition-primary);
+    box-shadow: var(--shadow-level-1);
+}
+
+.btn:hover,
+.btn:focus {
+    box-shadow: var(--shadow-level-2);
+    outline: 0;
+}
+
+.btn:active, .btn.active {
+    box-shadow: var(--shadow-level-3);
+}
+
+.btn.\--primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn.\--primary:hover,
+.btn.\--primary:focus {
+    background-color: color( var(--color-primary) blackness(+10%));
+}
+
+.btn.\--primary:active {
+    background-color: color( var(--color-primary) blackness(+15%));
+}
+
+.btn.\--secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+.btn.\--secondary:hover,
+.btn.\--secondary:focus {
+    background-color: color( var(--color-secondary) blackness(+10%));
+}
+.btn.\--secondary:active {
+    background-color: color( var(--color-secondary) blackness(+15%));
+}
+
+.btn.\--inverse {
+    border: 1px solid var(--color-ultralight);
+    color: var(--color-ultralight);
+}
+/*.btn.\--inverse:hover,*/
+.btn.\--inverse:focus,
+.btn.\--inverse:active {
+    background: var(--color-ultralight);
+    color: black;
+}
+
+.btn.\--sml {
+    font-size: var(--type-tiny);
+    height: var(--base-line-height);
+    line-height: var(--base-line-height);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn.\--med {
+    font-size: var(--type-tiny);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn.\--lrg {
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*2);
+    line-height: calc(var(--base-line-height)*2);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.btn--search {
+    background-image: url(/assets/img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: 0;
+}
+.btn--search:hover,
+.btn--search:active,
+.btn--search:focus {
+    background-image: url(/assets/img/search-o.svg);
+    outline: 0;
+}
