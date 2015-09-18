@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    # components.searchresults
+\*------------------------------------*/
+
+.searchresults {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+@media all and (--from-medium) {
+    .searchresults {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+.searchresults__result {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-ultralight);
+}
+.searchresults__date {
+    font-size: var(--type-small);
+    color: var(--color-light);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+.searchresults__title {
+    margin-bottom: 0.75rem;
+}
+

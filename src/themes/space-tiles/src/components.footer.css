@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 .footer {
-    /*margin: 0 0 3rem 1.5rem;*/
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
     color: var(--color-light);

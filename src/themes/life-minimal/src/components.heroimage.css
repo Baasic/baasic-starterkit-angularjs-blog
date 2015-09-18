@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    # components.heroimage
+\*------------------------------------*/
+
+.hero-image {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+@media all and (--to-medium) {
+    .hero-image {
+        height: 18rem;
+        width: 100%;
+    }
+}
+@media all and (--from-medium) {
+    .hero-image {
+        position: fixed;
+        top: 3rem;
+        bottom: 0;
+        left: 0; 
+        right: 70%; 
+    }
+}
+@media all and (--from-large) {
+    .hero-image {
+        right: 50%; 
+    }
+}
+
+@media all and (--to-medium) {
+    .hero-hide-mobile {
+        display: none;
+    }
+}
+
+.hero-edit {
+    background-color: var(--color-ultralight);
+}

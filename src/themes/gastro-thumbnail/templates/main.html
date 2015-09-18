@@ -1,18 +1,30 @@
 <!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+<div class="message" ng-class="{'close': messageClosed}">
+    <div class="message__container">
+        <a href="http://baasic.com" class="message__icon--primary">
+        </a>
+        <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+            <p class="message__title">Grab a Starter Kit and start building!</p>
+        </a>
+    </div>
+    <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
+</div>
 
 <div class="container container__main">
     <div class="" role="banner">
         <header role="banner" class="header">
-            <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
+            
+            <div class="group">
+                <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
+            </div>
 
-            <div class="group--old spc--top--med">
+            <div class="clearfix spc--top--med">
                 <div class="search__wrapper">
                     <div class="search">
                         <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
                             <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
-
                             <button type="submit" class="btn--search"></button>
                         </form>
                     </div>
@@ -26,15 +38,15 @@
                     <div class="push profile__settings">
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="profile__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --primary --med" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--primary btn--med" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--light btn--med" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         
                         <div ng-if="!$root.user.isAuthenticated">
                             <p class="profile__message">To create new blog please </p>
-                            <a class="btn --primary --med" ui-sref="login">login</a>
+                            <a class="btn btn--primary btn--med" ui-sref="login">login</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +55,7 @@
     </div>
     
     <div class="container">
-        <main ui-view>
+        <main ui-view smooth-scroll>
             
         </main>
     </div>

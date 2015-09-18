@@ -6,25 +6,92 @@
     display: flex;
     flex-wrap: wrap;
 }
+@media all and (--from-mediumsmall) {
+    .articles {
+        margin: 1.5rem 0.75rem 0 0.75rem;
+    }
+}
+@media all and (--from-xlarge) {
+    .articles {
+        margin: 3rem 1.5rem 0 0.75rem;
+    }
+}
 .article {
     perspective: 1000;
 }
-
+@media all and (--from-mediumsmall) {
+    .article {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+        padding-bottom: 1.5rem;
+    }
+}
 .article--ingrid {
     display: flex;
+}
+@media all and (--from-xlarge) {
+    .article--ingrid {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        padding-bottom: 3rem;
+    }
 }
 .article--sml {
     width: 100%;
     margin-bottom: 2rem;
 }
+@media all and (--from-mediumsmall) {
+    .article--sml {
+        width: 50%;
+        margin-bottom: 0;
+    }
+}
+@media all and (--from-xlarge) {
+    .article--sml {
+        width: 33.333%;
+    }
+}
 .article--lrg {
     width: 100%;
     margin-bottom: 2rem;
 }
+@media all and (--from-mediumsmall) {
+    .article--lrg {
+        width: 50%;
+        margin-bottom: 0;
+    }
+}
+@media all and (--from-xlarge) {
+    .article--lrg {
+        width: 66.666%;
+    }
+}
 .article--lrg .article__content {
     position: relative;
 }
+@media all and (--from-xlarge) {
+    .article--lrg .article__content {
+        bottom: 0;
+        padding: 2rem 5rem 7rem 5rem;
+    }
+}
 
+@media all and (--from-xlarge) {
+    .article--lrg .article__header {
+        margin-right: 10%;
+    }
+}
+@media all and (--from-xlarge) {
+    .article--lrg .article__summary {
+        text-align: center;
+        margin: 2rem 0;
+    }
+}
+@media all and (--from-xlarge) {
+    .article--lrg .article__info {
+        right: 3rem;
+    }
+}
 .article__holder {
     background: #F2F2F2 ;
     position: relative;
@@ -32,9 +99,7 @@
     transition: all .15s ease-in-out;
 }
 .article__holder:hover {
-    background: #EAEAEA ;
-}
-.article__figure {
+    background: #eaeaea ;
 }
 .article__title {
     margin-bottom: 0.75rem;
@@ -58,6 +123,12 @@
     font-size: var(--type-xlarge);
     font-weight: var(--type-regular);
     line-height: calc(var(--base-line-height)*1.75);
+}
+@media all and (--from-custlarge) {
+    .article__title__link {
+        font-size: 3.5rem;
+        line-height: calc(var(--base-line-height)*3.25);
+    }
 }
 .article__cat {
     display: block;
@@ -84,15 +155,30 @@
     letter-spacing: .1em;
     color: var(--color-grey);
 }
+@media all and (--from-custlarge) {
+    .article__date {
+        margin-bottom: 1.5rem;
+    }
+}
 .article__content {
     overflow: hidden;
     padding: 1rem 1rem 7rem 1rem;
     transition: background .1s ease-in-out;
 }
+@media all and (--from-custlarge) {
+    .article__content {
+        padding: 2rem 2rem 7rem 2rem;
+    }
+}
 .article__summary {
     margin-bottom: 3.5rem;
     color: var(--color-grey);
     text-align: center;
+}
+@media all and (--from-xlarge) {
+    .article__summary {
+        margin-bottom: 1.5rem;
+    }
 }
 .article__info {
     overflow: hidden;
@@ -119,24 +205,6 @@
     margin-bottom: 1rem;
     font-size: var(--type-tiny);
 }
-@media all and (--from-mediumsmall) {
-    .articles {
-        margin: 1.5rem 0.75rem 0 0.75rem;
-    }
-    .article {
-        padding-right: 0.75rem;
-        padding-left: 0.75rem;
-        padding-bottom: 1.5rem;
-    }
-    .article--sml {
-        width: 50%;
-        margin-bottom: 0;
-    }
-    .article--lrg {
-        width: 50%;
-        margin-bottom: 0;
-    }
-}
 @media all and (--from-custlarge) {
     .article__readingtime {
         padding: 0rem;
@@ -145,49 +213,5 @@
         vertical-align: middle;
         margin-top: 0rem;
         margin-bottom: 0rem;
-    }
-    .article__date {
-        margin-bottom: 1.5rem;
-    }
-    .article__content {
-        padding: 2rem 2rem 7rem 2rem;
-    }
-    .article__title__link {
-        font-size: 3.5rem;
-        line-height: calc(var(--base-line-height)*3.25);
-    }
-}
-@media all and (--from-xlarge) {
-    .articles {
-        margin: 3rem 1.5rem 0 0.75rem;
-    }
-    .article--ingrid {
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
-        padding-bottom: 3rem;
-    }
-    .article--sml {
-        width: 33.333%;
-    }
-    .article--lrg {
-        width: 66.666%;
-    }
-    .article--lrg .article__content {
-        /*position: absolute;*/
-        bottom: 0;
-        padding: 2rem 5rem 7rem 5rem;
-    }
-    .article--lrg .article__header {
-        margin-right: 10%;
-    }
-    .article--lrg .article__summary {
-        text-align: center;
-        margin: 2rem 0;
-    }
-    .article--lrg .article__info {
-        right: 3rem;
-    }
-    .article__summary {
-        margin-bottom: 1.5rem;
     }
 }

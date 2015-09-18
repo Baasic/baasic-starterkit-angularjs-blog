@@ -9,9 +9,9 @@
         <div class="article__bg__overlay"></div>
             <div class="article__content">
                 <header class="article__header">
-                    <h2 class="article__title">
+                    <h1 class="article__title">
                         <a class="article__title__link" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
-                    </h2>
+                    </h1>
                     <span class="article__date">{{ blog.publishDate | date : 'medium' }}</span>
                 </header>
                 <div class="article__summary">
@@ -19,8 +19,8 @@
                 </div>
                 <div class="article__info">
                     <div class="article__readmore">
-                        <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn --primary --med radial">Read more</a>
-                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn --primary --med radial">Edit</a>
+                        <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn btn--primary btn--med radial">Read more</a>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--primary btn--med radial">Edit</a>
                     </div>
                     <span class="article__readingtime">{{ blog.readingTime.text }}</span>
                 </div>
@@ -32,6 +32,6 @@
     </article>
 </div>
 <pager pager-data="pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
-    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn --secondary --med radial" ng-show="pager.hasPrevious">Prev</a>
-    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn --secondary --med radial" ng-show="pager.hasNext">Next</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage - 1 })" class="btn btn--secondary btn--med radial" ng-show="pager.hasPrevious">Prev</a>
+    <a ui-sref="master.main.index({ page: pager.currentPage + 1 })" class="btn btn--secondary btn--med radial" ng-show="pager.hasNext">Next</a>
 </pager>

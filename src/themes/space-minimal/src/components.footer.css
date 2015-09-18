@@ -8,7 +8,6 @@
     font-size: var(--type-tiny);
     color: var(--color-light);
 }
-
 @media all and (--from-large) {
     .footer {
         width: 100%;

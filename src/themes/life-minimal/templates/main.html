@@ -1,0 +1,15 @@
+﻿<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="message" ng-class="{'close': messageClosed}">
+    <div class="message__container">
+        <a href="http://baasic.com" class="message__icon--primary">
+        </a>
+        <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+            <p class="message__title">Grab a Starter Kit and start building!</p>
+        </a>
+    </div>
+    <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
+</div>
+
+<main ui-view></main>

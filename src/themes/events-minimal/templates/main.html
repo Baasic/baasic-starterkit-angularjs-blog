@@ -1,0 +1,96 @@
+﻿<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="message" ng-class="{'close': messageClosed}">
+    <div class="message__container">
+        <a href="http://baasic.com" class="message__icon--primary">
+        </a>
+        <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+            <p class="message__title">Grab a Starter Kit and start building!</p>
+        </a>
+    </div>
+    <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
+</div>
+
+<header class="header" role="header">
+    <div class="header--aside">
+        <h1 class="header__identity"><a href="/">Events</a></h1>
+        <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
+    </div>
+
+    <nav ng-class="{'nShow': menuOpen}" class="header--main" role="navigation"> 
+            <a class="btn btn--icon icon--home spc--right--lrg" href="/"></a>
+            <button ng-click="searchOpen=!searchOpen" title="Search" class="btn btn--icon icon--search spc--right--lrg" type="button">Search</button>
+            <button ng-click="tagOpen=!tagOpen" title="Tag Cloud" class="btn btn--icon icon--tagcloud spc--right--lrg">Tag Cloud</button>
+        <div class="inline header--membership" ng-if="$root.user.isAuthenticated">
+            <button class="btn btn--icon icon--write spc--right--lrg" title="New Post" type="button" ng-click="newBlogPost()">New post</button>
+            <baasic-logout on-logout="setEmptyUser()" class="spc--right--lrg">
+                <button class="btn btn--icon icon--logout" title="Log Out" type="button" ng-click="logout()">Logout</button>
+            </baasic-logout>
+
+        </div>
+        <div class="inline-block" ng-if="!$root.user.isAuthenticated"><button type="button" title="Log In" class="btn btn--icon icon--login" ui-sref="login">login</button></div>
+    </nav>
+</header>
+
+<main ui-view role="main" smooth-scroll>
+        
+</main>
+<footer class="footer smm center" role="contentinfo">
+    <a class="smm__link" href="https://www.facebook.com/">
+        <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://www.linkedin.com">
+        <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://twitter.com/">
+        <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
+    </a>
+
+    <a class="smm__link" href="https://github.com/">
+        <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
+    </a>
+    <div class="footer__info">
+        <p>Copyright @ Events</p>
+    </div>
+    <div class="footer__poweredby">
+        <p>Powered by <a href="http://www.baasic.com">Baasic</a></p>
+    </div>
+</footer>
+<div class="message" ng-class="{'close': messageClosed}">
+    <div class="message__container">
+        <a href="http://baasic.com" class="message__icon--primary">
+        </a>
+        <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+            <p class="message__title">Grab a Starter Kit and start building!</p>
+        </a>
+    </div>
+    <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
+</div>
+<div class="modal" ng-class="{'nShow': searchOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="searchOpen=!searchOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <div class="search">
+                <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                <button ng-click="$parent.searchOpen = false" type="submit" class="btn btn--icon btn--search btn--lrg icon--search "></button>
+                    <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" ng-class="{'nShow': tagOpen}">
+    <div class="modal--dialog">
+        <div class="modal--content">
+            <button ng-click="tagOpen=!tagOpen" class="btn btn--close spc--bottom--xlrg" type="button"></button>
+            <ul class="tags group">
+                <li class="tags__item" ng-repeat="tag in tags">
+                    <a ng-click="$parent.tagOpen = false" ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link " title="{{ tag.tag }}">{{ tag.tag }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

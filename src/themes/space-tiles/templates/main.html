@@ -5,10 +5,9 @@
 <div class="container container__main">
     <div class="layout" ng-class="{'expand': menuOpened}">
         <div class="layout__content">
-            <main ui-view>
+            <main ui-view smooth-scroll>
                 
             </main>
-            
             <footer class="footer" role="contentinfo">
                 <div class="footer__info">
                     <p>Copyright @ Blog name Powered by <a href="http://www.baasic.com">Baasic</a></p>
@@ -46,14 +45,14 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --light --med radial" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--light btn--med radial" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med radial" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--light btn--med radial" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn --light --med radial" ui-sref="login">login</a></div>
+                        <a class="btn btn--light btn--med radial" ui-sref="login">login</a></div>
                     </div>
                     <div class="header__share sidebar__widget">
                         <h2 class="sidebar__title">Spread the word</h2>
@@ -80,9 +79,18 @@
                             </li>
                         </ul>
                     </div>
-                    
                 </div>
             </div>
         </aside>
+    </div>
+    <div class="message" ng-class="{'close': messageClosed}">
+        <div class="message__container">
+            <a href="http://baasic.com" class="message__icon--primary">
+            </a>
+            <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+                <p class="message__title">Grab a Starter Kit and start building!</p>
+            </a>
+        </div>
+        <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
     </div>
 </div>

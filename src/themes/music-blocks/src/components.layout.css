@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout--form {
+    background: white;
+    padding: 3rem;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+}

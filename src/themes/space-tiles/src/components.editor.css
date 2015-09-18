@@ -14,13 +14,10 @@
     overflow: auto; 
     resize: none;
 }
-
-
 .editor__field:focus {
     outline: 0;
     border-color: var(--color-light);
 }
-
 .editor__preview h1,
 .editor__preview h2,
 .editor__preview h3,
@@ -31,7 +28,12 @@
 .editor__field::placeholder { 
     color: var(--color-light);
     font-family: var(--ff-sans);
-
+}
+.editor__explain {
+    display: block;
+    text-align: left;
+    color: var(--color-light);
+    margin-bottom: 1rem;
 }
 .editor__header {
     margin-bottom: 1rem;
@@ -40,14 +42,10 @@
 .editor__header button {
     margin-left: 0.5rem;
 }
-.editor__explain {
-    display: block;
-    text-align: left;
-    color: var(--color-light);
-    margin-bottom: 1rem;
-}
-
 @media all and (--from-medium) {
+    .editor__header {
+        height: 4rem;
+    }
     .editor__type {
         width: 49%;
         float: left;
@@ -56,8 +54,5 @@
     .editor__preview {
         width: 50%;
         float: right;
-    }
-    .editor__header {
-        height: 4rem;
     }
 }

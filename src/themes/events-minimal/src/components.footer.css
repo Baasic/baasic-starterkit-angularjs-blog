@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
+
+.footer {
+    padding: 0 3rem;
+    margin: 2rem 0;
+    font-size: var(--type-tiny);
+    color: var(--color-light);
+}
+@media all and (--from-large) {
+    .footer {
+        width: 100%;
+        margin: 2rem 0;
+        padding: 0 3rem;
+        overflow: hidden;
+    }
+}

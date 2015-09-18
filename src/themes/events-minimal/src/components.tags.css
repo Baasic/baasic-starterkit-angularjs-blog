@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    # components.tags
+\*------------------------------------*/
+
+.tags__item {
+    display: block;
+    float: left;
+}
+.tags__link {
+    display: block;
+    position: relative;
+    color: var(--color-primary);
+    font-size: var(--type-ultratiny);
+    line-height: calc(var(--base-line-height)*1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 .5rem;
+    max-width: 8rem;
+}

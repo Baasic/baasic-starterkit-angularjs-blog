@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    # components.header
+\*------------------------------------*/
+
+.header {
+}
+.header__container {
+    position: relative;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+    background-image: url(../assets/img/visual.jpg);
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+@media all and (--from-medium) {
+    .header__container {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        min-height: 70vh;
+    }
+}
+.header__top {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+.header__search {
+    position: relative;
+    width: 30%;
+    float: left;
+}
+@media all and (--from-medium) {
+    .header__search {
+        width: 20%;
+    }
+}
+.header__profile {
+    float: right;
+}
+.header__overlay {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, var(--color-dark) 100%);
+}
+.header__content {
+    position: relative;
+    z-index: 1;
+}
