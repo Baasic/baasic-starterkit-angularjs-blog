@@ -10,7 +10,7 @@
     margin-top: 3rem;
     padding: 2.5rem 1rem; 
     z-index: 0;
-    transform: translateX(-19.6875rem);
+    transform: translateX(-20rem);
     transition: var(--transition-secondary);
 }
 @media all and (--from-mediumsmall) {
@@ -84,13 +84,14 @@
     .layout__post {
         flex: 4 0 85%;
         margin-top: 0;
-        transform: translateX(-22rem);
+        transform: translateX(-20rem);
     }
 }
 @media all and (--from-large) {
     .layout__post {
         flex: 4 0 100%;
         padding: 0rem;
+        transform: translateX(-24rem);
     }
 }
 .expand .layout__post  {
