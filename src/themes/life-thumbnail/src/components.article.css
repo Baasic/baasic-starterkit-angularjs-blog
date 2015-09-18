@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 .article {
-
+    margin-bottom: 2rem;
 }
 
 .article--ingrid {
@@ -15,7 +15,9 @@
 }
 .article--sml {
     width: 100%;
-    margin-bottom: 2rem;
+}
+.article--lrg {
+    display: block;
 }
 .article__holder {
     background: #FFF;
@@ -33,8 +35,8 @@
 }
 .article__figure__holder {
     overflow: hidden;
-    height: 15rem;
-    width: 100%;
+    height: 14.5rem;
+    background-size:cover;
 }
 .article__title {
     margin-bottom: 0.75rem;
@@ -130,6 +132,7 @@
     .article--lrg {
         width: 100%;
         margin-bottom: 0;
+        display: flex;
     }
 }
 @media all and (--from-medium) {

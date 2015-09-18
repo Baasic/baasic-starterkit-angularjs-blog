@@ -11,8 +11,7 @@
         <div class="article__holder">
             <div class="article__figure">
                 <a ui-sref="master.blog-detail({ slug: blog.slug })" class="article__link"></a>
-                <div class="article__figure__holder">
-                    <img ng-src="{{ baseHref + blog.featured }}" alt="Test photo">
+                <div class="article__figure__holder" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }" alt="Test photo">
                 </div>
                 <div class="article__content">
                     <header class="article__header">
