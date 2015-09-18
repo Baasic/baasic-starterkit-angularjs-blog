@@ -199,6 +199,7 @@ gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-di
         .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
         .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
         .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist' }))
+        .pipe(g.inject(cssFilesDist({}), { addRootSlash: false, ignorePath: ['dist', 'src/app', 'src/themes/' + theme] }))
         .pipe(g.htmlmin(htmlminOpts))
         .pipe(gulp.dest('./dist/'));
 });
@@ -303,13 +304,18 @@ function cssFiles(opt) {
     return gulp.src('./.tmp/css/**/*.css', opt);
 }
 
+function cssFilesDist(opt) {
+    return gulp.src('./dist/css/**/*.css', opt);
+}
+
 /**
  * All AngularJS application files as a stream
  */
 function appFiles() {
     var files = [
         './.tmp/' + bower.name + '-templates.js',
-        './.tmp/**/*.js',        
+        './.tmp/**/*.js',
+        '!./.tmp/app.config.js',        
         '!./.tmp/src/app/**/*_test.js',
         './src/app/**/*.js',
         '!./src/app/**/*_test.js',
