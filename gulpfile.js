@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
+    minifyCss = require('gulp-minify-css'),
     isWatching = false;
 
 var htmlminOpts = {
@@ -95,13 +96,13 @@ gulp.task('styles-dist', function () {
         autoprefixer({
             browsers: ['last 2 versions']
         }),
-        //cssnano
     ];
     return gulp.src([
         './src/themes/' + theme + '/src/app.css'
     ])        
         .pipe(postcss(processors))
-        .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))        
+        .pipe(replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)'))     
+        .pipe(minifyCss())   
         .pipe(gulp.dest('./dist/css/'));
 });
 
@@ -376,7 +377,7 @@ function dist(ext, name, opt) {
         .pipe(opt.ngAnnotate ? g.ngAnnotate : noop)
         .pipe(opt.ngAnnotate ? g.rename : noop, name + '.annotated.' + ext)
         .pipe(opt.ngAnnotate ? gulp.dest : noop, './dist')
-        .pipe(ext === 'js' ? g.uglify : g.minifyCss)
+        .pipe(ext === 'js' ? g.uglify : minifyCss())
         .pipe(g.rename, name + '.min.' + ext)
         .pipe(gulp.dest, './dist')();
 }
