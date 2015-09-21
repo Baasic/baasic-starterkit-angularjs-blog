@@ -75,7 +75,7 @@ gulp.task('styles-dist', function () {
         './src/themes/' + theme + '/src/app.css'
     ])
         .pipe(postcss(processors))
-        .pipe(minifyCss())
+        .pipe(minifyCss({processImport: false}))
         .pipe(gulp.dest('./dist/'));
 });
 
