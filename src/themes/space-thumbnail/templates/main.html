@@ -5,7 +5,7 @@
 <div class="container container__main">
     <div class="layout">
         <div class="layout__content">
-            <main ui-view>
+            <main ui-view smooth-scroll>
                 
             </main>
         </div>
@@ -64,14 +64,14 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn --primary --med rounded" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--primary btn--med rounded" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn --light --med rounded" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--light btn--med rounded" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn --primary --med rounded" ui-sref="login">login</a></div>
+                        <a class="btn btn--primary btn--med rounded" ui-sref="login">login</a></div>
                     </div>
                     <footer class="footer" role="contentinfo">
                         <div class="footer__info">
@@ -85,4 +85,14 @@
             </div>
         </aside>
     </div>
+</div>
+<div class="message" ng-class="{'close': messageClosed}">
+    <div class="message__container">
+        <a href="http://baasic.com" class="message__icon--primary">
+        </a>
+        <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+            <p class="message__title">Grab a Starter Kit and start building!</p>
+        </a>
+    </div>
+    <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
 </div>

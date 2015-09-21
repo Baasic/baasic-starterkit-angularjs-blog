@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    # util.position
+\*------------------------------------*/
+
+.position--rel {
+	position: relative;
+}
+.position--abs {
+	position: absolute;	
+}

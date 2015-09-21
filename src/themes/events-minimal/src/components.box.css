@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    # components.box
+\*------------------------------------*/
+
+.box {
+    padding: 1rem;
+    background-color: white;
+}
+.box--center {
+    text-align: center;
+}

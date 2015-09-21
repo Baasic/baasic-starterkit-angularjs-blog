@@ -1,0 +1,112 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout {
+    display: flex;
+}
+.layout__content {
+    flex: 1 0 100%;
+    margin-top: 3rem;
+    padding: 2.5rem 1rem; 
+    z-index: 0;
+    transform: translateX(-20rem);
+    transition: var(--transition-secondary);
+}
+@media all and (--from-mediumsmall) {
+    .layout__content {  
+        flex: 1 0 90%;
+        margin-top: 0rem;
+        padding-top: 0;
+        z-index: 0;
+        transform: translateX(-21.875rem);
+    }
+}
+.expand .layout__content {
+    opacity: 0.5;
+    transform: translateX(20px);
+    transition: var(--transition-tertiary);
+}
+@media all and (--from-medium) {
+    .expand .layout__content  {
+        transform: translateX(0px);
+    }
+}
+@media all and (--from-mediumsmall) {
+    .expand .layout__content  {
+        transform: translateX(0px);
+    }
+}
+.expand .layout__content:after {
+    content: "";
+    opacity: 0.5;
+    user-select: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.layout__sidebar {
+    flex: 1 0 20rem;
+    background: white;
+    z-index: 1;
+    box-shadow: var(--shadow-level-1);
+    transform: translateX(-22rem);
+    transition: var(--transition-secondary);
+}
+@media all and (--from-mediumsmall) {
+    .layout__sidebar {
+        flex: 1 0 28.125rem;
+    }
+}
+.layout__sidebar:hover {
+    box-shadow: var(--shadow-level-2);
+}
+.expand .layout__sidebar  {
+    transform: translateX(0);
+    transition: transform 0.5s;
+    box-shadow: var(--shadow-level-4);
+    transition: var(--transition-tertiary);
+}
+.layout__post {
+    flex: 4 0 100%;
+    margin-top: 5rem;
+    padding: 1rem;
+    z-index: 0;
+    padding-top: 0;
+    transform: translateX(-20rem);
+    transition: var(--transition-secondary);
+}
+@media all and (--from-mediumsmall) {
+    .layout__post {
+        flex: 4 0 85%;
+        margin-top: 0;
+        transform: translateX(-20rem);
+    }
+}
+@media all and (--from-large) {
+    .layout__post {
+        flex: 4 0 100%;
+        padding: 0rem;
+        transform: translateX(-24rem);
+    }
+}
+.expand .layout__post  {
+    opacity: 0.5;
+    transform: translateX(0px);
+    transition: var(--transition-secondary);
+}
+.layout__form {
+    max-width: 1024px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}

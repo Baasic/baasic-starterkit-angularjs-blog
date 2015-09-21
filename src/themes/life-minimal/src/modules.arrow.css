@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    # modules.arrow
+\*------------------------------------*/
+
+.arrow {
+    display: inline-block;
+    height: 24px;
+    line-height: normal;
+    font-weight: normal;
+    transition: all .2s;
+}
+.arrow:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    border-color: var(--color-grey);
+}
+.arrow:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    transition: all .2s;
+    border-color: var(--color-grey);
+}
+.arrow.\--small:before {
+    width: 16px;
+    border-bottom: 1px solid var(--color-grey);
+}
+.arrow.\--small:after {
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid var(--color-grey);
+    border-bottom: 1px solid var(--color-grey);
+    transform: rotate(-45deg);
+    margin-left: -8px;
+}
+.arrow.\--bck {
+    transform: rotate(-180deg);
+    transform-origin: 50% 29%;
+}
+.arrow-holder:hover .arrow.\--fwd {
+    transform:translateX(5px);
+}
+.arrow-holder:hover .arrow.\--bck {
+    transform:translateX(-5px) rotate(-180deg);
+}

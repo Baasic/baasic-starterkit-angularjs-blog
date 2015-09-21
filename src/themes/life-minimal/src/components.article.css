@@ -1,0 +1,84 @@
+/*------------------------------------*\
+    # components.article
+\*------------------------------------*/
+
+@media all and (--from-mediumsmall) {
+    .articles {
+        margin-top: 1.5rem;
+    }
+}
+.article { 
+    padding-bottom: 2rem;
+}
+@media all and (--from-medium) {
+    .article {
+        padding-bottom: 5rem;
+    }
+}
+.article__title {
+    position: relative;
+}
+.article__title__link {
+    display: block;
+    font-family: var(--ff-sans);
+    font-size: var(--type-medium);
+    font-weight: var(--type-bold);
+    line-height: calc(var(--base-line-height)*1.25);
+    padding-bottom: 1rem;
+    color: var(--color-dodgerblue);
+}
+@media all and (--from-medium) {
+    .article__title__link {
+        font-size: var(--type-xxlarge);
+        line-height: calc(var(--base-line-height)*2);
+        padding-bottom: 2rem;
+        width: 100%;
+    }
+}
+.article__title__link:hover {
+    color: color(var(--color-dodgerblue) blackness(+30%));
+}
+.article__summary__text {
+    max-width: 40rem;
+}
+@media all and (--from-medium) {
+    .article__summary__text {
+        padding-left: 2rem;
+    }
+}
+.article__date {
+    display: block;
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--color-grey);
+    line-height: 3em;
+}
+.article__content {
+    overflow: hidden;
+}
+.articles article:nth-child(even) .article__title {
+    text-align: right;
+    padding-left: 20%;
+}
+.articles article:nth-child(even) .article__title:before {
+    content: " \2014";
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    font-size: var(--type-xxlarge);
+    color: var(--color-mediumgray);
+    color: var(--color-dodgerblue);
+}
+.articles article:nth-child(odd) .article__title {
+    padding-right: 20%;
+}
+.articles article:nth-child(odd) .article__title:after {
+    content: " \2014";
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+    font-size: var(--type-xxlarge);
+    color: var(--color-mediumgray);
+    color: var(--color-dodgerblue);
+}

@@ -4,25 +4,27 @@ angular.module('baasic.blog', [
 
 angular.module('myBlog', [
   'ui.router',
+  'ngAnimate',
   'btford.markdown',
   'ngTagsInput',
+  'smoothScroll',
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
   'baasic.blog'
 ])
-.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider',
-    function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider) {
+.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider', 'baasicAppConfigProvider',
+    function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider, baasicAppConfigProvider) {
         'use strict';
 
-        baasicAppProvider.create('starterkit-blog', {
-            apiRootUrl: 'api.baasic.com',
-            apiVersion: 'beta'
+        baasicAppProvider.create(baasicAppConfigProvider.config.apiKey, {
+            apiRootUrl: baasicAppConfigProvider.config.apiRootUrl,
+            apiVersion: baasicAppConfigProvider.config.apiVersion
         });
 
         $locationProvider.html5Mode({
             enabled: true
-        });       
+        });
 
         $urlRouterProvider.when('', '/');
 
@@ -87,33 +89,47 @@ angular.module('myBlog', [
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
-	function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
-	    'use strict';
+    function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
+        'use strict';
         
-        $rootScope.baseHref = $browser.baseHref().trimRight('/');
+        // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
+        var rightTrim = function (str, ch){
+            if (!str){
+                return '';
+            }
+            for (var i = str.length - 1; i >= 0; i--)
+            {
+                if (ch !== str.charAt(i))
+                {
+                    str = str.substring(0, i + 1);
+                    break;
+                }
+            } 
+            return str ? str : '';
+        };       
+        
+        $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
         
-	    blogService.tags.find({
-	        rpp: 10
-	    })
+        blogService.tags.find({
+            rpp: 10
+        })
         .success(function (tagList) {
             $scope.tags = tagList.item;
         });
 
-	    
+        $scope.setEmptyUser = function setEmptyUser() {
+            $scope.$root.user = {
+                isAuthenticated: false
+            };
+        };
 
-	    $scope.setEmptyUser = function setEmptyUser() {
-	        $scope.$root.user = {
-	            isAuthenticated: false
-	        };
-	    };
-
-	    $scope.newBlogPost = function newBlogPost() {
-	        $state.go('master.new-blog-post');
-	    };
-	}
+        $scope.newBlogPost = function newBlogPost() {
+            $state.go('master.new-blog-post');
+        };
+    }
 ])
 .controller('LoginCtrl', ['$scope', '$state',
     function LoginCtrl($scope, $state) {

@@ -1,9 +1,8 @@
-/* ==========  FOOTER  ========== */
-/**
-* If no content, stick to the bottom of the page
-*/
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
 
-footer {
+.mdl-mini-footer {
     position: absolute;
     bottom: 0;
     width: 100%;

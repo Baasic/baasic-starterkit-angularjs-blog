@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    # util.spacers
+\*------------------------------------*/
+*:focus {
+	outline: none;
+}
+.spc--top--med {
+    margin-top: 1rem;
+}
+.spc--top--lrg {
+    margin-top: 2rem;
+}
+.spc--left--lrg {
+    margin-left: 2rem;
+}
+.spc--btm--med {
+    margin-bottom: 1rem;
+}
+.spc--btm--lrg {
+    margin-bottom: 2rem;
+}

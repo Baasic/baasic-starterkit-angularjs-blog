@@ -10,6 +10,8 @@
     background: white;
     transition: all .2s;
     padding: 1rem;
+    appearance: none !important;
+    border-radius: 0;
 }
 .input:hover,
 .input:focus,
@@ -44,6 +46,8 @@
     padding: 0 2rem 1rem 0;
     line-height: 1.5rem;
     overflow: hidden;
+    appearance: none !important;
+    border-radius: 0;
 }
 .input--search:hover,
 .input--search:focus,
@@ -65,7 +69,6 @@
     position: absolute;
     left: -99999px;
 }
-
 .input--check + label {
     cursor: pointer;
     font-size: var(--type-small);
@@ -75,7 +78,6 @@
     color: var(--color-light);
     font-size: 0.8em;
 }
-
 .input--check + label:before {
     transition: all .5s;
     content: '';
@@ -88,12 +90,10 @@
     border: 1px solid var(--color-light);
     display: inline-block;
 }
-
 .input--check:checked + label:before {
     border-color: var(--color-primary);
     background: var(--color-primary);
 }
-
 .input--check:focus + label:before {
     border-color: var(--color-primary);
 }

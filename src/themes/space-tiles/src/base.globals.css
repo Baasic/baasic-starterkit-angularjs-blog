@@ -17,11 +17,6 @@ body {
 
     height: 100%;
 }
-
-.row {
-    max-width: 60em;
-    margin: 0 auto;
-}
 img, object, iframe {
     vertical-align: middle;
 }

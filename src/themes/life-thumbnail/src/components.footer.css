@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
+
+.footer {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    color: var(--color-light);
+    color: var(--color-secondary);
+}
+.footer__poweredby--link {
+    color: white;    
+}
+.footer__poweredby--link:hover {
+    color: var(--color-light);    
+}
+
+.footer__share {
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.footer__title {
+    text-align: left;
+    font-size: var(--type-small);
+    text-transform: uppercase;
+    font-weight: var(--type-light);
+    letter-spacing: .125rem;
+}

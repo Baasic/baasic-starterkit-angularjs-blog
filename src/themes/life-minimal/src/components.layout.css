@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+
+.layout__content {
+    padding: 4.5rem 1rem 1rem 1rem;
+    max-width: 112rem;
+}
+@media all and (--from-medium) {
+    .layout__content {
+        padding: 4.5rem 3rem 0 calc(30% + 3rem);
+    }
+}
+@media all and (--from-large) {
+    .layout__content {
+        padding-left: calc(50% + 3rem);
+    }
+}
