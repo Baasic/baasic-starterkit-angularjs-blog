@@ -13,40 +13,32 @@ This Kit is based on the Baasic article data type. Articles provide a standard w
 
 More information about the Starter Kit can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-Blog-Starter-Kit-part-1/).
 
-## Test out Starter Kit themes live demo
+## Starter Kit themes live demo
 
 ### Space themes
-[Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)
-
+[Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)  
 API Key: starterkit-blog
 
-[Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)
-
+[Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)  
 API Key: starterkit-blog
 
-[Space Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-thumbnail/)
-
+[Space Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-thumbnail/)  
 API Key: starterkit-blog
 
 ### Gastro themes
-[Gastro Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-thumbnail/)
-
+[Gastro Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-thumbnail/)  
 API Key: starterkit-blog-gastro
 
-[Gastro NSFY](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-nsfy/)
-
+[Gastro NSFY](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-nsfy/)  
 API Key: starterkit-blog-gastro
 
 ### Life theme
-[Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)
-
+[Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)  
 API Key: starterkit-blog-life
 
 ### Events theme
-[Events Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/events-minimal/)
-
+[Events Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/events-minimal/)  
 API Key: starterkit-blog-events
-
 
 ## Working with the Starter kit
  
