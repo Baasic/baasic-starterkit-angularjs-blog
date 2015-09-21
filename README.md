@@ -13,40 +13,29 @@ This Kit is based on the Baasic article data type. Articles provide a standard w
 
 More information about the Starter Kit can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-Blog-Starter-Kit-part-1/).
 
-## Test out Starter Kit themes live demo
+## Starter Kit themes live demo
 
 ### Space themes
-[Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)
+[Space Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-minimal/)  
 
-API Key: starterkit-blog
+[Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)  
 
-[Space Tiles](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-tiles/)
-
-API Key: starterkit-blog
-
-[Space Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-thumbnail/)
-
-API Key: starterkit-blog
+[Space Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/space-thumbnail/)  
 
 ### Gastro themes
-[Gastro Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-thumbnail/)
+[Gastro Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-thumbnail/)  
 
-API Key: starterkit-blog-gastro
-
-[Gastro NSFY](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-nsfy/)
-
-API Key: starterkit-blog-gastro
+[Gastro NSFY](http://demo.baasic.com/angularjs/starterkit-blog-themes/gastro-nsfy/)  
 
 ### Life theme
-[Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)
-
-API Key: starterkit-blog-life
+[Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)  
 
 ### Events theme
-[Events Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/events-minimal/)
+[Events Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/events-minimal/) 
 
-API Key: starterkit-blog-events
-
+### Music theme
+[Music Blocks](http://demo.baasic.com/angularjs/starterkit-blog-themes/music-blocks/)
+ 
 
 ## Working with the Starter kit
  
@@ -84,6 +73,13 @@ or
 ```bash
 gulp dist --theme gastro-thumbnail
 ```
+
+## Base url option
+
+You can also add a `--baseUrl` command if your blog destination is not in root of your website 
+
+For example:
+`--baseUrl "/angularjs/starterkit-blog-themes/events-minimal/"`
 
 Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
 
