@@ -89,7 +89,7 @@
 }
 
 .btn--search {
-    background-image: url(/assets/img/search.svg);
+    background-image: url(assets/img/search.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 1.5rem;

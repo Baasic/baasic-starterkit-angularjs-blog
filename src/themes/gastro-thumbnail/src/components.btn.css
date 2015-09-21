@@ -97,7 +97,7 @@
 }
 
 .btn--search {
-    background-image: url(/assets/img/search.svg);
+    background-image: url(assets/img/search.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 1.5rem;
@@ -119,6 +119,6 @@
 .btn--search:hover,
 .btn--search:active,
 .btn--search:focus {
-    background-image: url(/assets/img/search-o.svg);
+    background-image: url(assets/img/search-o.svg);
     outline: 0;
 }

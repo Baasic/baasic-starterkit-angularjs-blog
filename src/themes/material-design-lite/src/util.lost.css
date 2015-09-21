@@ -3,6 +3,6 @@
 \*------------------------------------*/
 
 .background__lost {
-    background: url(/assets/img/404.jpg) center center;
+    background: url(assets/img/404.jpg) center center;
     background-size: cover;
 }

@@ -27,14 +27,6 @@ var htmlminOpts = {
 var baseUrl = g.util.env.baseUrl || '/';
 var theme = g.util.env.theme || 'space-thumbnail';
 
-/**
- * CSS
- */
-gulp.task('clean-css', function (done) {
-    rimraf.sync('./.tmp/css', {});
-    done();
-});
-
 //Plugins
 var atImport = require('postcss-import');
 var customProperties = require('postcss-custom-properties');
@@ -44,7 +36,7 @@ var colorFunction = require('postcss-color-function');
 var autoprefixer = require('autoprefixer');
 
 //Processor
-gulp.task('styles', ['clean-css'], function () {
+gulp.task('styles', ['clean-tmp'], function () {
     var processors = [
         atImport({
             from: './src/themes/' + theme + '/src/app.css'
@@ -60,9 +52,8 @@ gulp.task('styles', ['clean-css'], function () {
 
     return gulp.src(
         './src/themes/' + theme + '/src/app.css')
-        .pipe(postcss(processors))
-        .pipe(assetBaseUrlFix())
-        .pipe(gulp.dest('./.tmp/css/'))
+        .pipe(postcss(processors))        
+        .pipe(gulp.dest('./.tmp/'))
         .pipe(g.cached('built-css'))
         .pipe(livereload());
 });
@@ -84,9 +75,8 @@ gulp.task('styles-dist', function () {
         './src/themes/' + theme + '/src/app.css'
     ])
         .pipe(postcss(processors))
-        .pipe(assetBaseUrlFix())
         .pipe(minifyCss())
-        .pipe(gulp.dest('./dist/css/'));
+        .pipe(gulp.dest('./dist/'));
 });
 
 
@@ -145,7 +135,7 @@ function index() {
     return gulp.src('./src/app/index.html')
         .pipe(g.inject(gulp.src('./src/themes/' + theme + '/assets/js/*.js'), { addRootSlash: false, ignorePath: 'src/themes/' + theme, starttag: '<!-- inject:vendorTheme -->' }))
         .pipe(g.inject(gulp.src(bowerFiles(), opt), { addRootSlash: false, ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->' }))
-        .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app', 'src/themes/' + theme] }))
+        .pipe(g.inject(es.merge(appFiles(), cssFiles('./.tmp/**/*.css', opt)), { addRootSlash: false, ignorePath: ['.tmp', 'src/app', 'src/themes/' + theme] }))
         .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
         .pipe(g.embedlr())
         .pipe(gulp.dest('./.tmp/'))
@@ -172,6 +162,11 @@ gulp.task('clean-dist', function (done) {
     done();
 });
 
+gulp.task('clean-tmp', function (done) {
+    rimraf.sync('./.tmp/', {});
+    done();
+});
+
 
 /**
  * Dist
@@ -181,7 +176,7 @@ gulp.task('dist', ['clean-dist', 'vendors', 'assets', 'styles-dist', 'scripts-di
         .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
         .pipe(replace('<base href="/" />', '<base href="' + baseUrl + '" />'))
         .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), { addRootSlash: false, ignorePath: 'dist' }))
-        .pipe(g.inject(cssFilesDist({}), { addRootSlash: false, ignorePath: ['dist', 'src/app', 'src/themes/' + theme] }))
+        .pipe(g.inject(cssFiles('./dist/**/*.css', {}), { addRootSlash: false, ignorePath: ['dist', 'src/app', 'src/themes/' + theme] }))
         .pipe(g.htmlmin(htmlminOpts))
         .pipe(gulp.dest('./dist/'));
 });
@@ -298,20 +293,8 @@ function testFiles() {
 /**
  * All CSS files as a stream
  */
-function cssFiles(opt) {
-    return gulp.src('./.tmp/css/**/*.css', opt);
-}
-
-function cssFilesDist(opt) {
-    return gulp.src('./dist/css/**/*.css', opt);
-}
-
-/**
- * Assest baseUrl fix
- */
-function assetBaseUrlFix()
-{
-    return replace(/url\(\/assets\/img\/(.*)\)/g, 'url(' + baseUrl + 'assets/img/$1)');    
+function cssFiles(src, opt) {
+    return gulp.src(src, opt);
 }
 
 /**
