@@ -1,14 +1,12 @@
-/* ==========  PAGER  ========== */
-/**
-* Pager
-*/
-pager {
+/*------------------------------------*\
+    # components.pager
+\*------------------------------------*/
+
+.pager {
     width: 100%;
 }
-pager>a.link {
+.pager>.link {
     text-decoration: none;
     color: #FFF;
-}
-pager>a.link>span {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
 }

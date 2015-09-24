@@ -6,9 +6,10 @@
     width: 100%;
     position: fixed;
     bottom: 0;
+    left: 0;
     z-index: 9999;
     background-color: #00c2e8;
-    box-shadow: 0 -1px 3px rgba(0,0,0,0.12), 0 -1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 -3px 6px rgba(0,0,0,0.1), 0 -3px 6px rgba(0,0,0,0.15);
     transition: all 0.25s cubic-bezier(0.58, -0.01, 0.43, 0.96);
 }
 .message__container {
@@ -30,7 +31,7 @@
 .message__title:hover {
     background-color: color(#00c2e8 blackness(20%));
 }
-@media all and (min-width: 40em) {
+@media all and (--from-mediumsmall) {
     .message__title {
         width: 80%;
         float: right;
@@ -39,14 +40,14 @@
         border-left: 1px solid color(white a(40%));
     }
 }
-@media all and (min-width: 64em) {
+@media all and (--from-large) {
     .message__title {
         width: 85%;
         padding: 1rem 2.5rem;
 
     }
 }
-@media all and (min-width: 80em) {
+@media all and (--from-xlarge) {
     .message__title {
         width: 90%;
     }
@@ -56,7 +57,7 @@
     width: 100%;
     height: 3.125rem;
     text-indent: -999999px;
-    background-image: url(/assets/img/baasic-logo.svg);
+    background-image: url(assets/img/baasic-logo.svg);
     background-repeat: no-repeat;
     background-position: 1.5rem;
     border-left: 1px solid color(white a(40%));
@@ -64,18 +65,18 @@
 .message__icon--primary:hover {
     background-color: color(#00c2e8 blackness(20%));
 }
-@media all and (min-width: 40em) {
+@media all and (--from-mediumsmall) {
     .message__icon--primary {
         width: 20%;
         float: left;
     }
 }
-@media all and (min-width: 64em) {
+@media all and (--from-large) {
     .message__icon--primary {
         width: 15%;
     }
 }
-@media all and (min-width: 80em) {
+@media all and (--from-xlarge) {
     .message__icon--primary {
         width: 10%;
     }
@@ -87,7 +88,7 @@
     right: 0;
     top: 0rem;
     text-indent: -999999px;
-    background-image: url(/assets/img/close.svg);
+    background-image: url(assets/img/close.svg);
     background-repeat: no-repeat;
     background-position: center;
     border-left: 1px solid color(white a(40%));
@@ -98,7 +99,7 @@
 .message.close {
     transform: translateY(9rem);
 }
-@media all and (min-width: 40em) {
+@media all and (--from-mediumsmall) {
     .message.close {
         transform: translateY(5rem);
     }

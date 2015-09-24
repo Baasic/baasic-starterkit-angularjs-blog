@@ -6,7 +6,7 @@
 }
 .logo__link {
     display: block;
-    background: url(/assets/img/logo.svg);
+    background: url(assets/img/logo.svg);
     background-repeat: no-repeat;
     background-size: cover;
     text-indent: 100%;

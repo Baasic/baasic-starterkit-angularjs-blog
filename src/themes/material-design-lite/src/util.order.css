@@ -14,13 +14,14 @@
 }
 .box--quartenary {
     order: 4;
+    width: 100%;
 }
 @media (max-width:35rem) {
     .box--primary {
         order: 2;
         margin-top: 1rem;
     }
-    .box-secondary {
+    .box--secondary {
         order: 1;
     }
 }
