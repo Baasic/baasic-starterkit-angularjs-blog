@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    # util.group
+\*------------------------------------*/
+
+.group {
+    overflow: hidden;
+}
+
+.group--cf:before,
+.group--cf:after {
+  content: "";
+  display: table;
+}
+.group--cf:after {
+  clear: both;
+}

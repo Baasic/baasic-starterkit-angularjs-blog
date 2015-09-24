@@ -27,12 +27,12 @@
     border-bottom: 1px solid var(--color-grey);
 }
 .arrow.\--small:after {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-right: 1px solid var(--color-grey);
     border-bottom: 1px solid var(--color-grey);
     transform: rotate(-45deg);
-    margin-left: -9px;
+    margin-left: -8px;
 }
 .arrow.\--bck {
     transform: rotate(-180deg);
