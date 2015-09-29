@@ -191,7 +191,6 @@ gulp.task('serve', ['watch'], g.serve({
         if (req.url.indexOf('.') === -1) {
             req.url = '/index.html';
         }
-
         return next();
     }
 }));
@@ -206,7 +205,7 @@ gulp.task('watch', ['default'], function () {
             g.livereload.changed(evt);
         }
     });
-    gulp.watch('./src/themes/' + theme + '/templates/**/*.js', ['jshint']).on('change', function (evt) {
+    gulp.watch('./src/themes/' + theme + '/templates/**/*.js', ['jshint', 'scripts']).on('change', function (evt) {
         if (evt.type !== 'changed') {
             gulp.start('index');
         } else {
@@ -234,33 +233,7 @@ gulp.task('default', ['lint', 'build-all']);
  */
 gulp.task('lint', ['jshint', 'csslint']);
 
-/**
- * Test
- */
-gulp.task('test', ['templates'], function () {
-    return testFiles()
-        .pipe(g.karma({
-            configFile: 'karma.conf.js',
-            action: 'run'
-        }));
-});
 
-/**
- * Inject all files for tests into karma.conf.js
- * to be able to run `karma` without gulp.
- */
-gulp.task('karma-conf', ['templates'], function () {
-    return gulp.src('./karma.conf.js')
-        .pipe(g.inject(testFiles(), {
-            starttag: 'files: [',
-            endtag: ']',
-            addRootSlash: false,
-            transform: function (filepath, file, i, length) {
-                return '  \'' + filepath + '\'' + (i + 1 < length ? ',' : '');
-            }
-        }))
-        .pipe(gulp.dest('./'));
-});
 
 /**
  * Linter
@@ -278,17 +251,6 @@ gulp.task('jshint', function () {
 gulp.task('csslint', ['styles'], function () {
 });
 
-/**
- * Test files
- */
-function testFiles() {
-    return new queue({ objectMode: true })
-        .queue(gulp.src(fileTypeFilter(bowerFiles(), 'js')))
-        .queue(gulp.src('./bower_components/angular-mocks/angular-mocks.js'))
-        .queue(appFiles())
-        .queue(gulp.src(['./src/app/**/*_test.js', './.tmp/src/app/**/*_test.js']))
-        .done();
-}
 
 /**
  * All CSS files as a stream
