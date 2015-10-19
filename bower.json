@@ -22,7 +22,7 @@
     "angular-ui-router": "~0.2.13",
     "baasic-angular-security": "Baasic/baasic-sdk-angularjs-security#~0.2.0",
     "baasic-angular-membership": "Baasic/baasic-sdk-angularjs-membership#~0.2.0",
-    "baasic-angular-article": "Baasic/baasic-sdk-angularjs-articles#~0.2.0",
+    "baasic-angular-article": "Baasic/baasic-sdk-angularjs-articles#~0.2.7",
     "baasic-angular-dynamic-resource": "Baasic/baasic-sdk-angularjs-dynamic-resource#~0.2.0",
     "angular-markdown-directive": "~0.3.1",
     "ng-tags-input": "~2.3.0",

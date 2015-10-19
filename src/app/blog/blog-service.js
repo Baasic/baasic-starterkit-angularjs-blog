@@ -57,8 +57,8 @@
                 return baasicArticleService.publish(blog);
             };
 
-            this.publish = function publish(blog) {
-                return baasicArticleService.publish(blog);
+            this.publish = function publish(blog, options) {
+                return baasicArticleService.publish(blog, options);
             };
 
             this.next = function next(blogList) {
