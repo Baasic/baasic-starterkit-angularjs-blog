@@ -1,0 +1,27 @@
+<form name="registrationForm">
+  <h2>Registration Form</h2>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="text" ng-model="vm.user.email" required maxlength="30">
+  </div>
+  <div>
+    <label for="userName">UserName:</label>
+    <input id="userName" type="text" ng-model="vm.user.userName" required maxlength="30">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" ng-model="vm.user.password" required maxlength="30">
+  </div>
+  <div>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input id="confirmPassword" type="password" ng-model="vm.user.confirmPassword" required maxlength="30">
+  </div>
+  <div baasic-recaptcha></div>
+  <hr>
+  <div>
+    <button type="submit" ng-click="vm.register()">Register</button>
+  </div>
+  <div ng-if="vm.message">
+    <p>{{vm.message}}</p>
+  </div>
+</form>

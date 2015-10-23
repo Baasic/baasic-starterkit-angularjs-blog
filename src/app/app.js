@@ -62,6 +62,16 @@ angular.module('myBlog', [
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl'
             })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'templates/membership/register.html',
+                controller: 'RegisterCtrl'
+            })
+            .state('account-activation', {
+                url: '/account-activation?activationToken',
+                templateUrl: 'templates/membership/account-activation.html',
+                controller: 'AccountActivationController'
+            })            
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',
