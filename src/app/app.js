@@ -28,11 +28,11 @@ angular.module('myBlog', [
 
         $urlRouterProvider.when('', '/');
 
-        $urlRouterProvider.otherwise(function ($injector) {
+ /*       $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
             $state.go('404');
         });
-
+*/
         $urlRouterProvider.rule(function ($injector, $location) {
             var path = $location.path();
 
@@ -41,7 +41,20 @@ angular.module('myBlog', [
                 $location.replace().path(path.substring(0, path.length - 1));
             }
         });
-
+/*
+        $urlRouterProvider.otherwise(function($injector, $location){
+            var state = $injector.get('$state');
+            var searchObject = $location.search();
+            if (searchObject && searchObject.oauth_token){
+                state.go('login', searchObject);
+            } else if (searchObject && searchObject.code){
+                state.go('login', searchObject);
+            } else{
+                state.go('login');
+            }
+            return $location.path();
+        });
+*/
         $stateProvider
             .state('master', {
                 abstract: true,
@@ -70,8 +83,18 @@ angular.module('myBlog', [
             .state('account-activation', {
                 url: '/account-activation?activationToken',
                 templateUrl: 'templates/membership/account-activation.html',
-                controller: 'AccountActivationController'
-            })            
+                controller: 'AccountActivationCtrl'
+            })
+            .state('password-recovery', {
+                url: '/password-recovery',
+                templateUrl: 'templates/membership/password-recovery.html',
+                controller: 'PasswordRecoveryCtrl'
+            })
+            .state('password-change', {
+                url: '/password-change?passwordRecoveryToken',
+                templateUrl: 'templates/membership/password-change.html',
+                controller: 'PasswordChangeCtrl'
+            })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
                 templateUrl: 'templates/blog/new-blog-post.html',
@@ -96,12 +119,14 @@ angular.module('myBlog', [
                 templateUrl: 'templates/404.html'
             });
     }
+
+
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
     function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
         'use strict';
-        
+
         // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
         var rightTrim = function (str, ch){
             if (!str){
@@ -114,15 +139,15 @@ angular.module('myBlog', [
                     str = str.substring(0, i + 1);
                     break;
                 }
-            } 
+            }
             return str ? str : '';
-        };       
-        
+        };
+
         $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
-        
+
         blogService.tags.find({
             rpp: 10
         })

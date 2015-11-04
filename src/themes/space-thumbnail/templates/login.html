@@ -1,7 +1,9 @@
 ﻿<div class="layout__form">
     <a class="btn btn--light btn--med rounded" ui-sref="master.main.index">Home</a>
 </div>
-
 <baasic-login on-login="goHome()"></baasic-login>
 
+<div ng-controller="LoginController">
+    <baasic-social-login></baasic-social-login>    
+</div>
 

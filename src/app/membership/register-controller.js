@@ -26,13 +26,16 @@ angular.module('baasic.blog')
 					
 					baasicRegisterService.create(vm.user)
 						.success(function() {
-							vm.message = 'You have successfully registered, please check you email in order to finish regitration process';
+							vm.message = 'You have successfully registered, please check you email in order to finish registration process';
 						})
 						.error(function(data, status) {
 							vm.message = status + ': ' + data.message;
-							console.log(message);
 							baasicRecaptchaService.reload();
+						})
+						.finally(function () {
+							$scope.$root.loader.resume();
 						});
 				}
 			};
-		}]);
+		}
+	]);
