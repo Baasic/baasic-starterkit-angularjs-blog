@@ -1,23 +1,25 @@
-﻿<div class="layout__form">
-    <h1 class="spc--bottom--lrg">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h1>
+﻿<div class="header header--editor" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : '' }">
+    <div class="header header--gradient">
+        <blog-menu></blog-menu>
+        <h2 class="header__title">{{ isNew ? 'Add New' : 'Edit' }} Blog Post</h2>
+    </div>
+</div>
+<div class="layout__form">
     <form name="blogPost" novalidate class="form">
         <div class="form__field clearfix">
             <input type="text" name="title" id="fieldTitle" ng-model="blog.title" class="input input--text" required />
             <label class="form__label position--abs" for="fieldTitle">Title</label>
-            <span class="input--highlight"></span>
             <span class="input--bar"></span>
             <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
         </div>
         <div class="form__field clearfix">
             <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
             <label class="form__label position--abs" for="fieldBody">Featured image</label>
-            <span class="input--highlight"></span>
             <span class="input--bar"></span>
         </div>
         <div class="form__field">
             <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea"></textarea>
             <label class="form__label position--abs" for="fieldExcerpt">Excerpt</label>
-            <span class="input--highlight"></span>
             <span class="input--bar"></span>
         </div>
         <div class="form__field spc--bottom--med">
@@ -31,9 +33,9 @@
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">
-                        <button class="btn --secondary --med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                        <button class="btn --secondary --med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                        <button class="btn --secondary --med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
                     </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>
@@ -41,20 +43,18 @@
                         {{ getHtml(blog.content) }}
                     </div>
                     <div class="editor__field" ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'">
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="form__field clearfix">
             <tags-input class="form__label" -input ng-model="blog.tags" display-property="tag" add-on-comma="true">
-                <auto-complete source="loadTags($query)">
-                </auto-complete>
+                <auto-complete source="loadTags($query)"></auto-complete>
             </tags-input>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn --primary --med" ng-click="saveBlog()">Save</button>
-            <button type="button" class="btn --secondary --med" ng-click="cancelEdit()">Cancel</button>
+            <button type="submit" class="btn btn--secondary btn--med" ng-click="saveBlog()">Save</button>
+            <button type="button" class="btn btn--tertiary btn--med" ng-click="cancelEdit()">Cancel</button>
         </div>
         <div ng-show="error">
             {{ error }}

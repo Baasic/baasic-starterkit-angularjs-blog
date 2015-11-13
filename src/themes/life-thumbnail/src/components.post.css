@@ -1,7 +1,9 @@
 /*------------------------------------*\
     # components.post
 \*------------------------------------*/
-
+.post {
+    background-color: var(--color-light);
+}
 .post__header {
     text-align: center;
     position: relative;
@@ -9,7 +11,6 @@
     margin-bottom: 3rem;
     padding: 6.5rem 1.5rem;
     z-index: -2;
-
     /* Background image URL comes from HTML style attribute */
     background-size: cover;
     background-position: center;
@@ -53,9 +54,11 @@
 .post__title {
     font-family: var(--ff-sans);
     font-size: var(--type-large);
+    color: var(--color-primary);
     line-height: calc(var(--base-line-height)*1.5);
     font-weight: normal;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 @media all and (--from-medium) {
     .post__title {
@@ -67,6 +70,20 @@
     .post__title {
         font-size: 3rem;
         line-height: calc(var(--base-line-height)*2.5);
+    }
+}
+.post__title:after {
+    content: '';
+    margin-top: .5rem;
+    display: block;
+    width: 3.66667rem;
+    height: .22222rem;
+    background: var(--color-primary);
+}
+@media all and (--from-medium) {
+    .post__title:after {
+        height: .33333rem;
+        margin-top: 1rem;
     }
 }
 .post__body__holder {
@@ -97,21 +114,22 @@
     }
 }
 @media all and (--from-large) {
-    .post__body { 
+    .post__body {
         padding: 3rem 4rem;
     }
 }
 .post__body .styledtext p:first-of-type {
     font-family: var(--ff-sans);
-    font-size: var(--type-medium);
-    line-height: calc(var(--base-line-height)*1.25);
+    font-size: var(--type-base);
+    line-height: calc(var(--base-line-height)*1.15);
     margin-bottom: calc(var(--base-line-height)*1);
+    font-style: italic;
 }
 @media all and (--from-medium) {
     .post__body .styledtext p:first-of-type {
         font-family: var(--ff-sans);
-        font-size: var(--type-large);
-        line-height: calc(var(--base-line-height)*1.5);
+        font-size: var(--type-medium);
+        line-height: calc(var(--base-line-height)*1.25);
         margin-bottom: calc(var(--base-line-height)*2);
     }
 }

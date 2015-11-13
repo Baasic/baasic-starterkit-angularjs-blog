@@ -3,30 +3,57 @@
 \*------------------------------------*/
 
 .header {
-    padding: 1.5rem;
+    width: 100%;
+    height: 14rem;
+    margin-bottom: .5rem;
 }
-@media all and (--to-large) {
+@media all and (--from-medium) {
     .header {
-        padding-top: 6rem;
+        height: 20rem;
     }
 }
-@media all and (--from-large) {
-    .header {
-        padding: 3rem 3rem 0 3rem;
+.header--gradient {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+    height: 100%;
+}
+.header--home {
+    background: url(./assets/img/home.jpg) no-repeat center;
+    background-size: cover;
+}
+.header--login {
+    background: url(./assets/img/login.jpg) no-repeat center;
+    background-size: cover;
+}
+.header--search__results {
+    background: url(./assets/img/search.jpg) no-repeat center;
+    background-size: cover;
+}
+.header--editor {
+    background: url(./assets/img/editor.jpg) no-repeat center;
+    background-size: cover;
+}
+.header--lost {
+    background: url(./assets/img/lost.jpg) no-repeat top;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+.header__title {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 1.5rem;
+    font-size: calc(var(--base-font-size)*1.2);
+    line-height: calc(var(--base-line-height)*1.5);
+    font-family: var(--ff-sans);
+}
+@media all and (--from-medium) {
+    .header__title {
+        margin-top: 2.5rem;
+        font-size: calc(var(--base-font-size)*2);
+        line-height: calc(var(--base-line-height)*2);
     }
-}
-.header__desc {
-    padding: 1.5rem 0;
-    color: var(--color-primary);
-    font-size: var(--type-medium);
-    font-weight: var(--type-light: 300);
-    font-style: italic;
-}
-.header__auth {
-    display: block;
-    color: var(--color-secondary);
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--type-base);
-    margin-top: .5rem;
 }

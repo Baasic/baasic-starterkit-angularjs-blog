@@ -5,9 +5,7 @@
 /*
 * Fonts
 */
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic);
-@import url(https://fonts.googleapis.com/css?family=Noto+Serif);
-
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,400,700);
 /*
 * Variables
 */
@@ -45,12 +43,11 @@
 
 /**
 * Project specific modules
-* All our modules such as buttons, inputs, labels, tables etc. 
+* All our modules such as buttons, inputs, labels, tables etc.
 */
 
 @import "modules.anchor.css";
 @import "modules.alert.css";
-@import "modules.grid.css";
 @import "modules.input.css";
 @import "modules.loader.css";
 
@@ -62,10 +59,10 @@
 @import "components.logo.css";
 @import "components.message.css";
 @import "components.btn.css";
-@import "components.bg.css";
 @import "components.layout.css";
 @import "components.form.css";
 @import "components.styledtext.css";
+@import "components.hamburger.css";
 @import "components.header.css";
 @import "components.footer.css";
 @import "components.tags.css";
@@ -73,9 +70,8 @@
 @import "components.article.css";
 @import "components.post.css";
 @import "components.editor.css";
-@import "components.toggle.css";
 @import "components.search.css";
-@import "components.sidebar.css";
+@import "components.navbar.css";
 @import "components.pager.css";
 @import "components.lost.css";
 
@@ -85,7 +81,7 @@
 
 /**
 * Project specific external plugins
-* All project Sass or CSS plugins such as Select2, Dropit etc. 
+* All project Sass or CSS plugins such as Select2, Dropit etc.
 */
 
 @import "plugins.tageditor.css";

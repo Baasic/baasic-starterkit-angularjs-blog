@@ -10,7 +10,6 @@
         transform: rotate(360deg);
     }
 }
-
 .loader {
     position: fixed;
     z-index: 5;
@@ -25,15 +24,12 @@
     opacity: 1;
     transition: all .5s;
 }
-
 .loader.ng-hide {
     opacity: 0;
     display: block !important;
     visibility: hidden;
 }
-
 .loading__content {}
-
 .loading__message {
     font-size: var(--type-small);
     font-family: var(--ff-sans);;
@@ -42,8 +38,7 @@
     letter-spacing: .1em;
     text-align: center;
  }
-
- .loader__spinner {
+.loader__spinner {
   position: relative;
   border: 6px solid #ececec;
   max-width: 126px;
@@ -58,7 +53,6 @@
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1s infinite ease-in-out;
 }
-
 .loader__spinner .loaderL {
   margin-right: 15px;
   -webkit-animation-delay: -1.0s;
@@ -73,18 +67,15 @@
   background: var(--color-light);
   position: absolute;
 }
-
 .loader__spinner .loaderI {
   -webkit-animation-delay: -0.85s;
   animation-delay: -0.85s;
 }
-
 .loader__spinner .loaderF {
   margin-right: 15px;
   -webkit-animation-delay: -0.7s;
   animation-delay: -0.7s;
 }
-
 .loader__spinner .loaderE {
   -webkit-animation-delay: -0.55s;
   animation-delay: -0.55s;
@@ -107,7 +98,6 @@
   background: var(--color-light);
   position: absolute;
 }
-
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(1)
@@ -116,7 +106,6 @@
     -webkit-transform: scaleY(1.8)
   }
 }
-
 @keyframes sk-stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(1);

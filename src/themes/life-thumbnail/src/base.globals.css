@@ -9,9 +9,9 @@ html {
 }
 body {
     font-family: var(--ff-sans);
-    min-width: 20em;
-    background: var(--color-bodybg);
-    color: var(--color-dark);
+    min-width: 19rem;
+    background: var(--color-white);
+    color: var(--color-grey);
 }
 img, object, iframe {
     vertical-align: middle;

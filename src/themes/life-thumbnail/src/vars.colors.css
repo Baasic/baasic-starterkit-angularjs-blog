@@ -8,8 +8,10 @@
     --color-sunglo:         #c45c4c;
 
     --color-white:          #ffffff;
-    --color-white-smoke:    #ececec;
+    --color-white-smoke:    #F5F5F5;
+    --color-whitegrey:      #BFBFBF;
     --color-dim-grey:       #6f6f6f;
+    --color-darkgrey:       #333333;
 
     --color-torchred:       #FF0043;
     --color-malachite:      #00D369;
@@ -21,12 +23,13 @@
     --color-tertiary:   var(--color-sunglo);
 
     --color-ultralight: var(--color-white);
+    --color-semilight:  var(--color-whitegrey);
     --color-light:      var(--color-white-smoke);
     --color-grey:       var(--color-dim-grey);
 
-    --color-warning:     var(--color-torchred);
-    --color-success:     var(--color-malachite);
-    --color-note:        var(--color-orange);
+    --color-warning:    var(--color-torchred);
+    --color-success:    var(--color-malachite);
+    --color-note:       var(--color-orange);
 }
 
 
