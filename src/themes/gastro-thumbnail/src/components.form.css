@@ -25,6 +25,11 @@
         float: right;
         padding-left: 1rem;
     }
+    .form__field--half:first-child {
+        float: left;
+        padding-right: 1rem;
+        padding-left: 0;
+    }
 }
 
 .form__label {

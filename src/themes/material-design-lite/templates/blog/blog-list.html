@@ -68,6 +68,7 @@
     <div class="mdl-layout__obfuscator"></div>
 </div>
 <baasic-logout ng-if="$root.user.isAuthenticated" on-logout="setEmptyUser()">
-    <a ui-sref="master.main.index" ng-click="logout()" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
+    <a ui-sref="master.main.index" ng-click="logout()" class="logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Logout</a>
 </baasic-logout>
-<a ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login__logout mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
+<a ng-if="!$root.user.isAuthenticated" ui-sref="login" class="login mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Log-in</a>
+<a ng-if="!$root.user.isAuthenticated" ui-sref="register" class="register mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Register</a>

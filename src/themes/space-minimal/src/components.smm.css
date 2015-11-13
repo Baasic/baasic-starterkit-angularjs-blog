@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    # modules.smm
+\*------------------------------------*/
+
+.smm__icon {
+    height: 1rem;
+}
+.smm__icon--login {
+    margin-bottom: .857rem;
+    float: left;
+    margin-right: .57143rem;
+    display: block;
+    height: 3.42857rem;
+    width: 3.42857rem;
+    border-top: 2px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+    background-color: #f6f6f6;
+    background-size: 1.71429rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: border .1s ease-in-out;
+}
+.smm__icon--login--facebook {
+    background-image: url(/assets/img/smm-facebook.svg);
+}
+.smm__icon--login--twitter {
+    background-image: url(/assets/img/smm-twitter.svg);
+}
+.smm__icon--login--google {
+    background-image: url(/assets/img/smm-google.svg);
+}
+.smm__icon--login--github {
+    background-image: url(/assets/img/smm-github.svg);
+}
+.smm__icon--login:hover {
+    border-left: 5px solid #333;
+}
+.smm__icon--login:focus {
+    outline: none;
+}

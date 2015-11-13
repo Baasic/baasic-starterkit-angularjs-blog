@@ -1,0 +1,53 @@
+/*------------------------------------*\
+    # modules.smm
+\*------------------------------------*/
+
+.smm__icon {
+    height: 1rem;
+}
+.smm__icon--login {
+    margin-bottom: .857rem;
+    float: left;
+    margin-right: .57143rem;
+    display: block;
+    height: 3.42857rem;
+    width: 3.42857rem;
+    border: 1px solid var(--color-primary);
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    background-size: 1.71429rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background-color .2s ease-in-out;
+}
+.smm__icon--login--facebook {
+    background-image: url(/assets/img/smm-facebook.svg);
+}
+.smm__icon--login--facebook:hover {
+    background-image: url(/assets/img/smm-facebook-white.svg);
+}
+.smm__icon--login--twitter {
+    background-image: url(/assets/img/smm-twitter.svg);
+}
+.smm__icon--login--twitter:hover {
+    background-image: url(/assets/img/smm-twitter-white.svg);
+}
+.smm__icon--login--google {
+    background-image: url(/assets/img/smm-google.svg);
+}
+.smm__icon--login--google:hover {
+    background-image: url(/assets/img/smm-google-white.svg);
+}
+.smm__icon--login--github {
+    background-image: url(/assets/img/smm-github.svg);
+}
+.smm__icon--login--github:hover {
+    background-image: url(/assets/img/smm-github-white.svg);
+}
+.smm__icon--login:hover {
+    background-color: var(--color-primary);
+}
+.smm__icon--login:focus {
+    outline: none;
+}

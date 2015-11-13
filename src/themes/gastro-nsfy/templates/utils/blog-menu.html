@@ -19,7 +19,7 @@
                 </div>
                 <p class="header__desc" ng-class="{'expand': menuOpened}">"It's very important not to embellish on your order. No extraneous comments. No questions. No compliments."<span class="header__auth">Jerry Seinfeld, "The Soup Nazi"</span></p>
             </div>
-            
+
             <nav class="sidebar__navigation" role="navigation" ng-class="{'expand': menuOpened}">
                 <h2 class="sidebar__title">Recent Tags</h2>
                 <ul class="tags group" ng-controller='MainCtrl'>
@@ -28,7 +28,7 @@
                     </li>
                 </ul>
             </nav>
-            
+
             <div class="sidebar__widget header__share" ng-class="{'expand': menuOpened}">
                 <h2 class="sidebar__title">Spread the word</h2>
                 <ul class="smm group">
@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div class="sidebar__widget" ng-class="{'expand': menuOpened}">
                 <h2 class="sidebar__title">Admin</h2>
                 <div ng-if="$root.user.isAuthenticated">
@@ -64,12 +64,13 @@
                     <button type="button" class="btn btn--secondary btn--med" ng-click="logout()">Logout</button>
                 </baasic-logout>
             </div>
-            
+
             <div ng-if="!$root.user.isAuthenticated">
                 <p class="sidebar__message">To create new blog please </p>
-                <a class="btn btn--primary btn--med" ui-sref="login">login</a></div>
+                <a class="btn btn--primary btn--med" ui-sref="login">login</a>
+                <a class="btn btn--primary btn--med" ui-sref="register">register</a></div>
             </div>
-            
+
             <footer class="footer" role="contentinfo">
                 <div class="footer__info">
                     <p>Copyright @ Blog name</p>

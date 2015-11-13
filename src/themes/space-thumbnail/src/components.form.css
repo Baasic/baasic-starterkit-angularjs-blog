@@ -16,6 +16,7 @@
 .form__field--half {
     margin-bottom: 1.5rem;
 }
+
 @media all and (--from-medium) {
     .form__field--half {
         float: left;

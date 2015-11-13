@@ -41,7 +41,7 @@
 
 /**
 * Project specific modules
-* All our modules such as buttons, inputs, labels, tables etc. 
+* All our modules such as buttons, inputs, labels, tables etc.
 */
 
 @import "modules.anchor.css";
@@ -51,7 +51,6 @@
 @import "modules.input.css";
 @import "modules.loader.css";
 @import "modules.arrow.css";
-
 
 /**
 * Project specific components
@@ -74,13 +73,14 @@
 @import "components.search.css";
 @import "components.pager.css";
 @import "components.message.css";
+@import "components.smm.css";
 
 /*@import "components.componentname.css";*/
 
 
 /**
 * Project specific external plugins
-* All project Sass or CSS plugins such as Select2, Dropit etc. 
+* All project Sass or CSS plugins such as Select2, Dropit etc.
 */
 
 @import "plugins.tageditor.css";

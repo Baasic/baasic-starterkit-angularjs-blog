@@ -15,7 +15,7 @@
 <div class="container container__main">
     <div class="" role="banner">
         <header role="banner" class="header">
-            
+
             <div class="group">
                 <a ui-sref="master.main.index"><h1 class="logo">Baasic Starter Kit Blog Platform</h1></a>
             </div>
@@ -29,7 +29,7 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="profile__wrapper">
                     <a href="#" class="avatar push">
                         <img src="assets/img/avatar.jpg" alt="logo">
@@ -43,20 +43,21 @@
                                 <button type="button" class="btn btn--light btn--med" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
-                        
+
                         <div ng-if="!$root.user.isAuthenticated">
                             <p class="profile__message">To create new blog please </p>
                             <a class="btn btn--primary btn--med" ui-sref="login">login</a>
+                            <a class="btn btn--primary btn--med" ui-sref="register">register</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
     </div>
-    
+
     <div class="container">
         <main ui-view smooth-scroll>
-            
+
         </main>
     </div>
 

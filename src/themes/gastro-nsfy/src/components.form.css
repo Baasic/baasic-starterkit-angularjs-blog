@@ -29,6 +29,10 @@
     .form__field--half:last-child {
         float: right;
     }
+
+    .form__field--half:first-child {
+        float: left;
+    }
 }
 .form__label {
     left: .5rem;
@@ -38,10 +42,10 @@
     margin-bottom: .75rem;
     display: block;
     color: var(--color-grey);
-    transition:0.2s ease all; 
+    transition:0.2s ease all;
 }
 
-.input:focus ~ .form__label, 
+.input:focus ~ .form__label,
 .input:valid ~ .form__label {
     top: -1rem;
     font-size: var(--type-small);

@@ -35,6 +35,10 @@
 .icon--login:before {
     content: "\e28d";
 }
+.icon--register:before {
+    content: "\e28d";
+    transform: rotate(90deg);
+}
 .icon--tagcloud:before {
     content: "\e007";
 }
