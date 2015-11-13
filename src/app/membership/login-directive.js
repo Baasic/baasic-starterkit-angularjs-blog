@@ -1,4 +1,4 @@
-﻿angular.module('myBlog')
+angular.module('myBlog')
     .directive('baasicLogin', ['$parse',
         function baasicLogin($parse) {
             'use strict';
@@ -6,12 +6,33 @@
 
             return {
                 restrict: 'AE',
-                scope: true,
+                scope: false,
                 compile: function (elem, attrs) {
                     fn = $parse(attrs.onLogin);
                 },
-                controller: ['$scope', 'baasicLoginService', 'baasicAuthorizationService',
-                    function baasicLoginCtrl($scope, loginService, authService) {
+                controller: ['$scope', '$state', 'baasicLoginService', 'baasicAuthorizationService',
+                    function baasicLoginCtrl($scope, $state, loginService, authService) {
+
+						var vm = {};
+						$scope.vm = vm;
+						vm.message = '';
+
+						vm.user = {};
+						vm.user.options = ['session', 'sliding'];
+
+						(function(){
+						if(authService.getAccessToken()){
+							vm.isUserLoggedIn = true;
+						}
+						else{
+							vm.isUserLoggedIn = false;
+						}
+						})();
+
+                        $scope.goHome = function goHome() {
+                            $state.go('master.main.index');
+                        };
+
                         $scope.submitLogin = function submitLogin() {
                             if ($scope.login.$valid) {
                                 $scope.logging = true;
@@ -58,7 +79,7 @@
                         };
                     }
                 ],
-                templateUrl: 'templates/account/login.html'
+                templateUrl: 'templates/membership/template-login.html'
             };
         }
     ]);

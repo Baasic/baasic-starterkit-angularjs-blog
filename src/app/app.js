@@ -41,7 +41,7 @@ angular.module('myBlog', [
                 $location.replace().path(path.substring(0, path.length - 1));
             }
         });
-/*
+
         $urlRouterProvider.otherwise(function($injector, $location){
             var state = $injector.get('$state');
             var searchObject = $location.search();
@@ -54,7 +54,7 @@ angular.module('myBlog', [
             }
             return $location.path();
         });
-*/
+
         $stateProvider
             .state('master', {
                 abstract: true,
@@ -72,13 +72,11 @@ angular.module('myBlog', [
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/login.html',
-                controller: 'LoginCtrl'
+                templateUrl: 'templates/login.html'
             })
             .state('register', {
                 url: '/register',
-                templateUrl: 'templates/membership/register.html',
-                controller: 'RegisterCtrl'
+                templateUrl: 'templates/membership/register.html'
             })
             .state('account-activation', {
                 url: '/account-activation?activationToken',
@@ -87,13 +85,11 @@ angular.module('myBlog', [
             })
             .state('password-recovery', {
                 url: '/password-recovery',
-                templateUrl: 'templates/membership/password-recovery.html',
-                controller: 'PasswordRecoveryCtrl'
+                templateUrl: 'templates/membership/password-recovery.html'
             })
             .state('password-change', {
                 url: '/password-change?passwordRecoveryToken',
-                templateUrl: 'templates/membership/password-change.html',
-                controller: 'PasswordChangeCtrl'
+                templateUrl: 'templates/membership/password-change.html'
             })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
@@ -163,15 +159,6 @@ angular.module('myBlog', [
 
         $scope.newBlogPost = function newBlogPost() {
             $state.go('master.new-blog-post');
-        };
-    }
-])
-.controller('LoginCtrl', ['$scope', '$state',
-    function LoginCtrl($scope, $state) {
-        'use strict';
-
-        $scope.goHome = function goHome() {
-            $state.go('master.main.index');
         };
     }
 ])
