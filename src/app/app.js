@@ -28,11 +28,13 @@ angular.module('myBlog', [
 
         $urlRouterProvider.when('', '/');
 
- /*       $urlRouterProvider.otherwise(function ($injector) {
+/*
+        $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
             $state.go('404');
         });
 */
+
         $urlRouterProvider.rule(function ($injector, $location) {
             var path = $location.path();
 
@@ -50,7 +52,7 @@ angular.module('myBlog', [
             } else if (searchObject && searchObject.code){
                 state.go('login', searchObject);
             } else{
-                state.go('login');
+                state.go('404');
             }
             return $location.path();
         });
