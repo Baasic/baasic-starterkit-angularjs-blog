@@ -9,14 +9,18 @@
     background-color: transparent;
     z-index: 4;
 }
-.hamburger--transformed {
-    position: fixed;
-    right: .5rem;
-}
-.hamburger:hover::before, .hamburger:hover::after, .hamburger:hover .hamburger__middle {
+.hamburger:hover::before,
+.hamburger:hover::after,
+.hamburger:hover .hamburger__middle,
+.hamburger__link:focus
+.hamburger::before,
+.hamburger__link:focus
+.hamburger::after,
+.hamburger__link:focus
+.hamburger__middle {
     background-color: var(--color-secondary);
 }
-.hamburger:hover .hamburger__middle--transformed {
+.hamburger:hover .hamburger__middle--transformed, .hamburger__link:focus .hamburger__middle--transformed{
     background-color: transparent;
 }
 .hamburger::before, .hamburger__middle, .hamburger::after{

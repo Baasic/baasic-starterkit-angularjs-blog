@@ -6,7 +6,7 @@
 </div>
 <div class="layout__form">
     <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
-        <div class="search__image"style="background-size: cover; background-position: center;" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'url(assets/img/picture.jpg)' }"></div>
+        <div class="search__result__image"style="background-size: cover; background-position: center;" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'url(assets/img/picture.jpg)' }"></div>
         <div class="search__article">
             <span class="article__date__readingtime article__date__readingtime--tertiary">{{ blog.publishDate | date : 'medium' }} | {{ blog.readingTime.text }}</span>
             <h2 class="article__title"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>

@@ -1,9 +1,7 @@
 ﻿<div class="group layout">
     <article class="post layout__post" ng-hide="isEdit">
+        <blog-menu></blog-menu>
         <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
-            <div class="post__header__container">
-                <span class="post__header__overlay"></span>
-            </div>
         </header>
         <div class="post__body__holder">
             <div class="post__body">

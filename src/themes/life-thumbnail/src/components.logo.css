@@ -2,11 +2,12 @@
     # components.logo
 \*------------------------------------*/
 
-.logo  {
+.logo {
     height: 3rem;
-    transition: all .3s ease-in-out;
+    opacity: .7;
+    transition: opacity .3s ease-in-out;
 }
-
-.logo:hover{
-   transform: rotate(-7deg);
+.logo:hover,
+.logo__link:focus > .logo {
+   opacity: 1;
 }

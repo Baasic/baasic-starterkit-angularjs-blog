@@ -10,8 +10,10 @@ tags-input .tags .tag-item {
     background: var(--color-primary);
     color: var(--color-ultralight);
     font-family: var(--ff-sans);
-    font-size: 1rem;
+    font-size: 0.75rem;
     border: 0;
+    padding-left: 0.5rem;
+    border-radius: 0;
 }
 tags-input .tags .tag-item.selected {
     background: var(--color-tertiary);
