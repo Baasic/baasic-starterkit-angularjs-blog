@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    # components.comments
+\*------------------------------------*/
+
+.comment {}
+.comment__container {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.comment__info {}
+.comment__info--reply {}
+.comment__author {
+    display: inline-block;
+}
+.comment__title {
+    display: inline-block;
+}
+.comment__message {
+    width: 100%;
+}
