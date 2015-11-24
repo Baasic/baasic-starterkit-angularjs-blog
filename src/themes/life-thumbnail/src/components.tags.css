@@ -1,38 +1,54 @@
 /*------------------------------------*\
     # components.tags
 \*------------------------------------*/
-
+.tags {
+    width: 100%;
+}
 .tags__item {
-    display: block;
-    margin-right: .35rem;
-    margin-bottom: .35rem;
-    float: left;
-
+    display: inline-block;
 }
 .tags__link {
-    display: block;
+    display: inline-block;
     position: relative;
-    color: var(--color-grey);
-    font-family: var(--ff-sans);
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 0 0.5rem ;
+    text-decoration: none;
     font-size: var(--type-tiny);
-    line-height: calc(var(--base-line-height)*1);
-    height: calc(var(--base-line-height)*1);
-    overflow: hidden;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 .5rem;
-    max-width: 8rem;
+    height: 1.5rem;
+    transition: all 0.4s ease-in-out;
 }
-.tags__link:hover,
-.tags__link:focus,
-.tags__link:active {
+
+.tags__link--primary {
+    background: var(--color-secondary);
+    color: var(--color-ultralight);
+}
+
+.tags__link--primary:hover,
+.tags__link--primary:focus,
+.tags__link--primary:active {
     background-color: var(--color-primary);
     color: white;
 }
-@media all and (--from-large) {
-    .tags__link--active {
-        color: var(--color-primary);
-        font-weight: var(--type-bold);
+.tags__link--secondary {
+    background: var(--color-ultralight);
+    color: var(--color-primary);
+}
+.tags__link--secondary:hover,
+.tags__link--secondary:focus,
+.tags__link--secondary:active {
+    background-color: var(--color-secondary);
+    color: white;
+}
+.taglist {
+    width: 100%;
+}
+.taglist--footer {
+    width:100%;
+}
+@media all and (--from-medium){
+    .taglist--footer {
+        width: 66%;
+        margin-right: 0.5%;
     }
 }
+

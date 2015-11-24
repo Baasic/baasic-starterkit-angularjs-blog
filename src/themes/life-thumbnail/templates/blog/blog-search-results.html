@@ -1,23 +1,33 @@
-﻿<div class="layout__form">
-    <h2 class="spc--bottom--lrg">Search results</h1>
-    <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
-        <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
-        <h3 class="article__title"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
-
-        <p class="article__summary__text">
-            {{ blog.excerpt }}
-        </p>
+﻿<div class="header header--search__results">
+    <div class="header header--gradient">
+        <blog-menu></blog-menu>
+        <h2 class="header__title">Search results</h2>
     </div>
-
+</div>
+<div class="layout__form">
+    <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+        <div class="search__result__image"style="background-size: cover; background-position: center;" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'url(assets/img/picture.jpg)' }"></div>
+        <div class="search__article">
+            <span class="article__date__readingtime article__date__readingtime--tertiary">{{ blog.publishDate | date : 'medium' }} | {{ blog.readingTime.text }}</span>
+            <h2 class="article__title"><a ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
+            <p class="article__summary__text">
+                {{ blog.excerpt }}
+            </p>
+            <div class="article__readmore push spc--top--sml">
+                <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med">Edit</a>
+                <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn btn--primary btn--med">Read more</a>
+            </div>
+        </div>
+    </div>
     <article ng-if="!hasBlogs">
         <p class="article__summary__text spc--bottom--med">Nothing found.</p>
     </article>
-
     <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
-        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
-        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
+        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()" class="btn btn--pager btn--pager--left pull">Prev</button>
+        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()" class="btn btn--pager btn--pager--right push">Next</button>
     </div>
-
+</div>
+<div class="layout__form">
     <hr>
-    <a class="btn --secondary --med spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+    <a class="btn btn--primary btn--med spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
 </div>

@@ -1,7 +1,6 @@
 /*------------------------------------*\
     # modules.input
 \*------------------------------------*/
-
 .input {
     display: inline-block;
     width: 100%;
@@ -28,12 +27,12 @@
 }
 .input--text {
     line-height: 1.5rem;
-    border-bottom: 1px solid var(--color-ultralight);
+    border-bottom: 1px solid var(--color-light);
 }
 .input--textarea {
     display: block;
     min-height: 9rem;
-    border-bottom: 1px solid var(--color-ultralight);
+    border-bottom: 1px solid var(--color-light);
 }
 .input--search {
     display: inline-block;
@@ -94,51 +93,28 @@
 .input--check:focus + label:before {
     border-color: var(--color-primary);
 }
-.input--hightlight {
-  position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
-}
-.input--bar    { 
-    position: relative; 
-    display: block; 
+.input--bar    {
+    position: relative;
+    display: block;
     width: 100%;
 }
 .input--bar:before, .input--bar:after     {
   content: '';
-  height: 2px; 
+  height: 2px;
   width: 0;
-  bottom: 1px; 
+  bottom: 1px;
   position: absolute;
-  background: var(--color-primary); 
-  transition: 0.2s ease all; 
+  background: var(--color-primary);
+  transition: 0.2s ease all;
 }
 .input--bar:before {
   left: 50%;
 }
 .input--bar:after {
-  right: 50%; 
+  right: 50%;
 }
-
 /* Active state */
 .input:focus ~ .input--bar:before, .input:focus ~ .input--bar:after {
   width: 50%;
 }
-.input:focus ~ .input--hightlight {
-  animation:inputHighlighter 0.3s ease;
-}
 
-/*Animation*/
-keyframes inputHighlighter {
-    from { 
-        background: var(--color-primary); 
-    }
-    to { 
-        width:0; 
-        background:transparent; 
-    }
-}

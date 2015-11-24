@@ -1,10 +1,31 @@
 <!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-
 <div class="container">
     <div class="layout__content">
-        <main ui-view smooth-scroll>
-        </main>
+        <main ui-view smooth-scroll></main>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="articles">
+        <div class="taglist--footer">
+            <h2 class="footer__title">Tags</h2>
+            <ul class="tags group">
+                <li class="tags__item" ng-repeat="tag in tags">
+                    <a ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link tags__link--secondary" title="{{ tag.tag }}">{{ tag.tag }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__share">
+            <h2 class="footer__title">Follow LIFE</h2>
+            <div class="smm">
+                <a class="smm__item smm__item--facebook" href=""></a>
+                <a class="smm__item smm__item--twitter" href=""></a>
+                <a class="smm__item smm__item--github" href=""></a>
+                <a class="smm__item smm__item--linkedin" href=""></a>
+            </div>
+        </div>
+    </div>
+    <p class="footer__poweredby">Copyright @BlogName - powered by <a class="footer__poweredby--link" href="">Baasic</a></p>
+</footer>

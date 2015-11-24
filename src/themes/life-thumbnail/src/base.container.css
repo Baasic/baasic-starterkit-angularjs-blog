@@ -4,17 +4,8 @@
 
 .container {
     margin: 0 auto;
-    max-width: 80rem;
 }
 @media all and (--from-xlarge) {
     .container {
-    }
-}
-.container__main {
-    min-height: 100%;
-}
-@media all and (--from-xlarge) {
-    .container__main {
-        width: 80em;
     }
 }

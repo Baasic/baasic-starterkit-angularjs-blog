@@ -5,10 +5,11 @@
 .pager {
     overflow: hidden;
     display: block;
-    padding: 0 2rem 1rem 2rem;
+    padding: .5rem .5rem 1rem .5rem;
+    width: 100%;
 }
 @media all and (--from-medium) {
     .pager {
-        padding: 0 2rem 1rem 2rem;
+        padding: .5rem .5rem 1rem .5rem;
     }
 }

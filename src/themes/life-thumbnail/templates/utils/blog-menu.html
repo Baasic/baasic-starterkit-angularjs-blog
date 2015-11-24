@@ -1,3 +1,32 @@
-<div class="row">
-<h1>NAVIGATION</h1>
+<div class="nav">
+    <a ui-sref="master.main.index" class="logo__link">
+        <img src="./assets/img/logo.svg" alt="" class="logo">
+    </a>
+    <div class="push">
+        <div class="inline-block">
+            <form ng-controller="SearchCtrl" ng-submit="searchBlog()" novalidate >
+                <input type="search" placeholder="search" class="search__field" ng-model="searchFor"/>
+                <button type="submit" class="search__icon"></button>
+            </form>
+        </div>
+        <nav class="inline-block">
+            <a href="javascript:void();" class="hamburger__link">
+            <div ng-class="{'hamburger hamburger--transformed': isActive, 'hamburger':!isActive}" ng-init="isActive = false" ng-click="isActive = !isActive">
+                <span ng-class="{'hamburger__middle hamburger__middle--transformed': isActive, 'hamburger__middle':!isActive}" ng-init="isActive = false"></span>
+            </div>
+            </a>
+            <div class="nav__nav" ng-class="{'block':isActive,'':!isActive}" ng-init="isActive = false">
+                <ul>
+                    <li class="nav__link__holder" ng-show="!$root.user.isAuthenticated"><a class="nav__link" ui-sref="login">Login</a></li>
+                    <li class="nav__link__holder" ng-show="!$root.user.isAuthenticated"><a class="nav__link" ui-sref="register">register</a></li>
+                    <li class="nav__link__holder" ng-show="$root.user.isAuthenticated">
+                        <baasic-logout on-logout="setEmptyUser()">
+                            <a href="#" class="nav__link" ng-click="logout()">Logout</a>
+                        </baasic-logout>
+                    </li>
+                    <li class="nav__link__holder" ng-show="$root.user.isAuthenticated"><a class="nav__link" ui-sref="master.new-blog-post">+New Post</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
