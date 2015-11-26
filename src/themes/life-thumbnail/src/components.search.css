@@ -2,7 +2,15 @@
     # components.search
 \*------------------------------------*/
 
-.search {}
+.search {
+    margin: 1rem;
+    float: right;
+}
+@media all and(--from-mediumsmall) {
+    .search {
+
+    }
+}
 .search__field {
     color: var(--color-ultralight);
     font-size: var(--type-small);
