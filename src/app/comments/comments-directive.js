@@ -7,6 +7,7 @@ angular.module('baasic.blog')
                 restrict: 'AE',
                 scope: true,
                 templateUrl: 'templates/comments/template-comments.html'
+                //, controller: []
                 };
             }
         ]

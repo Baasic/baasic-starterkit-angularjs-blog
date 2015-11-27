@@ -80,5 +80,23 @@
                     return baasicArticleTagsService.find(options);
                 }
             };
+
+            this.comments = {
+                find: function find(options) {
+                    return commentService.find(options);
+                },
+                create: function create(comment) {
+                    return commentService.create(comment);
+                }
+            };
+
+            this.comments.replies = {
+                find: function find(options) {
+                    return repliesService.find(options);
+                },
+                create: function create(reply) {
+                    return repliesService.create(reply);
+                }
+            };
         }
     ]);

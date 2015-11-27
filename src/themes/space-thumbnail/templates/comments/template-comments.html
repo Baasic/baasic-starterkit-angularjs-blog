@@ -1,20 +1,20 @@
 <div class="layout__form">
-    <h1 class="spc--bottom--lrg">Add comment to {{ blog.title }}</h1>
-    <form name="commentForm" novalidate class="form">
+    <h1 class="spc--bottom--lrg">Comment on {{ blog.title }}</h1>
+    <form name="commentForm" novalidate class="form" ng-submit="submitComment()">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
-            <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
+            <input type="text" name="author" id="author" ng-model="blog.comments.user" class="input input--text" required />
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.author.$touched) && commentForm.author.$error.required">Name is required.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="email">Email address:</label>
-            <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text" required />
+            <input type="email" name="email" id="email" ng-model="blog.comments.email" class="input input--text" required />
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.required">Email is required.</p>
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.email">Please enter valid e-mail address.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="title">Title</label>
-            <input type="text" name="title" id="title" ng-model="comments.title" class="input input--text" />
+            <input type="text" name="title" id="title" ng-model="blog.comments.title" class="input input--text" />
         </div>
         <div class="form__field">
             <label class="form__label" for="message">Message</label>
@@ -22,7 +22,7 @@
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.message.$touched) && commentForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn btn--primary btn--med rounded" ng-click="saveComment()">Send</button>
+            <button type="submit" class="btn btn--primary btn--med rounded">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}
@@ -36,33 +36,33 @@
         <li repeat="comment in comments">
             <div class="comment__container group">
                 <ul class="comment__info">
-                    <li class="comment__author"><a ng-href="mailto:{{ comments.email }}">{{ comments.author }}autor</a></li>
-                    <li class="comment__title"> - {{ comments.title }}naslov</li>
+                    <li class="comment__author"><a ng-href="mailto:{{ blog.comments.email }}">{{ blog.comments.user }}autor</a></li>
+                    <li class="comment__title"> - {{ blog.comments.title }}naslov</li>
                     <hr />
-                    <li class="comment__message">{{ comments.comment }} komentar komentar komentarkomentar komentar komentar komentarkomentarkomentarkomentar komentar komentar komentar komentar komentar komentar</li>
+                    <li class="comment__message">{{ blog.comments.comment }} komentar komentar komentarkomentar komentar komentar komentarkomentarkomentarkomentar komentar komentar komentar komentar komentar komentar</li>
                 </ul>
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-                    <form name="replyForm" novalidate class="form">
+                    <form name="replyForm" novalidate class="form" ng-submit="submitReply()">
                         <div class="form__field">
                             <label class="form__label" for="author">Name:</label>
-                            <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text" required />
+                            <input type="text" name="author" id="author" ng-model="blog.comments.replies.user" class="input input--text" required />
                             <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.author.$touched) && replyForm.author.$error.required">Name is required.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="email">Email address:</label>
-                            <input type="email" name="email" id="email" ng-model="reply.email" class="input input--text" required />
+                            <input type="email" name="email" id="email" ng-model="blog.comments.replies.email" class="input input--text" required />
                             <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.email.$touched) && replyForm.email.$error.required">Email is required.</p>
                             <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.email.$touched) && replyForm.email.$error.email">Please enter valid e-mail address.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="message">Message</label>
-                            <textarea name="message" id="message" ng-model="reply.comment" class="input input--textarea" required></textarea>
+                            <textarea name="message" id="message" ng-model="blog.comments.replies" class="input input--textarea" required></textarea>
                             <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.message.$touched) && replyForm.message.$error.required">Message is required.</p>
                         </div>
                         <div class="form__field">
-                            <button type="submit" class="btn btn--primary btn--med rounded" ng-click="saveReply()">Reply</button>
+                            <button type="submit" class="btn btn--primary btn--med rounded">Reply</button>
                             <button type="button" class="btn btn--light btn--med rounded" ng-click="Active=!Active">Cancel</button>
                         </div>
                         <div ng-show="error">
@@ -70,21 +70,12 @@
                         </div>
                     </form>
                 </div>
-
                 <button ng-click="Active=!Active" ng-hide="Active" class="btn btn--primary btn--med rounded push">REPLY</button>
-                <ul class="comment__info--reply" repeat="reply in replies">
+                <ul class="comment__info--reply" repeat="reply in blog.comments.replies">
                     <li class="comment__author"><a ng-href="mailto:{{ replies.email }}">{{ replies.author }}</a></li>
-                    <li class="comment__title">{{ replies.title }}</li>
-                    <li class="comment__message">{{ replies.reply }}</li>
+                    <li class="comment__title">{{ blog.comments.replies.title }}</li>
+                    <li class="comment__message">{{ blog.comments.replies }}</li>
                 </ul>
-
-
-
-
-
-
-
-
             </div>
         </li>
     </ul>
