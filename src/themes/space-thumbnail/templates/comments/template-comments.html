@@ -1,6 +1,6 @@
 <div class="layout__form">
     <h1 class="spc--bottom--lrg">Comment on {{ blog.title }}</h1>
-    <form name="commentForm" novalidate class="form" ng-submit="submitComment()">
+    <form name="commentsForm" novalidate class="form" ng-submit="saveComment()">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
             <input type="text" name="author" id="author" ng-model="blog.comments.user" class="input input--text" required />
@@ -18,7 +18,7 @@
         </div>
         <div class="form__field">
             <label class="form__label" for="message">Message</label>
-            <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea" required></textarea>
+            <textarea name="message" id="message" ng-model="blog.comments.comment" class="input input--textarea" required></textarea>
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.message.$touched) && commentForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
@@ -33,7 +33,7 @@
     <hr />
     <h1 class="spc--bottom--lrg">Comments:</h1>
     <ul>
-        <li repeat="comment in comments">
+        <li repeat="comment in blog.comments">
             <div class="comment__container group">
                 <ul class="comment__info">
                     <li class="comment__author"><a ng-href="mailto:{{ blog.comments.email }}">{{ blog.comments.user }}autor</a></li>
@@ -44,7 +44,7 @@
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-                    <form name="replyForm" novalidate class="form" ng-submit="submitReply()">
+                    <form name="repliesForm" novalidate class="form" ng-submit="submitReply()">
                         <div class="form__field">
                             <label class="form__label" for="author">Name:</label>
                             <input type="text" name="author" id="author" ng-model="blog.comments.replies.user" class="input input--text" required />

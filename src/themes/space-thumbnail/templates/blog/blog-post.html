@@ -13,6 +13,7 @@
         </div>
         <div btf-markdown="blog.content" class="styledtext">
         </div>
+        <p class="push">Author: {{ blog.authorName }}</p>
         <ul class="post__tags tags group">
             <li ng-repeat="tag in blog.tags" class="tags__item">
                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
@@ -29,7 +30,7 @@
     </div>
 </article>
 
-<blog-comments></blog-comments>
+<blog-comments article-id="$scope.blog.id"></blog-comments>
 
 <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
 </baasic-blog-edit>

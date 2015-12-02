@@ -6,7 +6,7 @@
             $scope.$root.loader.suspend();
 
             blogService.get($state.params.slug, {
-                embed: 'tags,comments,comments.replies,comments.replies.user,comments.user'
+                embed: 'tags'
             })
                 .success(function (blog) {
                     $scope.blog = blog;

@@ -18,7 +18,9 @@
                 </header>
                 <div class="article__summary">
                     <p class="article__summary__text">{{ blog.excerpt }}</p>
+                    <p class="push">Author: {{ blog.authorName }}</p>
                 </div>
+
                 <div class="article__info">
                     <div class="article__readmore">
                         <a ui-sref="master.blog-detail({ slug: blog.slug })" class="btn btn--light btn--med rounded">Read more</a>

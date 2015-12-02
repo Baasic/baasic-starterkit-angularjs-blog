@@ -1,6 +1,6 @@
 ﻿angular.module('baasic.blog')
-    .service('baasicBlogService', ['baasicApiHttp', 'baasicArticleService', 'baasicArticleTagsService',
-        function baasicBlogService(baasicApiHttp, baasicArticleService, baasicArticleTagsService) {
+    .service('baasicBlogService', ['baasicApiHttp', 'baasicArticleService', 'baasicArticleTagsService', 'baasicArticleCommentsService', 'baasicArticleCommentRepliesService',
+        function baasicBlogService(baasicApiHttp, baasicArticleService, baasicArticleTagsService, commentService, repliesService) {
             'use strict';
 
             this.blogStatus = {
@@ -83,11 +83,12 @@
 
             this.comments = {
                 find: function find(options) {
+                    articleId = blog.id;
                     return commentService.find(options);
                 },
                 create: function create(comment) {
                     return commentService.create(comment);
-                }
+                },
             };
 
             this.comments.replies = {
