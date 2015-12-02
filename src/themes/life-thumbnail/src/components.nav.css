@@ -16,6 +16,7 @@
         margin: 2rem 1rem 0 0;
         float: right;
         display: inline;
+        visibility: visible;
     }
 }
 .nav__link__holder {
@@ -69,6 +70,6 @@
     .nav__overlay {
         display: inline;
         float: right;
-        background-color: transparent;
+        visibility: hidden;
     }
 }

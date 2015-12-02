@@ -5,6 +5,7 @@
 .search {
     margin: 1rem;
     float: right;
+    visibility: visible;
 }
 @media all and(--from-mediumsmall) {
     .search {
