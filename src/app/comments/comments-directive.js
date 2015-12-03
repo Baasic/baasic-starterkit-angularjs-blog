@@ -5,17 +5,16 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: { articleId: '=' },
+                scope: { articleId: '@articleid' },
                 controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService',
                     function ($scope, $state, $stateParams, $q, blogService) {
                         function loadComments() {
 
-
                         blogService.comments.find($scope.articleId, {
                             embed: 'comments,comments.replies,comments.replies.user,comments.user'
                         })
-                            .success(function (blog) {
-                                $scope.blog = blog;
+                            .success(function (comments) {
+                                $scope.comments = comments;
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
