@@ -36,10 +36,10 @@
         <li repeat="comment in blog.comments">
             <div class="comment__container group">
                 <ul class="comment__info">
-                    <li class="comment__author"><a ng-href="mailto:{{ blog.comments.email }}">{{ blog.comments.user }}autor</a></li>
-                    <li class="comment__title"> - {{ blog.comments.title }}naslov</li>
+                    <li class="comment__author">{{ blog.comments.user }}</li>
+                    <li class="comment__title">{{ blog.comments.title }}</li>
                     <hr />
-                    <li class="comment__message">{{ blog.comments.comment }} komentar komentar komentarkomentar komentar komentar komentarkomentarkomentarkomentar komentar komentar komentar komentar komentar komentar</li>
+                    <li class="comment__message">{{ blog.comments.comment }}</li>
                 </ul>
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
@@ -72,9 +72,9 @@
                 </div>
                 <button ng-click="Active=!Active" ng-hide="Active" class="btn btn--primary btn--med rounded push">REPLY</button>
                 <ul class="comment__info--reply" repeat="reply in blog.comments.replies">
-                    <li class="comment__author"><a ng-href="mailto:{{ replies.email }}">{{ replies.author }}</a></li>
+                    <li class="comment__author">{{ blog.comments.replies.author }}</li>
                     <li class="comment__title">{{ blog.comments.replies.title }}</li>
-                    <li class="comment__message">{{ blog.comments.replies }}</li>
+                    <li class="comment__message">{{ blog.comments.replies.reply }}</li>
                 </ul>
             </div>
         </li>

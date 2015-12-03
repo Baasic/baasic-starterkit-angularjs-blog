@@ -10,6 +10,7 @@
             })
                 .success(function (blog) {
                     $scope.blog = blog;
+                    $scope.blogId = $scope.blog.id;
                 })
                 .error(function (error) {
                     console.log(error); // jshint ignore: line
@@ -38,5 +39,7 @@
             $scope.editBlog = function editBlog() {
                 $state.go('master.blog-edit', { slug: $scope.blog.slug });
             };
+
+
         }
     ]);

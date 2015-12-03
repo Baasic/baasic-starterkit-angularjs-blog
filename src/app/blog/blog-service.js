@@ -82,9 +82,8 @@
             };
 
             this.comments = {
-                find: function find(options) {
-                    articleId = blog.id;
-                    return commentService.find(options);
+                find: function find(id, options) {
+                    return commentService.find(id, options);
                 },
                 create: function create(comment) {
                     return commentService.create(comment);

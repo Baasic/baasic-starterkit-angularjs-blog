@@ -5,42 +5,35 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: {
-                    articleId:'='
-                },
-                controller: ['$scope', '$q', 'baasicBlogService',
-                    function ($scope, $q, blogService) {
+                scope: { articleId: '=' },
+                controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService',
+                    function ($scope, $state, $stateParams, $q, blogService) {
                         function loadComments() {
-                            $scope.$root.loader.suspend();
 
-                        blogService.get($state.params.slug, {
+
+                        blogService.comments.find($scope.articleId, {
                             embed: 'comments,comments.replies,comments.replies.user,comments.user'
                         })
-                            .success(function (comments) {
-                                $scope.blog.comments = comments;
+                            .success(function (blog) {
+                                $scope.blog = blog;
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
                             })
                             .finally(function () {
                                 $scope.$root.loader.resume();
-                            });            }
+                            });
+                        }
 
                         blogService.comments.find({
-                            articleId:,
-                            userId: $scope.$root.user.id,
-                            page: 1,
-                            rpp: 10,
-                            orderBy: 'publishDate',
-                            orderDirection: 'desc'
+                            articleId: $scope.articleId
                         })
                             .success(function parseCommentList(commentList) {
-                                $scope.pagerData = {
+                              $scope.pagerData = {
                                     currentPage: commentList.page,
                                     pageSize: commentList.recordsPerPage,
                                     totalRecords: commentList.totalRecords
                                 };
-
                                 $scope.commentList = commentList;
 
                                 $scope.hasComments = commentList.totalRecords > 0;
@@ -49,9 +42,12 @@ angular.module('baasic.blog')
                                 console.log(error); // jshint ignore: line
                             })
                             .finally(function () {
-                                $scope.$root.loader.resume();
                             });
-                        }
+
+                        $scope.hasComments = true;
+
+                        loadComments();
+                    }
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };
