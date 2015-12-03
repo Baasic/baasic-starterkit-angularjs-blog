@@ -36,10 +36,10 @@
         <li repeat="comment in blog.comments">
             <div class="comment__container group">
                 <ul class="comment__info">
-                    <li class="comment__author">{{ blog.comments.user }}</li>
-                    <li class="comment__title">{{ blog.comments.title }}</li>
+                    <li class="comment__author">{{ comments.user }}</li>
+                    <li class="comment__title">{{ comments.title }}</li>
                     <hr />
-                    <li class="comment__message">{{ blog.comments.comment }}</li>
+                    <li class="comment__message">{{ comments.item }}</li>
                 </ul>
                 <hr />
                 <div class="layout__form fade" ng-show="Active">

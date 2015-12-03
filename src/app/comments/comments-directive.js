@@ -5,16 +5,26 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: { articleId: '@articleid' },
+                scope: {},
                 controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService',
                     function ($scope, $state, $stateParams, $q, blogService) {
                         function loadComments() {
 
-                        blogService.comments.find($scope.articleId, {
-                            embed: 'comments,comments.replies,comments.replies.user,comments.user'
+                        blogService.comments.find($state.params.slug, {
+                            embed: 'comments.replies, comments.replies, comments.replies.user, comments.user'
                         })
                             .success(function (comments) {
                                 $scope.comments = comments;
+
+                                  /*  $scope.pagerData = {
+                                    currentPage: commentList.page,
+                                    pageSize: commentList.recordsPerPage,
+                                    totalRecords: commentList.totalRecords
+                                };
+
+                                $scope.commentList = commentList;
+
+                                $scope.hasComments = commentList.totalRecords > 0;*/
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
@@ -23,25 +33,6 @@ angular.module('baasic.blog')
                                 $scope.$root.loader.resume();
                             });
                         }
-
-                        blogService.comments.find({
-                            articleId: $scope.articleId
-                        })
-                            .success(function parseCommentList(commentList) {
-                              $scope.pagerData = {
-                                    currentPage: commentList.page,
-                                    pageSize: commentList.recordsPerPage,
-                                    totalRecords: commentList.totalRecords
-                                };
-                                $scope.commentList = commentList;
-
-                                $scope.hasComments = commentList.totalRecords > 0;
-                            })
-                            .error(function (error) {
-                                console.log(error); // jshint ignore: line
-                            })
-                            .finally(function () {
-                            });
 
                         $scope.hasComments = true;
 

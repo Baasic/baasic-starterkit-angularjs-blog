@@ -91,9 +91,6 @@
             };
 
             this.comments.replies = {
-                find: function find(options) {
-                    return repliesService.find(options);
-                },
                 create: function create(reply) {
                     return repliesService.create(reply);
                 }
