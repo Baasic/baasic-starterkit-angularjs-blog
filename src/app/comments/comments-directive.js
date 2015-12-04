@@ -20,27 +20,10 @@ angular.module('baasic.blog')
                                 console.log(error); //jshint ignore: line
                             })
                             .finally(function () {
-//                                loadReplies();
                                 $scope.$root.loader.resume();
                             });
                         }
-/*
-                        function loadReplies() {
 
-                        blogService.comments.replies.find($state.params.slug, $state.params.slug, {
-
-                        })
-                            .success(function (replies) {
-                                $scope.replies = replies;
-                            })
-                            .error(function (error) {
-                                console.log(error); //jshint ignore: line
-                            })
-                            .finally(function () {
-                                $scope.$root.loader.resume();
-                            });
-                        }
-*/
                         $scope.hasComments = true;
                         loadComments();
                     }

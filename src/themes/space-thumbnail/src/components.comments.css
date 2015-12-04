@@ -9,7 +9,9 @@
     margin: 1rem 0;
 }
 .comment__info {}
-.comment__info--reply {}
+.comment__info--reply {
+    padding-left: 5rem;
+}
 .comment__author {
     display: inline-block;
 }

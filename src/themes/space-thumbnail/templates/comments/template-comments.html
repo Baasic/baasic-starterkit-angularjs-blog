@@ -73,9 +73,10 @@
                 </div>
                 <button ng-click="Active=!Active" ng-hide="Active" class="btn btn--primary btn--med rounded">REPLY</button>
                 <hr />
-                <div class="comment__info--reply" ng-repeat = "reply in replies.item">
-                    <ul>
+                <div class="comment__info--reply">
+                    <ul ng-repeat = "reply in comment.replies">
                         <li class="comment__author"><a ng-href="mailto:{{ reply.email }}">{{ reply.author }}</a><p ng-if="!reply.author.length">Anonymous</p></li>
+                        <li></li>
                         <hr />
                         <li  class="comment__message">{{ reply.reply }}</li>
                     </ul>
