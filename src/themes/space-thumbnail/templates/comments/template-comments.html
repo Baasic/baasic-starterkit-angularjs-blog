@@ -1,28 +1,28 @@
 <div class="layout__form">
     <h1 class="spc--bottom--lrg">Comment:</h1>
-    <form name="commentsForm" novalidate class="form" ng-submit="saveComment()">
+    <form name="commentsForm" novalidate class="form">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
-            <input type="text" name="author" id="author" ng-model="comments.item.user" class="input input--text" required />
+            <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.author.$touched) && commentForm.author.$error.required">Name is required.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="email">Email address:</label>
-            <input type="email" name="email" id="email" ng-model="comments.item.email" class="input input--text" required />
+            <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text" required />
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.required">Email is required.</p>
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.email">Please enter valid e-mail address.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="title">Title</label>
-            <input type="text" name="title" id="title" ng-model="comments.item.title" class="input input--text" />
+            <input type="text" name="title" id="title" ng-model="comments.title" class="input input--text" />
         </div>
         <div class="form__field">
             <label class="form__label" for="message">Message</label>
-            <textarea name="message" id="message" ng-model="comments.item.comment" class="input input--textarea" required></textarea>
+            <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea" required></textarea>
             <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.message.$touched) && commentForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn btn--primary btn--med rounded">Send</button>
+            <button type="submit" ng-click="saveComments()" class="btn btn--primary btn--med rounded">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}

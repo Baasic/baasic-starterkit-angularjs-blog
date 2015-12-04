@@ -85,8 +85,8 @@
                 find: function find(id, options) {
                     return baasicArticleService.comments.find(id, options);
                 },
-                create: function create(comment) {
-                    return baasicArticleService.comments.create(comment);
+                create: function create(articleId, data) {
+                    return baasicArticleService.comments.create(articleId, data);
                 }
             };
 

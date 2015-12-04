@@ -5,9 +5,9 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: {},
-                controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService',
-                    function ($scope, $state, $stateParams, $q, blogService) {
+                scope: { articleId: '=' },
+                controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService','baasicArticleService',
+                    function ($scope, $state, $stateParams, $q, blogService, baasicArticleService) {
                         function loadComments() {
 
                         blogService.comments.find($state.params.slug, {
@@ -24,9 +24,35 @@ angular.module('baasic.blog')
                             });
                         }
 
+                        $scope.saveComments = function saveComments() {
+                            if ($scope.commentsForm.$valid) {
+                                $scope.$root.loader.suspend();
+
+                            $scope.comments.isNew = true;
+
+
+                            if ($scope.comments.isNew) {
+                            baasicArticleService.comments.create({
+                                articleId: $scope.articleId,
+                                data: $scope.comments
+                                });
+
+                            } else {
+
+                                baasicArticleService.comments.update({
+                                    articleId: $scope.articleId
+                                });
+                            }
+                        }
+
+                    };
+
                         $scope.hasComments = true;
                         loadComments();
-                    }
+                        }
+
+
+
 
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
