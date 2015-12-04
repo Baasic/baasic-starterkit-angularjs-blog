@@ -11,20 +11,27 @@ angular.module('baasic.blog')
                         function loadComments() {
 
                         blogService.comments.find($state.params.slug, {
-                            embed: 'comments.replies, comments.replies, comments.replies.user, comments.user'
+                            embed: 'replies,replies.user,user'
                         })
                             .success(function (comments) {
                                 $scope.comments = comments;
+                            })
+                            .error(function (error) {
+                                console.log(error); //jshint ignore: line
+                            })
+                            .finally(function () {
+//                                loadReplies();
+                                $scope.$root.loader.resume();
+                            });
+                        }
+/*
+                        function loadReplies() {
 
-                                  /*  $scope.pagerData = {
-                                    currentPage: commentList.page,
-                                    pageSize: commentList.recordsPerPage,
-                                    totalRecords: commentList.totalRecords
-                                };
+                        blogService.comments.replies.find($state.params.slug, $state.params.slug, {
 
-                                $scope.commentList = commentList;
-
-                                $scope.hasComments = commentList.totalRecords > 0;*/
+                        })
+                            .success(function (replies) {
+                                $scope.replies = replies;
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
@@ -33,11 +40,11 @@ angular.module('baasic.blog')
                                 $scope.$root.loader.resume();
                             });
                         }
-
+*/
                         $scope.hasComments = true;
-
                         loadComments();
                     }
+
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };

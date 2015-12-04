@@ -87,10 +87,13 @@
                 },
                 create: function create(comment) {
                     return commentService.create(comment);
-                },
+                }
             };
 
             this.comments.replies = {
+                find: function find(articleId, commentId, options) {
+                    return repliesService.find (articleId, commentId, options);
+                },
                 create: function create(reply) {
                     return repliesService.create(reply);
                 }
