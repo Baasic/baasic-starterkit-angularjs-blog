@@ -63,7 +63,9 @@ angular.module('baasic.blog')
                         $scope.saveReplies = function saveReplies(comment) {
                             $scope.comment = comment;
                             $scope.commentId = comment.id;
-                            if ($scope.repliesForm.$valid) {
+                            var commentId = $scope.commentId;
+                            var formName = 'repliesForm' + commentId;
+                            if ($scope.formName.$valid) {
                                 $scope.comment.replies.isNew = true;
                             if ($scope.comment.replies.isNew) {
 

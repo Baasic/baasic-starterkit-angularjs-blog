@@ -45,7 +45,7 @@
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-                    <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment)">
+                    <form name="repliesForm{{ comment.id }}" novalidate class="form" ng-submit="saveReplies(comment)">
                         <div class="form__field">
                             <label class="form__label" for="author">Name:</label>
                             <input type="text" name="author" id="author" ng-model="replies.user" class="input input--text" required />
