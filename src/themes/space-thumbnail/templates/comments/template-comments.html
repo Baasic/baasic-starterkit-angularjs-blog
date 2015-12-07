@@ -4,13 +4,13 @@
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
             <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
-            <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.author.$touched) && commentForm.author.$error.required">Name is required.</p>
+            <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="email">Email address:</label>
             <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text" required />
-            <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.required">Email is required.</p>
-            <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.email.$touched) && commentForm.email.$error.email">Please enter valid e-mail address.</p>
+            <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
+            <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
         </div>
         <div class="form__field">
             <label class="form__label" for="title">Title</label>
@@ -19,7 +19,7 @@
         <div class="form__field">
             <label class="form__label" for="message">Message</label>
             <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea" required></textarea>
-            <p class="alert alert--warning" ng-show="(commentForm.$submitted || commentForm.message.$touched) && commentForm.message.$error.required">Message is required.</p>
+            <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
             <button type="submit" ng-click="saveComments()" class="btn btn--primary btn--med rounded">Send</button>
@@ -45,22 +45,22 @@
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-                    <form name="repliesForm" novalidate class="form" ng-submit="submitReply()">
+                    <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment)">
                         <div class="form__field">
                             <label class="form__label" for="author">Name:</label>
-                            <input type="text" name="author" id="author" ng-model="blog.comments.replies.user" class="input input--text" required />
-                            <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.author.$touched) && replyForm.author.$error.required">Name is required.</p>
+                            <input type="text" name="author" id="author" ng-model="replies.user" class="input input--text" required />
+                            <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.author.$touched) && repliesForm.author.$error.required">Name is required.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="email">Email address:</label>
-                            <input type="email" name="email" id="email" ng-model="blog.comments.replies.email" class="input input--text" required />
-                            <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.email.$touched) && replyForm.email.$error.required">Email is required.</p>
-                            <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.email.$touched) && replyForm.email.$error.email">Please enter valid e-mail address.</p>
+                            <input type="email" name="email" id="email" ng-model="replies.email" class="input input--text" required />
+                            <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.required">Email is required.</p>
+                            <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.email">Please enter valid e-mail address.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="message">Message</label>
-                            <textarea name="message" id="message" ng-model="blog.comments.replies" class="input input--textarea" required></textarea>
-                            <p class="alert alert--warning" ng-show="(replyForm.$submitted || replyForm.message.$touched) && replyForm.message.$error.required">Message is required.</p>
+                            <textarea name="message" id="message" ng-model="replies.reply" class="input input--textarea" required></textarea>
+                            <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.message.$touched) && repliesForm.message.$error.required">Message is required.</p>
                         </div>
                         <div class="form__field">
                             <button type="submit" class="btn btn--primary btn--med rounded">Reply</button>
@@ -84,4 +84,9 @@
             </div>
         </li>
     </ul>
+    <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
+    <hr>
+    <a ui-sref="master.blog-detail({ page: pager.currentPage - 1 })" class="btn btn--light btn--med rounded" ng-show="pager.hasPrevious">Prev</a>
+    <a ui-sref="master.blog-detail({ page: pager.currentPage + 1 })" class="btn btn--light btn--med rounded" ng-show="pager.hasNext">Next</a>
+</pager>
 </div>

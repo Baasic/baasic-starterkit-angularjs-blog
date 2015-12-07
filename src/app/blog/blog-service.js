@@ -90,6 +90,20 @@
                 }
             };
 
+            this.comments.next = function next(comments) {
+                var nextLink = comments.links('next');
+                if (nextLink) {
+                    return baasicApiHttp.get(nextLink.href);
+                }
+            };
+
+            this.comments.previous = function previous(comments) {
+                var prevLink = comments.links('previous');
+                if (prevLink) {
+                    return baasicApiHttp.get(prevLink.href);
+                }
+            };
+
             this.comments.replies = {
                 create: function create(reply) {
                     return baasicArticleService.comments.replies.create(reply);
