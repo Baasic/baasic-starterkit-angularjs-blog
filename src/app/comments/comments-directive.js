@@ -16,7 +16,6 @@ angular.module('baasic.blog')
                             orderDirection: 'desc',
                             page: $state.params.page || 1,
                             rpp: 10
-
                         })
                             .success(function parseCommentList(comments) {
                                 $scope.comments = comments;
@@ -62,11 +61,11 @@ angular.module('baasic.blog')
 
                         $scope.saveReplies = function saveReplies(comment) {
                             $scope.comment = comment;
-                            $scope.commentId = comment.id;
-                            var commentId = $scope.commentId;
-                            var formName = 'repliesForm' + commentId;
-                            if ($scope.formName.$valid) {
-                                $scope.comment.replies.isNew = true;
+                            $scope.replies = comment.replies;
+                            $scope.commentId = $scope.comment.id;
+                            $scope.articleComment = $scope.comment.comment;
+
+                            $scope.comment.replies.isNew = true;
                             if ($scope.comment.replies.isNew) {
 
                                 var options = {
@@ -77,17 +76,20 @@ angular.module('baasic.blog')
                                 $scope.comment.replies.options = options;
                                 baasicArticleService.comments.replies.create($scope.articleId, {
                                     commentId: $scope.commentId,
+                                    options: $scope.comment.replies.options,
+                                    userId: $scope.comment.email,
                                     orderBy: 'dateUpdated',
                                     orderDirection: 'desc'
-                                });
-                                $scope.$root.loader.suspend();
-                                $state.go('master.main.index');
-                                } else {
-                                baasicArticleService.comments.replies.update({
-                                    commentId: $scope.commentId
-                                });
-                            }
-
+                                })
+                                    .success(function () {
+                                        $scope.$root.loader.suspend();
+                                    })
+                                    .error(function (error) {
+                                        console.log(error); //jshint ignore: line
+                                    })
+                                    .finally(function () {
+                                        $state.go('master.main.index');
+                                    });
                                 }
                             };
                             loadComments();
