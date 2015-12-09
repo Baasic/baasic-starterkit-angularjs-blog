@@ -63,7 +63,7 @@ angular.module('baasic.blog')
                             $scope.comment = comment;
                             $scope.replies = comment.replies;
                             $scope.commentId = $scope.comment.id;
-                            $scope.articleComment = $scope.comment.comment;
+                            $scope.articleComment = $scope.comment.replies.reply;
 
                             $scope.comment.replies.isNew = true;
                             if ($scope.comment.replies.isNew) {
@@ -78,17 +78,18 @@ angular.module('baasic.blog')
                                     commentId: $scope.commentId,
                                     options: $scope.comment.replies.options,
                                     userId: $scope.comment.email,
+                                    reply: $scope.articleComment,
                                     orderBy: 'dateUpdated',
                                     orderDirection: 'desc'
                                 })
                                     .success(function () {
                                         $scope.$root.loader.suspend();
+                                        $state.go('master.main.index');
                                     })
                                     .error(function (error) {
                                         console.log(error); //jshint ignore: line
                                     })
                                     .finally(function () {
-                                        $state.go('master.main.index');
                                     });
                                 }
                             };
