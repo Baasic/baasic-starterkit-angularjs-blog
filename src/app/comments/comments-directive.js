@@ -15,7 +15,7 @@ angular.module('baasic.blog')
                             orderBy: 'dateUpdated',
                             orderDirection: 'desc',
                             page: $state.params.page || 1,
-                            rpp: 10
+                            rpp: 2
                         })
                             .success(function parseCommentList(comments) {
                                 $scope.comments = comments;

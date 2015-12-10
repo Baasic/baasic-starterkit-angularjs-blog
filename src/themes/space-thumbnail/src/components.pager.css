@@ -12,3 +12,7 @@
         padding: 0 3rem 1rem 3rem;
     }
 }
+
+.pager--comments {
+    padding:0;
+}

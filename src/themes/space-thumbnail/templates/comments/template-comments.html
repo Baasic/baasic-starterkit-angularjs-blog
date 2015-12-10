@@ -1,4 +1,4 @@
-<div class="layout__form">
+<div class="layout__form" id="blogPostComments">
     <h1 class="spc--bottom--lrg">Comment:</h1>
     <form name="commentsForm" novalidate class="form" ng-submit="saveComments()">
         <div class="form__field">
@@ -40,7 +40,7 @@
                     <li class="comment__author"><a ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a></li>
                     <li>{{ comment.website }}</li>
                     <hr />
-                    <li  class="comment__message">{{ comment.comment }}</li>
+                    <li class="comment__message">{{ comment.comment }}</li>
                 </ul>
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
@@ -84,9 +84,10 @@
             </div>
         </li>
     </ul>
-    <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager">
-    <hr>
-    <a ui-sref="master.blog-detail({ page: pager.currentPage - 1 })" class="btn btn--light btn--med rounded" ng-show="pager.hasPrevious">Prev</a>
-    <a ui-sref="master.blog-detail({ page: pager.currentPage + 1 })" class="btn btn--light btn--med rounded" ng-show="pager.hasNext">Next</a>
-</pager>
+
+    <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager pager--comments">
+         <a ui-sref="master.blog-detail({ page: pager.currentPage - 1, id: blogPostComments })" class="btn btn--light btn--med rounded" ng-show="pager.hasPrevious">Prev</a>
+        <a ui-sref="master.blog-detail({ page: pager.currentPage + 1, id: blogPostComments })" class="btn btn--light btn--med rounded" ng-show="pager.hasNext">Next</a>
+    </pager>
+
 </div>

@@ -68,7 +68,7 @@ angular.module('myBlog', [
                 controller: 'NewBlogPostCtrl'
             })
             .state('master.blog-detail', {
-                url: 'blog-post/{slug}',
+                url: 'blog-post/{slug}?{page}',
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
@@ -91,7 +91,7 @@ angular.module('myBlog', [
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
     function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
         'use strict';
-        
+
         // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
         var rightTrim = function (str, ch){
             if (!str){
@@ -104,15 +104,15 @@ angular.module('myBlog', [
                     str = str.substring(0, i + 1);
                     break;
                 }
-            } 
+            }
             return str ? str : '';
-        };       
-        
+        };
+
         $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
-        
+
         blogService.tags.find({
             rpp: 10
         })
