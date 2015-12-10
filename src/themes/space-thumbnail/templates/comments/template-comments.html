@@ -1,6 +1,6 @@
 <div class="layout__form">
     <h1 class="spc--bottom--lrg">Comment:</h1>
-    <form name="commentsForm" novalidate class="form">
+    <form name="commentsForm" novalidate class="form" ng-submit="saveComments()">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
             <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
@@ -22,21 +22,21 @@
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
-            <button type="submit" ng-click="saveComments()" class="btn btn--primary btn--med rounded">Send</button>
+            <button type="submit" ng-click="resetCommentsForm(commentsForm)" class="btn btn--primary btn--med rounded">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}
         </div>
     </form>
 </div>
-<div class="layout__form spc--top--lrg">
+<div class="layout__form spc--top--lrg" ng-if="comments.totalRecords">
     <hr />
     <h1 class="spc--bottom--lrg">Comments:</h1>
     <ul>
         <li ng-repeat="comment in comments.item">
             <div class="comment__container group">
                 <ul class="comment__info">
-                    <li ng-if="comment.title.length" class="comment__title">{{ comment.title }}</li>
+                    <li ng-if="comment.title.length" class="comment__title">{{ comment.title }} - </li>
                     <li class="comment__author"><a ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a></li>
                     <li>{{ comment.website }}</li>
                     <hr />
@@ -45,21 +45,21 @@
                 <hr />
                 <div class="layout__form fade" ng-show="Active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-                    <form name="repliesForm{{ comment.id }}" novalidate class="form" ng-submit="saveReplies(comment)">
+                    <form name="repliesForm{{ comment.id }}" novalidate class="form" ng-submit="saveReplies(comment, reply)">
                         <div class="form__field">
                             <label class="form__label" for="author">Name:</label>
-                            <input type="text" name="author" id="author" ng-model="comment.replies.user" class="input input--text" required />
+                            <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text" required />
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.author.$touched) && repliesForm{{ comment.id }}.author.$error.required">Name is required.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="email">Email address:</label>
-                            <input type="email" name="email" id="email" ng-model="comment.replies.email" class="input input--text" required />
+                            <input type="email" name="email" id="email" ng-model="reply.email" class="input input--text" required />
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.email.$touched) && repliesForm{{ comment.id }}.email.$error.required">Email is required.</p>
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.email.$touched) && repliesForm{{ comment.id }}.email.$error.email">Please enter valid e-mail address.</p>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="message">Message</label>
-                            <textarea name="message" id="message" ng-model="comment.replies.reply" class="input input--textarea" required></textarea>
+                            <textarea name="message" id="message" ng-model="reply.reply" class="input input--textarea" required></textarea>
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.message.$touched) && repliesForm{{ comment.id }}.message.$error.required">Message is required.</p>
                         </div>
                         <div class="form__field">
@@ -75,11 +75,11 @@
                 <hr />
                 <div class="comment__info--reply">
                     <ul ng-repeat = "reply in comment.replies">
-                        <li class="comment__author"><a ng-href="mailto:{{ reply.email }}">{{ reply.user }}</a><p ng-if="!reply.author.length">Anonymous</p></li>
-                        <li></li>
-                        <hr />
+                        <li class="comment__author"><a ng-href="mailto:{{ reply.email }}">{{ reply.author }}<span ng-if="!reply.author">Anonymous</span></a></li>
                         <li  class="comment__message">{{ reply.reply }}</li>
+                        <hr />
                     </ul>
+
                 </div>
             </div>
         </li>

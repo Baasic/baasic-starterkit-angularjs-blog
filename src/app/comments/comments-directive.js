@@ -36,8 +36,18 @@ angular.module('baasic.blog')
                             });
                         }
 
+                        $scope.resetCommentsForm = function resetCommentsForm(form) {
+                            if (form) {
+                                form.author.$setUntouched();
+                                form.email.$setUntouched();
+                                form.title.$setUntouched();
+                                form.message.$setUntouched();
+                            }
+                        };
+
                         $scope.saveComments = function saveComments() {
                             if ($scope.commentsForm.$valid) {
+                                $scope.$root.loader.resume();
                                 $scope.comments.isNew = true;
 
                             if ($scope.comments.isNew) {
@@ -49,52 +59,54 @@ angular.module('baasic.blog')
                             //$state.href("index.article.comments-preview", {}, { absolute: true }) + "{id}"
                                 $scope.comments.options = options;
                                 baasicArticleService.comments.create($scope.comments);
-                                $scope.$root.loader.suspend();
-                                $state.go('master.main.index');
+                                $scope.commentsForm.$setPristine(true);
+                                $scope.commentsForm.$setUntouched(true);
+
+
                                 } else {
                                     baasicArticleService.comments.update({
                                         articleId: $scope.articleId
                                     });
                                 }
+                                loadComments();
+                                $scope.$root.loader.suspend();
                             }
                         };
 
-                        $scope.saveReplies = function saveReplies(comment) {
+                        $scope.saveReplies = function saveReplies(comment, reply) {
                             $scope.comment = comment;
-                            $scope.replies = comment.replies;
+                            $scope.reply = reply;
                             $scope.commentId = $scope.comment.id;
-                            $scope.articleComment = $scope.comment.replies.reply;
-
-                            $scope.comment.replies.isNew = true;
-                            if ($scope.comment.replies.isNew) {
+                            $scope.reply.isNew = true;
+                            if ($scope.reply.isNew) {
+                                $scope.$root.loader.suspend();
 
                                 var options = {
                                     subscribeAuthor: false,
                                     commentUrl: 'http://test.com'
                                 };
 
-                                $scope.comment.replies.options = options;
                                 baasicArticleService.comments.replies.create($scope.articleId, {
                                     commentId: $scope.commentId,
-                                    options: $scope.comment.replies.options,
-                                    userId: $scope.comment.email,
-                                    reply: $scope.articleComment,
-                                    orderBy: 'dateUpdated',
-                                    orderDirection: 'desc'
+                                    options: options,
+                                    email: $scope.reply.email,
+                                    reply: $scope.reply.reply,
+                                    author: $scope.reply.author
                                 })
                                     .success(function () {
-                                        $scope.$root.loader.suspend();
-                                        $state.go('master.main.index');
+                                        loadComments();
+                                        $scope.reply = {};
                                     })
                                     .error(function (error) {
                                         console.log(error); //jshint ignore: line
                                     })
                                     .finally(function () {
+                                        $scope.$root.loader.resume();
                                     });
                                 }
                             };
                             loadComments();
-                                              }
+                    }
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };
