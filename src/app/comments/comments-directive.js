@@ -44,29 +44,37 @@ angular.module('baasic.blog')
                             orderDirection: 'desc',
                         })
                             .success(function parseRepliesList(replies) {
-                                $scope.replies = replies;
+                                var commentId = $scope.commentId;
+                                var collection = $scope.comments.item;
 
-                                $scope.replies.pagerData = {
-                                    currentPage: replies.page,
-                                    pageSize: replies.totalRecords,
-                                    totalRecords: replies.totalRecords
-                                };
-
-                                $scope.hasReplies = $scope.replies.totalRecords > 0;
+                                angular.forEach(collection, function(value, i){
+                                    if(value.id === commentId){
+                                        collection[i].replies = replies.item;
+                                    }
+                                });
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
                             })
                             .finally(function () {
+                                $scope.reply = '';
                                 $scope.$root.loader.resume();
                             });
-                        };
+                        }
 
                         $scope.resetCommentsForm = function resetCommentsForm(form) {
                             if (form) {
                                 form.author.$setUntouched();
                                 form.email.$setUntouched();
                                 form.title.$setUntouched();
+                                form.message.$setUntouched();
+                            }
+                        };
+
+                        $scope.resetRepliesForm = function resetRepliesForm(form) {
+                            if (form) {
+                                form.author.$setUntouched();
+                                form.email.$setUntouched();
                                 form.message.$setUntouched();
                             }
                         };

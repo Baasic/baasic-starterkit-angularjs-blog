@@ -63,7 +63,7 @@
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.message.$touched) && repliesForm{{ comment.id }}.message.$error.required">Message is required.</p>
                         </div>
                         <div class="form__field">
-                            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm{{comment.id}}.$invalid" ng-class="{'btn--disabled' : repliesForm{{comment.id}}.$invalid}">Reply</button>
+                            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm{{comment.id}}.$invalid" ng-class="{'btn--disabled' : repliesForm{{comment.id}}.$invalid}" ng-click="$reply='';">Reply</button>
                             <button type="button" class="btn btn--light btn--med rounded" ng-click="Active=!Active">Cancel</button>
                         </div>
                         <div ng-show="error">
