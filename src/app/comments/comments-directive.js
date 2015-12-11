@@ -15,7 +15,7 @@ angular.module('baasic.blog')
                             orderBy: 'dateUpdated',
                             orderDirection: 'desc',
                             page: $state.params.page || 1,
-                            rpp: 2
+                            rpp: 10
                         })
                             .success(function parseCommentList(comments) {
                                 $scope.comments = comments;
@@ -36,6 +36,32 @@ angular.module('baasic.blog')
                             });
                         }
 
+                        function loadReplies() {
+
+                        blogService.comments.replies.find($scope.articleId, $scope.commentId, {
+                            pageNumber : 1,
+                            orderBy: 'dateUpdated',
+                            orderDirection: 'desc',
+                        })
+                            .success(function parseRepliesList(replies) {
+                                $scope.replies = replies;
+
+                                $scope.replies.pagerData = {
+                                    currentPage: replies.page,
+                                    pageSize: replies.totalRecords,
+                                    totalRecords: replies.totalRecords
+                                };
+
+                                $scope.hasReplies = $scope.replies.totalRecords > 0;
+                            })
+                            .error(function (error) {
+                                console.log(error); //jshint ignore: line
+                            })
+                            .finally(function () {
+                                $scope.$root.loader.resume();
+                            });
+                        };
+
                         $scope.resetCommentsForm = function resetCommentsForm(form) {
                             if (form) {
                                 form.author.$setUntouched();
@@ -54,9 +80,9 @@ angular.module('baasic.blog')
                                 $scope.comments.articleId = $scope.articleId;
                                 var options = {
                                     subscribeAuthor: false,
-                                    commentUrl: 'http://test.com'
+                                    commentUrl: $state.href('master.blog-detail', {}, { absolute: true }) + '{id}'
                                 };
-                            //$state.href("index.article.comments-preview", {}, { absolute: true }) + "{id}"
+                            //
                                 $scope.comments.options = options;
                                 baasicArticleService.comments.create($scope.comments);
                                 $scope.commentsForm.$setPristine(true);
@@ -94,8 +120,7 @@ angular.module('baasic.blog')
                                     author: $scope.reply.author
                                 })
                                     .success(function () {
-                                        loadComments();
-                                        $scope.reply = {};
+                                        loadReplies();
                                     })
                                     .error(function (error) {
                                         console.log(error); //jshint ignore: line
@@ -106,7 +131,7 @@ angular.module('baasic.blog')
                                 }
                             };
                             loadComments();
-                    }
+                        }
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };

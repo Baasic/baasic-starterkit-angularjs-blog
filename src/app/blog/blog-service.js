@@ -105,6 +105,9 @@
             };
 
             this.comments.replies = {
+                find: function find(articleId, commentId, options) {
+                    return baasicArticleService.comments.replies.find(articleId, commentId, options);
+                },
                 create: function create(reply) {
                     return baasicArticleService.comments.replies.create(reply);
                 }
