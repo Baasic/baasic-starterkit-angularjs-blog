@@ -43,7 +43,7 @@
                     <li class="comment__message">{{ comment.comment }}</li>
                 </ul>
                 <hr />
-                <div class="layout__form fade" ng-show="Active">
+                <div class="layout__form fade" ng-show="active">
                     <h2 class="spc--bottom--lrg">Add reply to comment</h2>
                     <form name="repliesForm{{ comment.id }}" novalidate class="form" ng-submit="saveReplies(comment, reply)">
                         <div class="form__field">
@@ -63,15 +63,15 @@
                             <p class="alert alert--warning" ng-show="(repliesForm{{ comment.id }}.$submitted || repliesForm{{ comment.id }}.message.$touched) && repliesForm{{ comment.id }}.message.$error.required">Message is required.</p>
                         </div>
                         <div class="form__field">
-                            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm{{comment.id}}.$invalid" ng-class="{'btn--disabled' : repliesForm{{comment.id}}.$invalid}" ng-click="$reply='';">Reply</button>
-                            <button type="button" class="btn btn--light btn--med rounded" ng-click="Active=!Active">Cancel</button>
+                            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm{{comment.id}}.$invalid" ng-class="{'btn--disabled' : repliesForm{{comment.id}}.$invalid}" ng-click="active=!active">Reply</button>
+                            <button type="button" class="btn btn--light btn--med rounded" ng-click="active=!active">Cancel</button>
                         </div>
                         <div ng-show="error">
                             {{ error }}
                         </div>
                     </form>
                 </div>
-                <button ng-click="Active=!Active" ng-hide="Active" class="btn btn--primary btn--med rounded">REPLY</button>
+                <button ng-click="active=!active" ng-hide="active" class="btn btn--primary btn--med rounded">REPLY</button>
                 <hr />
                 <div class="comment__info--reply">
                     <ul ng-repeat = "reply in comment.replies">

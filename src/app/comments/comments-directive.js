@@ -68,14 +68,7 @@ angular.module('baasic.blog')
                                 form.email.$setUntouched();
                                 form.title.$setUntouched();
                                 form.message.$setUntouched();
-                            }
-                        };
-
-                        $scope.resetRepliesForm = function resetRepliesForm(form) {
-                            if (form) {
-                                form.author.$setUntouched();
-                                form.email.$setUntouched();
-                                form.message.$setUntouched();
+                                loadComments();
                             }
                         };
 
@@ -129,6 +122,9 @@ angular.module('baasic.blog')
                                 })
                                     .success(function () {
                                         loadReplies();
+                                        $scope.reply.author ="";
+                                        $scope.reply.email ="";
+                                        $scope.reply.reply ="";
                                     })
                                     .error(function (error) {
                                         console.log(error); //jshint ignore: line
