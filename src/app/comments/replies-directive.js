@@ -54,12 +54,15 @@ angular.module('baasic.blog')
                                     author: $scope.reply.author
                                 })
                                     .success(function () {
-                                        loadReplies();
+                                        $scope.reply = {};
+                                        $scope.repliesForm.$setPristine(true);
+                                        $scope.repliesForm.$setUntouched(true);
                                     })
                                     .error(function (error) {
                                         console.log(error); //jshint ignore: line
                                     })
                                     .finally(function () {
+                                        loadReplies();
                                         $scope.$root.loader.resume();
                                     });
                             }

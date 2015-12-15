@@ -9,6 +9,7 @@ angular.module('baasic.blog')
                 controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService','baasicArticleService',
                     function ($scope, $state, $stateParams, $q, blogService, baasicArticleService) {
                         function loadComments() {
+                        $scope.$root.loader.resume();
                         blogService.comments.find($state.params.slug, {
                             embed: 'replies,replies.user,user',
                             orderBy: 'dateUpdated',
@@ -37,18 +38,7 @@ angular.module('baasic.blog')
 
                         loadComments();
 
-                        $scope.resetCommentsForm = function resetCommentsForm(form) {
-                            if (form) {
-                                form.author.$setUntouched();
-                                form.email.$setUntouched();
-                                form.title.$setUntouched();
-                                form.message.$setUntouched();
-                            }
-                        };
-
-
                         $scope.saveComments = function saveComments() {
-                            $scope.$root.loader.resume();
                             if ($scope.commentsForm.$valid) {
                                 $scope.$root.loader.resume();
                                 $scope.comments.isNew = true;
@@ -59,21 +49,19 @@ angular.module('baasic.blog')
                                     subscribeAuthor: false,
                                     commentUrl: $state.href('master.blog-detail', {}, { absolute: true }) + '{id}'
                                 };
-                            //
-                        $scope.comments.options = options;
-                        baasicArticleService.comments.create($scope.comments)
-                            .success(function() {
-
-                                $scope.commentsForm.$setPristine(true);
-                                $scope.commentsForm.$setUntouched(true);
-                            })
-                            .error(function(error) {
-                                console.log(error); //jshint ignore: line
-                            })
-                            .finally(function() {
-                                loadComments();
-                                $scope.$root.loader.suspend();
-                            });
+                                $scope.comments.options = options;
+                                baasicArticleService.comments.create($scope.comments)
+                                    .success(function() {
+                                        $scope.commentsForm.$setPristine();
+                                        $scope.commentsForm.$setUntouched();
+                                    })
+                                    .error(function(error) {
+                                        console.log(error); //jshint ignore: line
+                                    })
+                                    .finally(function() {
+                                        loadComments();
+                                        $scope.$root.loader.suspend();
+                                    });
                             }
                         }
                     };

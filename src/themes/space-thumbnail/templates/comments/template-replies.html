@@ -19,7 +19,7 @@
             <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.message.$touched) && repliesForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm.$invalid" ng-class="{'btn--disabled' : repliesForm.$invalid}" ng-click="active=!active; resetRepliesForm(repliesForm);">Reply</button>
+            <button type="submit" class="btn btn--primary btn--med rounded" ng-disabled="repliesForm.$invalid" ng-class="{'btn--disabled' : repliesForm.$invalid}" ng-click="active=!active;">Reply</button>
             <button type="button" class="btn btn--light btn--med rounded" ng-click="active=!active">Cancel</button>
         </div>
         <div ng-show="error">
