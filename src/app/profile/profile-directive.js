@@ -5,7 +5,10 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: true,
+                scope: { authorId: '=authorId'},
+                link: function ($scope, $element, $attrs) {
+                    console.log($scope.authorId);
+                },
                 controller: ['$scope', '$q', 'baasicUserProfileService',
                     function baasicFindProfile($scope, $q, profileService) {
                         profileService.find({
@@ -13,10 +16,10 @@ angular.module('baasic.blog')
                             .success(function (profiles) {
                                 $scope.profiles = profiles.item;
                                 angular.forEach($scope.profiles, function(value, i) {
-                                    if (value.id === $scope.blog.authorId){
+                                    if (value.id === $scope.authorId){
                                         $scope.profile = $scope.profiles[i];
                                     }
-                                })
+                                });
                                 })
 
 
