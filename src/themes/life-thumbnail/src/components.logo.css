@@ -5,6 +5,7 @@
 .logo {
     height: 3rem;
     opacity: .7;
+    margin: 1rem 0 0 0.5rem;
     transition: opacity .3s ease-in-out;
 }
 .logo:hover,

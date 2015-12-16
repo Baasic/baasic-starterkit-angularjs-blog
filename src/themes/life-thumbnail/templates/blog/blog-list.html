@@ -1,7 +1,6 @@
 <div class="header header--home">
     <div class="header header--gradient">
         <blog-menu></blog-menu>
-        <h2 class="header__title">work hard, dream big</h2>
     </div>
 </div>
 <div class="articles">
@@ -33,6 +32,7 @@
             <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med push">Edit</a>
         </div>
     </article>
+
     <article ng-if="!hasBlogs">
         <p>No blog posts added.</p>
     </article>

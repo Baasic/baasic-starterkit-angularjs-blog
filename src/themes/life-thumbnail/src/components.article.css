@@ -12,37 +12,37 @@
 .article--lrg {
     width: 100%;
     min-height: 21.88rem;
-    margin: .5rem 0;
+    margin: 1rem 0;
 }
 @media all and (--from-mediumsmall) {
     .article--lrg {
-        width: calc(100% - 1rem);
-        margin: .5rem;
+        width: calc(100% - 2rem);
+        margin: 1rem;
     }
 }
 @media all and (--from-large) {
     .article--lrg {
-        width: calc(66.66% - 1rem);
+        width: calc(66.66% - 2rem);
     }
 }
 .article--sml {
     width: 100%;
-    margin: .5rem 0;
+    margin: 1rem 0;
     background-color: var(--color-light);
 }
 @media all and (--from-mediumsmall) {
     .article--sml {
-        margin: .5rem;
+        margin: 1rem;
     }
 }
 @media all and (--from-medium) {
     .article--sml {
-        width: calc(50% - 1rem);
+        width: calc(50% - 2rem);
     }
 }
 @media all and (--from-large) {
     .article--sml {
-        width: calc(33.33% - 1rem);
+        width: calc(33.33% - 2rem);
     }
 }
 .article--sml--image {

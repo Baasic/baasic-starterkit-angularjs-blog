@@ -22,25 +22,9 @@
     color: var(--color-ultralight);
 }
 .footer__share {
+    max-width: 14rem;
     width: 100%;
     margin-bottom: 1rem;
-}
-@media all and (--from-mediumsmall) {
-    .footer__share {
-        width: 50%;
-    }
-}
-@media all and (--from-medium) {
-    .footer__share {
-        width: 33%;
-        margin-left: 0.5%;
-    }
-}
-@media all and (--from-large) {
-    .footer__share {
-        width: 25%;
-        margin-left: 7.5%;
-    }
 }
 .footer__title {
     font-size: var(--type-base);

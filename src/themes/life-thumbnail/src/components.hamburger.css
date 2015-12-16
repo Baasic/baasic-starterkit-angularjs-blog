@@ -5,9 +5,10 @@
 .hamburger {
     position: relative;
     width: 1.5rem;
-    height: 2rem;
     background-color: transparent;
     z-index: 4;
+    right: 0.5rem;
+    top: -0.75rem;
 }
 .hamburger:hover::before,
 .hamburger:hover::after,
@@ -20,7 +21,7 @@
 .hamburger__middle {
     background-color: var(--color-secondary);
 }
-.hamburger:hover .hamburger__middle--transformed, .hamburger__link:focus .hamburger__middle--transformed{
+.hamburger:hover .hamburger__middle--transformed, .hamburger__link:focus .hamburger__middle--transformed {
     background-color: transparent;
 }
 .hamburger::before, .hamburger__middle, .hamburger::after{
@@ -39,6 +40,13 @@
 }
 .hamburger::after{
     top: 1.5rem;
+}
+.hamburger--transformed {
+    position: fixed;
+    right: .875rem;
+    top: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 .hamburger--transformed::before {
     top: 1rem;

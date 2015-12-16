@@ -5,16 +5,18 @@
 .nav {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 1rem .5rem;
+    padding: 0 0.5rem;
     letter-spacing: 0.015rem;
 }
 .nav__wrapper {
-    margin:0;
+    margin-top: 0.75rem;
+}
+.nav__links__wrapper {
+    margin: 0;
+    display: none;
 }
 @media all and (--from-mediumsmall) {
-    .nav__wrapper {
-        margin: 2rem 1rem 0 0;
-        float: right;
+    .nav__links__wrapper {
         display: inline;
         visibility: visible;
     }
@@ -22,7 +24,7 @@
 .nav__link__holder {
     font-size: var(--type-large);
     line-height: var(--base-line-height);
-    margin: 0.25rem 1rem;
+    margin: 1rem;
 }
 @media all and (--from-mediumsmall) {
     .nav__link__holder {
@@ -39,37 +41,32 @@
     text-transform: uppercase;
     font-weight: var(--type-bold);
     background-color: transparent;
-    padding: 0 0 .25rem 0;
-    opacity: .7;
+    padding: 0 .25rem;
 }
 
 .nav__link:hover,
 .nav__link:focus {
-    opacity: 1;
-
+    color: var(--color-secondary);
 }
 @media all and (--from-mediumsmall) {
     .nav__link:hover,
     .nav__link:focus {
-        color: var(--color-ultralight);
-        opacity: 1;
+        padding: 3rem .25rem 0 .25rem;
+        background: var(--color-ultralight);
+
     }
 }
-.nav__overlay {
-    display:none;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: color( var(--color-primary) alpha(95%));
-    overflow: hidden;
-}
-@media all and (--from-mediumsmall) {
+.nav__overlay {}
+
+@media all and (--to-mediumsmall) {
     .nav__overlay {
-        display: inline;
-        float: right;
-        visibility: hidden;
+        display:none;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        height: 120vh;
+        width: 100%;
+        background-color: color( var(--color-primary) alpha(95%));
     }
 }

@@ -4,7 +4,6 @@
 
 .smm {
     height: 3rem;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -15,7 +14,8 @@
     height: 6rem;
     transition: all 0.3s ease-in-out;
 }
-.smm__item:hover {
+.smm__item:hover,
+.smm__item:focus {
     transform: translateY(-3rem);
 }
 .smm__item--facebook {
