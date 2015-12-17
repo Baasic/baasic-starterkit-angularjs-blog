@@ -5,10 +5,7 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: {
-                    authorId: '=authorId',
-                    user: '=user'
-                },
+                scope: { authorId: '=authorId' },
                 controller: ['$scope', '$q', 'baasicUserProfileService',
                     function baasicFindProfile($scope, $q, profileService) {
                         $scope.authorId = '';
@@ -19,7 +16,6 @@ angular.module('baasic.blog')
                                 })
                                     .success(function (profile) {
                                         $scope.profile = profile;
-                                        console.log($scope.user.email);
                                     })
                                     .error(function (error) {
                                         console.log(error); // jshint ignore: line
