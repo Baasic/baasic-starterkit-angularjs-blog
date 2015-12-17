@@ -5,37 +5,33 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: { authorId: '=authorId'},
-                link: function ($scope, $element, $attrs) {
-                    console.log($scope.authorId);
+                scope: {
+                    authorId: '=authorId',
+                    user: '=user'
                 },
                 controller: ['$scope', '$q', 'baasicUserProfileService',
                     function baasicFindProfile($scope, $q, profileService) {
-                        profileService.find({
-                        })
-                            .success(function (profiles) {
-                                $scope.profiles = profiles.item;
-                                angular.forEach($scope.profiles, function(value, i) {
-                                    if (value.id === $scope.authorId){
-                                        $scope.profile = $scope.profiles[i];
-                                    }
-                                });
+                        $scope.authorId = '';
+
+                        $scope.$watch('authorId', function() {
+                            if($scope.authorId.length > 0) {
+                                profileService.get($scope.authorId, {
                                 })
-
-
-
-                            .error(function (error) {
-                                console.log(error); // jshint ignore: line
-                            })
-                            .finally(function () {
-                            });
+                                    .success(function (profile) {
+                                        $scope.profile = profile;
+                                        console.log($scope.user.email);
+                                    })
+                                    .error(function (error) {
+                                        console.log(error); // jshint ignore: line
+                                    })
+                                    .finally(function () {
+                                    });
+                            }
+                        });
                     }
+
                 ],
                 templateUrl: 'templates/profile/template-profile.html'
             };
         }
-    ]
-
-);
-
-
+    ]);

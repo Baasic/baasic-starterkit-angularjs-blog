@@ -12,7 +12,8 @@ angular.module('myBlog', [
   'baasic.membership',
   'baasic.dynamicResource',
   'baasic.blog',
-  'baasic.userProfile'
+  'baasic.userProfile',
+  'ui.gravatar'
 ])
 .config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider', 'baasicAppConfigProvider',
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider, baasicAppConfigProvider) {

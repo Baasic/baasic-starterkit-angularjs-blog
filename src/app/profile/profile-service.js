@@ -6,9 +6,5 @@
             this.get = function get(id, options) {
                 return baasicUserProfileService.get(id, options);
             };
-
-            this.find = function find(options) {
-                return baasicUserProfileService.find(options);
-            };
         }
     ]);
