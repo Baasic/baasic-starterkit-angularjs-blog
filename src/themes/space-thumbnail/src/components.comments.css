@@ -3,6 +3,14 @@
 \*------------------------------------*/
 
 .comment {}
+.comment__body {
+    margin: 0 auto 2rem auto;
+    padding: 0 1.5rem;
+    max-width: 48em;
+}
+.comment__body--replies {
+    padding-left: 3rem;
+}
 .comment__container {
     border: 1px solid #ddd;
     padding: 1rem;
@@ -10,7 +18,7 @@
 }
 .comment__info {}
 .comment__info--reply {
-    padding-left: 5rem;
+    padding-left: 3rem;
 }
 .comment__author {
     display: inline-block;
