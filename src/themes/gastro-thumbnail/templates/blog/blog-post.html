@@ -17,6 +17,7 @@
                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
             </li>
         </ul>
+        <baasic-profile author-id="authorId"></baasic-profile>
         <hr>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">

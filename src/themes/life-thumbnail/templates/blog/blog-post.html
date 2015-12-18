@@ -19,6 +19,7 @@
                     <div btf-markdown="blog.content" class="styledtext">
 
                     </div>
+
                     <hr>
                     <div class="group spc--bottom--lrg">
                         <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
@@ -29,6 +30,11 @@
                             </li>
                         </ul>
                     </div>
+
+                    <div class="group spc--bottom--lrg">
+                        <baasic-profile author-id="authorId"></baasic-profile>
+                    </div>
+
                     <div class="spc--bottom--med">
                         <span ng-hide="isEdit">
                             <span ng-if="$root.user.isAuthenticated" class="push">
