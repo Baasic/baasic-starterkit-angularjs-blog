@@ -2,7 +2,7 @@
     <hr />
     <div class="comment__body comment__body--replies" >
         <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-        <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply)">
+        <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply);">
             <div class="form__field">
                 <label class="form__label" for="author">Name:</label>
                 <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text" required />
@@ -33,9 +33,14 @@
 <hr />
 <div class="comment__info--reply">
     <ul ng-repeat = "reply in comment.replies">
-        <li class="comment__author spc--bottom--sml"><a ng-href="mailto:{{ reply.email }}">{{ reply.author }}<span ng-if="!reply.author">Anonymous</span></a></li>
-        <li  class="comment__message">{{ reply.reply }}</li>
-        <hr ng-hide="$last" />
+
+        <li>
+            <div class="gravatar__container"><img gravatar-src="reply.email" class="gravatar"></div>
+            <div class="comment__author comment__author--reply spc--bottom--sml"><a ng-href="mailto:{{ reply.email }}">{{ reply.author }}<span ng-if="!reply.author">Anonymous</span></a></div>
+        </li>
+        <li>
+            <div class="comment__message">{{ reply.reply }}</div>
+        </li>
     </ul>
 
 </div>

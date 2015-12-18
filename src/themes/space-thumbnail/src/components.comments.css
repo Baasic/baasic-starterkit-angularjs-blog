@@ -21,11 +21,12 @@
     padding-left: 3rem;
 }
 .comment__author {
-    display: inline-block;
+    line-height: 3rem;
 }
 .comment__title {
     display: inline-block;
 }
 .comment__message {
     width: 100%;
+    margin: 1.5rem 0;
 }

@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # components.gravatar
+\*------------------------------------*/
+
+.gravatar {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: auto;
+}
+.gravatar__container {
+    display: block;
+    float: left;
+    margin-right: 1.5rem;
+}
