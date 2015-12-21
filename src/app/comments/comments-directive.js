@@ -5,7 +5,10 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: { articleId: '=' },
+                scope: {
+                    articleId: '=',
+                    blog: '='
+                },
                 controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService','baasicArticleService',
                     function ($scope, $state, $stateParams, $q, blogService, baasicArticleService) {
                         function loadComments() {

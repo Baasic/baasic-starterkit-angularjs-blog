@@ -4,15 +4,17 @@
 
 .comment {}
 .comment__body {
+    font-family: var(--ff-sans);
+    font-size: 0.875rem;
     margin: 0 auto 2rem auto;
     padding: 0 1.5rem;
-    max-width: 48em;
+    max-width: 48rem;
 }
 .comment__body--replies {
     padding-left: 3rem;
 }
 .comment__container {
-    border: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     padding: 1rem;
     margin: 1rem 0;
 }
@@ -28,5 +30,5 @@
 }
 .comment__message {
     width: 100%;
-    margin: 1.5rem 0;
+    margin: 0.5rem 0;
 }

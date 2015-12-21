@@ -1,8 +1,8 @@
+<a href="#" ng-click="active=!active" ng-hide="blog.allowComments == false">Reply</a>
 <div ng-show="active">
-    <hr />
-    <div class="comment__body comment__body--replies" >
+    <div class="comment__body comment__body--replies spc--top--lrg spc--bottom--lrg" >
         <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-        <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply);">
+        <form name="repliesForm" novalidate class="form " ng-submit="saveReplies(comment, reply);">
             <div class="form__field">
                 <label class="form__label" for="author">Name:</label>
                 <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text" required />
@@ -29,10 +29,8 @@
         </form>
     </div>
 </div>
-<button ng-click="active=!active" ng-hide="active" class="btn btn--primary btn--med rounded spc--top--med">REPLY</button>
-<hr />
-<div class="comment__info--reply">
-    <ul ng-repeat = "reply in comment.replies">
+<div class="comment__info--reply spc--top--med">
+    <ul ng-repeat ="reply in comment.replies" class="spc--bottom--med">
 
         <li>
             <div class="gravatar__container"><img gravatar-src="reply.email" class="gravatar"></div>
