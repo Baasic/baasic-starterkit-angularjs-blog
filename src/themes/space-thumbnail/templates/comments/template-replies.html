@@ -1,8 +1,8 @@
-<a href="#" ng-click="active=!active" ng-hide="blog.allowComments == false">Reply</a>
-<div ng-show="active">
-    <div class="comment__body comment__body--replies spc--top--lrg spc--bottom--lrg" >
-        <h2 class="spc--bottom--lrg">Add reply to comment</h2>
-        <form name="repliesForm" novalidate class="form " ng-submit="saveReplies(comment, reply);">
+<a href="#" ng-click="active=!active" ng-hide="blog.allowComments == false" class="spc--bottom--lrg">Reply</a>
+<div class="fade " ng-show="active">
+    <div class="comment__body comment__body--replies" >
+        <h2 class="comment__form__title--reply">Add reply to comment</h2>
+        <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply);">
             <div class="form__field">
                 <label class="form__label" for="author">Name:</label>
                 <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text" required />

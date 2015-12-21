@@ -18,6 +18,10 @@
     padding: 1rem;
     margin: 1rem 0;
 }
+.comment__form__title--reply {
+    margin-bottom: 1.5rem;
+    padding-top: 2rem;
+}
 .comment__info {}
 .comment__info--reply {
     padding-left: 3rem;
@@ -31,4 +35,14 @@
 .comment__message {
     width: 100%;
     margin: 0.5rem 0;
+}
+/*ngAnimate classes for replies form*/
+.fade {
+  transition: all 0.5s ease-in-out;
+  max-height: 40rem;
+  opacity: 1;
+}
+.fade.ng-hide {
+    max-height: 0px;
+    opacity: 0;
 }
