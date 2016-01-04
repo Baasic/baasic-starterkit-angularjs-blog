@@ -84,6 +84,10 @@ angular.module('myBlog', [
                 templateUrl: 'templates/blog/blog-search-results.html',
                 controller: 'BlogSearchResultsCtrl'
             })
+            .state('master.main.author', {
+                url: 'author/{authorId}',
+                templateUrl: 'templates/profile/template-profile-detail.html'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });

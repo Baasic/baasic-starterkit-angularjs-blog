@@ -1,6 +1,6 @@
 ﻿angular.module('baasic.blog')
-    .service('baasicProfileService', ['baasicApiHttp', 'baasicUserProfileService',
-        function baasicProfileService(baasicApiHttp, baasicUserProfileService) {
+    .service('profileService', ['baasicApiHttp', 'baasicUserProfileService',
+        function profileService(baasicApiHttp, baasicUserProfileService) {
             'use strict';
 
             this.get = function get(id, options) {
