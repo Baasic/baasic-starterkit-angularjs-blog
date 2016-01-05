@@ -1,6 +1,6 @@
 <div class="comment__body" id="blogPostComments" ng-if="blog.allowComments == true">
     <h3 class="spc--bottom--med">Post your comment:</h3>
-    <form name="commentsForm" novalidate class="form" ng-submit="saveComments()">
+    <form name="commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
             <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
@@ -21,8 +21,8 @@
             <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea" required></textarea>
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
         </div>
-        <div class="form__field">
-            <button type="submit" ng-click="resetCommentsForm(commentsForm)" class="btn btn--primary btn--med rounded">Send</button>
+        <div class="form__field" ng-disabled="commentsForm.$invalid">
+            <button  type="submit" ng-click="resetCommentsForm(commentsForm)" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn btn--primary btn--med rounded">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}
@@ -43,7 +43,7 @@
 
                     <li><div class="comment__message">{{ comment.comment }} </div></li>
                 </ul>
-                <comment-replies></comment-replies>
+                <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
             </div>
         </li>
     </ul>

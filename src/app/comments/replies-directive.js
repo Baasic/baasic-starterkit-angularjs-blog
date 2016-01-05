@@ -5,24 +5,21 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: true,
+                scope: {
+                    commentId: '=',
+                    articleId: '='
+                },
                 controller: ['$scope', '$state', '$stateParams', '$q', 'baasicBlogService','baasicArticleService',
                     function ($scope, $state, $stateParams, $q, blogService, baasicArticleService) {
                         function loadReplies() {
                         blogService.comments.replies.find($scope.articleId,  $scope.commentId, {
+                            embed: 'user',
                             orderBy: 'dateUpdated',
-                            orderDirection: 'desc',
+                            orderDirection: 'asc',
                             pageNumber: 1
                         })
                             .success(function parseRepliesList(replies) {
-                                var commentId = $scope.comment.id;
-                                var collection = $scope.comments.item;
-
-                                angular.forEach(collection, function(value, i){
-                                    if(value.id === commentId){
-                                        collection[i].replies = replies.item;
-                                    }
-                                });
+                                $scope.replies = replies.item;
                             })
                             .error(function (error) {
                                 console.log(error); //jshint ignore: line
@@ -32,40 +29,38 @@ angular.module('baasic.blog')
                             });
                         }
 
+                        loadReplies();
+
                         $scope.saveReplies = function saveReplies(comment, reply) {
                             $scope.comment = comment;
                             $scope.reply = reply;
-                            $scope.commentId = $scope.comment.id;
-                            $scope.reply.isNew = true;
+                            $scope.$root.loader.suspend();
 
-                            if ($scope.reply.isNew) {
-                                $scope.$root.loader.suspend();
+                            var options = {
+                                subscribeAuthor: false,
+                                commentUrl: $state.href('master.blog-detail', {}, { absolute: true }) + '{id}'
+                            };
 
-                                var options = {
-                                    subscribeAuthor: false,
-                                    commentUrl: 'http://test.com'
-                                };
-
-                                baasicArticleService.comments.replies.create($scope.articleId, {
-                                    commentId: $scope.commentId,
-                                    options: options,
-                                    email: $scope.reply.email,
-                                    reply: $scope.reply.reply,
-                                    author: $scope.reply.author
+                            baasicArticleService.comments.replies.create($scope.articleId, {
+                                commentId: $scope.commentId,
+                                options: options,
+                                email: $scope.reply.email,
+                                reply: $scope.reply.reply,
+                                author: $scope.reply.author
+                            })
+                                .success(function () {
+                                    $scope.reply = {};
+                                    $scope.repliesForm.$setPristine(true);
+                                    $scope.repliesForm.$setUntouched(true);
                                 })
-                                    .success(function () {
-                                        $scope.reply = {};
-                                        $scope.repliesForm.$setPristine(true);
-                                        $scope.repliesForm.$setUntouched(true);
-                                    })
-                                    .error(function (error) {
-                                        console.log(error); //jshint ignore: line
-                                    })
-                                    .finally(function () {
-                                        loadReplies();
-                                        $scope.$root.loader.resume();
-                                    });
-                            }
+                                .error(function (error) {
+                                    console.log(error); //jshint ignore: line
+                                })
+                                .finally(function () {
+                                    loadReplies();
+                                    $scope.$root.loader.resume();
+                                });
+
                         };
                     }
                 ],

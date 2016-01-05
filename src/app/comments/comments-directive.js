@@ -14,7 +14,7 @@ angular.module('baasic.blog')
                         function loadComments() {
                         $scope.$root.loader.resume();
                         blogService.comments.find($state.params.slug, {
-                            embed: 'replies,replies.user,user',
+                            embed: 'user',
                             orderBy: 'dateUpdated',
                             orderDirection: 'desc',
                             page: $state.params.page || 1,
@@ -41,12 +41,11 @@ angular.module('baasic.blog')
 
                         loadComments();
 
-                        $scope.saveComments = function saveComments() {
-                            if ($scope.commentsForm.$valid) {
-                                $scope.$root.loader.resume();
-                                $scope.comments.isNew = true;
 
-                            if ($scope.comments.isNew) {
+
+                        $scope.saveComments = function saveComments(comments) {
+                                $scope.$root.loader.resume();
+                                $scope.comments = comments;
                                 $scope.comments.articleId = $scope.articleId;
                                 var options = {
                                     subscribeAuthor: false,
@@ -55,8 +54,7 @@ angular.module('baasic.blog')
                                 $scope.comments.options = options;
                                 baasicArticleService.comments.create($scope.comments)
                                     .success(function() {
-                                        $scope.commentsForm.$setPristine();
-                                        $scope.commentsForm.$setUntouched();
+                                        $scope.comments = {};
                                     })
                                     .error(function(error) {
                                         console.log(error); //jshint ignore: line
@@ -65,10 +63,11 @@ angular.module('baasic.blog')
                                         loadComments();
                                         $scope.$root.loader.suspend();
                                     });
-                            }
+
+                            };
+
+
                         }
-                    };
-                }
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };
