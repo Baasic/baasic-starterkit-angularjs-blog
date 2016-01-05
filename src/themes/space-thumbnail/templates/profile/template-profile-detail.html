@@ -1,3 +1,13 @@
-profile : {{profile}}
+<h3>About {{ profile.firstName }}</h3>
 
-<profile-detail></profile-detail>
+    <ul>
+        <li>Full name: {{profile.displayName}}</li>
+        <li>{{ profile.aboutMySelf }}</li>
+        <li>Member since: {{profile.dateCreated | date: 'mediumDate' }}</li>
+        <li ng-if="profile.address.length">{{profile.address}}</li>
+        <li ng-if="profile.address.length">{{profile.zipCode}}</li>
+        <li ng-if="profile.city.length">{{profile.city}}</li>
+        <li ng-if="profile.country.length">{{profile.country}}</li>
+        <li ng-if="profile.mobilePhone.length" >Mobile: {{profile.mobilePhone}}</li>
+        <li ng-if="profile.webSites.length">Web Site: {{profile.webSites}}</li>
+    </ul>

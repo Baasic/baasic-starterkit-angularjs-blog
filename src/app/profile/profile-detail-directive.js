@@ -5,20 +5,26 @@ angular.module('baasic.blog')
 
             return {
                 restrict: 'AE',
-                scope: {},
-                controller: ['$scope', '$state', '$q', 'profileService',
-                    function baasicProfileDetail($scope, $state, $q, profileService) {
+                scope: '=',
+                controller: ['$scope', '$state', '$q', 'baasicUserProfileService',
+                    function baasicProfileDetail($scope, $state, $q, baasicUserProfileService) {
+                        function loadProfile() {
+                        baasicUserProfileService.get($state.params.authorId, {
 
-                        profileService.get($state.params.authorId, {})
-                            .success(function(data) {
-                                $scope.data = data;
+                        })
+                            .success(function (data) {
+                                $scope.profile = data;
                             })
-                            .error(function(error) {
-                                console.log(error); // jshint ignore: line
+                            .error(function (error) {
+                                console.log (error); // jshint ignore: line
                             })
-                            .finally(function(response){
-                                console.log(response);
+                            .finally(function (response){
+                                console.log (response);
                             });
+
+                        }
+
+                        loadProfile();
 
                     }
 

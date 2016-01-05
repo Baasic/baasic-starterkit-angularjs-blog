@@ -86,7 +86,7 @@ angular.module('myBlog', [
             })
             .state('master.main.author', {
                 url: 'author/{authorId}',
-                templateUrl: 'templates/profile/template-profile-detail.html'
+                templateUrl: 'templates/profile/profile-detail.html'
             })
             .state('404', {
                 templateUrl: 'templates/404.html'
