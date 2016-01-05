@@ -1,4 +1,5 @@
-<div class="author__info__container">
+<div class="post">
+<div class="post__body">
     <h1 class="author">{{ profile.firstName }} {{ profile.lastName }}</h1>
     <h3 class="author author__display__name">
         <span ng-if="!profile.webSites.length">{{ profile.displayName }}</span>
@@ -8,4 +9,5 @@
         <span class="author__additional__info" ng-if="profile.city.length && profile.country.length">{{ profile.firstName }} is from {{ profile.city }}, {{ profile.country }}.</span>
         <span class="author__additional__info">With us since {{ profile.dateCreated | date: 'mediumDate' }}</span>
     </p>
+</div>
 </div>

@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    # components.author
+\*------------------------------------*/
+
+.author {
+    letter-spacing: 0.05rem;
+}
+.author__display__name {
+    margin-bottom: 0.5rem;
+}
+.author__additional__info {
+    display: inline-block;
+    margin-top: 0.5rem;
+}

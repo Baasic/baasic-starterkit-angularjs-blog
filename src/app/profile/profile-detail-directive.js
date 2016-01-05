@@ -19,7 +19,7 @@ angular.module('baasic.blog')
                                 console.log (error); // jshint ignore: line
                             })
                             .finally(function (response){
-                                console.log (response);
+                                console.log (response); // jshint ignore: line
                             });
 
                         }
