@@ -22,7 +22,7 @@
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
         </div>
         <div class="form__field" ng-disabled="commentsForm.$invalid">
-            <button  type="submit" ng-click="resetCommentsForm(commentsForm)" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn btn--primary btn--med rounded">Send</button>
+            <button type="submit" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn btn--primary btn--med rounded">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}
@@ -38,7 +38,8 @@
                 <ul class="comment__info">
                     <li>
                         <div class="gravatar__container"><img gravatar-src="comment.email" class="gravatar"></div>
-                        <div><a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a></div>
+                        <div><a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a><span ng-if="comment.title"> - {{ comment.title }}</span>
+                        <div>
                     </li>
 
                     <li><div class="comment__message">{{ comment.comment }} </div></li>

@@ -41,23 +41,26 @@ angular.module('baasic.blog')
 
                         loadComments();
 
-
-
                         $scope.saveComments = function saveComments(comments) {
                                 $scope.$root.loader.resume();
                                 $scope.comments = comments;
-                                $scope.comments.articleId = $scope.articleId;
                                 var options = {
                                     subscribeAuthor: false,
                                     commentUrl: $state.href('master.blog-detail', {}, { absolute: true }) + '{id}'
                                 };
-                                $scope.comments.options = options;
-                                baasicArticleService.comments.create($scope.comments)
+
+                                baasicArticleService.comments.create({
+                                    articleId : $scope.articleId,
+                                    author: $scope.comments.author,
+                                    comment : $scope.comments.comment,
+                                    email: $scope.comments.email,
+                                    title: $scope.comments.title,
+                                    options: options
+                                })
                                     .success(function() {
                                         $scope.comments = {};
                                     })
-                                    .error(function(error) {
-                                        console.log(error); //jshint ignore: line
+                                    .error(function() {
                                     })
                                     .finally(function() {
                                         loadComments();
