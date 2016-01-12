@@ -24,7 +24,7 @@
         width: 33.33%;
     }
     .col--third {
-        width: 50%;
+        width: 60%;
     }
     .col--center {
         float: none;
@@ -39,7 +39,7 @@
     .col--quad {
         width: 25%;
     }
-    .col--third {
+    .col--third { 
         width: 50%;
     }
     .col--center {
@@ -48,6 +48,6 @@
 }
 @media all and (--from-xxxlarge) {
     .col--third {
-        width: 33.33%;
+        width: 40%;
     }
 }
