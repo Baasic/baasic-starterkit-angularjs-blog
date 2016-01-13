@@ -4,11 +4,10 @@
 
 .gravatar {
     border-radius: 50%;
-    width: 3rem;
-    height: auto;
+    width: 2rem;
 }
 .gravatar__container {
     display: block;
     float: left;
-    margin-right: 1rem;
+    margin: 0.25rem 1rem 0 0;
 }

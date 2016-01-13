@@ -1,6 +1,6 @@
 <div class="comment__body" id="blogPostComments" ng-if="blog.allowComments == true">
     <h3 class="spc--bottom--med">Post your comment:</h3>
-    <form name="commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
+    <form name="$parent.commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
         <div class="form__field">
             <label class="form__label" for="author">Name:</label>
             <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
@@ -38,11 +38,14 @@
                 <ul class="comment__info">
                     <li>
                         <div class="gravatar__container"><img gravatar-src="comment.email" class="gravatar"></div>
-                        <div><a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a><span ng-if="comment.title"> - {{ comment.title }}</span>
+                        <div>
+                            <a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a>
+                            <p class="comment__title">{{ comment.title }}</p>
                         <div>
                     </li>
-
-                    <li><div class="comment__message">{{ comment.comment }} </div></li>
+                    <li>
+                        <div class="comment__message">{{ comment.comment }}</div>
+                    </li>
                 </ul>
                 <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
             </div>

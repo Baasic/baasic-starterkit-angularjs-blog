@@ -59,6 +59,8 @@ angular.module('baasic.blog')
                                 })
                                     .success(function() {
                                         $scope.comments = {};
+                                        $scope.commentsForm.$setPristine();
+                                        $scope.commentsForm.$setUntouched();
                                     })
                                     .error(function() {
                                     })
@@ -69,8 +71,7 @@ angular.module('baasic.blog')
 
                             };
 
-
-                        }
+                         }
                 ],
                 templateUrl: 'templates/comments/template-comments.html'
                 };

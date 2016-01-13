@@ -9,6 +9,7 @@
     margin: 0 auto 2rem auto;
     padding: 0 1.5rem;
     max-width: 48rem;
+    color: #5b5b5b;
 }
 .comment__body--replies {
     padding-left: 3rem;
@@ -27,15 +28,22 @@
     padding-left: 3rem;
 }
 .comment__author {
-    line-height: 3rem;
+    line-height: 1rem;
 }
 .comment__title {
-    display: inline-block;
+    line-height: 0.75rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
 }
 .comment__message {
     width: 100%;
-    margin: 0.5rem 0;
+    margin: 1.5rem 0;
+    color: #5b5b5b;
 }
+.input {
+    padding: 0.5rem;
+}
+
 /*ngAnimate classes for replies form*/
 .fade {
   transition: all 0.5s ease-in-out;
