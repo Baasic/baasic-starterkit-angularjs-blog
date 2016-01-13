@@ -2,27 +2,33 @@
     <h3 class="spc--bottom--med">Post your comment:</h3>
     <form name="$parent.commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
         <div class="form__field">
-            <label class="form__label" for="author">Name:</label>
-            <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text" required />
+            <div class="grid">
+                <label class="form__label col col--quad" for="author">Name:</label>
+                <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text input--med col col--three-quarter" required />
+            </div>
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
         </div>
         <div class="form__field">
-            <label class="form__label" for="email">Email address:</label>
-            <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text" required />
+            <div class="grid">
+                <label class="form__label col col--quad" for="email">Email address:</label>
+                <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text input--med col col--three-quarter" required />
+            </div>
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
         </div>
-        <div class="form__field">
-            <label class="form__label" for="title">Title</label>
-            <input type="text" name="title" id="title" ng-model="comments.title" class="input input--text" />
+        <div class="form__field grid">
+            <label class="form__label col col--quad" for="title">Title</label>
+            <input type="text" name="title" id="title" ng-model="comments.title" class="input input--text input--med col col--three-quarter" />
         </div>
         <div class="form__field">
-            <label class="form__label" for="message">Message</label>
-            <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea" required></textarea>
+            <div class="grid">
+                <label class="form__label col col--quad" for="message">Message</label>
+                <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea col col--three-quarter" required></textarea>
+            </div>
             <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
         </div>
-        <div class="form__field" ng-disabled="commentsForm.$invalid">
-            <button type="submit" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn btn--primary btn--med rounded">Send</button>
+        <div class="form__field group" ng-disabled="commentsForm.$invalid">
+            <button type="submit" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn btn--primary btn--med rounded push">Send</button>
         </div>
         <div ng-show="error">
             {{ error }}
@@ -32,25 +38,23 @@
 <div class="comment__body" ng-if="comments.totalRecords">
     <hr />
     <h3>Comments:</h3>
-    <ul>
-        <li ng-repeat="comment in comments.item">
-            <div class="comment__container group">
-                <ul class="comment__info">
-                    <li>
-                        <div class="gravatar__container"><img gravatar-src="comment.email" class="gravatar"></div>
-                        <div>
-                            <a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a>
-                            <p class="comment__title">{{ comment.title }}</p>
-                        <div>
-                    </li>
-                    <li>
-                        <div class="comment__message">{{ comment.comment }}</div>
-                    </li>
-                </ul>
-                <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
+    <div ng-repeat="comment in comments.item">
+        <div class="spc--top--sml group">
+            <div class="comment__info">
+                <div>
+                    <div class="gravatar__container"><img gravatar-src="comment.email" class="gravatar"></div>
+                    <div>
+                        <a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a>
+                        <p class="comment__title">{{ comment.title }}</p>
+                    <div>
+                <div>
+                <div>
+                    <div class="comment__message">{{ comment.comment }}</div>
+                <div>
             </div>
-        </li>
-    </ul>
+            <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
+        </div>
+    <div>
 
     <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext" class="pager pager--comments">
          <a ui-sref="master.blog-detail({ page: pager.currentPage - 1, id: blogPostComments })" class="btn btn--light btn--med rounded" ng-show="pager.hasPrevious">Prev</a>

@@ -2,31 +2,37 @@
     # components.comments
 \*------------------------------------*/
 
+/*
+* Post comment
+*/
 .comment {}
 .comment__body {
-    font-family: var(--ff-sans);
-    font-size: 0.875rem;
-    margin: 0 auto 2rem auto;
+    /*font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height) * 1);*/
     padding: 0 1.5rem;
-    max-width: 48rem;
-    color: #5b5b5b;
+    max-width: 48em;
+    margin-right: auto;
+    margin-left: auto;
 }
-.comment__body--replies {
-    padding-left: 3rem;
+
+/* 
+* Replies
+*/
+.comment--reply {
+
 }
-.comment__container {
-    border-top: 1px solid #ddd;
-    padding: 1rem;
-    margin: 1rem 0;
-}
-.comment__form__title--reply {
+.comment__reply__title {
     margin-bottom: 1.5rem;
     padding-top: 2rem;
 }
-.comment__info {}
 .comment__info--reply {
     padding-left: 3rem;
 }
+
+/* 
+* Comments and replys
+*/
 .comment__author {
     line-height: 1rem;
 }
@@ -39,9 +45,6 @@
     width: 100%;
     margin: 1.5rem 0;
     color: #5b5b5b;
-}
-.input {
-    padding: 0.5rem;
 }
 
 /*ngAnimate classes for replies form*/

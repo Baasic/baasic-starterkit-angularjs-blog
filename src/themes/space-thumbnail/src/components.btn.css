@@ -122,4 +122,5 @@
     background: var(--color-ultralight);
     border-color: var(--color-ultralight);
     color: var(--color-light);
+    cursor: not-allowed;
 }
