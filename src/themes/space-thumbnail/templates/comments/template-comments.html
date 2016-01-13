@@ -40,7 +40,7 @@
                         <div class="gravatar__container"><img gravatar-src="comment.email" class="gravatar"></div>
                         <div>
                             <a class="comment__author" ng-href="mailto:{{ comment.email }}">{{ comment.author }}</a>
-                            <p class="comment__title">{{ comment.title }}</p>
+                            <p class="comment__title">{{ comment.title }} {{ comment.dateCreated | date: 'MMM d, y H:mm'}}</p>
                         <div>
                     </li>
                     <li>

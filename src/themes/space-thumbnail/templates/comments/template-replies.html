@@ -38,6 +38,7 @@
                 <a ng-href="mailto:{{ reply.email }}" class="comment__author comment__author--reply spc--bottom--sml"> {{ reply.author }}
                     <span ng-if="!reply.author">Anonymous</span>
                 </a>
+                <p class="comment__title">{{ reply.dateCreated | date: 'MMM d, y H:mm'}}</p>
             </div>
         </li>
         <li>
