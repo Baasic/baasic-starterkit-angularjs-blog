@@ -7,8 +7,8 @@
         <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply);">
             <div class="form__field">
                 <div class="grid">
-                    <label class="form__label col col--quad" for="author">Name:</label>
-                    <input type="text" name="author" id="author" ng-model="reply.author" class="input input--text input--med col col--three-quarter" required />
+                    <label class="form__label col col--quad" for="author">Name:<br/><small>({{128-reply.author.length}} characters left)</small></label>
+                    <input type="text" name="author" id="author" ng-model="reply.author" ng-maxlength="128" maxlength="128" class="input input--text input--med col col--three-quarter" required />
                 </div>
                 <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.author.$touched) && repliesForm.author.$error.required">Name is required.</p>
             </div>

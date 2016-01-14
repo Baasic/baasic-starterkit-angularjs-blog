@@ -13,7 +13,7 @@
     margin-left: auto;
 }
 
-/* 
+/*
 * Comments and replys
 */
 .comment--reply {
@@ -78,9 +78,9 @@
 
 /*ngAnimate classes for replies form*/
 .fade {
-  transition: all 0.5s ease-in-out;
-  max-height: 40rem;
-  opacity: 1;
+    transition: all 0.5s ease-in-out;
+    max-height: 40rem;
+    opacity: 1;
 }
 .fade.ng-hide {
     max-height: 0px;

@@ -4,8 +4,8 @@
         <form name="$parent.commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
             <div class="form__field">
                 <div class="grid">
-                    <label class="form__label col col--quad" for="author">Name:</label>
-                    <input type="text" name="author" id="author" ng-model="comments.author" class="input input--text input--med col col--three-quarter" required />
+                    <label class="form__label col col--quad" for="author">Name:<br/><small>({{128-comments.author.length}} characters left)</small></label>
+                    <input type="text" name="author" id="author" ng-model="comments.author" ng-maxlength="128" maxlength="128" class="input input--text input--med col col--three-quarter" required />
                 </div>
                 <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
             </div>
@@ -17,14 +17,10 @@
                 <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
                 <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
             </div>
-            <div class="form__field grid">
-                <label class="form__label col col--quad" for="title">Title</label>
-                <input type="text" name="title" id="title" ng-model="comments.title" class="input input--text input--med col col--three-quarter" />
-            </div>
             <div class="form__field">
                 <div class="grid">
                     <label class="form__label col col--quad" for="message">Message</label>
-                    <textarea name="message" id="message" ng-model="comments.comment" class="input input--textarea col col--three-quarter" required></textarea>
+                    <textarea name="message" id="message" ng-model="comments.comment" ng-maxlength="1000" maxlength="1000" class="input input--textarea col col--three-quarter" required></textarea>
                 </div>
                 <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
             </div>
