@@ -7,9 +7,6 @@
 */
 .comment {}
 .comment__body {
-    /*font-family: var(--ff-sans);
-    font-size: var(--type-small);
-    line-height: calc(var(--base-line-height) * 1);*/
     padding: 0 1.5rem;
     max-width: 48em;
     margin-right: auto;
@@ -17,34 +14,66 @@
 }
 
 /* 
-* Replies
-*/
-.comment--reply {
-
-}
-.comment__reply__title {
-    margin-bottom: 1.5rem;
-    padding-top: 2rem;
-}
-.comment__info--reply {
-    padding-left: 3rem;
-}
-
-/* 
 * Comments and replys
 */
-.comment__author {
-    line-height: 1rem;
+.comment--reply {
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border-left: 3px solid color(#999 a(0.2));
 }
-.comment__title {
-    line-height: 0.75rem;
-    font-size: 0.75rem;
-    opacity: 0.7;
+@media all and (--from-mediumsmall) {
+    .comment--reply {
+        padding-left: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        margin-left: 2rem;
+    }
+}
+.comment--reply__button {
+    display: block;
+    text-transform: uppercase;
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height) * 1);
+    transition: all 0.2s;
+    color: #999;
+}
+.comment--reply__button:hover,
+.comment--reply__button:focus {
+    color: #666;
+}
+.comment--reply__button:after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s;
+    background-image: url(assets/img/expand-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 2px 7px;
+}
+.comment--reply__button.active:after {
+    transform: rotate(-90deg);
+    background-position: -6px 1px;
+}
+.comment__author {
+    font-family: var(--ff-sans);
+    font-size: var(--type-base);
+    line-height: calc(var(--base-line-height) * 1);
+    color: var(--color-primary)
+}
+.comment__time {
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    line-height: calc(var(--base-line-height) * 1);
+    text-transform: uppercase;
+    color: var(--color-light);
 }
 .comment__message {
-    width: 100%;
     margin: 1.5rem 0;
-    color: #5b5b5b;
+    color: #333;
 }
 
 /*ngAnimate classes for replies form*/
