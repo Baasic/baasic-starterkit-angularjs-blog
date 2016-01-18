@@ -2,18 +2,40 @@
     # components.author
 \*------------------------------------*/
 
-.author {
-    letter-spacing: 0.05rem;
-}
-.author__display__name {
-    margin-bottom: 0.5rem;
-}
-.author__additional__info {
-    display: inline-block;
-    margin-top: 0.5rem;
-}
-
-.author__info__container {
+.author {}
+.author__container {
     max-width: 60rem;
     padding: 1.5rem;
+}
+.author__title--primary {
+    margin: 0; 
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+.author__title--secondary {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+.author__name {
+    margin: 0; 
+    font-size: 16px;
+    line-height: 24px;
+    color: grey;
+}
+.author__content {
+    font-size: 14px;
+    line-height: 24px;
+}
+.author__content__date {
+    color: grey;
+}
+.author__content--divider {
+    border-top: 1px solid lightgrey;
+    padding-top: 1rem !important;  
+    margin-top: 1rem !important;  
 }
