@@ -36,14 +36,14 @@ var colorFunction = require('postcss-color-function');
 var autoprefixer = require('autoprefixer');
 
 //Processor
-gulp.task('styles', ['clean-tmp'], function () {
+gulp.task('styles', function () {
     var processors = [
         atImport({
             from: './src/themes/' + theme + '/src/app.css'
         }),
         customMedia,
         customProperties,
-        calc,        
+        calc,
         colorFunction,
         autoprefixer({
             browsers: ['last 2 versions']
@@ -52,7 +52,7 @@ gulp.task('styles', ['clean-tmp'], function () {
 
     return gulp.src(
         './src/themes/' + theme + '/src/app.css')
-        .pipe(postcss(processors))        
+        .pipe(postcss(processors))
         .pipe(gulp.dest('./.tmp/'))
         .pipe(g.cached('built-css'))
         .pipe(livereload());
@@ -65,7 +65,7 @@ gulp.task('styles-dist', function () {
         }),
         customMedia,
         customProperties,
-        calc,        
+        calc,
         colorFunction,
         autoprefixer({
             browsers: ['last 2 versions']

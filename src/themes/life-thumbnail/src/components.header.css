@@ -27,6 +27,7 @@
 .header--editor {
     background: url(./assets/img/editor.jpg) no-repeat center;
     background-size: cover;
+    height: 15rem;
 }
 .header--lost {
     background: url(./assets/img/lost.jpg) no-repeat top;
@@ -42,11 +43,10 @@
 @media all and (--from-medium) {
     .header__title {
         display: block;
-        margin-top: 3.5rem;
-        color: white;
-        text-transform: uppercase;
-        text-align: center;
+        color: var(--color-primary);
+        text-align: left;
         font-weight: 400;
+        margin-bottom: 2rem;
         font-family: var(--ff-sans);
         font-size: calc(var(--base-font-size)*2);
         line-height: calc(var(--base-line-height)*2);
