@@ -32,9 +32,9 @@
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
                     </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>
@@ -106,6 +106,16 @@
                 <auto-complete source="loadTags($query)">
                 </auto-complete>
             </tags-input>
+        </div>
+        <div class="form__filed spc--bottom--med">
+            <div>
+                <input type="checkbox" name="blogComments" id="blogComments" value="true" ng-model="blog.allowComments">
+                <label for="blogComments">Enable Comments on this Blog Post</label>
+            </div>
+            <div>
+                <input type="checkbox" name="blogCommentsHide" id="blogCommentsHide" value="true" ng-model="blog.hideComments">
+                <label for="blogCommentsHide">Hide Comment Area</label>
+            </div>
         </div>
 
     <hr> 

@@ -79,6 +79,8 @@
 @import "components.pager.css";
 @import "components.lost.css";
 @import "components.message.css";
+@import "components.comments.css";
+@import "components.gravatar.css";
 @import "components.author.css";
 
 

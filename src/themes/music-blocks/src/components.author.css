@@ -12,13 +12,11 @@
     font-size: var(--type-large);
     font-weight: var(--type-bold);
     line-height: calc(var(--base-line-height)*1.75);
-    text-transform: uppercase;
     letter-spacing: 0.05rem;
 }
 .author__title--secondary {
     font-size: var(--type-base);
     line-height: calc(var(--base-line-height)*1);
-    text-transform: uppercase;
     letter-spacing: 0.05rem;
 }
 .author__name {

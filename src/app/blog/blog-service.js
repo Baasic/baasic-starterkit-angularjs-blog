@@ -80,5 +80,37 @@
                     return baasicArticleTagsService.find(options);
                 }
             };
+
+            this.comments = {
+                find: function find(id, options) {
+                    return baasicArticleService.comments.find(id, options);
+                },
+                create: function create(articleId, data) {
+                    return baasicArticleService.comments.create(articleId, data);
+                }
+            };
+
+            this.comments.next = function next(comments) {
+                var nextLink = comments.links('next');
+                if (nextLink) {
+                    return baasicApiHttp.get(nextLink.href);
+                }
+            };
+
+            this.comments.previous = function previous(comments) {
+                var prevLink = comments.links('previous');
+                if (prevLink) {
+                    return baasicApiHttp.get(prevLink.href);
+                }
+            };
+
+            this.comments.replies = {
+                find: function find(articleId, commentId, options) {
+                    return baasicArticleService.comments.replies.find(articleId, commentId, options);
+                },
+                create: function create(reply) {
+                    return baasicArticleService.comments.replies.create(reply);
+                }
+            };
         }
     ]);

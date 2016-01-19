@@ -39,5 +39,7 @@
             $scope.editBlog = function editBlog() {
                 $state.go('master.blog-edit', { slug: $scope.blog.slug });
             };
+
+
         }
     ]);

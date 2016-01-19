@@ -101,7 +101,7 @@ angular.module('myBlog', [
                 controller: 'NewBlogPostCtrl'
             })
             .state('master.blog-detail', {
-                url: 'blog-post/{slug}',
+                url: 'blog-post/{slug}?{page}',
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
