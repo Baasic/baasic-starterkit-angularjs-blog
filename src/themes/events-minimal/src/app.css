@@ -36,7 +36,7 @@
 
 /**
 * Project specific modules
-* All our modules such as buttons, inputs, labels, tables etc. 
+* All our modules such as buttons, inputs, labels, tables etc.
 */
 @import "modules.anchor.css";
 @import "modules.alert.css";
@@ -57,7 +57,7 @@
 @import "components.layout.css";
 @import "components.form.css";
 @import "components.styledtext.css";
-@import "components.header.css"; 
+@import "components.header.css";
 @import "components.meta.css";
 @import "components.footer.css";
 @import "components.tags.css";
@@ -72,13 +72,14 @@
 @import "components.message.css";
 @import "components.comments.css";
 @import "components.gravatar.css";
+@import "components.author.css";
 
 /*@import "components.componentname.css";*/
 
 
 /**
 * Project specific external plugins
-* All project Sass or CSS plugins such as Select2, Dropit etc. 
+* All project Sass or CSS plugins such as Select2, Dropit etc.
 */
 
 @import "plugins.tageditor.css";
@@ -92,7 +93,7 @@
 @import "tools.icons.css";
 @import "util.group.css";
 @import "util.cf.css";
-@import "util.floats.css"; 
+@import "util.floats.css";
 @import "util.spacers.css";
 @import "util.visibility.css";
 @import "util.radius.css";

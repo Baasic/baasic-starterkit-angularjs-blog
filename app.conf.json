@@ -1,5 +1,4 @@
 {
-    "apiRootUrl": "baasic.buildserver",
-    "apiVersion": "staging",
-    "apiKey": "mariotestprofiles2"
+    "apiRootUrl": "api.baasic.com",
+    "apiVersion": "beta"
 }

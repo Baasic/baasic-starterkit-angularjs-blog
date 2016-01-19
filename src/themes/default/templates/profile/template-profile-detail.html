@@ -1,0 +1,11 @@
+<div>
+    <h1>{{ profile.firstName }} {{ profile.lastName }}</h1>
+    <h3>
+        <span ng-if="!profile.webSites.length">{{ profile.displayName }}</span>
+        <a href="{{ profile.webSites }}" ng-if="profile.webSites.length">{{ profile.displayName }}</a>
+    </h3>
+    <p>{{ profile.aboutMySelf }} <br />
+        <span ng-if="profile.city.length && profile.country.length">{{ profile.firstName }} is from {{ profile.city }}, {{ profile.country }}.</span>
+        <span>With us since {{ profile.dateCreated | date: 'mediumDate' }}</span>
+    </p>
+</div>
