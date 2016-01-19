@@ -30,6 +30,9 @@
             </span>
         </span>
         <button type="button" class="btn --light --med rounded arrow-holder" href="javascript:void(0);" ui-sref="master.main.index" rel="home"><span class="arrow --small --bck"></span> Back</button>
+        <div class="spc--top--lrg">
+            <blog-comments article-id='blog.id' blog='blog' ng-if="blog.hideComments == false"></blog-comments>
+        </div>
     </div>
 </article>
 

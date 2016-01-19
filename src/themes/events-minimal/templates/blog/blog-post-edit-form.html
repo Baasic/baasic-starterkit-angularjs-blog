@@ -32,9 +32,9 @@
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--secondary btn--med" type="button" ng-class="{ 'btn--active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
                     </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>

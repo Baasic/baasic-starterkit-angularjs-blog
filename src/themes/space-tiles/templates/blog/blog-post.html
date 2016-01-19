@@ -27,8 +27,12 @@
             </span>
         </span>
         <button type="button" class="btn btn--light btn--med radial" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+        <div class="spc--top--med">
+            <blog-comments article-id='blog.id' blog='blog' ng-if="blog.hideComments == false"></blog-comments>
+        </div>
     </div>
 </article>
+
 
 <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
 </baasic-blog-edit>

@@ -37,6 +37,10 @@
                         </span>
                         <button type="button" class="btn btn--secondary btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
                     </div>
+
+                    <div class="spc--top--sml">
+                        <blog-comments article-id='blog.id' blog='blog' ng-if="blog.hideComments == false"></blog-comments>
+                    </div>
                 </div>
             </div>
         </article>

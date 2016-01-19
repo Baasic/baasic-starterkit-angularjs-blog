@@ -34,6 +34,9 @@
                     <div class="taglist">
                         <a ng-repeat="tag in blog.tags" ui-sref="master.main.blog-search({ tags: tag.slug })" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast tag-padding tags__item tags__link">{{ tag.tag }}</a>
                     </div>
+                    <div class="spc--top--med">
+                        <blog-comments article-id='blog.id' blog='blog' ng-if="blog.hideComments == false"></blog-comments>
+                    </div>
                 </div>
             </div>
             <footer class="mdl-mini-footer">

@@ -55,9 +55,8 @@
     background-position: 2px 7px;
 }
 .comment--reply__button.active:after {
-    transform: rotate(-180deg);
-    transform-origin: 50%;
-    background-position: 0px -5px;
+    transform: rotate(-90deg);
+    background-position: -6px 1px;
 }
 .comment__author {
     font-family: var(--ff-sans);
