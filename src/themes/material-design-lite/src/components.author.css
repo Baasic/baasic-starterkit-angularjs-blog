@@ -11,14 +11,12 @@
     margin: 0; 
     font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 0.05rem;
 }
 .author__title--secondary {
     font-size: 16px;
     line-height: 24px;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 0.05rem;
 }
 .author__name {
