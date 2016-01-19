@@ -36,7 +36,7 @@ var colorFunction = require('postcss-color-function');
 var autoprefixer = require('autoprefixer');
 
 //Processor
-gulp.task('styles', ['clean-tmp'], function () {
+gulp.task('styles', function () {
     var processors = [
         atImport({
             from: './src/themes/' + theme + '/src/app.css'

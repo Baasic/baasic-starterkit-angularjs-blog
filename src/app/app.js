@@ -11,7 +11,9 @@ angular.module('myBlog', [
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
-  'baasic.blog'
+  'baasic.blog',
+  'baasic.userProfile',
+  'ui.gravatar'
 ])
 .config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider', 'baasicAppConfigProvider',
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider, baasicAppConfigProvider) {
@@ -112,6 +114,10 @@ angular.module('myBlog', [
                 url: 'blog-search?{search,tags}',
                 templateUrl: 'templates/blog/blog-search-results.html',
                 controller: 'BlogSearchResultsCtrl'
+            })
+            .state('master.main.author', {
+                url: 'author/{authorId}',
+                templateUrl: 'templates/profile/profile-detail.html'
             })
             .state('404', {
                 templateUrl: 'templates/404.html'

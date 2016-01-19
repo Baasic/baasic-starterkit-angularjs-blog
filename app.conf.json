@@ -1,4 +1,5 @@
-{   
+{
     "apiRootUrl": "api.baasic.com",
-    "apiVersion": "beta"
+    "apiVersion": "beta",
+    "apiKey": "starterkit-blog"
 }
