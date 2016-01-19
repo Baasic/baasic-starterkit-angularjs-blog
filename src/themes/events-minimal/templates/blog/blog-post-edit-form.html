@@ -107,6 +107,16 @@
                 </auto-complete>
             </tags-input>
         </div>
+        <div class="form__filed spc--bottom--med">
+            <div>
+                <input type="checkbox" name="blogComments" id="blogComments" value="true" ng-model="blog.allowComments">
+                <label for="blogComments">Enable Comments on this Blog Post</label>
+            </div>
+            <div>
+                <input type="checkbox" name="blogCommentsHide" id="blogCommentsHide" value="true" ng-model="blog.hideComments">
+                <label for="blogCommentsHide">Hide Comment Area</label>
+            </div>
+        </div>
 
     <hr> 
         <div class="form__field">
