@@ -563,3 +563,18 @@ a:hover {
 .mdl-card-no-height {
     min-height: 100px!important;
 }
+
+
+/**
+ * disabled button for comments
+ */
+
+.btn--disabled,
+.btn--disabled:hover,
+.btn--disabled:active,
+.btn--disabled:focus {
+    background: var(--color-ultralight);
+    border-color: var(--color-ultralight);
+    color: var(--color-light);
+    cursor: not-allowed;
+}
