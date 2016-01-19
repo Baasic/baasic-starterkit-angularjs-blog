@@ -18,6 +18,7 @@
                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
             </li>
         </ul>
+        <baasic-profile author-id="authorId"></baasic-profile>
         <hr>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
@@ -27,7 +28,10 @@
         </span>
         <button type="button" class="btn btn--light btn--med rounded" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
     </div>
+
 </article>
+
+
 
 <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
 </baasic-blog-edit>

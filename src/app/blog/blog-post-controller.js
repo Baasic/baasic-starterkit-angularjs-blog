@@ -10,6 +10,7 @@
             })
                 .success(function (blog) {
                     $scope.blog = blog;
+                    $scope.authorId = $scope.blog.authorId;
                 })
                 .error(function (error) {
                     console.log(error); // jshint ignore: line
