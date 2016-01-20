@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 .form {
+    overflow: hidden;
 }
 .form__field {
     margin-bottom: 1.5rem;
-    position: relative;
 }
 .form__desc {
     display: block;
@@ -16,38 +16,43 @@
 }
 .form__field--half {
     margin-bottom: 1.5rem;
-    position: relative;
+}
+.form__field--full {
+    margin-bottom: 1.5rem;
+    float: left;
+    width: 100%;
 }
 @media all and (--from-medium) {
     .form__field--half {
         float: left;
         width: 50%;
-        padding-right: 1rem;
     }
-}
-@media all and (--from-medium) {
     .form__field--half:last-child {
         float: right;
+        padding-left: 1rem;
     }
-
     .form__field--half:first-child {
         float: left;
+        padding-right: 1rem;
+        padding-left: 0;
+    }
+    .form__field--single {
+        margin-bottom: 1.5rem;
+        float: left;
+        width: 50%;
     }
 }
 .form__label {
-    left: .5rem;
-    top: 1.25rem;
     font-family: var(--ff-sans);
-    font-size: var(--type-base);
+    font-size: var(--type-small);
+    font-weight: 700;
     margin-bottom: .75rem;
     display: block;
     color: var(--color-grey);
-    transition:0.2s ease all;
 }
-
-.input:focus ~ .form__label,
-.input:valid ~ .form__label {
-    top: -1rem;
-    font-size: var(--type-small);
-    color: var(--color-primary);
+.form__field--grouped input {
+    width: 90%;
+}
+.form__field--btn {
+    float: right;
 }

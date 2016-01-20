@@ -77,6 +77,8 @@
 @import "components.author.css";
 @import "components.comments.css";
 @import "components.gravatar.css";
+@import "components.login.css";
+@import "components.smm.css";
 
 /*@import "components.componentname.css";*/
 

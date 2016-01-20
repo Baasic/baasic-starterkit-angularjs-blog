@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 .form {
+    overflow: hidden;
 }
 .form__field {
     margin-bottom: 1.5rem;
@@ -16,13 +17,16 @@
 .form__field--half {
     margin-bottom: 1.5rem;
 }
+.form__field--full {
+    margin-bottom: 1.5rem;
+    float: left;
+    width: 100%;
+}
 @media all and (--from-medium) {
     .form__field--half {
         float: left;
         width: 50%;
     }
-}
-@media all and (--from-medium) {
     .form__field--half:last-child {
         float: right;
         padding-left: 1rem;
@@ -32,6 +36,11 @@
         padding-right: 1rem;
         padding-left: 0;
     }
+    .form__field--single {
+        margin-bottom: 1.5rem;
+        float: left;
+        width: 50%;
+    }
 }
 .form__label {
     font-family: var(--ff-sans);
@@ -40,4 +49,10 @@
     margin-bottom: .75rem;
     display: block;
     color: var(--color-grey);
+}
+.form__field--grouped input {
+    width: 90%;
+}
+.form__field--btn {
+    float: right;
 }
