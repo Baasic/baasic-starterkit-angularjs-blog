@@ -6,7 +6,7 @@
 </div>
 
 <div class="container__fixed">
-	
+
 	<!--[if lt IE 10]>
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -32,12 +32,12 @@
 	                <div class="header__membership">
 	                    <ul ng-if="!$root.user.isAuthenticated">
 	                        <li><p class="header__message">To create new blog</p></li>
-	                        <li><a ui-sref="login" class="btn --simple-accent --tny">login</a></li>
+	                        <li><a ui-sref="login" class="btn --simple-accent --tny">login</a> or <a ui-sref="register" class="btn --simple-accent --tny">register</a></li>
 	                    </ul>
 	                    <ul ng-if="$root.user.isAuthenticated">
 	                        <li><p class="header__message">Welcome, {{ $root.user.displayName }}</p></li>
 	                        <li>
-	                            <a type="button" class="btn --simple-accent --tny" ui-sref="master.new-blog-post">New post</a> or 
+	                            <a type="button" class="btn --simple-accent --tny" ui-sref="master.new-blog-post">New post</a> or
 	                            <baasic-logout on-logout="setEmptyUser()">
 	                                <button type="button" class="btn --simple --tny" ng-click="logout()">Logout</button>
 	                            </baasic-logout>

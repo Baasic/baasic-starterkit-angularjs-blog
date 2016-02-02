@@ -115,3 +115,12 @@
     background-image: url(assets/img/search-o.svg);
     outline: 0;
 }
+.btn--disabled,
+.btn--disabled:hover,
+.btn--disabled:active,
+.btn--disabled:focus {
+    background: var(--color-ultralight);
+    border-color: var(--color-ultralight);
+    color: var(--color-light);
+    cursor: not-allowed;
+}

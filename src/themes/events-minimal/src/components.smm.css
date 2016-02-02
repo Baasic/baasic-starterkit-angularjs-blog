@@ -21,3 +21,42 @@
 .smm__icon {
     height: 1rem;
 }
+.smm__icon--login {
+    margin-bottom: .857rem;
+    float: left;
+    margin-right: .57143rem;
+    display: block;
+    height: 3.42857rem;
+    width: 3.42857rem;
+    border: 2px solid #e6e6e6;
+    text-align: center;
+    opacity: 0.8;
+    background-color: #f6f6f6;
+    background-size: 1.71429rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all .2s ease-in-out;
+}
+.smm__icon--login--facebook {
+    background-image: url(/assets/img/smm-facebook.svg);
+}
+.smm__icon--login--twitter {
+    background-image: url(/assets/img/smm-twitter.svg);
+}
+.smm__icon--login--google {
+    background-image: url(/assets/img/smm-google.svg);
+}
+.smm__icon--login--github {
+    background-image: url(/assets/img/smm-github.svg);
+}
+.smm__icon--login:hover {
+    box-shadow: 2px 2px 5px #ddd;
+    -webkit-transform: translate(0px,1px);
+    transform: translate(0px,1px);
+    opacity: 1;
+
+}
+.smm__icon--login:focus {
+    outline: 0;
+
+}

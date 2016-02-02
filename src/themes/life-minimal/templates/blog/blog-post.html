@@ -18,6 +18,7 @@
                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
             </li>
         </ul>
+        <baasic-profile author-id="authorId"></baasic-profile>
         <hr>
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
@@ -26,6 +27,9 @@
             </span>
         </span>
         <button type="button" class="btn --light --med rounded arrow-holder" href="javascript:void(0);" ui-sref="master.main.index" rel="home"><span class="arrow --small --bck"></span> Back</button>
+        <div class="spc--top--lrg">
+            <blog-comments article-id='blog.id' blog='blog' ng-if="!blog.hideComments"></blog-comments>
+        </div>
     </div>
 </article>
 

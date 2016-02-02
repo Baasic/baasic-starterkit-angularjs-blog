@@ -9,16 +9,18 @@
             <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.title.$touched) && blogPost.title.$error.required">Title is required.</p>
         </div>
         <div class="form__field clearfix">
-            <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" />
+            <input type="text" name="featured" id="fieldBody" ng-model="blog.featured" class="input input--text" required />
             <label class="form__label position--abs" for="fieldBody">Featured image</label>
             <span class="input--highlight"></span>
             <span class="input--bar"></span>
+            <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.featured.$touched) && blogPost.featured.$error.required">Image is required.</p>
         </div>
         <div class="form__field">
-            <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea"></textarea>
+            <textarea name="excerpt" id="fieldExcerpt" ng-model="blog.excerpt" class="input input--textarea" required ></textarea>
             <label class="form__label position--abs" for="fieldExcerpt">Excerpt</label>
             <span class="input--highlight"></span>
             <span class="input--bar"></span>
+            <p class="alert alert--warning" ng-show="(blogPost.$submitted || blogPost.excerpt.$touched) && blogPost.excerpt.$error.required">Excerpt is required.</p>
         </div>
         <div class="form__field spc--bottom--med">
             <label class="form__label" for="fieldContent">Content</label>
@@ -52,6 +54,16 @@
                 <auto-complete source="loadTags($query)">
                 </auto-complete>
             </tags-input>
+        </div>
+        <div class="form__filed spc--bottom--med">
+            <div>
+                <input type="checkbox" name="blogComments" id="blogComments" value="true" ng-model="blog.allowComments">
+                <label for="blogComments">Enable Comments on this Blog Post</label>
+            </div>
+            <div>
+                <input type="checkbox" name="blogCommentsHide" id="blogCommentsHide" value="true" ng-model="blog.hideComments">
+                <label for="blogCommentsHide">Hide Comment Area</label>
+            </div>
         </div>
         <div class="form__field">
             <button type="submit" class="btn btn--primary btn--med" ng-click="saveBlog()">Save</button>

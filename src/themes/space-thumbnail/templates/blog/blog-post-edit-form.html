@@ -41,6 +41,16 @@
                 </div>
             </div>
         </div>
+        <div class="form__field spc--bottom--med">
+            <div>
+                <input type="checkbox" name="blogComments" id="blogComments" value="true" ng-model="blog.allowComments">
+                <label for="blogComments">Enable Comments on this Blog Post</label>
+            </div>
+            <div>
+                <input type="checkbox" name="blogCommentsHide" id="blogCommentsHide" value="true" ng-model="blog.hideComments">
+                <label for="blogCommentsHide">Hide Comment Area</label>
+            </div>
+        </div>
         <div class="form__field">
             <tags-input class="form__label" ng-model="blog.tags" display-property="tag" add-on-comma="true">
                 <auto-complete source="loadTags($query)">

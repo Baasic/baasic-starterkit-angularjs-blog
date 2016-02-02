@@ -18,7 +18,7 @@
         <a ng-click="menuOpen=!menuOpen" href="#" class="btn btn--icon icon--hamburger hamburger last push"></a>
     </div>
 
-    <nav ng-class="{'nShow': menuOpen}" class="header--main" role="navigation"> 
+    <nav ng-class="{'nShow': menuOpen}" class="header--main" role="navigation">
             <a class="btn btn--icon icon--home spc--right--lrg" href="/"></a>
             <button ng-click="searchOpen=!searchOpen" title="Search" class="btn btn--icon icon--search spc--right--lrg" type="button">Search</button>
             <button ng-click="tagOpen=!tagOpen" title="Tag Cloud" class="btn btn--icon icon--tagcloud spc--right--lrg">Tag Cloud</button>
@@ -29,12 +29,18 @@
             </baasic-logout>
 
         </div>
-        <div class="inline-block" ng-if="!$root.user.isAuthenticated"><button type="button" title="Log In" class="btn btn--icon icon--login" ui-sref="login">login</button></div>
+        <div class="inline-block spc--right--lrg" ng-if="!$root.user.isAuthenticated">
+            <button type="button" title="Log In" class="btn btn--icon icon--login" ui-sref="login">login</button>
+        </div>
+        <div class="inline-block" ng-if="!$root.user.isAuthenticated">
+            <button type="button" title="Registration" class="btn btn--icon icon--register" ui-sref="register">register</button>
+        </div>
+
     </nav>
 </header>
 
 <main ui-view role="main" smooth-scroll>
-        
+
 </main>
 <footer class="footer smm center" role="contentinfo">
     <a class="smm__link" href="https://www.facebook.com/">

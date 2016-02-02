@@ -1,7 +1,12 @@
 ﻿<div class="layout__form">
-    <a class="btn btn--light btn--med radial" ui-sref="master.main.index">Home</a>
+	<a class="btn btn--secondary btn--med spc--bottom--lrg rounded" ui-sref="master.main.index">Home</a>
 </div>
 
-<baasic-login on-login="goHome()"></baasic-login>
-
-
+<div class="layout__form login">
+	<div class="login--half spc--bottom--sml">
+	    <baasic-login on-login="goHome()"></baasic-login>
+	</div>
+	<div class="login--half">
+	    <baasic-social-login></baasic-social-login>
+	</div>
+</div>

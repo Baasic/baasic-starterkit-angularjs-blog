@@ -17,6 +17,11 @@
 .form__field--half {
     margin-bottom: 1.5rem;
 }
+.form__field--full {
+    margin-bottom: 1.5rem;
+    float: left;
+    width: 100%;
+}
 @media all and (--from-medium) {
     .form__field--half {
         float: left;
@@ -25,6 +30,11 @@
     .form__field--half:last-child {
         float: right;
         padding-left: 1rem;
+    }
+    .form__field--half:first-child {
+        float: left;
+        padding-right: 1rem;
+        padding-left: 0;
     }
     .form__field--single {
         margin-bottom: 1.5rem;

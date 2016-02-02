@@ -37,13 +37,27 @@
                         </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-
                         <textarea class="mdl-textfield__input mdl-cell mdl-cell--12-col preview__editor" id="content" name="content" ng-model="blog.content"></textarea>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet ">
                         <div class="mdl-cell mdl-cell--12-col preview__view" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content"></div>
                         <div class="mdl-cell mdl-cell--12-col preview__view" ng-if="state.conentent.viewMode === 'html'">{{ getHtml(blog.content) }}</div>
                         <div class="mdl-cell mdl-cell--12-col preview__syntax" ng-if="state.conentent.viewMode === 'help'" ng-include="'templates/markdown-syntax-highlight.html'"></div>
+                    </div>
+
+                    <div class="form__field spc--bottom--med mdl-cell mdl-cell--12-col">
+                        <div class="mdl-cell mdl--cell-12-col">
+                            <label for="blogComments" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                <input type="checkbox" name="blogComments" id="blogComments" value="true" ng-model="blog.allowComments" class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label">Enable Comments</span>
+                            </label>
+                        </div>
+                        <div class="mdl-cell mdl--cell-12-col">
+                            <label for="blogCommentsHide" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                <input type="checkbox" name="blogCommentsHide" id="blogCommentsHide" value="true" ng-model="blog.hideComments" class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label">Hide Comment Area</span>
+                            </label>
+                        </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col ">
                         <tags-input class="mdl-cell mdl-cell--12-col" input ng-model="blog.tags" display-property="tag" add-on-comma="true">

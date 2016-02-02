@@ -11,7 +11,9 @@ angular.module('myBlog', [
   'baasic.security',
   'baasic.membership',
   'baasic.dynamicResource',
-  'baasic.blog'
+  'baasic.blog',
+  'baasic.userProfile',
+  'ui.gravatar'
 ])
 .config(['$locationProvider', '$urlRouterProvider', '$stateProvider', 'baasicAppProvider', 'baasicAppConfigProvider',
     function config($locationProvider, $urlRouterProvider, $stateProvider, baasicAppProvider, baasicAppConfigProvider) {
@@ -28,10 +30,12 @@ angular.module('myBlog', [
 
         $urlRouterProvider.when('', '/');
 
+/*
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
             $state.go('404');
         });
+*/
 
         $urlRouterProvider.rule(function ($injector, $location) {
             var path = $location.path();
@@ -40,6 +44,19 @@ angular.module('myBlog', [
             if (path[path.length - 1] === '/') {
                 $location.replace().path(path.substring(0, path.length - 1));
             }
+        });
+
+        $urlRouterProvider.otherwise(function($injector, $location){
+            var state = $injector.get('$state');
+            var searchObject = $location.search();
+            if (searchObject && searchObject.oauth_token){
+                state.go('login', searchObject);
+            } else if (searchObject && searchObject.code){
+                state.go('login', searchObject);
+            } else{
+                state.go('404');
+            }
+            return $location.path();
         });
 
         $stateProvider
@@ -59,8 +76,24 @@ angular.module('myBlog', [
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/login.html',
-                controller: 'LoginCtrl'
+                templateUrl: 'templates/login.html'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'templates/membership/register.html'
+            })
+            .state('account-activation', {
+                url: '/account-activation?activationToken',
+                templateUrl: 'templates/membership/account-activation.html',
+                controller: 'AccountActivationCtrl'
+            })
+            .state('password-recovery', {
+                url: '/password-recovery',
+                templateUrl: 'templates/membership/password-recovery.html'
+            })
+            .state('password-change', {
+                url: '/password-change?passwordRecoveryToken',
+                templateUrl: 'templates/membership/password-change.html'
             })
             .state('master.new-blog-post', {
                 url: 'new-blog-post',
@@ -68,7 +101,7 @@ angular.module('myBlog', [
                 controller: 'NewBlogPostCtrl'
             })
             .state('master.blog-detail', {
-                url: 'blog-post/{slug}',
+                url: 'blog-post/{slug}?{page}',
                 templateUrl: 'templates/blog/blog-post.html',
                 controller: 'BlogPostCtrl'
             })
@@ -82,16 +115,22 @@ angular.module('myBlog', [
                 templateUrl: 'templates/blog/blog-search-results.html',
                 controller: 'BlogSearchResultsCtrl'
             })
+            .state('master.main.author', {
+                url: 'author/{authorId}',
+                templateUrl: 'templates/profile/profile-detail.html'
+            })
             .state('404', {
                 templateUrl: 'templates/404.html'
             });
     }
+
+
 ])
 .constant('recaptchaKey', '6LcmVwMTAAAAAKIBYc1dOrHBR9xZ8nDa-oTzidES')
 .controller('MainCtrl', ['$scope', '$state', '$rootScope', '$browser', 'baasicBlogService',
     function MainCtrl($scope, $state, $rootScope, $browser, blogService) {
         'use strict';
-        
+
         // http://stackoverflow.com/questions/8141718/javascript-need-to-do-a-right-trim
         var rightTrim = function (str, ch){
             if (!str){
@@ -104,15 +143,15 @@ angular.module('myBlog', [
                     str = str.substring(0, i + 1);
                     break;
                 }
-            } 
+            }
             return str ? str : '';
-        };       
-        
+        };
+
         $rootScope.baseHref = rightTrim($browser.baseHref.href, ('/'));
         if ($rootScope.baseHref === '/') {
             $rootScope.baseHref = '';
         }
-        
+
         blogService.tags.find({
             rpp: 10
         })
@@ -128,15 +167,6 @@ angular.module('myBlog', [
 
         $scope.newBlogPost = function newBlogPost() {
             $state.go('master.new-blog-post');
-        };
-    }
-])
-.controller('LoginCtrl', ['$scope', '$state',
-    function LoginCtrl($scope, $state) {
-        'use strict';
-
-        $scope.goHome = function goHome() {
-            $state.go('master.main.index');
         };
     }
 ])

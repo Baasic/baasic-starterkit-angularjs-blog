@@ -1,0 +1,59 @@
+﻿<div class="demo-login demo-login-social mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+
+        <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600 mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-shadow--4dp center">
+
+            <div class="group">
+            <h4 class="demo-login-social">Social Login</h4>
+                <div class="form__field">
+                    <button type="button" class="smm__icon--login smm__icon--login--facebook mdl-color--accent mdl-button--raised" ng-click="vm.socialLogin.startLogin('facebook')" title="Sign in with Facebook"></button>
+                    <button type="button" class="smm__icon--login smm__icon--login--twitter mdl-color--accent mdl-button--raised" ng-click="vm.socialLogin.startLogin('twitter')" title="Sign in with Twitter"></button>
+                    <button type="button" class="smm__icon--login smm__icon--login--google mdl-color--accent mdl-button--raised" ng-click="vm.socialLogin.startLogin('google')" title="Sign in with Google"></button>
+                    <button type="button" class="smm__icon--login smm__icon--login--github mdl-color--accent mdl-button--raised" ng-click="vm.socialLogin.startLogin('github')" title="Sign in with Github"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="demo-login demo-login-social mdl-grid" ng-show="vm.socialLogin.notification && vm.socialLogin.notification.length>0 || vm.socialLogin.showCredentials">
+    <div class="mdl-cell mdl-cell--12-col">
+
+        <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600 mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-shadow--4dp center" >
+                <p ng-show="vm.socialLogin.notification && vm.socialLogin.notification.length>0">
+                    {{vm.socialLogin.notification}}
+                </p>
+        </div>
+        <div ng-show="vm.socialLogin.showCredentials" class="mdl-card__media mdl-color--white mdl-color-text--grey-600 mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-shadow--4dp center spc--btm--lrg">
+
+                <form name="socialLoginForm" class="mdl-cell mdl-cell--12-col spc--btm--lrg">
+                    <div class="group">
+                        <h4 class="demo-login-social">Social Login Form</h4>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col is-invalid is-upgraded" data-upgraded=",MaterialTextfield">
+                            <input class="mdl-textfield__input ng-pristine ng-invalid ng-invalid-required ng-touched" id="social-login-userName" name="username" type="text" ng-model="vm.socialLogin.model.email" required="">
+                            <label class="mdl-textfield__label" for="social-login-userName" ng-class="{'has-data':vm.socialLogin.model.email.length>0}">Enter Your Username (e-mail)</label>
+                            <div ng-show="socialLoginForm.$submitted || socialLoginForm.username.$touched" class="">
+                                <span ng-show="socialLoginForm.username.$error.required || socialLoginForm.username.$error.required" class="mdl-textfield__error">Username in form of email address is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col is-invalid is-upgraded" data-upgraded=",MaterialTextfield">
+                            <input class="mdl-textfield__input ng-pristine ng-invalid ng-invalid-required ng-touched" type="password" id="password" name="password" ng-model="vm.socialLogin.model.password" required="">
+                            <label class="mdl-textfield__label" for="password" ng-class="{'has-data':vm.socialLogin.model.password.length>0}">Enter Your Password</label>
+                            <div ng-show="socialLoginForm.$submitted || socialLoginForm.password.$touched" class="">
+                                <span ng-show="socialLoginForm.password.$error.required" class="mdl-textfield__error">Password is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-grid mdl-grid--no-spacing">
+                        <button type="submit" id="submit" class="mdl-cell mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="vm.socialLogin.login()">Submit</button>
+                        <button type="submit" id="submit" class="mdl-cell mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="vm.socialLogin.cancel()">Cancel</button>
+                    </div>
+                </form>
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,111 @@
+/*------------------------------------*\
+    # components.comments
+\*------------------------------------*/
+
+/*
+* Post comment
+*/
+.comment {}
+.comment__body {
+    /*padding: 0 1.5rem;*/
+    max-width: 48em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*
+* Comments and replys
+*/
+.comment--reply {
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border-left: 3px solid color(#999 a(0.2));
+}
+@media all and (--from-mediumsmall) {
+    .comment--reply {
+        padding-left: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        margin-left: 2rem;
+    }
+}
+.comment--reply__button {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height) * 1);
+    transition: all 0.2s;
+    color: #999;
+}
+.comment--reply__button:hover,
+.comment--reply__button:focus {
+    color: #666;
+}
+.comment--reply__button:after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s;
+    background-image: url(assets/img/expand-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 2px 7px;
+}
+.comment--reply__button.active:after {
+    transform: rotate(-180deg);
+    transform-origin: 50%;
+    background-position: 0px -5px;
+}
+.comment__author {
+    font-family: var(--ff-sans);
+    font-size: var(--type-base);
+    line-height: calc(var(--base-line-height) * 1);
+    color: var(--color-primary)
+}
+.comment__time {
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    line-height: calc(var(--base-line-height) * 1);
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+.comment__message {
+    margin: 1.5rem 0;
+    color: #333;
+}
+
+/*
+* Comments form layout
+*/
+
+.comment__layout {
+    overflow: hidden;
+}
+.comment__label {
+}
+.comment__input {
+}
+@media all and (--from-xlarge) {
+    .comment__label {
+        width: 25%;
+        margin-right: 5%;
+        float: left;    
+    }
+    .comment__input {
+        width: 70%;
+    }   
+}
+
+/*ngAnimate classes for replies form*/
+.fade {
+    transition: all 0.5s ease-in-out;
+    max-height: 40rem;
+    opacity: 1;
+}
+.fade.ng-hide {
+    max-height: 0px;
+    opacity: 0;
+}
