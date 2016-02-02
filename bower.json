@@ -4,7 +4,7 @@
     "/dist/myBlog.min.js",
     "/dist/myBlog.min.css"
   ],
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Baasic blog starter kit.",
   "authors": [
     "Kristijan Horvat"
