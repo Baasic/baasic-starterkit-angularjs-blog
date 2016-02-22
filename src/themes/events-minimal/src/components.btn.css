@@ -156,9 +156,9 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-.active,
-.active:hover,
-.active:focus,
-.active:active {
+.btn--active,
+.btn--active:hover,
+.btn--active:focus,
+.btn--active:active {
     background-color: var(--color-primary);
 }

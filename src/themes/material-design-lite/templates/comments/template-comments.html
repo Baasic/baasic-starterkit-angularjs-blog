@@ -1,0 +1,77 @@
+<div class="comment__body" id="blogPostComments" ng-if="blog.allowComments">
+<h4 class="spc--bottom--med">Post your comment:</h4>
+<div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-color--white mdl-color-text--grey-600 mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-phone center">
+                    <form name="$parent.commentsForm" novalidate ng-submit="saveComments(comments)" class="form mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                            <input class="mdl-textfield__input" type="text" id="author" name="author" ng-model="comments.author" class="mdl-cell mdl-cell--12-col" ng-maxlength="128" maxlength="128" required />
+                            <small>({{128-comments.author.length}} characters left)</small>
+                            <label class="mdl-textfield__label" for="author" ng-class="{'has-data':comments.author.length>0}">Name: </label>
+                            <div ng-show="commentsForm.$submitted || commentsForm.author.$touched">
+                                <p ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required" class="mdl-textfield__error alert alert--warning">Name is required.</p>
+                            </div>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                            <input class="mdl-textfield__input" type="text" id="email" name="email" ng-model="comments.email" class="mdl-cell mdl-cell--12-col" required />
+                            <label class="mdl-textfield__label" for="email" ng-class="{'has-data':comments.email.length>0}">Email:</label>
+                            <div ng-show="commentsForm.$submitted || commentsForm.email.$touched">
+                                <p class="mdl-textfield__error alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
+                                <p class="mdl-textfield__error alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
+                            </div>
+                        </div>
+
+                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                            <textarea class="mdl-textfield__input"  id="message" name="message" ng-model="comments.comment" class="mdl-cell mdl-cell--12-col" required></textarea>
+                            <label class="mdl-textfield__label" for="message" ng-class="{'has-data':comments.comment.length>0}">Message</label>
+                            <div ng-show="commentsForm.$submitted || commentsForm.comment.$touched">
+                                <p class="mdl-textfield__error alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.comment.$touched) && commentsForm.comment.$error.required">Email is required.</p>
+                                <p class="mdl-textfield__error alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.comment.$touched) && commentsForm.comment.$error.required">Please enter valid e-mail address.</p>
+                            </div>
+                        </div>
+
+
+                        <div ng-disabled="commentsForm.$invalid">
+                            <button type="submit" id="submit" class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-js-ripple-effect" ng-class="{'btn--disabled' : commentsForm.$invalid}">send</button>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <span ng-show="loginError" class="mdl-textfield__error" style="visibility:visible;">{{error}}</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="comment__body" ng-if="comments.totalRecords">
+    <hr />
+    <h4 class="spc--bottom--med">Comments:</h4>
+    <div ng-repeat="comment in comments.item">
+        <div class="spc--btm--lrg">
+            <div class="comment__info">
+                <div>
+                    <div class="gravatar">
+                        <img gravatar-src="comment.email" class="gravatar__image">
+                    </div>
+                    <div>
+                        <p class="comment__author">{{ comment.author }}</p>
+                        <p class="comment__time">{{ comment.dateCreated | date: 'MMM d, y H:mm'}}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="comment__message">{{ comment.comment }}</div>
+                </div>
+            </div>
+            <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
+        </div>
+    </div>
+
+    <div class="spc--btm--lrg">
+        <hr>
+        <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+            <a ui-sref="master.blog-detail({ page: pager.currentPage - 1, id: blogPostComments })" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast " ng-show="pager.hasPrevious">Prev</a>
+            <a ui-sref="master.blog-detail({ page: pager.currentPage + 1, id: blogPostComments })" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast " ng-show="pager.hasNext">Next</a>
+        </pager>
+    </div>
+</div>

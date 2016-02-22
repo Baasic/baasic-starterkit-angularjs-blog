@@ -90,3 +90,16 @@ Get in touch using one of the community channels
 * GitHub: [Baasic](https://github.com/Baasic)
 * Google Groups: [Baasic Support](https://groups.google.com/forum/#!forum/baasic-baas)
 * Twitter: [@baasical](https://twitter.com/baasical)
+
+## Credits
+* [PostCSS](https://github.com/postcss)
+* [Daring Fireball](https://daringfireball.net/)
+* [Stocksnap](https://stocksnap.io/)
+* [NASA](http://www.nasa.gov/)
+
+Lorem Ipsums:
+- [Veggie Ipsum](http://veggieipsum.com/)
+- [Cheese Ipsum](http://www.cheeseipsum.co.uk/)
+- [Bacon Ipsum](http://baconipsum.com/)
+- [Cupcake Ipsum](http://www.cupcakeipsum.com/)
+- [Lorem Ipsum](http://www.lipsum.com/)

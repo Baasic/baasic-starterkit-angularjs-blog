@@ -1,0 +1,60 @@
+<div class="spc--bottom--med">
+    <a href="javascript:void(0);" ng-click="active=!active" ng-class="{'active': active}" class="comment--reply__button" ng-hide="blog.allowComments == false">Reply</a>
+</div>
+<div class="fade " ng-show="active">
+    <h4 class="spc--bottom--med">Add reply to comment:</h4>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <div class="mdl-color--white mdl-color-text--grey-600 mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-phone center">
+                <form name="repliesForm" novalidate ng-submit="saveReplies(comment, reply);" class="form mdl-cell mdl-cell--12-col">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                        <input class="mdl-textfield__input" type="text" id="author" name="author" ng-model="reply.author" class="mdl-cell mdl-cell--12-col" ng-maxlength="128" maxlength="128" required />
+                        <small>({{128-reply.author.length}} characters left)</small>
+                        <label class="mdl-textfield__label" for="author" ng-class="{'has-data':reply.author.length>0}">Name: </label>
+                        <div ng-show="repliesForm.$submitted || repliesForm.author.$touched">
+                            <p ng-show="(repliesForm.$submitted || repliesForm.author.$touched) && repliesForm.author.$error.required" class="mdl-textfield__error alert alert--warning">Name is required.</p>
+                        </div>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                        <input class="mdl-textfield__input" type="text" id="email" name="email" ng-model="reply.email" class="mdl-cell mdl-cell--12-col" required />
+                        <label class="mdl-textfield__label" for="email" ng-class="{'has-data':reply.email.length>0}">Email:</label>
+                        <div ng-show="repliesForm.$submitted || repliesForm.email.$touched">
+                            <p class="mdl-textfield__error alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.required">Email is required.</p>
+                            <p class="mdl-textfield__error alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.email">Please enter valid e-mail address.</p>
+                        </div>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo mdl-cell mdl-cell--12-col">
+                        <textarea class="mdl-textfield__input"  id="message" name="message" ng-model="reply.reply" class="mdl-cell mdl-cell--12-col" required></textarea>
+                        <label class="mdl-textfield__label" for="message" ng-class="{'has-data':reply.reply.length>0}">Message</label>
+                        <div ng-show="repliesForm.$submitted || repliesForm.message.$touched">
+                            <p class="mdl-textfield__error alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.message.$touched) && repliesForm.message.$error.required">Email is required.</p>
+                            <p class="mdl-textfield__error alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.message.$touched) && repliesForm.message.$error.required">Please enter valid e-mail address.</p>
+                        </div>
+                    </div>
+                    <div ng-disabled="repliesForm.$invalid">
+                        <button type="submit" id="submit" class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-js-ripple-effect" ng-class="{'btn--disabled' : repliesForm.$invalid}">send</button>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <span ng-show="loginError" class="mdl-textfield__error" style="visibility:visible;">{{error}}</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-repeat ="reply in replies" class="spc--top--med spc--btm--med comment--reply">
+    <div class="gravatar">
+        <img gravatar-src="reply.email" class="gravatar__image">
+    </div>
+    <div>
+        <p class="comment__author"> {{ reply.author }}
+            <span ng-if="!reply.author">Anonymous</span>
+        </p>
+        <p class="comment__time">{{ reply.dateCreated | date: 'MMM d, y H:mm'}}</p>
+    </div>
+    <div>
+        <div class="comment__message">{{ reply.reply }}</div>
+    </div>
+</div>
+

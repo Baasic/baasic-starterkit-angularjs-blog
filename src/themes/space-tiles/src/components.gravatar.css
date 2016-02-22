@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    # components.gravatar
+\*------------------------------------*/
+
+.gravatar {
+    float: left;
+    margin: 0.25rem 1rem 0 0;
+}
+.gravatar__image {
+    border-radius: 50%;
+    width: 2.5rem;
+}

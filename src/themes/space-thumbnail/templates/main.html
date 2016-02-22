@@ -6,7 +6,7 @@
     <div class="layout">
         <div class="layout__content">
             <main ui-view smooth-scroll>
-                
+
             </main>
         </div>
         <aside class="layout__sidebar">
@@ -25,7 +25,7 @@
                         <!-- <p class="header__author">Username’s</p> -->
                         <h1 class="header__title">Baasic Starter Kit Blog Platform</h1>
                         <p class="header__desc">I travel and write of my travelling adventures, the world, the culture and the people.</p>
-                        
+
                     </header>
                     <nav class="sidebar__navigation" role="navigation">
                         <h2 class="sidebar__title">Recent Tags</h2>
@@ -71,7 +71,8 @@
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn btn--primary btn--med rounded" ui-sref="login">login</a></div>
+                        <a class="btn btn--primary btn--med rounded" ui-sref="login">login</a> or
+                        <a class="btn btn--primary btn--med rounded" ui-sref="register">register</a></div>
                     </div>
                     <footer class="footer" role="contentinfo">
                         <div class="footer__info">

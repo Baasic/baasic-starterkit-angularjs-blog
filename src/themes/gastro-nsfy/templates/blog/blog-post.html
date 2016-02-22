@@ -1,7 +1,7 @@
 ﻿   <div class="group layout" ng-class="{'expand': menuOpened}">
         <aside class="layout__sidebar">
             <blog-menu>
-            
+
             </blog-menu>
         </aside>
         <article class="post layout__post" ng-hide="isEdit">
@@ -14,20 +14,25 @@
             <div class="post__body__holder">
                 <div class="post__body">
                     <h2 class="post__title">{{ blog.title }}</h2>
-                    
+
                     <div btf-markdown="blog.content" class="styledtext">
 
                     </div>
                     <hr>
                     <div class="group spc--bottom--lrg">
                         <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
-                        
+
                         <ul class="post__tags push tags group">
                             <li ng-repeat="tag in blog.tags" class="tags__item">
                                 <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
                             </li>
                         </ul>
                     </div>
+
+                    <div class="group spc--bottom--lrg">
+                        <baasic-profile author-id="authorId"></baasic-profile>
+                    </div>
+
                     <div class="spc--bottom--med">
                         <span ng-hide="isEdit">
                             <span ng-if="$root.user.isAuthenticated" class="push">
@@ -36,6 +41,10 @@
                             </span>
                         </span>
                         <button type="button" class="btn btn--secondary btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+                    </div>
+
+                    <div class="spc--top--sml">
+                        <blog-comments article-id='blog.id' blog='blog' ng-if="!blog.hideComments"></blog-comments>
                     </div>
                 </div>
             </div>

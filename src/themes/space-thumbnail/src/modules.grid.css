@@ -14,29 +14,35 @@
 .grid > .col--half {
     flex: 0 0 100%;
 }
+.grid > .col--third {
+    flex: 0 0 100%;
+}
 .grid > .col--quad {
     flex: 0 0 100%;
 }
-.grid > .col--third {
+.grid > .col--three-quarter {
     flex: 0 0 100%;
 }
 @media all and (--from-medium) and (--to-large) {
     .grid > .col--half {
         flex: 0 0 100%;
     }
+    .grid > .col--third {}
     .grid > .col--quad {
         flex: 0 0 50%;
     }
-    .grid > .col--third {}
 }
 @media all and (--from-large) {
     .grid > .col--half {
         flex: 0 0 50%;
     }
+    .grid > .col--third {
+        flex: 0 0 33.3333%;
+    }
     .grid > .col--quad {
         flex: 0 0 25%;
     }
-    .grid > .col--third {
-        flex: 0 0 33.3333%;
+    .grid > .col--three-quarter {
+        flex: 0 0 75%;
     }
 }
