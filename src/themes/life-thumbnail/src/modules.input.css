@@ -1,15 +1,17 @@
 /*------------------------------------*\
     # modules.input
 \*------------------------------------*/
+
 .input {
     display: inline-block;
     width: 100%;
     cursor: pointer;
-    border: none;
-    background: transparent;
+    border: 2px solid var(--color-light);
+    background: white;
     transition: all .2s;
     padding: 1rem;
-    font-family: var(--ff-sans);
+    appearance: none !important;
+    border-radius: 0;
 }
 .input:hover,
 .input:focus,
@@ -24,15 +26,15 @@
 .input::placeholder {
     color: color(var(--color-ultralight) blackness(20%));
     font-size: var(--type-base);
+    font-family: var(--ff-sans);
 }
 .input--text {
     line-height: 1.5rem;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-ultralight);
 }
 .input--textarea {
-    display: block;
     min-height: 9rem;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-ultralight);
 }
 .input--search {
     display: inline-block;
@@ -41,15 +43,11 @@
     border: 0;
     background: transparent;
     transition: all .2s;
-    padding: 0 2rem 1rem 0;
+    padding: 0.5rem;
     line-height: 1.5rem;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-ultralight);
-}
-@media all and (--from-large) {
-    .input--search {
-        margin-bottom: 1rem;
-    }
+    appearance: none !important;
+    border-radius: 0;
 }
 .input--search:hover,
 .input--search:focus,
@@ -57,8 +55,15 @@
     outline: 0;
     border-color: var(--color-light);
 }
+@media all and (--from-large) {
+    .input--search {
+        margin-bottom: 1rem;
+        border: 2px solid var(--color-light);
+    }
+}
 .input--search:focus {
-    padding: 0rem 2rem 1rem 1rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    background-color: var(--color-secondary);
     transition: all .2s;
 }
 .input--check {
@@ -93,28 +98,3 @@
 .input--check:focus + label:before {
     border-color: var(--color-primary);
 }
-.input--bar    {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-.input--bar:before, .input--bar:after     {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: var(--color-primary);
-  transition: 0.2s ease all;
-}
-.input--bar:before {
-  left: 50%;
-}
-.input--bar:after {
-  right: 50%;
-}
-/* Active state */
-.input:focus ~ .input--bar:before, .input:focus ~ .input--bar:after {
-  width: 50%;
-}
-

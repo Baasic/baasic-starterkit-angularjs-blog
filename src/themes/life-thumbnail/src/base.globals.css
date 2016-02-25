@@ -5,13 +5,17 @@
 html {
     font-size: var(--base-font-size);
     line-height: var(--base-line-height);
+
     height: 100%;
 }
 body {
     font-family: var(--ff-sans);
-    min-width: 19rem;
-    background: var(--color-white);
-    color: var(--color-grey);
+    min-width: 20em;
+    background: var(--color-ultralight);
+    color: var(--color-nero);
+    position: relative;
+
+    height: 100%;
 }
 img, object, iframe {
     vertical-align: middle;
@@ -19,8 +23,4 @@ img, object, iframe {
 img {
     max-width: 100%;
     height: auto;
-}
-.row {
-    max-width: 60em;
-    margin: 0 auto;
 }

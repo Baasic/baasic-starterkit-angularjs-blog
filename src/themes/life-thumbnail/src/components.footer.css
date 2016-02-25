@@ -3,33 +3,9 @@
 \*------------------------------------*/
 
 .footer {
-    margin-top: 2rem;
-    padding: 1rem .5rem;
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
-    color: var(--color-light);
-    background: var(--color-primary);
-}
-.footer__poweredby {
+    color: var(--color-semilight);
+    padding: 1rem 2rem;
     text-align: center;
-    margin: 1.5rem auto 0 auto;
-    font-size: var(--type-small);
-}
-.footer__poweredby--link {
-    color: var(--color-secondary);
-}
-.footer__poweredby--link:hover {
-    color: var(--color-ultralight);
-}
-.footer__share {
-    max-width: 14rem;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-.footer__title {
-    font-size: var(--type-base);
-    text-transform: uppercase;
-    font-weight: var(--type-light);
-    letter-spacing: .125rem;
-    margin: 1.5rem 0;
 }

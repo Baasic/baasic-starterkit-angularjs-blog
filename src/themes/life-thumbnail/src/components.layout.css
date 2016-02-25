@@ -3,44 +3,68 @@
 \*------------------------------------*/
 
 .layout {
-    display: flex;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.layout__sidebar {
+    position: absolute;
+    width: 280px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translateX(280px);
+    transition: transform 0.5s;
+    background: var(--color-primary);
+}
+@media all and (--from-mediumsmall) {
+    .layout__sidebar {
+        width: 350px;
+        transform: translateX(350px);
+    }
+}
+@media all and (--from-medium) {
+    .layout__sidebar {
+        width: 450px;
+        transform: translateX(450px);
+    }
+}
+.expand .layout__sidebar  {
+    transform: translateX(0);
+    transition: transform 0.5s;
 }
 .layout__content {
-    flex: 1 0 100%;
-    z-index: 0;
-    transition: var(--transition-secondary);
-}
-@media all and (--from-mediumsmall) {
-    .layout__content {
-        flex: 1 0 100%;
-        margin-top: 0rem;
-        padding-top: 0;
-        z-index: 0;
-    }
-}
-.layout__post {
-    flex: 4 0 100%;
-    margin: 0;
-    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     padding-top: 0;
-    transition: var(--transition-secondary);
+    overflow-y:auto;
+    z-index: 0;
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+.expand .layout__content  {
+    opacity: 0.5;
+    transform: translateX(-280px);
+    transition: transform 0.5s;
 }
 @media all and (--from-mediumsmall) {
-    .layout__post {
-        flex: 4 0 85%;
-        margin-top: 0;
+    .expand .layout__content  {
+        transform: translateX(-350px);
     }
 }
-@media all and (--from-large) {
-    .layout__post {
-        flex: 4 0 100%;
-        padding: 0rem;
+@media all and (--from-medium) {
+
+    .expand .layout__content  {
+        transform: translateX(-450px);
     }
-}
-.expand .layout__post  {
-    opacity: 0.5;
-    transform: translateX(0px);
-    transition: var(--transition-secondary);
 }
 .layout__form {
     max-width: 1024px;
@@ -49,7 +73,7 @@
 }
 @media all and (--from-medium) {
     .layout__form {
-        margin-top: 1rem;
+        margin-top: 5rem;
         margin-bottom: 5rem;
     }
 }

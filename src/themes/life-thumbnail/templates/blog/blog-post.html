@@ -1,34 +1,39 @@
-﻿<div class="group layout">
-    <article class="post layout__post" ng-hide="isEdit">
-        <blog-menu></blog-menu>
-        <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + baseHref + blog.featured + ')' : 'none' }">
-        </header>
-        <div class="post__body__holder">
-            <div class="post__body">
-                <span class="article__date__readingtime article__date__readingtime--tertiary ng-binding">{{ blog.dateUpdated | date : 'medium' }} | {{ blog.readingTime.text }}</span>
-                <h2 class="post__title">{{ blog.title }}</h2>
-                <div btf-markdown="blog.content" class="styledtext">
-                </div>
-                <hr>
-                <div class="group spc--bottom--lrg">
-                    <ul class="post__tags push tags group">
-                        <li ng-repeat="tag in blog.tags" class="tags__item">
-                            <a class="tags__link tags__link--primary" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="spc--bottom--med">
-                    <span ng-hide="isEdit">
-                        <span ng-if="$root.user.isAuthenticated" class="push">
-                            <button type="button" class="btn btn--secondary btn--med" ng-click="editBlog()">Edit</button>
-                            <button type="button" class="btn btn--tertiary btn--med" ng-click="deleteBlog()">Delete</button>
-                        </span>
-                    </span>
-                    <button type="button" class="btn btn--primary btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
-                </div>
-            </div>
+﻿<article class="post" ng-hide="isEdit">
+    <header class="post__header" ng-style="{ 'background-image': blog.featured ? 'url(' + blog.featured + ')' : 'none' }">
+        <div class="post__bg__overlay"></div>
+        <div class="post__header__container">
+            <a class="btn btn--inverse btn--med spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+            <h1 class="post__title">{{ blog.title }}</h1>
+            <span class="post__header__overlay"></span>
         </div>
-    </article>
-    <baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
-    </baasic-blog-edit>
-</div>
+    </header>
+    <div class="post__body">
+        <div class="group spc--bottom--med">
+            <p class="post__time pull">{{ blog.dateUpdated | date : 'medium' }}</p>
+            <span class="post__time push">{{ blog.readingTime.text }}</span>
+        </div>
+        <div btf-markdown="blog.content" class="styledtext">
+        </div>
+        <ul class="post__tags tags group">
+            <li ng-repeat="tag in blog.tags" class="tags__item">
+                <a class="tags__link" ui-sref="master.main.blog-search({ tags: tag.slug })">{{ tag.tag }}</a>
+            </li>
+        </ul>
+        <baasic-profile author-id="authorId"></baasic-profile>
+        <hr>
+        <span ng-hide="isEdit">
+            <span ng-if="$root.user.isAuthenticated" class="push">
+                <button type="button" class="btn btn--light btn--med" ng-click="editBlog()">Edit</button>
+                <button type="button" class="btn btn--light btn--med" ng-click="deleteBlog()">Delete</button>
+            </span>
+        </span>
+        <button type="button" class="btn btn--light btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+        <div class="spc--top--med">
+            <blog-comments article-id='blog.id' blog='blog' ng-if="!blog.hideComments"></blog-comments>
+        </div>
+    </div>
+</article>
+
+
+<baasic-blog-edit ng-show="isEdit" blog="blog" on-save="blogSaved()" on-cancel="cancelEdit()">
+</baasic-blog-edit>

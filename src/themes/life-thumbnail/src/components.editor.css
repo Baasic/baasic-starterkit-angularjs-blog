@@ -6,17 +6,17 @@
     display: inline-block;
     width: 100%;
     cursor: text;
-    border: 1px solid var(--color-light);
+    border: 1px solid var(--color-ultralight);
     background: white;
     transition: all .2s;
-    height: 25rem;
+    height: 35rem;
     padding: 1rem;
-    overflow: auto;
+    overflow: auto; 
     resize: none;
 }
 .editor__field:focus {
     outline: 0;
-    border-color: var(--color-semilight);
+    border-color: var(--color-light);
 }
 .editor__preview h1,
 .editor__preview h2,
@@ -25,9 +25,15 @@
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
-.editor__field::placeholder {
-    color: var(--color-semilight);
+.editor__field::placeholder { 
+    color: var(--color-light);
     font-family: var(--ff-sans);
+}
+.editor__explain {
+    display: block;
+    text-align: left;
+    color: var(--color-light);
+    margin-bottom: 1rem;
 }
 .editor__header {
     margin-bottom: 1rem;
@@ -36,13 +42,10 @@
 .editor__header button {
     margin-left: 0.5rem;
 }
-.editor__explain {
-    display: block;
-    text-align: left;
-    color: var(--color-semilight);
-    margin-bottom: 1rem;
-}
 @media all and (--from-medium) {
+    .editor__header {
+        height: 4rem;
+    }
     .editor__type {
         width: 49%;
         float: left;
@@ -51,8 +54,5 @@
     .editor__preview {
         width: 50%;
         float: right;
-    }
-    .editor__header {
-        height: 4rem;
     }
 }

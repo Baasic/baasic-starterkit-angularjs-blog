@@ -1,0 +1,12 @@
+<div class="author__container">
+    <a href="{{ profile.webSites }}" ng-if="profile.webSites.length"><h1 class="author__title--primary">{{ profile.displayName }}</h1></a>
+    <h1 class="author__title--primary" ng-if="!profile.webSites.length">{{ profile.displayName }}</h1>
+    <h2 class="author__name">{{ profile.firstName }} {{ profile.lastName }}</h2>
+    <div class="spc--top--sml author__content author__content--divider">
+        <p >{{ profile.aboutMySelf }}</p>
+        <p class="spc--top--sml">{{ profile.firstName }} is member since <span class="author__content__date">{{ profile.dateCreated | date: 'mediumDate' }}</span></p>
+    </div>
+    <div class="spc--top--lrg">
+        <button type="button" class="btn btn--light btn--med" onclick="history.back()">Back</button>
+    </div>
+</div>

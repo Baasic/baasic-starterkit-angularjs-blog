@@ -4,8 +4,14 @@
 
 .container {
     margin: 0 auto;
+    max-width: 80rem;
 }
-@media all and (--from-xlarge) {
-    .container {
-    }
+.container__fixed {
+    height: 100%;
+}
+.container__main {
+    min-height: 100%;
+}
+@media all and (--from-large) {
+    .container {}
 }

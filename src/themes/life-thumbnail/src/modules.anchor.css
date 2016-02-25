@@ -4,12 +4,21 @@
 
 a {
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     transition: all .25s;
 }
 a:hover,
 a:focus,
 a:active {
-    color: var(--color-secondary);
+    color: var(--color-tertiary);
+    outline: 0;
+}
+.anchor--negative {
+    color: var(--color-tertiary);
+}
+.anchor--negative:hover,
+.anchor--negative:focus,
+.anchor--negative:active {
+    color: black;
     outline: 0;
 }

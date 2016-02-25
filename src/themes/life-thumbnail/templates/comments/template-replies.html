@@ -1,0 +1,57 @@
+<div class="spc--bottom--med">
+    <a href="javascript:void(0);" ng-click="active=!active" ng-class="{'active': active}" class="comment--reply__button" ng-hide="blog.allowComments == false">Reply</a>
+</div>
+<div class="fade " ng-show="active">
+    <h3 class="spc--bottom--med">Add reply to comment:</h3>
+    <div>
+        <form name="repliesForm" novalidate class="form" ng-submit="saveReplies(comment, reply);">
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="author">Name:<br/><small>({{128-reply.author.length}} characters left)</small></label>
+                    <input type="text" name="author" id="author" ng-model="reply.author" ng-maxlength="128" maxlength="128" class="input input--text input--med col comment__input" required />
+                </div>
+                <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.author.$touched) && repliesForm.author.$error.required">Name is required.</p>
+            </div>
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="email">Email address:</label>
+                    <input type="email" name="email" id="email" ng-model="reply.email" class="input input--text input--med col comment__input" required />
+                </div>
+                <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.required">Email is required.</p>
+                <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.email.$touched) && repliesForm.email.$error.email">Please enter valid e-mail address.</p>
+            </div>
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="message">Message</label>
+                    <textarea name="message" id="message" ng-model="reply.reply" class="input input--textarea col comment__input" required></textarea>
+                </div>
+                <p class="alert alert--warning" ng-show="(repliesForm.$submitted || repliesForm.message.$touched) && repliesForm.message.$error.required">Message is required.</p>
+            </div>
+            <div class="form__field group">
+                <div class="push">
+                    <button type="submit" class="btn btn--primary btn--med" ng-disabled="repliesForm.$invalid" ng-class="{'btn--disabled' : repliesForm.$invalid}" ng-click="active=!active;">Reply</button>
+                    <button type="button" class="btn btn--light btn--med" ng-click="active=!active">Cancel</button>
+                </div>
+            </div>
+            <div ng-show="error">
+                {{ error }}
+            </div>
+        </form>
+    </div>
+    <hr>
+</div>
+
+<div ng-repeat ="reply in replies" class="spc--top--med comment--reply">
+    <div class="gravatar">
+        <img gravatar-src="reply.email" class="gravatar__image">
+    </div>
+    <div>
+        <p class="comment__author"> {{ reply.author }}
+            <span ng-if="!reply.author">Anonymous</span>
+        </p>
+        <p class="comment__time">{{ reply.dateCreated | date: 'MMM d, y H:mm'}}</p>
+    </div>
+    <div>
+        <div class="comment__message">{{ reply.reply }}</div>
+    </div>
+</div>
