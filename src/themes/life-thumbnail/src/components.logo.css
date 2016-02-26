@@ -5,7 +5,8 @@
 .logo {
     height: 3rem;
 }
-.logo:hover,
-.logo:focus {
-   cursor: pointer;
+@media all and (--from-xxlarge) {
+    .logo{
+        margin-left: 1rem;
+    }
 }

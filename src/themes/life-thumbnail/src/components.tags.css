@@ -57,3 +57,26 @@
     background-color: var(--color-ultralight);
     color: var(--color-primary);
 }
+
+.tags__link--secondary {
+    background: var(--color-primary);
+    color: var(--color-ultralight);
+}
+.tags__link--secondary::before {
+    background: var(--color-light);
+}
+.tags__link--secondary::after {
+    background: var(--color-ultralight);
+    border-right: 0.625rem solid var(--color-primary);
+}
+.tags__link--secondary:hover::after,
+.tags__link--secondary:focus::after,
+.tags__link--secondary:active::after {
+    border-right-color: var(--color-secondary);
+}
+.tags__link--secondary:hover,
+.tags__link--secondary:focus,
+.tags__link--secondary:active {
+    background-color: var(--color-secondary);
+    color: var(--color-ultralight);
+}

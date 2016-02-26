@@ -1,8 +1,16 @@
-﻿<div class="layout__form">
+﻿<div class="header header--search">
+        <div class="container">
+            <a ui-sref="master.main.index">
+                <img src="/assets/img/logo.svg" class="logo" alt="logo"/>
+            </a>
+        </div>
+    <div class="header__overlay"></div>
+</div>
+<div class="articles layout__form">
     <h1 class="spc--bottom--lrg">Search results</h1>
     <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
         <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
-        <h3><a class="anchor--negative" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
+        <h3><a class="anchor" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
         <p>{{ blog.excerpt }}</p>
     </div>
     <div ng-if="!hasBlogs">

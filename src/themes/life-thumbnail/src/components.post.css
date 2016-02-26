@@ -2,33 +2,30 @@
     # components.post
 \*------------------------------------*/
 
-.post {
-}
+.post {}
 .post__header {
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
-    margin-bottom: 3rem;
-    padding: 2.5rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     background-size: cover;
     background-position: center center;
+    margin-bottom: 1.5rem;
     z-index: 1;
 }
 @media all and (--from-medium) {
     .post__header {
-        padding: 6rem 3rem;
-        margin-bottom: 6rem;
+        padding: 3rem 0 1rem 0;
     }
 }
 @media all and (--from-large) {
     .post__header {
-        padding: 6rem;
+        padding: 6rem 0 1rem 0;
     }
 }
 @media all and (--from-xlarge) {
     .post__header {
-        padding: 12rem;
-        min-height: 40vh;
+        padding: 9rem 0 1rem 0;
     }
 }
 .post__bg__overlay {
@@ -42,9 +39,14 @@
     transition: all .5s;
 }
 .post__header__container {
-    max-width: 60em;
+    max-width: 48em;
     margin-right: auto;
     margin-left: auto;
+}
+@media all and (--from-medium) {
+    .post__header__container {
+        padding-left: 1.5rem;
+    }
 }
 .post__header__overlay {
     position: absolute;
@@ -57,7 +59,7 @@
 }
 .post__time {
     font-family: var(--ff-sans);
-    font-size: var(--type-tiny);
+    font-size: var(--type-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-light);
@@ -81,11 +83,12 @@
     }
 }
 .post__body {
-    margin-bottom: 6rem;
-    padding: 0 1.5rem;
+    margin-bottom: 4rem;
+    padding: 1rem 1.5rem;
     max-width: 48em;
     margin-right: auto;
     margin-left: auto;
+    background-color: var(--color-ultralight);
 }
 .post__body .styledtext p:first-of-type {
     font-family: var(--ff-sans);
@@ -96,13 +99,13 @@
 @media all and (--from-medium) {
     .post__body .styledtext p:first-of-type {
         font-family: var(--ff-sans);
-        font-size: var(--type-xlarge);
-        line-height: calc(var(--base-line-height)*1.75);
+        font-size: var(--type-large);
+        line-height: calc(var(--base-line-height)*1.5);
         margin-bottom: calc(var(--base-line-height)*2);
     }
 }
 .post__tags {
-    margin-top: calc(var(--base-line-height)*2);   
+    margin-top: calc(var(--base-line-height)*2);
 }
 
 

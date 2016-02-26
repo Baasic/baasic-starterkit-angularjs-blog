@@ -6,14 +6,15 @@
     font-family: var(--ff-sans);
     font-size: var(--type-small);
     display: block;
-    padding: .75rem 0;
+    padding: .5rem 1rem;
+    color: var(--color-ultralight);
 }
 .alert--warning {
-    color: var(--color-warning);
+    background-color: var(--color-warning);
 }
 .alert--success {
-    color: var(--color-success);
+    background-color: var(--color-success);
 }
 .alert--note {
-    color: var(--color-note);
+    background-color: var(--color-note);
 }

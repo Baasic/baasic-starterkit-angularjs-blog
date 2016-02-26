@@ -43,11 +43,12 @@
     border: 0;
     background: transparent;
     transition: all .2s;
-    padding: 0.5rem;
+    padding: 0.5rem 3rem 0.5rem 0.5rem;
     line-height: 1.5rem;
     overflow: hidden;
     appearance: none !important;
     border-radius: 0;
+    color: var(--color-ultralight);
 }
 .input--search:hover,
 .input--search:focus,
@@ -62,7 +63,7 @@
     }
 }
 .input--search:focus {
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    padding: 0.5rem 3rem 0.5rem 1rem;
     background-color: var(--color-secondary);
     transition: all .2s;
 }

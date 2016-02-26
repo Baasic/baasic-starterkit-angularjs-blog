@@ -6,7 +6,6 @@
     <div class="layout" ng-class="{'expand': menuOpened}">
         <div class="layout__content">
             <main ui-view smooth-scroll>
-
             </main>
             <footer class="footer" role="contentinfo">
                 <div class="footer__info">
@@ -14,13 +13,13 @@
                 </div>
             </footer>
         </div>
+        <a href="#" ng-click="menuOpened=!menuOpened" ng-class="{'nShow': menuOpened}" class="menu-toggle">
+            <span></span>
+        </a>
         <aside class="layout__sidebar">
-            <a href="#" ng-click="menuOpened=!menuOpened" ng-class="{'nShow': menuOpened}" class="menu-toggle">
-                <span></span>
-            </a>
             <div class="row">
                 <div class="sidebar" role="banner">
-                    <header role="banner" class="header">
+                    <header role="banner" class="header--sidebar">
                         <div class="header__controls">
                             <div class="search">
                                 <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
@@ -35,9 +34,7 @@
                         <p class="header__desc">
                         “Challenges are what make life interesting and overcoming them is what makes life meaningful.”
                             <span class="header__auth">Joshua J. Marine</span>
-
                         </p>
-
                     </header>
                     <nav class="sidebar__navigation" role="navigation">
                         <h2 class="sidebar__title">Recent Tags</h2>
@@ -51,39 +48,23 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn btn--light btn--med" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--secondary btn--med spc--none" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn btn--light btn--med" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--tertiary btn--med" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn btn--light btn--med" ui-sref="login">login</a> or <a class="btn btn--light btn--med" ui-sref="register">register</a></div>
+                        <a class="btn btn--secondary btn--med spc--none" ui-sref="login">login</a><a class="btn btn--inverse btn--med" ui-sref="register">register</a></div>
                     </div>
-                    <div class="header__share sidebar__widget">
+                    <div class="sidebar__widget">
                         <h2 class="sidebar__title">Spread the word</h2>
-                        <ul class="smm group">
-                            <li class="smm__item">
-                                <a class="smm__link" href="https://www.facebook.com/">
-                                    <img src="assets/img/smm-facebook.svg" alt="Facebook" class="smm__icon">
-                                </a>
-                            </li>
-                            <li class="smm__item">
-                                <a class="smm__link" href="https://www.linkedin.com">
-                                    <img src="assets/img/smm-linkedin.svg" alt="LinkedIn" class="smm__icon">
-                                </a>
-                            </li>
-                            <li class="smm__item">
-                                <a class="smm__link" href="https://twitter.com/">
-                                    <img src="assets/img/smm-twitter.svg" alt="Twitter" class="smm__icon">
-                                </a>
-                            </li>
-                            <li class="smm__item">
-                                <a class="smm__link" href="https://github.com/">
-                                    <img src="assets/img/smm-github.svg" alt="GitHub" class="smm__icon">
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="smm">
+                            <a class="smm__item smm__item--facebook" href=""></a>
+                            <a class="smm__item smm__item--twitter" href=""></a>
+                            <a class="smm__item smm__item--github" href=""></a>
+                            <a class="smm__item smm__item--linkedin" href=""></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,6 +78,6 @@
                 <p class="message__title">Grab a Starter Kit and start building!</p>
             </a>
         </div>
-        <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-class="{'nShow': messageClosed}"><span class="message__icon--secondary">Close</span></a>
+        <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-hide="messageClosed"><span class="message__icon--secondary">Close</span></a>
     </div>
 </div>

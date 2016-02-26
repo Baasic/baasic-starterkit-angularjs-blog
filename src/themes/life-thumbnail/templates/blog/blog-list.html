@@ -1,9 +1,10 @@
-﻿<div class="header--image">
-    <div class="header__overlay">
-        <div class="header--home">
-            <img src="/assets/img/logo.svg" class="logo" alt="logo" ng-click="master.main.index" />
+﻿<div class="header header--home">
+        <div class="container">
+            <a ui-sref="master.main.index">
+                <img src="/assets/img/logo.svg" class="logo" alt="logo"/>
+            </a>
         </div>
-    </div>
+    <div class="header__overlay"></div>
 </div>
 <div class="articles spc--bottom--med">
     <article
@@ -12,33 +13,29 @@
         ng-repeat="blog in blogList.item"
         ng-class=" { 'article--lrg': $first , 'article--sml': !$first } "
     >
-        <a ui-sref="master.blog-detail({ slug: blog.slug })">
-            <div class="article__holder" ng-style="{ 'background-image' : $first ? 'url({{ blog.featured }})' : 'none' }">
+        <div class="article__holder" ng-style="{ 'background-image' : $first ? 'url({{ blog.featured }})' : 'none' }">
+            <a ui-sref="master.blog-detail({ slug: blog.slug })" class="article__link"></a>
             <div ng-if="!$first" class="article__image" style="background-image: url('{{ blog.featured }}')"></div>
-                <div ng-class=" { 'article__content--first': $first , 'article__content': !$first } ">
-                    <header class="article__header">
-
-                        <span ng-class=" { 'article__date--first': $first , 'article__date': !$first } ">{{ blog.publishDate | date : 'medium' }} | {{ blog.readingTime.text }}</span>
-                        <h1 class="article__title">
-                            <a ng-class=" { 'article__title__link--first': $first , 'article__title__link': !$first } " ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
-                        </h1>
-
-                    </header>
-                    <div ng-class="{'article__summary': !$first , 'article__summary--first': $first}">
-                        <p class="article__summary__text">{{ blog.excerpt }}</p>
+            <div ng-class=" { 'article__content--first': $first , 'article__content': !$first } ">
+                <header class="article__header">
+                    <span ng-class=" { 'article__date--first': $first , 'article__date': !$first } ">{{ blog.publishDate | date : 'medium' }} | {{ blog.readingTime.text }}</span>
+                    <h1 class="article__title">
+                        <a ng-class=" { 'article__title__link--first': $first , 'article__title__link': !$first } " ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a>
+                    </h1>
+                </header>
+                <div ng-class="{'article__summary': !$first , 'article__summary--first': $first}">
+                    <p class="article__summary__text">{{ blog.excerpt }}</p>
+                </div>
+                <div class="article__info">
+                    <div class="article__readmore push">
+                        <a ui-sref="master.blog-detail({ slug: blog.slug })" ng-class="{ 'btn btn--primary btn--med' : !$first , 'btn btn--inverse btn--med': $first }">Read more</a>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med">Edit</a>
                     </div>
-                    <div class="article__info">
-                        <div class="article__readmore push">
-                            <a ui-sref="master.blog-detail({ slug: blog.slug })" ng-class="{ 'btn btn--primary btn--med' : !$first , 'btn btn--inverse btn--med': $first }">Read more</a>
-                            <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med">Edit</a>
-                        </div>
-                        <span class="article__readingtime"></span>
-                    </div>
+                    <span class="article__readingtime"></span>
                 </div>
             </div>
-        </a>
+        </div>
     </article>
-
     <article ng-if="!hasBlogs">
         <p>No blog posts added.</p>
     </article>

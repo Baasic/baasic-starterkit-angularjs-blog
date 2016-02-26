@@ -6,14 +6,15 @@
     cursor: pointer;
     display: block;
     position: absolute;
-    left: -4rem;
+    right: 2rem;
     top: 1.75rem;
     width: 2rem;
     height: 2rem;
+    transition: transform .4s ease-in-out;
 }
 @media all and (--from-medium) {
     .menu-toggle {
-      left: -6rem;
+
     }
 }
 .menu-toggle span,
@@ -23,7 +24,7 @@
   border-radius: 1px;
   height: 5px;
   width: 35px;
-  background: white;
+  background: var(--color-secondary);
   position: absolute;
   top: 10px;
   display: block;
@@ -38,10 +39,26 @@
 .menu-toggle span,
 .menu-toggle span:before,
 .menu-toggle span:after {
-  transition: all 500ms ease-in-out;
+  transition: all .45s ease-in-out;
 }
-.menu-toggle.nShow span {
+.menu-toggle.nShow span,
+.menu-toggle.nShow span:before,
+.menu-toggle.nShow span:after {
   background-color: transparent;
+
+}
+.menu-toggle.nShow {
+    transform: translateX(-260px);
+}
+@media all and (--from-mediumsmall) {
+    .menu-toggle.nShow {
+        transform: translateX(-330px);
+    }
+}
+@media all and (--from-medium) {
+    .menu-toggle.nShow {
+        transform: translateX(-430px);
+    }
 }
 .menu-toggle.nShow span:before,
 .menu-toggle.nShow span:after {

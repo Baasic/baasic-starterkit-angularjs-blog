@@ -92,23 +92,25 @@
     padding: 0 .5rem 2.2rem .5rem;
 }
 .btn--search {
+    background-color: var(--color-ultralight);
     background-image: url(assets/img/search.svg);
     background-repeat: no-repeat;
     background-position: center center;
-    width: 1.5rem;
+    width: 2rem;
     height: 1.5rem;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     border: 0;
-    background-color: transparent;
     position: relative;
     user-select: none;
-    padding: 0;
+    padding: 1.3rem 1.5rem;
+    margin: -.6rem -.5rem;
     position: absolute;
     top: 0.6rem;
     right: 0.5rem;
     outline: 0;
+    transition: all .3s ease-in-out;
 }
 .btn--search:hover,
 .btn--search:active,
@@ -127,14 +129,16 @@
     margin: 0;
     background: url(/assets/img/prev.svg) no-repeat left center;
 }
-.btn--pager--left:hover {
+.btn--pager--left:hover,
+.btn--pager--left:focus {
     background: url(/assets/img/prevHover.svg) no-repeat left center;
 }
 .btn--pager--right {
     padding-right: 2rem;
     background: url(/assets/img/next.svg) no-repeat right center;
 }
-.btn--pager--right:hover {
+.btn--pager--right:hover,
+.btn--pager--right:focus {
      background: url(/assets/img/nextHover.svg) no-repeat right center;
 }
 .btn--pager:hover,

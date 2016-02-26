@@ -1,31 +1,39 @@
 /*------------------------------------*\
     # components.smm
 \*------------------------------------*/
-
 .smm {
-    list-style: none;
+    height: 3rem;
+    width: 100%;
+    max-width: 15rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
 .smm__item {
-    float: left;
+    display: inline-block;
+    width: 3rem;
+    height: 6rem;
+    transition: all 0.3s ease-in-out;
 }
-.smm__link {
-    cursor: pointer;
-    display: block;
-    padding: .75rem .75rem .75rem 0;
-    opacity: 0.5;
+.smm__item:hover,
+.smm__item:focus {
+    transform: translateY(-3rem);
 }
-.smm__link:focus {
-    outline: 0;
+.smm__item--facebook {
+    background: url(./assets/img/smm-facebook.svg) no-repeat top center;
 }
-.smm__link:hover,
-.smm__link:focus,
-.smm__link:active {
-    opacity: 1;
+.smm__item--twitter {
+    background: url(./assets/img/smm-twitter.svg) no-repeat top center;
+}
+.smm__item--github {
+    background: url(./assets/img/smm-github.svg) no-repeat top center;
+}
+.smm__item--linkedin {
+    background: url(./assets/img/smm-linkedin.svg) no-repeat top center;
 }
 .smm__icon {
     height: 1rem;
 }
-
 .smm__icon--login {
     margin-bottom: .857rem;
     float: left;
@@ -33,28 +41,48 @@
     display: block;
     height: 3.42857rem;
     width: 3.42857rem;
-    border: 2px solid #e6e6e6;
+    border: 2px solid var(--color-primary);
     text-align: center;
-    background-color: #f6f6f6;
+    background-color: transparent;
     background-size: 1.71429rem;
     background-repeat: no-repeat;
     background-position: center center;
-    transition: border .2s ease-in-out;
+    transition: background-color .2s ease-in-out;
 }
 .smm__icon--login--facebook {
-    background-image: url(/assets/img/smm-facebook.svg);
+    background-image: url(/assets/img/smm-facebook-login.svg);
+}
+.smm__icon--login--facebook:hover {
+    background-image: url(/assets/img/smm-facebook-login-hover.svg);
+    background-color: #3b5998;
 }
 .smm__icon--login--twitter {
-    background-image: url(/assets/img/smm-twitter.svg);
+    background-image: url(/assets/img/smm-twitter-login.svg);
+}
+.smm__icon--login--twitter:hover,
+.smm__icon--login--twitter:focus {
+    background-image: url(/assets/img/smm-twitter-login-hover.svg);
+    background-color: #00aced;
 }
 .smm__icon--login--google {
-    background-image: url(/assets/img/smm-google.svg);
+    background-image: url(/assets/img/smm-google-login.svg);
+}
+.smm__icon--login--google:hover,
+.smm__icon--login--google:focus {
+    background-image: url(/assets/img/smm-google-login-hover.svg);
+    background-color: #dd4b39;
 }
 .smm__icon--login--github {
-    background-image: url(/assets/img/smm-github.svg);
+    background-image: url(/assets/img/smm-github-login.svg);
+}
+.smm__icon--login--github:hover,
+.smm__icon--login--github:focus {
+    background-image: url(/assets/img/smm-github-login-hover.svg);
+    background-color: black;
 }
 .smm__icon--login:hover {
-    border: 2px solid #555555;
+    border: 0;
+
 }
 .smm__icon--login:focus {
     outline: none;

@@ -13,7 +13,24 @@
     }
 }
 .search__result {
+    position: relative;
     margin-bottom: 4rem;
+    padding: 1.5rem;
+    width: 100%;
+    background-color: var(--color-light);
+}
+.search__result__image {
+    margin: -1.5rem 1rem -1.5rem -1.5rem;
+    height: auto;
+    max-width: 10rem;
+    display: block;
+    float: left;
+}
+@media all and (--from-mediumsmall) {
+    .search__result__image {
+        min-width: 30%;
+        height: auto;
+    }
 }
 .search__date {
     display: block;

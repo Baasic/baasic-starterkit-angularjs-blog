@@ -21,6 +21,7 @@
     transform: translateX(280px);
     transition: transform 0.5s;
     background: var(--color-primary);
+    overflow: auto;
 }
 @media all and (--from-mediumsmall) {
     .layout__sidebar {
@@ -52,19 +53,7 @@
 }
 .expand .layout__content  {
     opacity: 0.5;
-    transform: translateX(-280px);
-    transition: transform 0.5s;
-}
-@media all and (--from-mediumsmall) {
-    .expand .layout__content  {
-        transform: translateX(-350px);
-    }
-}
-@media all and (--from-medium) {
-
-    .expand .layout__content  {
-        transform: translateX(-450px);
-    }
+    transition: transform 0.5s ease-in-out;
 }
 .layout__form {
     max-width: 1024px;

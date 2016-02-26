@@ -12,7 +12,7 @@ body {
     font-family: var(--ff-sans);
     min-width: 20em;
     background: var(--color-ultralight);
-    color: var(--color-nero);
+    color: var(--color-grey);
     position: relative;
 
     height: 100%;

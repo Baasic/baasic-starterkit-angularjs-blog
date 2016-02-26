@@ -19,6 +19,6 @@ a:active {
 .anchor--negative:hover,
 .anchor--negative:focus,
 .anchor--negative:active {
-    color: black;
+    color: var(--color-secondary);
     outline: 0;
 }
