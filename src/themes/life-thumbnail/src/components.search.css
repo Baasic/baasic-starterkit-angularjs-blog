@@ -14,7 +14,7 @@
 }
 .search__result {
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     padding: 1.5rem;
     width: 100%;
     background-color: var(--color-light);

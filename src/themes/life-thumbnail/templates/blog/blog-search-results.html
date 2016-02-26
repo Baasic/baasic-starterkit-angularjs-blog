@@ -6,7 +6,7 @@
         </div>
     <div class="header__overlay"></div>
 </div>
-<div class="articles layout__form">
+<div class="layout__form">
     <h1 class="spc--bottom--lrg">Search results</h1>
     <div class="search__result" ng-if="hasBlogs" ng-repeat="blog in blogList.item">
         <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
@@ -17,9 +17,9 @@
         <p class="spc--bottom--med">Nothing found.</p>
     </div>
     <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
-        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()">Prev</button>
-        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()">Next</button>
+        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()" class="btn btn--pager btn--pager--left pull">Prev</button>
+        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()" class="btn btn--pager btn--pager--right push">Next</button>
     </div>
     <hr>
-    <a class="btn btn--light btn--med spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+    <a class="btn btn--light btn--med spc--bottom--med spc--none" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
 </div>
