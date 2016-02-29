@@ -12,6 +12,7 @@
         <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
         <h3><a class="anchor" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
         <p>{{ blog.excerpt }}</p>
+        <hr>
     </div>
     <div ng-if="!hasBlogs">
         <p class="spc--bottom--med">Nothing found.</p>

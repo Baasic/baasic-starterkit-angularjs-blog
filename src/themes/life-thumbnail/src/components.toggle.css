@@ -3,12 +3,13 @@
 \*------------------------------------*/
 
 .menu-toggle {
+    position: relative;
     cursor: pointer;
     display: block;
-    position: absolute;
-    right: 2rem;
-    top: 1.75rem;
-    width: 3rem;
+    float: right;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    width: 2.5rem;
     height: 2rem;
     transition: transform .4s ease-in-out;
 }
@@ -25,7 +26,7 @@
   height: 5px;
   width: 35px;
   background: var(--color-secondary);
-  position: absolute;
+  position: relative;
   top: 10px;
   display: block;
   content: '';
@@ -34,7 +35,7 @@
   top: -10px;
 }
 .menu-toggle span:after {
-  bottom: -20px;
+  top: 5px;
 }
 .menu-toggle span,
 .menu-toggle span:before,
@@ -48,19 +49,26 @@
 
 }
 .menu-toggle.nShow {
-    transform: translateX(-240px);
+    transform: translateX(-270px);
 }
 @media all and (--from-mediumsmall) {
     .menu-toggle.nShow {
-        transform: translateX(-310px);
+        transform: translateX(-340px);
     }
 }
 @media all and (--from-medium) {
     .menu-toggle.nShow {
-        transform: translateX(-410px);
+        transform: translateX(-440px);
     }
 }
-.menu-toggle.nShow span:before,
+@media all and (--from-xlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-120px);
+    }
+}
+.menu-toggle.nShow span:before {
+  top: 5px;
+}
 .menu-toggle.nShow span:after {
   top: 0;
 }

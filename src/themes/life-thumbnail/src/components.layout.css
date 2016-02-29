@@ -21,7 +21,7 @@
     transform: translateX(280px);
     transition: transform 0.5s;
     background: var(--color-primary);
-    overflow: auto;
+    overflow: scroll;
 }
 @media all and (--from-mediumsmall) {
     .layout__sidebar {

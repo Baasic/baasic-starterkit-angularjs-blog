@@ -13,11 +13,6 @@
     }
 }
 .search__result {
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    width: 100%;
-    background-color: var(--color-light);
 }
 .search__result__image {
     margin: -1.5rem 1rem -1.5rem -1.5rem;

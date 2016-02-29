@@ -60,6 +60,11 @@
     margin-bottom: 1.5rem;
     color: var(--color-ultralight);
 }
+@media all and (--to-large) {
+    .header__title {
+        margin-top: 6rem;
+    }
+}
 .header__desc {
     margin-bottom: 1.5rem;
     color: var(--color-light);
