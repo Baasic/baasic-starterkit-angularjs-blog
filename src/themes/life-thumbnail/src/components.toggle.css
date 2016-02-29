@@ -8,7 +8,7 @@
     position: absolute;
     right: 2rem;
     top: 1.75rem;
-    width: 2rem;
+    width: 3rem;
     height: 2rem;
     transition: transform .4s ease-in-out;
 }
@@ -48,16 +48,16 @@
 
 }
 .menu-toggle.nShow {
-    transform: translateX(-260px);
+    transform: translateX(-240px);
 }
 @media all and (--from-mediumsmall) {
     .menu-toggle.nShow {
-        transform: translateX(-330px);
+        transform: translateX(-310px);
     }
 }
 @media all and (--from-medium) {
     .menu-toggle.nShow {
-        transform: translateX(-430px);
+        transform: translateX(-410px);
     }
 }
 .menu-toggle.nShow span:before,

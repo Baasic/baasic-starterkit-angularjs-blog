@@ -29,16 +29,16 @@
                     <div class="editor__header">
                         <small class="editor__explain">Write your post below in markdown format. You can use right side for preview, HTML view or help with markdown syntax.</small>
                     </div>
-                    <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field"></textarea>
+                    <textarea placeholder="Type your markdown text here.." name="content" id="fieldContent" ng-model="blog.content" class="editor__field" required></textarea>
                     <div ng-show="(blogPost.$submitted || blogPost.content.$touched) && blogPost.content.$error.required">
                         <span class="alert alert--warning">Content is required.</span>
                     </div>
                 </div>
                 <div class="editor__preview">
                     <div class="editor__header">
-                        <button class="btn btn--light btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
-                        <button class="btn btn--light btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
-                        <button class="btn btn--light btn--med" type="button" ng-class="{ 'active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'btn--primary--active': state.conentent.viewMode === 'markdown' }" ng-click="setViewMode('markdown')">Preview</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'btn--primary--active': state.conentent.viewMode === 'html' }" ng-click="setViewMode('html')">Html</button>
+                        <button class="btn btn--primary btn--med" type="button" ng-class="{ 'btn--primary--active': state.conentent.viewMode === 'help' }" ng-click="setViewMode('help')">Help</button>
                     </div>
                     <div class="editor__field styledtext" ng-if="state.conentent.viewMode === 'markdown'" btf-markdown="blog.content">
                     </div>
@@ -68,8 +68,8 @@
             </div>
         </div>
         <div class="form__field">
-            <button type="submit" class="btn btn--light btn--med" ng-click="saveBlog()">Save</button>
-            <button type="button" class="btn btn--light btn--med" ng-click="cancelEdit()">Cancel</button>
+            <button type="submit" class="btn btn--secondary btn--med spc--none" ng-click="saveBlog()">Save</button>
+            <button type="button" class="btn btn--tertiary btn--med" ng-click="cancelEdit()">Cancel</button>
         </div>
         <div ng-show="error">
             {{ error }}

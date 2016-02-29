@@ -35,16 +35,16 @@
     height: 1rem;
 }
 .smm__icon--login {
-    margin-bottom: .857rem;
+    margin-bottom: .85rem;
     float: left;
-    margin-right: .57143rem;
+    margin-right: .5rem;
     display: block;
-    height: 3.42857rem;
-    width: 3.42857rem;
+    height: 3.85rem;
+    width: 3.85rem;
     border: 2px solid var(--color-primary);
     text-align: center;
     background-color: transparent;
-    background-size: 1.71429rem;
+    background-size: 1.7rem;
     background-repeat: no-repeat;
     background-position: center center;
     transition: background-color .2s ease-in-out;

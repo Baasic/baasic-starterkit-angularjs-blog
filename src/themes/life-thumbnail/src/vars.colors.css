@@ -31,7 +31,7 @@
     --color-tertiary:    var(--color-sunglo);
 
 
-    --color-warning:     var(--color-torchred);
+    --color-warning:     var(--color-sunglo);
     --color-success:     var(--color-malachite);
     --color-note:        var(--color-orange);
 }

@@ -1,14 +1,14 @@
 ﻿<h1 class="spc--bottom--lrg">Login</h1>
 <form class="form" name="login" novalidate ng-submit="submitLogin()">
     <div class="cf">
-        <div class="form__field--full">
+        <div class="form__field spc--bottom--med">
             <label class="form__label">Username</label>
             <input class="input input--text" type="text" name="username" ng-model="username" name="username" required placeholder="Enter your email or username" />
             <div ng-show="login.$submitted || login.username.$touched">
                 <span class="alert alert--warning" ng-show="login.username.$error.required">Username is required.</span>
             </div>
         </div>
-        <div class="form__field--full">
+        <div class="form__field spc--bottom--med">
             <label class="form__label">Password</label>
             <input class="input input--text" type="password" name="password" ng-model="password" name="password" required placeholder="Password" autocomplete="off" />
             <div ng-show="login.$submitted || login.password.$touched">
@@ -16,10 +16,8 @@
             </div>
         </div>
     </div>
-    <div class="form__field">
-    </div>
     <button class="btn btn--secondary btn--med spc--none" type="submit" ng-disabled="logging">Login</button>
-    <div ng-show="loginError">
+    <div ng-show="loginError" class="spc--top--med">
         <span class="alert alert--warning">{{loginError}}</span>
     </div>
     <div class="spc--top--sml">

@@ -3,25 +3,36 @@
 \*------------------------------------*/
 
 tags-input .tags {
-    border: 0;
-    box-shadow: none;
+    border: 2px solid var(--color-semilight);
     padding: .5rem;
+    box-shadow: 0px 0px 0px 0px;
 }
+tags-input .tags:hover,
+tags-input .tags.focused {
+    border-color: var(--color-grey);
+    box-shadow: 0px 0px 0px 0px;
+}
+
 tags-input .tags .tag-item {
-    background: #f5f5f5;
-    border-color: #ddd;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-ultralight);
 }
 tags-input .tags .input span {
     font-size: 12px;
 }
 tags-input .tags .tag-item.selected {
-    background: var(--color-warning);
+    background: var(--color-tertiary);
     color: white;
-    border: 1px solid var(--color-warning);
+    border: 1px solid var(--color-tertiary);
 }
 tags-input .tags .input {
     width: 100px !important;
 }
 tags-input .tags .input::placeholder {
-    font-size: 12px;    
+    font-size: 12px;
+}
+
+tags-input .tags .tag-item .remove-button {
+    color: var(--color-ultralight);
 }

@@ -15,8 +15,8 @@
     letter-spacing: 0.05rem;
 }
 .author__title--secondary {
-    font-size: var(--type-base);
-    line-height: calc(var(--base-line-height)*1);
+    font-size: calc(var(--type-base)*1.25);
+    line-height: var(--base-line-height);
     letter-spacing: 0.05rem;
 }
 .author__name {
@@ -26,14 +26,14 @@
 }
 .author__content {
     font-family: var(--ff-sans);
-    font-size: var(--type-small);
+    font-size: var(--type-base);
     line-height: calc(var(--base-line-height)*1);
     color: var(--color-grey);
 }
 .author__content__date {
-    color: var(--color-light);
+    color: var(--color-semilight);
 }
 .author__content--divider {
     border-top: 1px solid var(--color-ultralight);
-    padding-top: 1rem;  
+    padding-top: 1rem;
 }

@@ -63,18 +63,18 @@
     font-family: var(--ff-sans);
     font-size: var(--type-base);
     line-height: calc(var(--base-line-height) * 1);
-    color: var(--color-primary)
+    color: var(--color-grey)
 }
 .comment__time {
     font-family: var(--ff-sans);
     font-size: var(--type-tiny);
     line-height: calc(var(--base-line-height) * 1);
     text-transform: uppercase;
-    color: var(--color-light);
+    color: var(--color-semilight);
 }
 .comment__message {
     margin: 1.5rem 0;
-    color: #333;
+    color: var(--color-grey);
 }
 
 /*
@@ -84,19 +84,25 @@
 .comment__layout {
     overflow: hidden;
 }
+.comment__alert {
+    width: 100%;
+}
 .comment__label {
 }
 .comment__input {
 }
 @media all and (--from-xlarge) {
+    .comment__alert {
+        width: 70%;
+    }
     .comment__label {
         width: 25%;
         margin-right: 5%;
-        float: left;    
+        float: left;
     }
     .comment__input {
         width: 70%;
-    }   
+    }
 }
 
 /*ngAnimate classes for replies form*/

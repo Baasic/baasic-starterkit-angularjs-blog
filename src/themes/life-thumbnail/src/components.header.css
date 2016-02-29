@@ -9,7 +9,7 @@
     background-size: cover;
     background-position: center 50%;
 }
-@media all and (--from-medium) {
+@media all and (--from-mediumsmall) {
     .header {
         margin-bottom: 1rem;
         height: 10rem;
@@ -37,6 +37,14 @@
     .header__toggle {
         display: none;
     }
+}
+.header__auth {
+    text-align: right;
+    color: var(--color-ultralight);
+}
+.header__auth:before {
+    content:'\2014 ';
+    margin-right: 0.25rem;
 }
 .header__author {
     font-size: var(--type-tiny);

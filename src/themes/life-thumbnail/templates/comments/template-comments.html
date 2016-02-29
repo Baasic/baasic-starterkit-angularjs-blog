@@ -6,23 +6,24 @@
                 <div class="comment__layout">
                     <label class="form__label comment__label" for="author">Name:<br/><small>({{128-comments.author.length}} characters left)</small></label>
                     <input type="text" name="author" id="author" ng-model="comments.author" ng-maxlength="128" maxlength="128" class="input input--text input--med comment__input" required />
+                    <p class="alert alert--warning comment__alert push" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
                 </div>
-                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
+
             </div>
             <div class="form__field">
                 <div class="comment__layout">
                     <label class="form__label comment__label" for="email">Email address:</label>
                     <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text input--med comment__input" required />
+                    <p class="alert alert--warning comment__alert push" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
+                    <p class="alert alert--warning comment__alert push" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
                 </div>
-                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
-                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
             </div>
             <div class="form__field">
                 <div class="comment__layout">
                     <label class="form__label comment__label" for="message">Message</label>
                     <textarea name="message" id="message" ng-model="comments.comment" ng-maxlength="1000" maxlength="1000" class="input input--textarea comment__input" required></textarea>
+                    <p class="alert alert--warning comment__alert push" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
                 </div>
-                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
             </div>
             <div class="form__field group" ng-disabled="commentsForm.$invalid">
                 <button type="submit" ng-class="{'btn--disabled' : commentsForm.$invalid , 'btn--primary' : commentsForm.$valid }" class="btn btn--med push">Send</button>

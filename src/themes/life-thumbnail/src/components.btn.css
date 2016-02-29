@@ -27,7 +27,8 @@
     color: var(--color-primary);
 }
 .btn--primary:hover,
-.btn--primary:focus {
+.btn--primary:focus,
+.btn--primary--active {
     background: var(--color-primary);
     color: var(--color-ultralight);
 }
