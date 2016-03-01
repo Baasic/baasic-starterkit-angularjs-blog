@@ -21,7 +21,7 @@
     transform: translateX(280px);
     transition: transform 0.5s;
     background: var(--color-primary);
-    overflow: scroll;
+    overflow: auto;
 }
 @media all and (--from-mediumsmall) {
     .layout__sidebar {
@@ -51,9 +51,20 @@
     transform: translateX(0);
     transition: transform 0.5s;
 }
-.expand .layout__content  {
-    opacity: 0.5;
-    transition: transform 0.5s ease-in-out;
+.overlay {
+    opacity: 0.3;
+    transition: all .3s ease-in-out;
+}
+.expand .overlay{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    opacity: .7;
+    cursor: pointer;
 }
 .layout__form {
     max-width: 80rem;

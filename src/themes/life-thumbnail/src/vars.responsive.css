@@ -10,6 +10,7 @@
 @custom-media --from-xlarge (min-width: 80em); /*1280px*/
 @custom-media --from-xxlarge (min-width: 90em); /*1440px*/
 @custom-media --from-xxxlarge (min-width: 100em); /*1600px*/
+@custom-media --from-gigalarge (min-width: 110em); /*1600px*/
 @custom-media --to-small (max-width: 20em); /*320px*/
 @custom-media --to-mediumsmall (max-width: 40em); /*640px*/
 @custom-media --to-medium (max-width: 48em); /*768px*/

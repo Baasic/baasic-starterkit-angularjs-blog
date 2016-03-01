@@ -4,6 +4,7 @@
 
 <div class="container container__main">
     <div class="layout" ng-class="{'expand': menuOpened}">
+        <div class="overlay" ng-click="menuOpened=!menuOpened"></div>
         <div class="layout__content">
             <main ui-view smooth-scroll>
             </main>
@@ -13,12 +14,11 @@
                 </div>
             </footer>
         </div>
-        <div class="container">
+        <div class="menu-toggle-container">
             <a href="#" ng-click="menuOpened=!menuOpened" ng-class="{'nShow': menuOpened}" class="menu-toggle">
                 <span></span>
             </a>
         </div>
-
         <aside class="layout__sidebar">
             <div class="row">
                 <div class="sidebar" role="banner">

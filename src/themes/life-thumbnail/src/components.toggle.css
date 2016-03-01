@@ -8,14 +8,14 @@
     display: block;
     float: right;
     margin-top: 1.5rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
     width: 2.5rem;
     height: 2rem;
     transition: transform .4s ease-in-out;
 }
-@media all and (--from-medium) {
+@media all and (--from-xlarge) {
     .menu-toggle {
-
+        margin-right: 1rem;
     }
 }
 .menu-toggle span,
@@ -25,7 +25,7 @@
   border-radius: 1px;
   height: 5px;
   width: 35px;
-  background: var(--color-secondary);
+  background: var(--color-ultralight);
   position: relative;
   top: 10px;
   display: block;
@@ -49,34 +49,60 @@
 
 }
 .menu-toggle.nShow {
-    transform: translateX(-270px);
+    transform: translateX(-250px);
 }
 @media all and (--from-mediumsmall) {
     .menu-toggle.nShow {
-        transform: translateX(-340px);
+        transform: translateX(-330px);
     }
 }
 @media all and (--from-medium) {
     .menu-toggle.nShow {
-        transform: translateX(-440px);
+        transform: translateX(-420px);
     }
 }
 @media all and (--from-xlarge) {
     .menu-toggle.nShow {
-        transform: translateX(-120px);
+        transform: translateX(-430px);
+    }
+}
+@media all and (--from-xxlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-350px);
+    }
+}
+@media all and (--from-xxxlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-250px);
+    }
+}
+@media all and (--from-gigalarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-130px);
     }
 }
 .menu-toggle.nShow span:before {
   top: 5px;
+  background-color: var(--color-ultralight);
 }
 .menu-toggle.nShow span:after {
   top: 0;
+  background: var(--color-ultralight);
 }
 .menu-toggle.nShow span:before {
   transform: rotate(45deg);
-  background-color: var(--color-tertiary);
 }
 .menu-toggle.nShow span:after {
   transform: rotate(-45deg);
-  background-color: var(--color-tertiary);
+}
+.menu-toggle-container {
+    max-width: 80rem;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+@media all and (--from-xlarge) {
+    .menu-toggle-container {
+        width: 80rem;
+    }
 }

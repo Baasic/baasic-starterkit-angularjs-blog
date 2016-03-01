@@ -162,6 +162,12 @@
     padding: 2rem 2rem 4rem 2rem;
     background: rgba(0,0,0,0.5);
 }
+@media all and (--to-mediumsmall) {
+    .article__content--first {
+        top: 0;
+        padding: 6rem 2rem;
+    }
+}
 .article__summary {
     font-size: var(--type-base);
     margin-bottom: 1.5rem;
