@@ -121,15 +121,6 @@
 .article__title__link--first:focus {
     color: var(--color-secondary);
 }
-.article__cat {
-    display: block;
-    margin-bottom: .75rem;
-    font-family: var(--ff-sans);
-    font-size: var(--type-tiny);
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: white;
-}
 .article__date {
     display: block;
     font-family: var(--ff-sans);
@@ -197,24 +188,6 @@
 .article__readmore {
     display: inline-block;
     vertical-align: middle;
-}
-.article__readingtime {
-    color: var(--color-tertiary);
-    vertical-align: middle;
-    text-align: center;
-    padding: 0.25rem 0.5rem;
-    margin-top: 1rem;
-    font-size: 0.65rem;
-}
-@media all and (--from-custlarge) {
-    .article__readingtime {
-        padding: 0rem;
-        background: transparent;
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 1.5rem;
-        margin-top: 0rem;
-    }
 }
 @media all and (--from-xlarge) {
     .article--lrg .article__header {

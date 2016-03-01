@@ -12,21 +12,6 @@
         border: 0;
     }
 }
-.search__result {
-}
-.search__result__image {
-    margin: -1.5rem 1rem -1.5rem -1.5rem;
-    height: auto;
-    max-width: 10rem;
-    display: block;
-    float: left;
-}
-@media all and (--from-mediumsmall) {
-    .search__result__image {
-        min-width: 30%;
-        height: auto;
-    }
-}
 .search__date {
     display: block;
     font-family: var(--ff-sans);

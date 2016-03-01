@@ -71,29 +71,34 @@
 }
 .input--check + label {
     cursor: pointer;
-    font-size: var(--type-small);
+    font-size: var(--type-base);
     display: inline-block;
     vertical-align: middle;
     font-family: var(--ff-sans);
-    color: var(--color-light);
-    font-size: 0.8em;
+    color: var(--color-semilight);
+    line-height: var(--base-line-height);
 }
 .input--check + label:before {
     transition: all .5s;
     content: '';
     display: block;
-    height: 0.8rem;
-    width: 0.8rem;
+    height: .8rem;
+    width: .8rem;
     vertical-align: 0;
-    margin-right: 0.8rem;
-    margin-left: 0.4rem;
-    border: 1px solid var(--color-light);
+    margin-right: 1rem;
+    margin-left: 0;
+    border: 2px solid var(--color-semilight);
     display: inline-block;
 }
 .input--check:checked + label:before {
+    content: ' ';
     border-color: var(--color-primary);
     background: var(--color-primary);
+    color: var(--color-ultralight);
 }
+.input--check:hover + label:before,
 .input--check:focus + label:before {
     border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: all .3s ease-in-out;
 }

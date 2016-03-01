@@ -101,3 +101,13 @@
 .header--login {
     background-image: url(/assets/img/login.jpg);
 }
+.header--lost {
+    background: url(./assets/img/lost.jpg) no-repeat top;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    color: var(--color-ultralight);
+}

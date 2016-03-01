@@ -8,9 +8,6 @@
     max-width: 80rem;
     z-index: 5;
 }
-.container__fixed {
-    height: 100%;
-}
 .container__main {
     min-height: 100%;
 }
