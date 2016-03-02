@@ -2,7 +2,7 @@
     # vars.responsive
 \*------------------------------------*/
 
-@custom-media --from-small (min-width: 20em); /*320px*/
+@custom-media --from-small (min-width: 19.9375em); /*319px*/
 @custom-media --from-mediumsmall (min-width: 40em); /*640px*/
 @custom-media --from-medium (min-width: 48em); /*768px*/
 @custom-media --from-large (min-width: 64em); /*1024px*/

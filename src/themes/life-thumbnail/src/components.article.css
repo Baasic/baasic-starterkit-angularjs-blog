@@ -34,7 +34,7 @@
 }
 .article--lrg {
     width: 100%;
-    min-height: 400px;
+    min-height: 330px;
     margin-bottom: 1rem;
 }
 @media all and (--from-large) {
@@ -156,7 +156,7 @@
 @media all and (--to-mediumsmall) {
     .article__content--first {
         top: 0;
-        padding: 6rem 2rem;
+        padding: 2rem 2rem;
     }
 }
 .article__summary {

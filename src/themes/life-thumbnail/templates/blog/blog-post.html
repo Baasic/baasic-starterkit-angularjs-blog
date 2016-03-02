@@ -20,10 +20,10 @@
         <span ng-hide="isEdit">
             <span ng-if="$root.user.isAuthenticated" class="push">
                 <button type="button" class="btn btn--secondary btn--med" ng-click="editBlog()">Edit</button>
-                <button type="button" class="btn btn--tertiary btn--med" ng-click="deleteBlog()">Delete</button>
+                <button type="button" class="btn btn--tertiary btn--med spc--push--sml" ng-click="deleteBlog()">Delete</button>
             </span>
         </span>
-        <button type="button" class="btn btn--primary spc--none btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
+        <button type="button" class="btn btn--primary btn--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</button>
         <div class="spc--top--med">
             <blog-comments article-id='blog.id' blog='blog' ng-if="!blog.hideComments"></blog-comments>
         </div>

@@ -29,6 +29,8 @@
   top: 10px;
   display: block;
   content: '';
+  transition: all .45s ease-in-out;
+  box-shadow: 3px 3px 6px var(--color-grey);
 }
 .menu-toggle span:before {
   top: -10px;
@@ -36,16 +38,10 @@
 .menu-toggle span:after {
   top: 5px;
 }
-.menu-toggle span,
-.menu-toggle span:before,
-.menu-toggle span:after {
-  transition: all .45s ease-in-out;
-}
 .menu-toggle.nShow span,
 .menu-toggle.nShow span:before,
 .menu-toggle.nShow span:after {
   background-color: transparent;
-
 }
 .menu-toggle.nShow {
     transform: translateX(-250px);
@@ -80,18 +76,19 @@
         transform: translateX(-130px);
     }
 }
+.menu-toggle.nShow span,
+.menu-toggle.nShow span:before,
+.menu-toggle.nShow span:after {
+    box-shadow: 0 0 0 transparent;
+}
 .menu-toggle.nShow span:before {
   top: 5px;
   background-color: var(--color-ultralight);
-}
-.menu-toggle.nShow span:after {
-  top: 0;
-  background: var(--color-ultralight);
-}
-.menu-toggle.nShow span:before {
   transform: rotate(45deg);
 }
 .menu-toggle.nShow span:after {
+  top: 0;
+  background-color: var(--color-ultralight);
   transform: rotate(-45deg);
 }
 .menu-toggle-container {

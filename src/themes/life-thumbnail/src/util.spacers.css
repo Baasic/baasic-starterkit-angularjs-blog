@@ -26,6 +26,12 @@
 .spc--top--xlrg {
     margin-top: 3rem;
 }
+.spc--push--sml {
+    margin-left: 0.5rem;
+}
+.spc--pull--sml {
+    margin-right: 0.5rem;
+}
 @media all and (--from-medium) {
     .spc--bottom--sml {
         margin-bottom: 0.75rem;
@@ -51,7 +57,4 @@
     .spc--top--xlrg {
         margin-top: 6rem;
     }
-}
-.spc--none {
-    margin: 0;
 }

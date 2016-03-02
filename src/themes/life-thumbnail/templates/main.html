@@ -51,14 +51,14 @@
                         <h2 class="sidebar__title">Admin</h2>
                         <div ng-if="$root.user.isAuthenticated">
                             <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
-                            <button type="button" class="btn btn--secondary btn--med spc--none" ng-click="newBlogPost()">New post</button>
+                            <button type="button" class="btn btn--secondary btn--med" ng-click="newBlogPost()">New post</button>
                             <baasic-logout on-logout="setEmptyUser()">
-                                <button type="button" class="btn btn--tertiary btn--med" ng-click="logout()">Logout</button>
+                                <button type="button" class="btn btn--tertiary btn--med spc--push--sml" ng-click="logout()">Logout</button>
                             </baasic-logout>
                         </div>
                         <div ng-if="!$root.user.isAuthenticated">
                         <p class="sidebar__message">To create new blog please </p>
-                        <a class="btn btn--secondary btn--med spc--none" ui-sref="login">login</a><a class="btn btn--inverse btn--med" ui-sref="register">register</a></div>
+                        <a class="btn btn--secondary btn--med" ui-sref="login">login</a><a class="btn btn--inverse btn--med spc--push--sml" ui-sref="register">register</a></div>
                     </div>
                     <div class="sidebar__widget">
                         <h2 class="sidebar__title">Spread the word</h2>

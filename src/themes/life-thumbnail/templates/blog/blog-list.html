@@ -29,7 +29,7 @@
                 <div class="article__info">
                     <div class="article__readmore push">
                         <a ui-sref="master.blog-detail({ slug: blog.slug })" ng-class="{ 'btn btn--primary btn--med' : !$first , 'btn btn--inverse btn--med': $first }">Read more</a>
-                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med">Edit</a>
+                        <a ng-if="$root.user.isAuthenticated" ui-sref="master.blog-edit({ slug: blog.slug })" class="btn btn--secondary btn--med spc--push--sml">Edit</a>
                     </div>
                 </div>
             </div>

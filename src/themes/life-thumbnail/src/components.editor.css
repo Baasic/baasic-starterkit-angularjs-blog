@@ -40,9 +40,6 @@
     margin-bottom: 1rem;
     text-align: right;
 }
-.editor__header button {
-    margin-left: 0.5rem;
-}
 @media all and (--from-medium) {
     .editor__header {
         height: 4rem;
