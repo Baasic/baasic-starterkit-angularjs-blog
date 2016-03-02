@@ -7,12 +7,10 @@
 */
 .comment {}
 .comment__body {
-    /*padding: 0 1.5rem;*/
     max-width: 48em;
     margin-right: auto;
     margin-left: auto;
 }
-
 /*
 * Comments and replys
 */

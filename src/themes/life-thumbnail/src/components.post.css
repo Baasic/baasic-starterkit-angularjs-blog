@@ -104,7 +104,6 @@
     margin-right: auto;
     margin-left: auto;
     background-color: var(--color-ultralight);
-    -webkit-overflow-scrolling: auto; /*enables smooth scroll for iOS*/
 }
 .post__body .styledtext p:first-of-type {
     font-family: var(--ff-sans);

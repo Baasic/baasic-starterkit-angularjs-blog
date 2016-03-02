@@ -8,7 +8,6 @@
                     <input type="text" name="author" id="author" ng-model="comments.author" ng-maxlength="128" maxlength="128" class="input input--text input--med comment__input" required />
                     <p class="alert alert--warning comment__alert push" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
                 </div>
-
             </div>
             <div class="form__field">
                 <div class="comment__layout">
@@ -34,7 +33,6 @@
         </form>
     </div>
 </div>
-
 <div class="comment__body" ng-if="comments.totalRecords">
     <hr />
     <h3 class="spc--bottom--med">Comments:</h3>
@@ -57,7 +55,6 @@
             <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
         </div>
     </div>
-
     <div class="spc--bottom--lrg">
         <hr>
         <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext">

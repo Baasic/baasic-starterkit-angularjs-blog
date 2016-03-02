@@ -26,12 +26,12 @@
     --color-dark:           var(--color-nero);
     --color-grey:           var(--color-dim-grey);
 
-    --color-primary:     var(--color-madison);
-    --color-secondary:   var(--color-niagara);
-    --color-tertiary:    var(--color-sunglo);
+    --color-primary:        var(--color-madison);
+    --color-secondary:      var(--color-niagara);
+    --color-tertiary:       var(--color-sunglo);
 
 
-    --color-warning:     var(--color-sunglo);
-    --color-success:     var(--color-malachite);
-    --color-note:        var(--color-orange);
+    --color-warning:        var(--color-sunglo);
+    --color-success:        var(--color-malachite);
+    --color-note:           var(--color-orange);
 }
