@@ -7,7 +7,7 @@
     cursor: pointer;
     display: block;
     float: right;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     margin-right: 2rem;
     width: 2.5rem;
     height: 2rem;
@@ -22,7 +22,6 @@
 .menu-toggle span:before,
 .menu-toggle span:after {
   cursor: pointer;
-  border-radius: 1px;
   height: 5px;
   width: 35px;
   background: var(--color-ultralight);
