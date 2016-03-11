@@ -1,0 +1,45 @@
+﻿<div>
+    <h1>Social Login</h1>
+    <div>
+        <div>
+            <button type="button" ng-click="vm.socialLogin.startLogin('facebook')" title="Sign in with Facebook">facebook</button>
+            <button type="button" ng-click="vm.socialLogin.startLogin('twitter')" title="Sign in with Twitter">twitter</button>
+            <button type="button" ng-click="vm.socialLogin.startLogin('google')" title="Sign in with Google">google</button>
+            <button type="button" ng-click="vm.socialLogin.startLogin('github')" title="Sign in with Github">github</button>
+        </div>
+    </div>
+
+    <div>
+        <p ng-show="vm.socialLogin.notification && vm.socialLogin.notification.length > 0">
+            {{vm.socialLogin.notification}}
+        </p>
+    </div>
+
+    <div ng-show="vm.socialLogin.showCredentials">
+        <form name="socialLoginForm">
+            <div>
+                <h1>Social Login Form</h1>
+                <div>
+                    <label for="social-login-userName">Username:</label>
+                    <input id="social-login-userName" name="username" type="email" ng-model="vm.socialLogin.model.email" required maxlength="30">
+                    <div ng-show="socialLoginForm.$submitted || socialLoginForm.username.$touched">
+                        <p ng-show="socialLoginForm.username.$error.required">Username is required.</p>
+                        <p ng-show="socialLoginForm.username.$error.required">Username is required.</p>
+                    </div>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" name="password" type="password" ng-model="vm.socialLogin.model.password" required maxlength="30">
+                    <div ng-show="soacialLoginForm.$submitted || soacialLoginForm.password.$touched">
+                        <p ng-show="soacialLoginForm.password.$error.required">Password is required.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="submit" ng-click="vm.socialLogin.login()">Submit</button>
+                <button type="submit" ng-click="vm.socialLogin.cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

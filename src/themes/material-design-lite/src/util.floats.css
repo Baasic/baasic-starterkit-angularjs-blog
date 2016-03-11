@@ -11,3 +11,6 @@
 .center {
     margin: 0 auto;
 }
+.group {
+    overflow: hidden;
+}

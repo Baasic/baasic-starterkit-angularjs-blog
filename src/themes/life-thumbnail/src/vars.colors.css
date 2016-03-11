@@ -8,25 +8,30 @@
     --color-sunglo:         #c45c4c;
 
     --color-white:          #ffffff;
-    --color-white-smoke:    #ececec;
+    --color-white-smoke:    #F6F6F6;
+    --color-whitegrey:      #BFBFBF;
     --color-dim-grey:       #6f6f6f;
+    --color-darkgrey:       #333333;
+    --color-nero:           #222222;
 
     --color-torchred:       #FF0043;
     --color-malachite:      #00D369;
     --color-orange:         #F75E00;
 
 
-    --color-primary:    var(--color-madison);
-    --color-secondary:  var(--color-niagara);
-    --color-tertiary:   var(--color-sunglo);
 
-    --color-ultralight: var(--color-white);
-    --color-light:      var(--color-white-smoke);
-    --color-grey:       var(--color-dim-grey);
+    --color-ultralight:     var(--color-white);
+    --color-light:          var(--color-white-smoke);
+    --color-semilight:      var(--color-whitegrey);
+    --color-dark:           var(--color-nero);
+    --color-grey:           var(--color-dim-grey);
 
-    --color-warning:     var(--color-torchred);
-    --color-success:     var(--color-malachite);
-    --color-note:        var(--color-orange);
+    --color-primary:        var(--color-madison);
+    --color-secondary:      var(--color-niagara);
+    --color-tertiary:       var(--color-sunglo);
+
+
+    --color-warning:        var(--color-sunglo);
+    --color-success:        var(--color-malachite);
+    --color-note:           var(--color-orange);
 }
-
-

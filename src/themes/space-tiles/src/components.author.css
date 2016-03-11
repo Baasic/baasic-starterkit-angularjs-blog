@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    # components.author
+\*------------------------------------*/
+
+.author {}
+.author__container {
+    max-width: 60rem;
+    padding: 1.5rem;
+}
+.author__title--primary {
+    font-family: var(--ff-sans);
+    font-size: var(--type-large);
+    font-weight: var(--type-bold);
+    line-height: calc(var(--base-line-height)*1.75);
+    letter-spacing: 0.05rem;
+}
+.author__title--secondary {
+    font-size: var(--type-base);
+    line-height: calc(var(--base-line-height)*1);
+    letter-spacing: 0.05rem;
+}
+.author__name {
+    font-size: var(--type-base);
+    line-height: calc(var(--base-line-height)*1);
+    color: var(--color-grey);
+}
+.author__content {
+    font-family: var(--ff-sans);
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height)*1);
+    color: var(--color-grey);
+}
+.author__content__date {
+    color: var(--color-light);
+}
+.author__content--divider {
+    border-top: 1px solid var(--color-ultralight);
+    padding-top: 1rem;  
+}

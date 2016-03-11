@@ -97,3 +97,22 @@
 .input--check:focus + label:before {
     border-color: var(--color-primary);
 }
+
+/* 
+* Input sizes
+*/
+.input--sml {
+    height: 24px;
+    line-height: var(--base-line-height);
+    padding: 0 6px;
+}
+.input--med {
+    height: 36px;
+    line-height: calc(var(--base-line-height) * 1.5);
+    padding: 0 12px;
+}
+.input--lrg {
+    height: 48px;
+    line-height: calc(var(--base-line-height) * 1.5);
+    padding: 0 18px;
+}

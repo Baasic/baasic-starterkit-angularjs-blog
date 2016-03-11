@@ -1,0 +1,67 @@
+<div class="comment__body" id="blogPostComments" ng-if="blog.allowComments">
+<h3 class="spc--bottom--med">Post your comment:</h3>
+    <div>
+        <form name="$parent.commentsForm" novalidate class="form" ng-submit="saveComments(comments)">
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="author">Name:<br/><small>({{128-comments.author.length}} characters left)</small></label>
+                    <input type="text" name="author" id="author" ng-model="comments.author" ng-maxlength="128" maxlength="128" class="input input--text input--med comment__input" required />
+                </div>
+                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.author.$touched) && commentsForm.author.$error.required">Name is required.</p>
+            </div>
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="email">Email address:</label>
+                    <input type="email" name="email" id="email" ng-model="comments.email" class="input input--text input--med comment__input" required />
+                </div>
+                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.required">Email is required.</p>
+                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.email.$touched) && commentsForm.email.$error.email">Please enter valid e-mail address.</p>
+            </div>
+            <div class="form__field">
+                <div class="comment__layout">
+                    <label class="form__label comment__label" for="message">Message</label>
+                    <textarea name="message" id="message" ng-model="comments.comment" ng-maxlength="1000" maxlength="1000" class="input input--textarea comment__input" required></textarea>
+                </div>
+                <p class="alert alert--warning" ng-show="(commentsForm.$submitted || commentsForm.message.$touched) && commentsForm.message.$error.required">Message is required.</p>
+            </div>
+            <div class="form__field group" ng-disabled="commentsForm.$invalid">
+                <button type="submit" ng-class="{'btn--disabled' : commentsForm.$invalid}" class="btn --primary --med rounded push">Send</button>
+            </div>
+            <div ng-show="error">
+                {{ error }}
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="comment__body" ng-if="comments.totalRecords">
+    <hr />
+    <h3 class="spc--bottom--med">Comments:</h3>
+    <div ng-repeat="comment in comments.item">
+        <div class="comment__container">
+            <div class="comment__info">
+                <div>
+                    <div class="gravatar">
+                        <img gravatar-src="comment.email" class="gravatar__image">
+                    </div>
+                    <div>
+                        <p class="comment__author">{{ comment.author }}</p>
+                        <p class="comment__time">{{ comment.dateCreated | date: 'MMM d, y H:mm'}}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="comment__message">{{ comment.comment }}</div>
+                </div>
+            </div>
+            <comment-replies comment-id="comment.id" article-id="articleId"></comment-replies>
+        </div>
+    </div>
+
+    <div class="spc--bottom--lrg">
+        <hr>
+        <pager pager-data="comments.pagerData" ng-show="pager.hasPrevious || pager.hasNext">
+            <a ui-sref="master.blog-detail({ page: pager.currentPage - 1, id: blogPostComments })" class="btn btn--light btn--med rounded" ng-show="pager.hasPrevious">Prev</a>
+            <a ui-sref="master.blog-detail({ page: pager.currentPage + 1, id: blogPostComments })" class="btn btn--light btn--med rounded" ng-show="pager.hasNext">Next</a>
+        </pager>
+    </div>
+</div>

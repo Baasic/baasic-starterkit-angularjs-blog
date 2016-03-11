@@ -30,12 +30,10 @@ h5 {
 h6 {
     font-size: var(--type-base);
 }
-
 /* Default paragraphs */
 p {
     margin: 0;
 }
-
 /* Ordered lists */
 ol {
     padding: 0;
@@ -45,7 +43,6 @@ ol {
 ol > li {
     font-size: var(--type-base);
 }
-
 /* Unordered lists */
 ul {
     padding: 0;
@@ -55,7 +52,6 @@ ul {
 ol li {
     font-size: var(--type-base);
 }
-
 /* Definition lists */
 dl {
     margin: 0;
@@ -67,7 +63,6 @@ dl > dd {
     font-size: var(--type-base);
     margin: 0;
 }
-
 /* Quotes */
 blockquote {
     margin: 0;
@@ -80,7 +75,6 @@ cite {
 address {
     font-style: normal;
 }
-
 /* Preformatted text */
 pre {}
 code {}
@@ -88,24 +82,19 @@ code {}
 /* Subscript and superscript */
 sub {}
 sup {}
-
 /* Abbreviations */
 abbr {}
-
 /* Small copy */
 small {}
-
 /* Strong copy */
 strong {
     font-weight: var(--type-bold);
 }
-
 /* Figure */
 figure {
     margin: 0;
 }
 figure > figcaption {}
-
 /* HR */
 hr {
     border: 0;

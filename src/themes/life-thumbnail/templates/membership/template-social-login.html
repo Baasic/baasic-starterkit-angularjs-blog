@@ -1,0 +1,40 @@
+﻿<h1 class="spc--bottom--xlrg">Social Login</h1>
+<div class="group">
+    <div class="form__field clearfix">
+        <button type="button" class="smm__icon--login smm__icon--login--facebook" ng-click="vm.socialLogin.startLogin('facebook')" title="Sign in with Facebook"></button>
+        <button type="button" class="smm__icon--login smm__icon--login--twitter" ng-click="vm.socialLogin.startLogin('twitter')" title="Sign in with Twitter"></button>
+        <button type="button" class="smm__icon--login smm__icon--login--google" ng-click="vm.socialLogin.startLogin('google')" title="Sign in with Google"></button>
+        <button type="button" class="smm__icon--login smm__icon--login--github" ng-click="vm.socialLogin.startLogin('github')" title="Sign in with Github"></button>
+    </div>
+</div>
+<div>
+    <p ng-show="vm.socialLogin.notification && vm.socialLogin.notification.length > 0">
+        {{vm.socialLogin.notification}}
+    </p>
+</div>
+<div ng-show="vm.socialLogin.showCredentials">
+    <form name="socialLoginForm">
+        <div class="group">
+            <h1 class="spc--top--sml spc--bottom--lrg">Social Login Form</h1>
+            <div class="form__field--half">
+                <label for="social-login-userName" class="form__label">Username:</label>
+                <input id="social-login-userName" class="input input--text" name="username" type="email" ng-model="vm.socialLogin.model.email" required maxlength="30">
+                <div ng-show="socialLoginForm.$submitted || socialLoginForm.username.$touched">
+                    <span class="alert alert--warning" ng-show="socialLoginForm.username.$error.required">Username is required.</span>
+                    <span class="alert alert--warning" ng-show="socialLoginForm.username.$error.email">Please enter valid e-mail address.</span>
+                </div>
+            </div>
+            <div class="form__field--half">
+                <label for="password" class="form__label">Password:</label>
+                <input id="password" name="password" class="input input--text" type="password" ng-model="vm.socialLogin.model.password" required maxlength="30">
+                <div ng-show="socialLoginForm.$submitted || socialLoginForm.password.$touched">
+                    <span class="alert alert--warning" ng-show="socialLoginForm.password.$error.required">Password is required.</span>
+                </div>
+            </div>
+        </div>
+        <div class="form__field">
+            <button type="submit" class="btn btn--primary btn--med" ng-click="vm.socialLogin.login()">Submit</button>
+            <button type="submit" class="btn btn--secondary btn--med spc--push--sml" ng-click="vm.socialLogin.cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

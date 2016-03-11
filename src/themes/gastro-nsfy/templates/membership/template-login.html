@@ -1,0 +1,32 @@
+﻿<h1 class="spc--bottom--lrg">Login</h1>
+<form class="form" name="login" novalidate ng-submit="submitLogin()">
+    <div class="cf">
+        <div class="form__field form__field--full clearfix">
+            <input class="input input--text" type="text" name="username" ng-model="username" name="username" required />
+            <span class="input--highlight"></span>
+            <span class="input--bar"></span>
+            <label class="form__label position--abs" for="fieldUsername">Username</label>
+            <div ng-show="login.$submitted || login.username.$touched">
+                <span class="alert alert--warning" ng-show="login.username.$error.required">Username is required.</span>
+            </div>
+        </div>
+        <div class="form__field form__field--full">
+            <input class="input input--text" type="password" name="password" ng-model="password" name="password" required autocomplete="off" />
+            <span class="input--highlight"></span>
+            <span class="input--bar"></span>
+            <label class="form__label position--abs" for="fieldPassword">Password</label>
+            <div ng-show="login.$submitted || login.password.$touched">
+                <span class="alert alert--warning" ng-show="login.password.$error.required">Password is required.</span>
+            </div>
+        </div>
+    </div>
+    <div class="form__field">
+    </div>
+    <button class="btn btn--primary btn--med" type="submit" ng-disabled="logging">Login</button>
+    <div ng-show="loginError">
+        <span class="alert alert--warning">{{loginError}}</span>
+    </div>
+    <div class="spc--top--sml">
+        <a ui-sref="password-recovery" class="login__retreive">Forgot Your Password? Recover Your Password Here!</a>
+    </div>
+</form>

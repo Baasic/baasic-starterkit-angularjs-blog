@@ -4,32 +4,13 @@
 
 .search {
     position: relative;
+    border: 2px solid var(--color-light);
 }
 @media all and (--from-large) {
     .search {
         margin-bottom: 1rem;
+        border: 0;
     }
-}
-.search__wrapper {
-    width: 100%;
-    float: left;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-@media all and (--from-mediumsmall) {
-    .search__wrapper {
-        width: 50%;
-        margin-bottom: 0;
-    }
-}
-@media all and (--from-large) {
-    .search__wrapper {
-        width: 25%;
-    }
-}
-.search__result {
-    margin-bottom: 4rem;
 }
 .search__date {
     display: block;

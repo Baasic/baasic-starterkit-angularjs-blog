@@ -3,70 +3,102 @@
 \*------------------------------------*/
 
 .menu-toggle {
+    position: relative;
     cursor: pointer;
     display: block;
-    position: absolute;
-    right: -5rem;
-    top: 2rem;
-    width: 2rem;
+    float: right;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    width: 2.5rem;
     height: 2rem;
+    transition: transform .4s ease-in-out;
 }
-@media all and (--from-mediumsmall) {
+@media all and (--from-xlarge) {
     .menu-toggle {
-        cursor: pointer;
-        display: block;
-        position: absolute;
-        top: 6rem;
-        right: 2.5rem;
-        width: 2rem;
-        height: 2rem;
+        margin-right: 1rem;
     }
 }
-.expand .menu-toggle {
-    top: 3rem;
-    right: 2rem;
-}
-@media all and (--from-mediumsmall) {
-    .expand .menu-toggle {
-        top: 2.5rem;
-        right: 3rem;
-    }  
-}
-.menu-toggle span, 
-.menu-toggle span:before, 
+.menu-toggle span,
+.menu-toggle span:before,
 .menu-toggle span:after {
-    display: block;
-    content: '';
-    cursor: pointer;
-    border-radius: 1px;
-    height: 5px;
-    width: 35px;
-    top: 10px;
-    background: var(--color-primary);
-    position: absolute;
+  cursor: pointer;
+  height: 5px;
+  width: 35px;
+  background: var(--color-ultralight);
+  position: relative;
+  top: 10px;
+  display: block;
+  content: '';
+  transition: all .45s ease-in-out;
+  box-shadow: 3px 3px 6px var(--color-grey);
 }
 .menu-toggle span:before {
-    top: -10px;
+  top: -10px;
 }
 .menu-toggle span:after {
-    bottom: -10px; 
+  top: 5px;
 }
-
-.menu-toggle span, 
-.menu-toggle span:before, 
-.menu-toggle span:after {
-    transition: all 500ms ease-in-out;
-}
-.menu-toggle.nShow span {
-    background-color: transparent;
-}
-.menu-toggle.nShow span:before, 
+.menu-toggle.nShow span,
+.menu-toggle.nShow span:before,
 .menu-toggle.nShow span:after {
-    top: 0;
+  background-color: transparent;
+}
+.menu-toggle.nShow {
+    transform: translateX(-250px);
+}
+@media all and (--from-mediumsmall) {
+    .menu-toggle.nShow {
+        transform: translateX(-330px);
+    }
+}
+@media all and (--from-medium) {
+    .menu-toggle.nShow {
+        transform: translateX(-420px);
+    }
+}
+@media all and (--from-xlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-430px);
+    }
+}
+@media all and (--from-xxlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-350px);
+    }
+}
+@media all and (--from-xxxlarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-250px);
+    }
+}
+@media all and (--from-gigalarge) {
+    .menu-toggle.nShow {
+        transform: translateX(-130px);
+    }
+}
+.menu-toggle.nShow span,
+.menu-toggle.nShow span:before,
+.menu-toggle.nShow span:after {
+    box-shadow: 0 0 0 transparent;
 }
 .menu-toggle.nShow span:before {
-    transform: rotate(45deg);
+  top: 5px;
+  background-color: var(--color-ultralight);
+  transform: rotate(45deg);
 }
 .menu-toggle.nShow span:after {
-    transform: rotate(-45deg);
+  top: 0;
+  background-color: var(--color-ultralight);
+  transform: rotate(-45deg);
+}
+.menu-toggle-container {
+    max-width: 80rem;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+@media all and (--from-xlarge) {
+    .menu-toggle-container {
+        width: 80rem;
+    }
 }

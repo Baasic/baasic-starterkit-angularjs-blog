@@ -3,30 +3,111 @@
 \*------------------------------------*/
 
 .header {
+    position: relative;
     padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-size: cover;
+    background-position: center 50%;
 }
-@media all and (--to-large) {
+@media all and (--from-mediumsmall) {
     .header {
-        padding-top: 6rem;
+        margin-bottom: 1rem;
+        height: 10rem;
     }
 }
 @media all and (--from-large) {
     .header {
-        padding: 3rem 3rem 0 3rem;
+        margin-bottom: 1rem;
+        height: 15rem;
+    }
+}
+.header--sidebar {
+    margin: 6rem 1.5rem 1.5rem 1.5rem;
+}
+@media all and (--from-large) {
+    .header--sidebar {
+        margin-top: 1.5rem;
+        padding: 0 1.5rem;
+    }
+}
+.header__toggle {
+    float: right;
+}
+@media all and (--from-large) {
+    .header__toggle {
+        display: none;
+    }
+}
+.header__auth {
+    text-align: right;
+    color: var(--color-ultralight);
+}
+.header__auth:before {
+    content:'\2014 ';
+    margin-right: 0.25rem;
+}
+.header__author {
+    font-size: var(--type-tiny);
+    font-family: var(--ff-sans);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
+.header__title {
+    display: block;
+    font-size: var(--type-large);
+    line-height: calc(var(--base-line-height)*1.25);
+    font-family: var(--ff-sans);
+    margin-bottom: 1.5rem;
+    color: var(--color-ultralight);
+}
+@media all and (--to-large) {
+    .header__title {
+        margin-top: 6rem;
     }
 }
 .header__desc {
-    padding: 1.5rem 0;
-    color: var(--color-primary);
-    font-size: var(--type-medium);
-    font-weight: var(--type-light: 300);
-    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--color-light);
 }
-.header__auth {
-    display: block;
-    color: var(--color-secondary);
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--type-base);
-    margin-top: .5rem;
+@media all and (--to-large) {
+    .header__controls {
+        transform: translate3d(0,0,0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        width: 100%;
+        padding: 1.5rem;
+    }
+}
+.header__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+.header--home {
+    background-image: url(/assets/img/home.jpg);
+    background-position: center 35%;
+}
+.header--search {
+    background-image: url(/assets/img/search.jpg);
+}
+.header--editor {
+    background-image: url(/assets/img/editor.jpg);
+}
+.header--login {
+    background-image: url(/assets/img/login.jpg);
+}
+.header--lost {
+    background: url(./assets/img/lost.jpg) no-repeat top;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    color: var(--color-ultralight);
 }

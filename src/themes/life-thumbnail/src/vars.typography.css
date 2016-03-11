@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    # vars.typogrphy
+    # vars.typography
 \*------------------------------------*/
 
 :root {
@@ -9,7 +9,7 @@
 
     /* Type weights */
     --type-light: 300;
-    --type-regular: 400; 
+    --type-regular: 400;
     --type-bold: 700;
 
     /* Type scale */
@@ -23,6 +23,5 @@
     --type-xxxlarge: 3.051rem;
 
     /* Type families */
-    --ff-sans: 'Roboto', Arial, sans-serif;
-    --ff-serif: 'Noto Serif', cursive;
+    --ff-sans: 'Montserrat', Arial, sans-serif;
 }

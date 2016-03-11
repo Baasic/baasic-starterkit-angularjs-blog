@@ -20,7 +20,7 @@ body .demo-blog {
   min-height: 100vh;
   height: auto;
 }
-.demo-blog .demo-blog__posts {
+.demo-blog .demo-blog__posts, .demo-login {
   max-width: 900px;
   padding: 0;
   display: -webkit-box;
@@ -33,6 +33,12 @@ body .demo-blog {
       -ms-flex-negative: 0;
           flex-shrink: 0;
   margin-bottom: 10rem;
+}
+.demo-login {
+    margin-bottom: 0;
+}
+.demo-login-social, .demo-form-title {
+    margin-top: 0;
 }
 .demo-blog.mdl-layout .mdl-layout__content {
   position: relative;
@@ -363,6 +369,12 @@ body .demo-blog {
   margin-right: 16px;
   color: rgb(97, 97, 97);
 }
+.mdl-textfield__error__password {
+  color: rgb(222, 50, 38);
+  position: absolute;
+  font-size: 12px;
+  margin-top: 23px;
+}
 /* Workaround for Firefox.
  * User agent stylesheet kept overwriting the font in FF only.
  */
@@ -535,12 +547,21 @@ body .demo-blog {
   background-color: white;
   box-sizing: border-box;
 }
-.login__logout {
+.register, .logout {
   position: fixed;
   display: block;
   right: 0;
   top: 0;
   margin-right: 30px;
+  margin-top: 15px;
+  z-index: 3;
+}
+.login {
+  position: fixed;
+  display: block;
+  right: 0;
+  top: 0;
+  margin-right: 130px;
   margin-top: 15px;
   z-index: 3;
 }
@@ -562,4 +583,19 @@ a:hover {
 */
 .mdl-card-no-height {
     min-height: 100px!important;
+}
+
+
+/**
+ * disabled button for comments
+ */
+
+.btn--disabled,
+.btn--disabled:hover,
+.btn--disabled:active,
+.btn--disabled:focus {
+    background: var(--color-ultralight);
+    border-color: var(--color-ultralight);
+    color: var(--color-light);
+    cursor: not-allowed;
 }

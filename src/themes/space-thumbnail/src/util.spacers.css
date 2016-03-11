@@ -2,6 +2,9 @@
     # util.spacers
 \*------------------------------------*/
 
+.spc--bottom--tny {
+    margin-bottom: 0.5rem;
+}
 .spc--bottom--sml {
     margin-bottom: 0.75rem;
 }
@@ -27,6 +30,9 @@
     margin-top: 3rem;
 }
 @media all and (--from-medium) {
+    .spc--bottom--tny {
+        margin-bottom: 0.5rem;
+    }
     .spc--bottom--sml {
         margin-bottom: 0.75rem;
     }
@@ -38,6 +44,9 @@
     }
     .spc--bottom--xlrg {
         margin-bottom: 6rem;
+    }
+    .spc--top--tny {
+        margin-top: 0.5rem;
     }
     .spc--top--sml {
         margin-top: 0.75rem;

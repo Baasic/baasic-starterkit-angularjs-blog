@@ -5,9 +5,7 @@
 /*
 * Fonts
 */
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic);
-@import url(https://fonts.googleapis.com/css?family=Noto+Serif);
-
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,400,700);
 /*
 * Variables
 */
@@ -16,8 +14,6 @@
 @import "vars.colors.css";
 @import "vars.responsive.css";
 @import "vars.typography.css";
-@import "vars.shadows.css";
-@import "vars.transitions.css";
 
 /**
 * Generic styles
@@ -37,55 +33,52 @@
 @import "base.typography.css";
 @import "base.viewtransitions.css";
 
-/**
- * Core
- */
-@import "core.styledtext.css";
-
 
 /**
 * Project specific modules
-* All our modules such as buttons, inputs, labels, tables etc. 
+* All our modules such as buttons, inputs, labels, tables etc.
 */
 
-@import "modules.anchor.css";
 @import "modules.alert.css";
-@import "modules.grid.css";
+@import "modules.anchor.css";
+@import "modules.row.css";
 @import "modules.input.css";
 @import "modules.loader.css";
+
 
 /**
 * Project specific components
 * All project components such as headers, footer, bars, dropdowns etc.
 */
 
+@import "components.article.css";
+@import "components.author.css";
+@import "components.btn.css";
+@import "components.comments.css";
+@import "components.editor.css";
+@import "components.footer.css";
+@import "components.form.css";
+@import "components.gravatar.css";
+@import "components.header.css";
+@import "components.layout.css";
+@import "components.login.css";
 @import "components.logo.css";
 @import "components.message.css";
-@import "components.btn.css";
-@import "components.bg.css";
-@import "components.layout.css";
-@import "components.form.css";
-@import "components.styledtext.css";
-@import "components.header.css";
-@import "components.footer.css";
-@import "components.tags.css";
-@import "components.smm.css";
-@import "components.article.css";
+@import "components.pager.css";
 @import "components.post.css";
-@import "components.editor.css";
-@import "components.toggle.css";
 @import "components.search.css";
 @import "components.sidebar.css";
-@import "components.pager.css";
-@import "components.lost.css";
-
+@import "components.smm.css";
+@import "components.styledtext.css";
+@import "components.tags.css";
+@import "components.toggle.css";
 
 /*@import "components.componentname.css";*/
 
 
 /**
 * Project specific external plugins
-* All project Sass or CSS plugins such as Select2, Dropit etc. 
+* All project Sass or CSS plugins such as Select2, Dropit etc.
 */
 
 @import "plugins.tageditor.css";
@@ -96,9 +89,6 @@
 * Class helpers such as push, pull, radius etc.
 */
 
-@import "util.group.css";
 @import "util.floats.css";
+@import "util.group.css";
 @import "util.spacers.css";
-@import "util.radius.css";
-@import "util.displays.css";
-@import "util.position.css";

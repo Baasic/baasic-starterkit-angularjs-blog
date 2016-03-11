@@ -10,8 +10,11 @@ html {
 body {
     font-family: var(--ff-sans);
     min-width: 20em;
-    background: var(--color-bodybg);
-    color: var(--color-dark);
+    background: var(--color-ultralight);
+    color: var(--color-grey);
+    position: relative;
+    height: 100%;
+    -webkit-overflow-scrolling: touch; /*enables smooth scroll for iOS*/
 }
 img, object, iframe {
     vertical-align: middle;
@@ -19,8 +22,4 @@ img, object, iframe {
 img {
     max-width: 100%;
     height: auto;
-}
-.row {
-    max-width: 60em;
-    margin: 0 auto;
 }

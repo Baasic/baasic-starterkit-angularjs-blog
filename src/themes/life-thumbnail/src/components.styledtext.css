@@ -59,8 +59,8 @@
 }
 .styledtext figcaption {
     position: absolute;
-    left: -12.5px;
-    width: 12.5px;
+    left: -200px;
+    width: 200px;
     top: 0px;
     border-top: 1px solid var(--color-light);
     padding-top: 1rem;
