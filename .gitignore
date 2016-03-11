@@ -32,3 +32,5 @@ Code
 
 
 deploy-all-themes-dist.cmd
+deploy/starter-kit-deploy/angularjs/
+deploy/theme.list
