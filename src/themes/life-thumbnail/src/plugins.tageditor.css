@@ -6,6 +6,7 @@ tags-input .tags {
     border: 2px solid var(--color-semilight);
     padding: .5rem;
     box-shadow: 0px 0px 0px 0px;
+    transition: border .3s ease-in-out;
 }
 tags-input .tags:hover,
 tags-input .tags.focused {
