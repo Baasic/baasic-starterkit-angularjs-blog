@@ -8,11 +8,13 @@
     cursor: text;
     border: 2px solid var(--color-semilight);
     background: white;
-    transition: all .2s;
     height: 35rem;
     padding: 1rem;
     overflow: auto;
     resize: none;
+}
+.editor__field--transition {
+    transition: all .3s ease-in-out;
 }
 .editor__field:hover,
 .editor__field:focus {
