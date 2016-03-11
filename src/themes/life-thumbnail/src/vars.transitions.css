@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    # vars.transitions
+\*------------------------------------*/
+
+:root {
+    --transition-primary: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-secondary: transform 0.25s;
+    --transition-tertiary: all 0.25s cubic-bezier(0.58, -0.01, 0.43, 0.96);
+}

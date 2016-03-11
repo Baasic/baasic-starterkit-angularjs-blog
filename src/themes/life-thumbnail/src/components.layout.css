@@ -1,0 +1,79 @@
+/*------------------------------------*\
+    # components.layout
+\*------------------------------------*/
+
+.layout {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.layout__sidebar {
+    position: absolute;
+    width: 280px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translateX(280px);
+    transition: transform 0.5s;
+    background: var(--color-primary);
+    overflow: auto;
+}
+@media all and (--from-mediumsmall) {
+    .layout__sidebar {
+        width: 350px;
+        transform: translateX(350px);
+    }
+}
+@media all and (--from-medium) {
+    .layout__sidebar {
+        width: 450px;
+        transform: translateX(450px);
+    }
+}
+.expand .layout__sidebar  {
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+.layout__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 0;
+    overflow-y:auto;
+    z-index: 0;
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+.overlay {
+    opacity: 0.3;
+    transition: all .3s ease-in-out;
+}
+.expand .overlay{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    opacity: .7;
+    cursor: pointer;
+}
+.layout__form {
+    max-width: 80rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+@media all and (--from-medium) {
+    .layout__form {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}

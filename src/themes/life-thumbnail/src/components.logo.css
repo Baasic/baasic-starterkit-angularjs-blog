@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    # components.logo
+\*------------------------------------*/
+
+.logo {
+    height: 3rem;
+}
+@media all and (--from-xxlarge) {
+    .logo{
+        margin-left: 1rem;
+    }
+}

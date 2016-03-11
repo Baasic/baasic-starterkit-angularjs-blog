@@ -1,0 +1,46 @@
+<div class="layout__form">
+    <h1 class="spc--bottom--lrg">Register</h1>
+    <form name="registrationForm" novalidate ng-submit="vm.register()">
+        <div class="group">
+            <div class="form__field--half">
+                <label class="form__label" for="email">Email</label>
+                <input class="input input--text" type="email" id="email" name="email" ng-model="vm.user.email" required placeholder="Enter your email" />
+                <div ng-show="registrationForm.$submitted || registrationForm.email.$touched">
+                    <p class="alert alert--warning" ng-show="registrationForm.email.$error.required">Email is required.</p>
+                    <p class="alert alert--warning" ng-show="registrationForm.email.$error.email">Please enter the correct email address</p>
+                </div>
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="userName">Username</label>
+                <input class="input input--text" type="text" id="userName" name="userName" ng-model="vm.user.userName" required placeholder="Enter your username" />
+                <div ng-show="registrationForm.$submitted || registrationForm.userName.$touched">
+                    <p class="alert alert--warning" ng-show="registrationForm.userName.$error.required">Username is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="group">
+            <div class="form__field--half">
+                <label class="form__label" for="password">Password</label>
+                <input class="input input--text" type="password" id="password" name="password" ng-model="vm.user.password" required placeholder="Password" autocomplete="off" />
+                <div ng-show="registrationForm.$submitted || registrationForm.password.$touched">
+                    <p class="alert alert--warning" ng-show="registrationForm.password.$error.required">Password is required.</p>
+                </div>
+            </div>
+            <div class="form__field--half">
+                <label class="form__label" for="confirmPassword">Confirm Password</label>
+                <input class="input input--text" type="password" id="confirmPassword" name="confirmPassword" ng-model="vm.user.confirmPassword" required placeholder="Confirm Password" autocomplete="off" />
+                <div ng-show="registrationForm.$submitted || registrationForm.confirmPassword.$touched">
+                    <p class="alert alert--warning" ng-show="registrationForm.confirmPassword.$error.required">Confirm Password is required.</p>
+                    <p class="alert alert--warning" ng-show="registrationForm.confirmPassword.$viewValue != '' && (registrationForm.password.$viewValue != registrationForm.confirmPassword.$viewValue)">Password and Confirm Password do not match.</p>
+                </div>
+            </div>
+        </div>
+        <div baasic-recaptcha></div>
+        <div class="form__field spc--top--med">
+            <button class="btn btn--secondary btn--med" type="submit">Register</button>
+        </div>
+        <div ng-if="vm.message">
+            <p>{{vm.message}}</p>
+        </div>
+    </form>
+</div>

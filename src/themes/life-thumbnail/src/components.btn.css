@@ -1,0 +1,150 @@
+/*------------------------------------*\
+    # components.btn
+\*------------------------------------*/
+
+.btn {
+    cursor: pointer;
+    font-family: var(--ff-sans);
+    font-weight: var(--type-bold);
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid;
+    background-color: transparent;
+    position: relative;
+    user-select: none;
+    transition: all .2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: .2rem .4rem;
+}
+.btn:hover,
+.btn:focus {
+    outline: 0;
+}
+.btn--primary {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.btn--primary:hover,
+.btn--primary:focus,
+.btn--primary--active {
+    background: var(--color-primary);
+    color: var(--color-ultralight);
+}
+.btn--primary:active {
+    background-color: color(var(--color-primary) blackness(+10%));
+}
+.btn--inverse {
+    color: var(--color-ultralight);
+    border-color: var(--color-ultralight);
+}
+.btn--inverse:hover,
+.btn--inverse:focus {
+    background-color: var(--color-ultralight);
+    color: var(--color-primary);
+}
+.btn--inverse:active {
+    background-color: color( var(--color-primary) whiteness(+100%));
+}
+.btn--secondary {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+.btn--secondary:hover,
+.btn--secondary:focus,
+.btn--secondary:active {
+    background: var(--color-secondary);
+    color: var(--color-ultralight);
+}
+.btn--tertiary {
+    color: var(--color-tertiary);
+    border-color: var(--color-tertiary);
+}
+.btn--tertiary:hover,
+.btn--tertiary:focus {
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+}
+.btn--tertiary:active {
+    background-color: color( var(--color-tertiary) blackness(+10%));
+}
+.btn--disabled,
+.btn--disabled:hover {
+    color: color( var(--color-grey) whiteness(+50%));
+    border-color: color( var(--color-grey) whiteness(+50%));
+    cursor: not-allowed;
+}
+.btn--sml {
+    font-size: var(--type-tiny);
+    height: calc(var(--base-line-height)*.5);
+    line-height: var(--base-line-height)*.5;
+    padding: 0rem .2rem 1.2rem .2rem;
+}
+.btn--med {
+    font-size: var(--type-small);
+    line-height: calc(var(--base-line-height)*1.2);
+    padding: 0 0.5rem;
+}
+.btn--lrg {
+    font-size: var(--type-medium);
+    height: calc(var(--base-line-height)*1.5);
+    line-height: calc(var(--base-line-height)*1.5);
+    padding: 0 .5rem 2.2rem .5rem;
+}
+.btn--search {
+    background-color: var(--color-ultralight);
+    background-image: url(assets/img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 2rem;
+    height: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    position: relative;
+    user-select: none;
+    padding: 1.3rem 1.5rem;
+    margin: -.6rem -.5rem;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.5rem;
+    outline: 0;
+    transition: all .3s ease-in-out;
+}
+.btn--search:hover,
+.btn--search:active,
+.btn--search:focus {
+    background-image: url(assets/img/search-o.svg);
+    outline: 0;
+}
+.btn--pager {
+    border: none;
+    font-size: var(--type-small);
+    color: var(--color-primary);
+    vertical-align: top;
+}
+.btn--pager--left {
+    padding-left: 2rem;
+    margin: 0;
+    background: url(/assets/img/prev.svg) no-repeat left center;
+}
+.btn--pager--left:hover,
+.btn--pager--left:focus {
+    background: url(/assets/img/prevHover.svg) no-repeat left center;
+}
+.btn--pager--right {
+    padding-right: 2rem;
+    background: url(/assets/img/next.svg) no-repeat right center;
+}
+.btn--pager--right:hover,
+.btn--pager--right:focus {
+     background: url(/assets/img/nextHover.svg) no-repeat right center;
+}
+.btn--pager:hover,
+.btn--pager:focus {
+    color: var(--color-tertiary);
+}
+.btn--pager:active {
+    color: var(--color-secondary);
+}

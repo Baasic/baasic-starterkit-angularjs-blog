@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    # components.pager
+\*------------------------------------*/
+
+.pager {
+    overflow: hidden;
+    display: block;
+    text-align: center;
+}

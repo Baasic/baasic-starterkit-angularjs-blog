@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    # modules.anchor
+\*------------------------------------*/
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: all .25s;
+}
+a:hover,
+a:focus,
+a:active {
+    color: var(--color-tertiary);
+    outline: 0;
+}

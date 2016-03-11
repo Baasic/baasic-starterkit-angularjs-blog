@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    # components.footer
+\*------------------------------------*/
+
+.footer {
+    font-family: var(--ff-sans);
+    font-size: var(--type-tiny);
+    color: var(--color-semilight);
+    padding: 1rem 2rem;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+﻿<h1 class="spc--bottom--lrg">Login</h1>
+<form class="form" name="login" novalidate ng-submit="submitLogin()">
+    <div class="cf">
+        <div class="form__field spc--bottom--med">
+            <label class="form__label">Username</label>
+            <input class="input input--text" type="text" name="username" ng-model="username" name="username" required placeholder="Enter your email or username" />
+            <div ng-show="login.$submitted || login.username.$touched">
+                <span class="alert alert--warning" ng-show="login.username.$error.required">Username is required.</span>
+            </div>
+        </div>
+        <div class="form__field spc--bottom--med">
+            <label class="form__label">Password</label>
+            <input class="input input--text" type="password" name="password" ng-model="password" name="password" required placeholder="Password" autocomplete="off" />
+            <div ng-show="login.$submitted || login.password.$touched">
+                <span class="alert alert--warning" ng-show="login.password.$error.required">Password is required.</span>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn--secondary btn--med" type="submit" ng-disabled="logging">Login</button>
+    <div ng-show="loginError" class="spc--top--med">
+        <span class="alert alert--warning">{{loginError}}</span>
+    </div>
+    <div class="spc--top--sml">
+        <a ui-sref="password-recovery" class="login__retreive">Forgot Your Password? Recover Your Password Here!</a>
+    </div>
+</form>

@@ -43,7 +43,7 @@ gulp.task('styles', function () {
         }),
         customMedia,
         customProperties,
-        calc,        
+        calc,
         colorFunction,
         autoprefixer({
             browsers: ['last 2 versions']
@@ -52,7 +52,7 @@ gulp.task('styles', function () {
 
     return gulp.src(
         './src/themes/' + theme + '/src/app.css')
-        .pipe(postcss(processors))        
+        .pipe(postcss(processors))
         .pipe(gulp.dest('./.tmp/'))
         .pipe(g.cached('built-css'))
         .pipe(livereload());
@@ -65,7 +65,7 @@ gulp.task('styles-dist', function () {
         }),
         customMedia,
         customProperties,
-        calc,        
+        calc,
         colorFunction,
         autoprefixer({
             browsers: ['last 2 versions']

@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    # base.globals
+\*------------------------------------*/
+
+html {
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    height: 100%;
+}
+body {
+    font-family: var(--ff-sans);
+    min-width: 20em;
+    background: var(--color-ultralight);
+    color: var(--color-grey);
+    position: relative;
+    height: 100%;
+    -webkit-overflow-scrolling: touch; /*enables smooth scroll for iOS*/
+}
+img, object, iframe {
+    vertical-align: middle;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
