@@ -1,0 +1,58 @@
+/*------------------------------------*\
+    # components.editor
+\*------------------------------------*/
+
+.editor__field {
+    display: inline-block;
+    width: 100%;
+    cursor: text;
+    border: 2px solid var(--color-semilight);
+    background: white;
+    height: 35rem;
+    padding: 1rem;
+    overflow: auto;
+    resize: none;
+}
+.editor__field--transition {
+    transition: all .3s ease-in-out;
+}
+.editor__field:hover,
+.editor__field:focus {
+    outline: 0;
+    border-color: var(--color-grey);
+}
+.editor__preview h1,
+.editor__preview h2,
+.editor__preview h3,
+.editor__preview h4 {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+.editor__field::placeholder {
+    color: var(--color-semilight);
+    font-family: var(--ff-sans);
+}
+.editor__explain {
+    display: block;
+    text-align: left;
+    color: var(--color-semilight);
+    margin-bottom: 1rem;
+}
+.editor__header {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+@media all and (--from-medium) {
+    .editor__header {
+        height: 4rem;
+    }
+    .editor__type {
+        width: 49%;
+        float: left;
+        margin-right: 1%;
+    }
+    .editor__preview {
+        width: 50%;
+        float: right;
+    }
+}

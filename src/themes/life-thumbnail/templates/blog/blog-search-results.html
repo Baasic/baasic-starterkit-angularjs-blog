@@ -1,0 +1,25 @@
+﻿<div class="header header--search">
+        <div class="container">
+            <a ui-sref="master.main.index">
+                <img src="/assets/img/logo.svg" class="logo" alt="logo"/>
+            </a>
+        </div>
+    <div class="header__overlay"></div>
+</div>
+<div class="layout__form">
+    <h1 class="spc--bottom--lrg">Search results</h1>
+    <div ng-if="hasBlogs" ng-repeat="blog in blogList.item">
+        <span class="search__date">{{ blog.publishDate | date : 'medium' }}</span>
+        <h3><a class="anchor" ui-sref="master.blog-detail({ slug: blog.slug })">{{ blog.title }}</a></h2>
+        <p>{{ blog.excerpt }}</p>
+        <hr>
+    </div>
+    <div ng-if="!hasBlogs">
+        <p class="spc--bottom--med">Nothing found.</p>
+    </div>
+    <div ng-show="pagerInfo.hasPrevious || pagerInfo.hasNext">
+        <button type="button" ng-show="pagerInfo.hasPrevious" ng-click="prevPage()" class="btn btn--pager btn--pager--left pull">Prev</button>
+        <button type="button" ng-show="pagerInfo.hasNext" ng-click="nextPage()" class="btn btn--pager btn--pager--right push">Next</button>
+    </div>
+    <a class="btn btn--primary btn--med spc--bottom--med" href="javascript:void(0);" ui-sref="master.main.index" rel="home">Back</a>
+</div>

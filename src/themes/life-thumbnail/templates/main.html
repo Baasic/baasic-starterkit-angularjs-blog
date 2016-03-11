@@ -1,0 +1,86 @@
+﻿<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container container__main">
+    <div class="layout" ng-class="{'expand': menuOpened}">
+        <div class="overlay" ng-click="menuOpened=!menuOpened"></div>
+        <div class="layout__content">
+            <main ui-view smooth-scroll>
+            </main>
+            <footer class="footer" role="contentinfo">
+                <div class="footer__info">
+                    <p>Copyright @ Blog name Powered by <a href="http://www.baasic.com">Baasic</a></p>
+                </div>
+            </footer>
+        </div>
+        <div class="menu-toggle-container">
+            <a href="#" ng-click="menuOpened=!menuOpened" ng-class="{'nShow': menuOpened}" class="menu-toggle">
+                <span></span>
+            </a>
+        </div>
+        <aside class="layout__sidebar">
+            <div class="row">
+                <div class="sidebar" role="banner">
+                    <header role="banner" class="header--sidebar">
+                        <div class="header__controls">
+                            <div class="search">
+                                <form ng-controller="SearchCtrl" novalidate ng-submit="searchBlog()">
+                                    <input class="input--search" placeholder="Search..." type="search" ng-model="searchFor" />
+
+                                    <button type="submit" class="btn--search"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <p class="header__author">Username’s</p> -->
+                        <h1 class="header__title">Baasic Starter Kit Blog Platform</h1>
+                        <p class="header__desc">
+                        “Challenges are what make life interesting and overcoming them is what makes life meaningful.”
+                        </p>
+                        <p class="header__auth">Joshua J. Marine</p>
+                    </header>
+                    <nav class="sidebar__navigation" role="navigation">
+                        <h2 class="sidebar__title">Recent Tags</h2>
+                        <ul class="tags group">
+                            <li class="tags__item" ng-repeat="tag in tags">
+                                <a ui-sref="master.main.blog-search({ tags: tag.slug })" class="tags__link tags__link--primary" title="{{ tag.tag }}">{{ tag.tag }}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="sidebar__widget">
+                        <h2 class="sidebar__title">Admin</h2>
+                        <div ng-if="$root.user.isAuthenticated">
+                            <p class="sidebar__message">Welcome, {{ $root.user.displayName }}</p>
+                            <button type="button" class="btn btn--secondary btn--med" ng-click="newBlogPost()">New post</button>
+                            <baasic-logout on-logout="setEmptyUser()">
+                                <button type="button" class="btn btn--tertiary btn--med spc--push--sml" ng-click="logout()">Logout</button>
+                            </baasic-logout>
+                        </div>
+                        <div ng-if="!$root.user.isAuthenticated">
+                        <p class="sidebar__message">To create new blog please </p>
+                        <a class="btn btn--secondary btn--med" ui-sref="login">login</a><a class="btn btn--inverse btn--med spc--push--sml" ui-sref="register">register</a></div>
+                    </div>
+                    <div class="sidebar__widget">
+                        <h2 class="sidebar__title">Spread the word</h2>
+                        <div class="smm">
+                            <a class="smm__item smm__item--facebook" href="http://facebook.com"></a>
+                            <a class="smm__item smm__item--twitter" href="http://twitter.com"></a>
+                            <a class="smm__item smm__item--github" href="http://github.com"></a>
+                            <a class="smm__item smm__item--linkedin" href="http://linkedin.com"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div class="message" ng-class="{'close': messageClosed}">
+        <div class="message__container">
+            <a href="http://baasic.com" class="message__icon--primary">
+            </a>
+            <a href="https://github.com/Baasic/baasic-starterkit-angularjs-blog">
+                <p class="message__title">Grab a Starter Kit and start building!</p>
+            </a>
+        </div>
+        <a href="javascript:void(0)" ng-click="messageClosed=!messageClosed" ng-hide="messageClosed"><span class="message__icon--secondary">Close</span></a>
+    </div>
+</div>
