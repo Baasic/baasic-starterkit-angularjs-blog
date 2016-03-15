@@ -89,17 +89,17 @@
     background-color: rgba(0,0,0,0.4);
 }
 .header--home {
-    background-image: url(/assets/img/home.jpg);
+    background-image: url(./assets/img/home.jpg);
     background-position: center 35%;
 }
 .header--search {
-    background-image: url(/assets/img/search.jpg);
+    background-image: url(./assets/img/search.jpg);
 }
 .header--editor {
-    background-image: url(/assets/img/editor.jpg);
+    background-image: url(./assets/img/editor.jpg);
 }
 .header--login {
-    background-image: url(/assets/img/login.jpg);
+    background-image: url(./assets/img/login.jpg);
 }
 .header--lost {
     background: url(./assets/img/lost.jpg) no-repeat top;

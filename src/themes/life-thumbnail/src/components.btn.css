@@ -127,19 +127,19 @@
 .btn--pager--left {
     padding-left: 2rem;
     margin: 0;
-    background: url(/assets/img/prev.svg) no-repeat left center;
+    background: url(./assets/img/prev.svg) no-repeat left center;
 }
 .btn--pager--left:hover,
 .btn--pager--left:focus {
-    background: url(/assets/img/prevHover.svg) no-repeat left center;
+    background: url(./assets/img/prevHover.svg) no-repeat left center;
 }
 .btn--pager--right {
     padding-right: 2rem;
-    background: url(/assets/img/next.svg) no-repeat right center;
+    background: url(./assets/img/next.svg) no-repeat right center;
 }
 .btn--pager--right:hover,
 .btn--pager--right:focus {
-     background: url(/assets/img/nextHover.svg) no-repeat right center;
+     background: url(./assets/img/nextHover.svg) no-repeat right center;
 }
 .btn--pager:hover,
 .btn--pager:focus {
