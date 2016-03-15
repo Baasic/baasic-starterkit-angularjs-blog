@@ -29,6 +29,7 @@ More information about the Starter Kit can be found in the series of blog posts 
 
 ### Life theme
 [Life Minimal](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-minimal/)
+
 [Life Thumbnail](http://demo.baasic.com/angularjs/starterkit-blog-themes/life-thumbnail/)
 
 ### Events theme
