@@ -49,19 +49,19 @@
     margin-right: 0;
 }
 .smm__icon--login--facebook {
-    background-image: url(/assets/img/smm-facebook-login.svg);
+    background-image: url(./assets/img/smm-facebook-login.svg);
 }
 .smm__icon--login--facebook:hover {
-    background-image: url(/assets/img/smm-facebook.svg);
+    background-image: url(./assets/img/smm-facebook.svg);
 }
 .smm__icon--login--twitter {
-    background-image: url(/assets/img/smm-twitter-login.svg);
+    background-image: url(./assets/img/smm-twitter-login.svg);
 }
 .smm__icon--login--twitter:hover {
-    background-image: url(/assets/img/smm-twitter.svg);
+    background-image: url(./assets/img/smm-twitter.svg);
 }
 .smm__icon--login--google {
-    background-image: url(/assets/img/smm-google-login.svg);
+    background-image: url(./assets/img/smm-google-login.svg);
 }
 .smm__icon--login--google:hover {
     background-image: url(/assets/img/smm-google.svg);

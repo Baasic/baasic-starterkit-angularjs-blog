@@ -42,28 +42,28 @@
     transition: background-color .2s ease-in-out;
 }
 .smm__icon--login--facebook {
-    background-image: url(/assets/img/smm-facebook-tomato.svg);
+    background-image: url(./assets/img/smm-facebook-tomato.svg);
 }
 .smm__icon--login--facebook:hover {
-    background-image: url(/assets/img/smm-facebook.svg);
+    background-image: url(./assets/img/smm-facebook.svg);
 }
 .smm__icon--login--twitter {
-    background-image: url(/assets/img/smm-twitter-tomato.svg);
+    background-image: url(./assets/img/smm-twitter-tomato.svg);
 }
 .smm__icon--login--twitter:hover {
-    background-image: url(/assets/img/smm-twitter.svg);
+    background-image: url(./assets/img/smm-twitter.svg);
 }
 .smm__icon--login--google {
-    background-image: url(/assets/img/smm-google-tomato.svg);
+    background-image: url(./assets/img/smm-google-tomato.svg);
 }
 .smm__icon--login--google:hover {
-    background-image: url(/assets/img/smm-google.svg);
+    background-image: url(./assets/img/smm-google.svg);
 }
 .smm__icon--login--github {
-    background-image: url(/assets/img/smm-github-tomato.svg);
+    background-image: url(./assets/img/smm-github-tomato.svg);
 }
 .smm__icon--login--github:hover {
-    background-image: url(/assets/img/smm-github.svg);
+    background-image: url(./assets/img/smm-github.svg);
 }
 .smm__icon--login:hover {
     background-color: var(--color-primary);
