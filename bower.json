@@ -4,7 +4,7 @@
     "/dist/myBlog.js",
     "/dist/myBlog.css"
   ],
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Baasic AngularJS blog starter kit.",
   "authors": [
     "Kristijan Horvat"
