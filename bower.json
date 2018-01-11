@@ -1,8 +1,8 @@
 {
   "name": "baasic-angularjs-blog-starter-kit",
   "main": [
-    "/dist/myBlog.min.js",
-    "/dist/myBlog.min.css"
+    "/dist/myBlog.js",
+    "/dist/myBlog.css"
   ],
   "version": "0.1.5",
   "description": "Baasic AngularJS blog starter kit.",
@@ -20,6 +20,8 @@
   "dependencies": {
     "angular": "1.3.0",
     "angular-ui-router": "0.2.13",
+    "baasic-javascript-framework": "Baasic/baasic-sdk-javascript#1.0.0",
+    "baasic-angularjs-core": "Baasic/baasic-sdk-angularjs-core#1.0.0",
     "baasic-angular-security": "Baasic/baasic-sdk-angularjs-security#1.0.0",
     "baasic-angular-membership": "Baasic/baasic-sdk-angularjs-membership#1.0.0",
     "baasic-angular-article": "Baasic/baasic-sdk-angularjs-articles#1.0.0",
@@ -32,6 +34,7 @@
     "baasic-angular-user-profile": "Baasic/baasic-sdk-angularjs-user-profile#1.0.0",
     "angular-gravatar": "wallin/angular-gravatar#0.4.1",
     "angular-animate": "1.3.18",
+    "angular-sanitize": "1.3.18",
     "ngSmoothScroll": "1.7.1"
   },
   "devDependencies": {
